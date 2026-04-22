@@ -1,52 +1,168 @@
-# LLM Personal Knowledge Base
+# LLM Knowledge Base
 
-**Your AI conversations compile themselves into a searchable knowledge base.**
+**Your AI conversations compile themselves into a searchable knowledge base. External sources compile into a wiki.**
 
-Adapted from [Karpathy's LLM Knowledge Base](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) architecture, but instead of clipping web articles, the raw data is your own conversations with Claude Code. When a session ends (or auto-compacts mid-session), Claude Code hooks capture the conversation transcript and spawn a background process that uses the [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk) to extract the important stuff - decisions, lessons learned, patterns, gotchas - and appends it to a daily log. You then compile those daily logs into structured, cross-referenced knowledge articles organized by concept. Retrieval uses a simple index file instead of RAG - no vector database, no embeddings, just markdown.
+This project implements **two parallel systems** based on Karpathy's LLM Knowledge Base pattern:
 
-Anthropic has clarified that personal use of the Claude Agent SDK is covered under your existing Claude subscription (Max, Team, or Enterprise) - no separate API credits needed. Unlike OpenClaw, which requires API billing for its memory flush, this runs on your subscription.
+1. **External Knowledge Base (wiki/)**: Web articles, papers, repos, and datasets compiled by the LLM into a structured wiki
+2. **Internal Knowledge Base (knowledge/)**: Your Claude Code conversations compiled into a searchable knowledge base
+
+Both use the same core insight: instead of RAG (rediscovering knowledge on every query), the LLM **incrementally builds and maintains a persistent wiki** that compacts knowledge over time.
+
+---
 
 ## Quick Start
 
 Tell your AI coding agent:
 
-> "Clone https://github.com/coleam00/claude-memory-compiler into this project. Set up the Claude Code hooks so my conversations automatically get captured into daily logs, compiled into a knowledge base, and injected back into future sessions. Read the AGENTS.md for the full technical reference on how everything works."
+> "Read AGENTS.md and schema/WIKI_AGENTS.md. Set up the external knowledge base from sources in raw/. Process the karpathy-llm-wiki.md source first."
 
 The agent will:
-1. Clone the repo and run `uv sync` to install dependencies
-2. Copy `.claude/settings.json` into your project (or merge the hooks into your existing settings)
-3. The hooks activate automatically next time you open Claude Code
+1. Read the schema files to understand the wiki structure
+2. Process sources from `raw/` into the `wiki/` folder
+3. Update `wiki/index.md` and `wiki/log.md`
+4. Create entity, concept, and summary pages
 
-From there, your conversations start accumulating. After 6 PM local time, the next session flush automatically triggers compilation of that day's logs into knowledge articles. You can also run `uv run python scripts/compile.py` manually at any time.
+---
 
 ## How It Works
 
+### External Knowledge Base (Karpathy's Pattern)
 ```
-Conversation -> SessionEnd/PreCompact hooks -> flush.py extracts knowledge
-    -> daily/YYYY-MM-DD.md -> compile.py -> knowledge/concepts/, connections/, qa/
-        -> SessionStart hook injects index into next session -> cycle repeats
+Raw sources (articles, papers, repos) -> LLM processes -> wiki/
+    -> index.md, entities/, concepts/, summaries/
+        -> Query against index (no RAG needed)
 ```
 
-- **Hooks** capture conversations automatically (session end + pre-compaction safety net)
-- **flush.py** calls the Claude Agent SDK to decide what's worth saving, and after 6 PM triggers end-of-day compilation automatically
-- **compile.py** turns daily logs into organized concept articles with cross-references (triggered automatically or run manually)
-- **query.py** answers questions using index-guided retrieval (no RAG needed at personal scale)
-- **lint.py** runs 7 health checks (broken links, orphans, contradictions, staleness)
+- **raw/**: Source documents (read-only for LLM)
+- **wiki/**: LLM-generated markdown (index, entities, concepts, summaries, qanda)
+- **schema/WIKI_AGENTS.md**: Defines LLM as wiki maintainer
+
+### Internal Knowledge Base (claude-memory-compiler)
+```
+Conversations -> Hooks -> daily/ -> compile.py -> knowledge/
+    -> SessionStart injects index -> cycle repeats
+```
+
+- **daily/**: Conversation logs (read-only for LLM)
+- **knowledge/**: Compiled knowledge (index, concepts, connections, qa)
+- **AGENTS.md**: Defines LLM as compiler
+
+---
+
+## Project Structure
+
+```
+llm-wiki-llm-v1/
+├── raw/                          # External sources (articles, papers, repos, datasets)
+│   ├── articles/
+│   ├── papers/
+│   ├── repos/
+│   ├── datasets/
+│   └── assets/                   # Images and attachments
+├── wiki/                         # External knowledge base (LLM-owned)
+│   ├── index.md                  #   Master catalog
+│   ├── log.md                    #   Operation log
+│   ├── synthesis.md              #   Overarching thesis
+│   ├── concepts/                 #   Concept pages
+│   ├── entities/                 #   Entity pages
+│   ├── sources/                  #   Source summaries
+│   └── qanda/                    #   Q&A articles
+├── daily/                        # Internal conversation logs
+├── knowledge/                    # Internal compiled knowledge
+│   ├── index.md
+│   ├── log.md
+│   ├── concepts/
+│   ├── connections/
+│   └── qa/
+├── schema/                       # Configuration
+│   ├── WIKI_AGENTS.md            #   External KB schema
+│   ├── WIKI_SCHEMA.md            #   External KB conventions
+│   └── WIKI_WORKFLOWS.md         #   External KB workflows
+├── AGENTS.md                     # Internal KB schema (coleam00/claude-memory-compiler)
+├── scripts/                      # CLI tools
+│   ├── compile.py
+│   ├── query.py
+│   └── lint.py
+├── hooks/                        # Claude Code hooks
+│   ├── session-start.py
+│   ├── session-end.py
+│   └── pre-compact.py
+├── .claude/                      # Claude Code configuration
+│   └── settings.json
+├── AGENTS.md                     # Main schema (internal KB)
+└── README.md                     # This file
+```
+
+---
 
 ## Key Commands
 
+### External Knowledge Base
 ```bash
-uv run python scripts/compile.py                    # compile new daily logs
-uv run python scripts/query.py "question"            # ask the knowledge base
-uv run python scripts/query.py "question" --file-back # ask + save answer back
-uv run python scripts/lint.py                        # run health checks
-uv run python scripts/lint.py --structural-only      # free structural checks only
+# Process a source from raw/
+# (Done by LLM when you say "Process this source")
+
+# Query the wiki
+uv run python scripts/wiki-query.py "What are the key concepts?"
+
+# Lint the wiki for issues
+uv run python scripts/wiki-lint.py
 ```
+
+### Internal Knowledge Base
+```bash
+uv run python scripts/compile.py              # compile new daily logs
+uv run python scripts/query.py "question"     # ask the knowledge base
+uv run python scripts/query.py "question" --file-back # ask + save answer back
+uv run python scripts/lint.py                 # run health checks
+```
+
+---
 
 ## Why No RAG?
 
 Karpathy's insight: at personal scale (50-500 articles), the LLM reading a structured `index.md` outperforms vector similarity. The LLM understands what you're really asking; cosine similarity just finds similar words. RAG becomes necessary at ~2,000+ articles when the index exceeds the context window.
 
-## Technical Reference
+---
 
-See **[AGENTS.md](AGENTS.md)** for the complete technical reference: article formats, hook architecture, script internals, cross-platform details, costs, and customization options. AGENTS.md is designed to give an AI agent everything it needs to understand, modify, or rebuild the system.
+## Obsidian Integration
+
+Both knowledge bases work natively in Obsidian:
+- **Graph View**: Visualize connections
+- **Dataview**: Query frontmatter for dynamic tables
+- **Marp**: Generate slide decks
+- **Backlinks**: Automatically maintained via `[[wikilinks]]`
+
+---
+
+## Files You Should Read
+
+| File | Purpose |
+|------|---------|
+| **AGENTS.md** | Internal KB schema - how the LLM compiles conversations |
+| **schema/WIKI_AGENTS.md** | External KB schema - how the LLM maintains the wiki |
+| **schema/WIKI_SCHEMA.md** | File formats and conventions for the external wiki |
+| **schema/WIKI_WORKFLOWS.md** | Ingest, Query, and Lint workflows |
+
+---
+
+## Architecture Comparison
+
+| Aspect | External KB | Internal KB |
+|--------|-------------|-------------|
+| Raw data | Articles, papers, repos | Claude Code conversations |
+| Compiled to | `wiki/` | `knowledge/` |
+| Schema | `schema/WIKI_*.md` | `AGENTS.md` |
+| Trigger | Manual "Process this source" | Automatic hooks (SessionEnd) |
+| Main use | Research, learning | Coding patterns, decisions |
+
+---
+
+## The Core Idea
+
+**Most people use RAG**: Upload files, LLM retrieves chunks at query time, generates answer. The LLM rediscoveres knowledge from scratch on every question.
+
+**Your approach**: The LLM incrementally builds a persistent wiki. When you add a new source, the LLM reads it, extracts key information, and integrates it into the existing wiki. The knowledge is compiled once and kept current.
+
+**The key difference**: The wiki is a **persistent, compounding artifact**. The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've read. The wiki keeps getting richer with every source you add and every question you ask.
