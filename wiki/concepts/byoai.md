@@ -4,6 +4,7 @@ type: concept
 date: 2026-04-22
 sources:
   - raw/articles/farzapedia.md
+  - raw/repos/claude-code-router/
 tags:
   - philosophy
   - ai
@@ -25,3 +26,5 @@ The principle that you can use any LLM to "plug into" your knowledge base — Cl
 
 - [[file-over-app]] — the data philosophy that makes BYOAI possible
 - [[llm_wiki]] — the system that embodies both principles
+- [[claude-code-router]] — a concrete tool enabling BYOAI by proxying any LLM into the Claude Code workflow
+- [[model_routing]] — the routing mechanism that makes switching between AIs practical

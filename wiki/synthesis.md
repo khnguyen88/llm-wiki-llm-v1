@@ -6,6 +6,7 @@ sources:
   - raw/articles/karpathy-github-llm-wiki.md
   - raw/articles/karpathy-tweet-llm-wiki.md
   - raw/articles/farzapedia.md
+  - raw/repos/claude-code-router/
 ---
 
 # Synthesis
@@ -16,6 +17,7 @@ sources:
 - **File over app, BYOAI**: Knowledge lives in universal formats (markdown, images) under your control, not locked in an AI provider. Any LLM can plug in. This is both a practical and philosophical stance.
 - **LLM as maintainer, human as curator**: The tedious bookkeeping (cross-references, consistency, summaries) is the LLM's job. The human directs sources, asks questions, and judges what matters.
 - **Index-guided retrieval at scale**: At ~100 sources, a structured index.md outperforms vector similarity. At ~2,000+ articles, add hybrid RAG as a pre-filter.
+- **Model routing as enabler**: Tools like [[claude-code-router]] make the BYOAI principle concrete — any LLM can plug in because a proxy handles format translation and routing. This is the infrastructure layer that makes "file over app, BYOAI" viable in practice.
 
 ## Key Findings
 
@@ -24,6 +26,7 @@ sources:
 - The approach traces back to Vannevar Bush's Memex (1945): personal, curated knowledge with associative trails
 - Answers can be filed back into the wiki, creating a compounding loop where exploration enriches the KB
 - The three operations (ingest, query, lint) form a complete cycle for building and maintaining knowledge
+- Claude Code Router demonstrates the BYOAI pattern in practice: a proxy that unifies multiple LLM providers behind one interface, with scenario-based routing, format transformers, and per-project config. This is the tooling layer that makes "use any LLM" actually work.
 
 ## Open Questions
 

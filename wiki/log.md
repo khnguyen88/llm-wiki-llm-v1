@@ -32,6 +32,13 @@ A chronological record of operations on the external knowledge base.
 - Created concepts: concepts/file_over_app.md, concepts/byoai.md
 - Updated sources-manifest.md, synthesis.md
 
+## [2026-04-22] ingest | Claude Code Router
+- Source: raw/repos/claude-code-router/ (README.md, docs/, examples/)
+- Created summary: summaries/claude-code-router.md
+- Created concepts: concepts/model_routing.md, concepts/request_transformers.md, concepts/claude_code.md
+- Created entity: entities/claude_code_router.md
+- Updated index.md, sources-manifest.md, synthesis.md
+
 ---
 
 *Append new entries at the bottom*

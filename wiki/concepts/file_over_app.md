@@ -25,3 +25,4 @@ The philosophy that data should live in universal, interoperable file formats (m
 
 - [[llm_wiki]] — built on file-over-app principles
 - [[byoai]] — the complementary principle of choosing your own AI
+- [[request_transformers]] — the translation layer that makes file-over-app work across different LLM APIs

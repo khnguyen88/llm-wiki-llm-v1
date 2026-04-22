@@ -13,6 +13,7 @@ Tracks which source files have been ingested into the wiki.
 | raw/articles/karpathy-github-llm-wiki.md | ingested | [[summaries/llm-wiki-pattern]] | 2026-04-22 |
 | raw/articles/karpathy-tweet-llm-wiki.md | ingested | [[summaries/karpathy-tweet-llm-wiki]] | 2026-04-22 |
 | raw/articles/farzapedia.md | ingested | [[summaries/farzapedia-commentary]] | 2026-04-22 |
+| raw/repos/claude-code-router/ | ingested | [[summaries/claude-code-router]] | 2026-04-22 |
 
 ---
-*Last updated: 2026-04-22*
+*Last updated: 2026-04-22 (ingested claude-code-router)*

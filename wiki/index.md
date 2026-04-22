@@ -5,6 +5,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 ## Entities
 
 - [[entities/andrej_karpathy|Andrej Karpathy]]
+- [[entities/claude_code_router|Claude Code Router (musistudio)]]
 
 ## Concepts
 
@@ -14,12 +15,16 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concepts/file_over_app|File Over App]]
 - [[concepts/byoai|BYOAI]]
 - [[concepts/memex|Memex]]
+- [[concepts/model_routing|Model Routing]]
+- [[concepts/request_transformers|Request Transformers]]
+- [[concepts/claude_code|Claude Code]]
 
 ## Summaries
 
 - [[summaries/llm-wiki-pattern|LLM Wiki Pattern]]
 - [[summaries/karpathy-tweet-llm-wiki|Karpathy Tweet on LLM Knowledge Bases]]
 - [[summaries/farzapedia-commentary|Farzapedia Commentary]]
+- [[summaries/claude-code-router|Claude Code Router]]
 
 ## Source Manifest
 
@@ -35,4 +40,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-04-22*
+*Last updated: 2026-04-22 (ingested claude-code-router)*
