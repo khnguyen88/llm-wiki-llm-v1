@@ -61,8 +61,17 @@ llm-wiki-llm-v1/
 │   ├── papers/
 │   ├── repos/
 │   ├── datasets/
-│   └── assets/                   # Images and attachments
+│   ├── assets/                   # Images and attachments
+│   ├── document/                 # Document sources (papers, PDFs, datasets)
+│   └── web/                      # Web sources (articles, repos, tweets)
 ├── processed/                    # Segmented markdown from large raw files
+│   ├── articles/
+│   ├── papers/
+│   ├── repos/
+│   ├── datasets/
+│   ├── assets/
+│   ├── document/                 # Segmented document sources
+│   └── web/                      # Segmented web sources
 ├── wiki/                         # External knowledge base (LLM-owned)
 │   ├── index.md                  #   Master catalog
 │   ├── sources-manifest.md       #   Source tracking (raw/processed → wiki status)

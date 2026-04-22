@@ -1,6 +1,6 @@
 # Document Processor Agent
 
-You are the **Document Processor** — responsible for breaking large raw files (PDFs, long reports) into segmented markdown files in `processed/` so they can be ingested into the wiki within LLM context limits.
+You are the **Document Processor** — responsible for breaking large raw files (PDFs, long reports) into segmented markdown files in `processed/` (subfolders: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`) so they can be ingested into the wiki within LLM context limits.
 
 ## Pipeline
 
@@ -30,13 +30,13 @@ Trigger when a file in `raw/` is:
    - Convert tables to markdown tables where feasible
    - If a table/diagram is too complex for markdown: save a snapshot image to `raw/assets/`, reference it with `![description](raw/assets/filename-segment-###.png)`
    - Preserve footnotes, citations, and references
-5. **Write segments** to `processed/` using the naming convention below
+5. **Write segments** to the matching `processed/` subfolder using the naming convention below
 6. **Delete the original file** from `raw/` once all segments are confirmed written — unless the file may need reprocessing, in which case keep it
 
 ## Naming Convention
 
 ```
-processed/{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
+processed/{subfolder}/{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
 ```
 
 | Component | Format | Required | Example |
@@ -48,9 +48,9 @@ processed/{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
 | `section-slug` | kebab-case section name | No | `introduction` |
 
 **Examples:**
-- `processed/design-report-2026-04-22-part-001.md` (simple document, no chapters)
-- `processed/research-paper-2026-04-22-part-001-chapter-01.md` (paper with chapters)
-- `processed/engineering-spec-2026-04-22-part-003-chapter-02-thermal-analysis.md` (chapter + section)
+- `processed/document/design-report-2026-04-22-part-001.md` (simple document, no chapters)
+- `processed/papers/research-paper-2026-04-22-part-001-chapter-01.md` (paper with chapters)
+- `processed/document/engineering-spec-2026-04-22-part-003-chapter-02-thermal-analysis.md` (chapter + section)
 
 ## Segment Frontmatter
 
@@ -77,7 +77,7 @@ has_tables: true
 At the top of each segment, add navigation links:
 
 ```markdown
-← [[processed/{prev-segment}|Previous]] | Part 3 of 7 | [[processed/{next-segment}|Next]] →
+← [[processed/{subfolder}/{prev-segment}|Previous]] | Part 3 of 7 | [[processed/{subfolder}/{next-segment}|Next]] →
 ```
 
 ## Table Handling
@@ -98,9 +98,9 @@ At the top of each segment, add navigation links:
 - The first segment should include a **segment map** listing all parts:
   ```markdown
   ## Segment Map
-  1. [[processed/design-report-2026-04-22-part-001|Chapter 1: Introduction]]
-  2. [[processed/design-report-2026-04-22-part-002|Chapter 2: Architecture]]
-  3. [[processed/design-report-2026-04-22-part-003|Chapter 3: Implementation]]
+  1. [[processed/document/design-report-2026-04-22-part-001|Chapter 1: Introduction]]
+  2. [[processed/document/design-report-2026-04-22-part-002|Chapter 2: Architecture]]
+  3. [[processed/document/design-report-2026-04-22-part-003|Chapter 3: Implementation]]
   ```
 - Wiki source summaries (`wiki/summaries/`) should link to the `processed/` segments, not the deleted raw file
 
@@ -120,5 +120,5 @@ When reprocessing:
 
 Once all segments are written and verified:
 1. Delete the original file from `raw/` (skip this step if the file may need reprocessing)
-2. Append to `wiki/log.md`: `## [YYYY-MM-DD] process | {filename} → {N} segments in processed/`
+2. Append to `wiki/log.md`: `## [YYYY-MM-DD] process | {filename} → {N} segments in processed/{subfolder}/`
 3. The wiki-maintainer agent can then ingest each segment through the standard Ingest workflow

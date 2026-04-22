@@ -13,8 +13,8 @@ Core insight: the LLM incrementally builds a **persistent, compounding wiki** in
 
 ## Directory Layout
 
-- `raw/` — Source documents (human-curated, read-only for LLM)
-- `processed/` — Segmented markdown from large raw files (PDFs, long reports) broken into LLM-sized parts
+- `raw/` — Source documents (human-curated, read-only for LLM): `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/` (papers, PDFs, datasets), `web/` (articles, repos, tweets)
+- `processed/` — Segmented markdown from large raw files: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`
 - `wiki/` — External KB (LLM-owned): index.md, sources-manifest.md, log.md, synthesis.md, entities/, concepts/, summaries/, qanda/
 - `daily/` — Conversation logs (immutable)
 - `knowledge/` — Internal KB (LLM-owned): index.md, log.md, concepts/, connections/, qa/
@@ -22,10 +22,11 @@ Core insight: the LLM incrementally builds a **persistent, compounding wiki** in
 - `AGENTS.md` — Internal KB compiler specification
 - `scripts/` — compile.py, query.py, lint.py, flush.py
 - `hooks/` — session-start.py, session-end.py, pre-compact.py
+- `reports/` — Lint reports (gitignored)
 
 ## Operations
 
-**External KB** — Large files in `raw/` get segmented into `processed/` first (PDF → markdown parts, then delete PDF). Ingest `raw/` or `processed/` into wiki pages, update index.md + log.md. Query via index.md first, drill into relevant pages. Lint for broken links, orphans, contradictions.
+**External KB** — Large files in `raw/` get segmented into `processed/` first (PDF → markdown parts, then delete PDF). Sources are organized as `raw/document/` (papers, datasets) or `raw/web/` (articles, repos). Ingest into wiki pages, update index.md + log.md. Query via index.md first, drill into relevant pages. Lint for broken links, orphans, contradictions.
 
 **Internal KB** — Compile daily logs into knowledge articles. Query via index.md. Lint: 7 checks (broken links, orphans, orphan sources, stale, missing backlinks, sparse, contradictions).
 
@@ -35,8 +36,8 @@ Defined in `.claude/agents/`:
 
 | Agent | Purpose |
 |-------|---------|
-| `wiki-maintainer` | Ingests `raw/` and `processed/` sources into `wiki/`, creates entities/concepts/summaries, updates index + log |
-| `document-processor` | Segments large raw files (PDFs, long reports) into `processed/` markdown parts, handles tables/images |
+| `wiki-maintainer` | Ingests sources from `raw/` and `processed/` (all subfolders) into `wiki/`, creates entities/concepts/summaries, updates index + log |
+| `document-processor` | Segments large raw files into `processed/` (matching subfolder), handles tables/images |
 | `knowledge-compiler` | Compiles `daily/` logs into `knowledge/` concepts, connections, qa articles |
 | `wiki-linter` | Health checks across both KBs: broken links, orphans, contradictions, stale articles |
 | `wiki-query` | Index-guided retrieval against both KBs, files valuable answers back |
@@ -46,9 +47,9 @@ Defined in `.claude/agents/`:
 
 - LLM owns `wiki/` and `knowledge/` — human curates `raw/` and `daily/`
 - Wikilinks: `[[path/to/article]]` (no `.md`)
-- Frontmatter required on all pages (title, type, date, sources, tags)
+- Frontmatter required on all wiki pages (title, type, date, sources, tags)
 - Naming: snake_case for entities/concepts, kebab-case for summaries/qanda
-- Processed files: `{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md`
+- Processed files: `processed/{subfolder}/{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md`
 - Dates: ISO 8601 (YYYY-MM-DD)
 - Style: encyclopedia-style, factual, concise
 

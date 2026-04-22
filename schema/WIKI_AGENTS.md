@@ -19,7 +19,11 @@ Most people use RAG: upload files, LLM retrieves chunks at query time, generates
 | Layer | Purpose | Who Owns |
 |-------|---------|----------|
 | **raw/** | Source documents (articles, papers, images, data) | Human (read-only for LLM) |
+| **raw/document/** | Document sources (papers, PDFs, datasets) | Human (read-only for LLM) |
+| **raw/web/** | Web sources (articles, repos, tweets) | Human (read-only for LLM) |
 | **processed/** | Segmented markdown from large raw files (PDFs, long reports) | LLM |
+| **processed/document/** | Segmented document sources | LLM |
+| **processed/web/** | Segmented web sources | LLM |
 | **wiki/** | LLM-generated markdown files | LLM |
 | **schema/** | Configuration for LLM operations | Human |
 
@@ -31,7 +35,9 @@ raw/                        # Source documents (human-curated, read-only for LLM
 ├── papers/
 ├── repos/
 ├── datasets/
-└── assets/                 # Images and attachments
+├── assets/                 # Images and attachments
+├── document/               #   Documents (papers, PDFs, datasets)
+└── web/                    #   Web sources (articles, repos, tweets)
 
 processed/                  # Segmented markdown from large raw files
 ├── articles/
@@ -39,7 +45,8 @@ processed/                  # Segmented markdown from large raw files
 ├── repos/
 ├── datasets/
 ├── assets/
-└── {base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
+├── document/               #   Segmented document sources
+└── web/                    #   Segmented web sources
 
 wiki/                       # LLM-generated content
 ├── index.md               # Catalog of all pages
@@ -62,7 +69,7 @@ title: Page Title
 type: entity | concept | summary | qanda | index | other
 date: YYYY-MM-DD
 sources:
-  - raw/path/to/source.md
+  - raw/document/path/to/source.md or raw/web/path/to/source.md
 tags:
   - topic1
   - topic2

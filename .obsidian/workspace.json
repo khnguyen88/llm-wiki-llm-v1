@@ -11,13 +11,42 @@
             "id": "bc282b0c110269e6",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "image",
+              "state": {
+                "file": "INITIAL_SOURCE/HFFARFGbMAEMtSr.jpg"
+              },
+              "icon": "lucide-image",
+              "title": "HFFARFGbMAEMtSr"
+            }
+          },
+          {
+            "id": "8dfafe09a46a9f5c",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "INITIAL_SOURCE/Screenshot 2026-04-22 054718.png"
+              },
+              "icon": "lucide-image",
+              "title": "Screenshot 2026-04-22 054718"
+            }
+          },
+          {
+            "id": "ca5fb38c05a36a3e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "schema/WIKI_WORKFLOWS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "WIKI_WORKFLOWS"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -176,10 +205,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "bc282b0c110269e6",
+  "active": "1d374e9a677f8226",
   "lastOpenFiles": [
-    "CLAUDE.md.tmp.21500.1776870892515",
+    "schema/WIKI_SCHEMA.md",
+    "schema/WIKI_AGENTS.md",
+    "wiki/concepts/file_over_app.md",
     "wiki/sources-manifest.md",
+    "wiki/synthesis.md",
+    "wiki/concepts/llm_wiki.md",
+    "wiki/log.md",
+    "INITIAL_SOURCE/other-users-karpathy-llm-wiki-setup.md",
+    "INITIAL_SOURCE/karpathy-tweet-llm-wiki.md",
+    "INITIAL_SOURCE/karpathy-github-llm-wiki.md",
+    "INITIAL_SOURCE/Screenshot 2026-04-22 054718.png",
+    "INITIAL_SOURCE/HFFARFGbMAEMtSr.jpg",
+    "CLAUDE.md.tmp.21500.1776870892515",
     "processed/repos",
     "processed/papers",
     "processed/datasets",
@@ -191,13 +231,11 @@
     "scripts/session-flush-5610ddfc-4fe7-486e-a128-bc9833ff8da5-20260422-105929.md",
     "scripts/last-flush.json",
     "scripts/flush-context-5610ddfc-4fe7-486e-a128-bc9833ff8da5-20260422-105406.md",
-    "README.md.tmp.41868.1776869465646",
     "CLAUDE.md",
     "knowledge/concepts/wiki-llm-system.md",
     "raw/articles/farzapedia.md",
     "raw/articles/karpathy-tweet-llm-wiki.md",
     "raw/articles/karpathy-llm-wiki.md",
-    "wiki/log.md",
     "wiki/index.md",
     "schema/WORKFLOWS.md",
     "schema/SCHEMA.md",

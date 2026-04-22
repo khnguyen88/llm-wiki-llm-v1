@@ -14,7 +14,7 @@ Run these checks against both `wiki/` and `knowledge/`:
 
 1. **Broken links** (error) — `[[wikilinks]]` pointing to non-existent files
 2. **Orphan pages** (warning) — Articles with zero inbound links from other articles
-3. **Orphan sources** (suggestion) — Source documents in `raw/` not yet processed, or `processed/` segments not yet ingested into wiki
+3. **Orphan sources** (suggestion) — Source documents in `raw/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki. Cross-check against `wiki/sources-manifest.md` for tracking
 4. **Stale articles** (warning) — Source changed since article was last compiled (compare hashes/timestamps)
 5. **Missing backlinks** (suggestion) — A links to B but B doesn't link back to A
 6. **Sparse articles** (suggestion) — Articles under 200 words, likely incomplete

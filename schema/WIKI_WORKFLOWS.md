@@ -8,7 +8,7 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
 
 **Purpose**: Process a new source document into the wiki.
 
-**Trigger**: Human adds file to `raw/` and prompts "Process this source"
+**Trigger**: Human adds file to `raw/` (any subfolder: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`) and prompts "Process this source"
 
 **Steps**:
 

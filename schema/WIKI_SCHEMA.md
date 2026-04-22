@@ -11,6 +11,8 @@ raw/              # Source documents (immutable)
   repos/          # Repository sources (GitHub repos)
   datasets/       # Dataset sources
   assets/         # Images and attachments
+  document/       # Documents (papers, PDFs, datasets)
+  web/            # Web sources (articles, repos, tweets)
 
 processed/        # Segmented markdown from large raw files
   articles/       # Segmented articles
@@ -18,7 +20,8 @@ processed/        # Segmented markdown from large raw files
   repos/          # Segmented repos
   datasets/       # Segmented datasets
   assets/         # Segmented assets
-  {base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
+  document/       # Segmented document sources
+  web/            # Segmented web sources
 
 wiki/             # LLM-generated content
   index.md        # Catalog of all wiki pages
@@ -50,7 +53,7 @@ title: Page Title
 type: entity | concept | summary | qanda | index | other
 date: YYYY-MM-DD
 sources:
-  - raw/path/to/source.md
+  - raw/document/path/to/source.md or raw/web/path/to/source.md
 tags:
   - topic1
   - topic2
@@ -121,7 +124,7 @@ title: Source Title
 type: summary
 date: YYYY-MM-DD
 sources:
-  - raw/path/to/source.md
+  - raw/document/path/to/source.md or raw/web/path/to/source.md
 ---
 
 # Source Title
