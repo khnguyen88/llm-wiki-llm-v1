@@ -207,6 +207,8 @@
   },
   "active": "ca5fb38c05a36a3e",
   "lastOpenFiles": [
+    "wiki/concepts/headless_llm_execution.md",
+    "wiki/summaries/headless-claude-code-ps.md",
     "wiki/concepts/claude_code.md",
     "wiki/entities/claude_code_router.md",
     "wiki/concepts/request_transformers.md",
@@ -232,8 +234,6 @@
     "raw/repos/claude-code-router/docs/docs/cli/commands/preset.md",
     "raw/repos/claude-code-router/docs/docs/cli/commands/status.md",
     "raw/repos/claude-code-router/docs/docs/cli/commands/other.md",
-    "raw/repos/claude-code-router/docs/docs/cli/commands/model.md",
-    "raw/repos/claude-code-router/docs/docs/server/intro.md",
     "raw/repos/claude-code-router/docs/docs/server/config",
     "raw/repos/claude-code-router/docs/docs/server/api",
     "raw/repos/claude-code-router/docs/docs/server/advanced",

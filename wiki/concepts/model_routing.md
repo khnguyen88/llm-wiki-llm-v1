@@ -48,3 +48,4 @@ The `<CCR-SUBAGENT-MODEL>provider,model</CCR-SUBAGENT-MODEL>` tag at the beginni
 
 - [[claude-code-router]] — the tool implementing this
 - [[request_transformers]] — format conversion layer
+- [[headless_llm_execution]] — automation use case that relies on model routing

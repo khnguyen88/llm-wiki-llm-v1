@@ -39,6 +39,12 @@ A chronological record of operations on the external knowledge base.
 - Created entity: entities/claude_code_router.md
 - Updated index.md, sources-manifest.md, synthesis.md
 
+## [2026-04-22] ingest | Headless Claude Code PowerShell Script
+- Source: raw/document/working_ps_script_to_run_headless_claude_code.txt
+- Created summary: summaries/headless-claude-code-ps.md
+- Created concept: concepts/headless_llm_execution.md
+- Updated index.md, sources-manifest.md, cross-references on claude-code-router and model_routing
+
 ---
 
 *Append new entries at the bottom*

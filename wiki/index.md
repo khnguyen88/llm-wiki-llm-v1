@@ -18,6 +18,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concepts/model_routing|Model Routing]]
 - [[concepts/request_transformers|Request Transformers]]
 - [[concepts/claude_code|Claude Code]]
+- [[concepts/headless_llm_execution|Headless LLM Execution]]
 
 ## Summaries
 
@@ -25,6 +26,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[summaries/karpathy-tweet-llm-wiki|Karpathy Tweet on LLM Knowledge Bases]]
 - [[summaries/farzapedia-commentary|Farzapedia Commentary]]
 - [[summaries/claude-code-router|Claude Code Router]]
+- [[summaries/headless-claude-code-ps|Headless Claude Code via PowerShell]]
 
 ## Source Manifest
 
@@ -40,4 +42,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-04-22 (ingested claude-code-router)*
+*Last updated: 2026-04-22 (ingested headless-claude-code-ps)*

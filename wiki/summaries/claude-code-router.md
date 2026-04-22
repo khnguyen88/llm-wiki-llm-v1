@@ -70,3 +70,4 @@ Config at `~/.claude-code-router/config.json` with three main sections: Provider
 - [[model_routing]] — the routing concept
 - [[request_transformers]] — the transformer system
 - [[claude_code]] — the tool it extends
+- [[headless_llm_execution]] — automated use of CCR without interactive input
