@@ -1,0 +1,34 @@
+
+# A  Working powershell script to execute headless claude code using a router to perform a task using a different sourced LLM
+
+# Define prompt parts
+$PJT_LOC = "C:\PATH\TO\PROJECT\DIRECTORY"
+$PROMPT_1 = "Create a hello-world.html file in the docs folder. If it exists, override it."
+$PROMPT_2 = "Create a raw html file with complete basic tag sets and have it say 'hello world'"
+$PROMPT_3 = "Terminate and exit after completion. /exit"
+
+# Concatenate into a single prompt
+$PROMPT = "$PROMPT_1 $PROMPT_2 $PROMPT_3"
+
+try {
+    Write-Host "📁 Switching to project directory..."
+    Set-Location "$PJT_LOC" 
+
+    Write-Host "🛑 Stopping CCR..."
+    ccr stop
+
+    Write-Host "🔄 Restarting CCR..."
+    ccr restart
+
+    Write-Host "🤖 Running Claude Code task..."
+    ccr code --print --dangerously-skip-permissions "$PROMPT"
+
+    Write-Host "✅ Task complete."
+
+    Write-Host "🛑 Stopping CCR..."
+    ccr stop
+}
+catch {
+    Write-Host "❌ An error occurred:"
+    Write-Host $_
+}

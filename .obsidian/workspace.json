@@ -1,0 +1,202 @@
+{
+  "main": {
+    "id": "20820e1674cdffc7",
+    "type": "split",
+    "children": [
+      {
+        "id": "f141617e241ce9bf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bc282b0c110269e6",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2e41d97cce9ef9ca",
+    "type": "split",
+    "children": [
+      {
+        "id": "b464813b021afe8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1d374e9a677f8226",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b3c4babb7b013a22",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "a6963bb73039f11a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "311116c343b23ada",
+    "type": "split",
+    "children": [
+      {
+        "id": "18a7854ee2d5f207",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "38dfd9d27407bdc2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "8328e155f8e69ab1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "88ef22e8bdbaee98",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7fd67ad17c8c45d2",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "0f607f590868c145",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "bc282b0c110269e6",
+  "lastOpenFiles": [
+    "raw/articles/farzapedia.md",
+    "raw/articles/karpathy-tweet-llm-wiki.md",
+    "raw/articles/karpathy-llm-wiki.md",
+    "wiki/log.md",
+    "wiki/index.md",
+    "schema/WORKFLOWS.md",
+    "schema/SCHEMA.md",
+    "schema/AGENTS.md",
+    "logs",
+    "scripts",
+    "schema",
+    "wiki/summaries",
+    "wiki/entities",
+    "wiki/concepts",
+    "wiki",
+    "raw/papers",
+    "raw/assets",
+    "raw/articles",
+    "INITIAL_SOURCE/ADVANCE_PROJECT_HISTORY/cole-medin-youtube-transcript-llm-wiki-guide.md",
+    "INITIAL_SOURCE/ADVANCE_PROJECT_HISTORY/cole-medin-llm-wiki-guide.md"
+  ]
+}
