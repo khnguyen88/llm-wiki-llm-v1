@@ -1,32 +1,56 @@
 
-# A  Working powershell script to execute headless claude code using a router to perform a task using a different sourced LLM
+# A  Working powershell script to execute headless claude code using a router to perform a task using a different sourced LLM. 
+## Note: 'ccr' can be replaced with 'claude' if desired, but generally we default to 'ccr'
 
-# Define prompt parts
-$PJT_LOC = "C:\PATH\TO\PROJECT\DIRECTORY"
+## Define prompt parts
+$PJT_LOC = "C:\_AAA\JVR\jvr-website"
 $PROMPT_1 = "Create a hello-world.html file in the docs folder. If it exists, override it."
 $PROMPT_2 = "Create a raw html file with complete basic tag sets and have it say 'hello world'"
 $PROMPT_3 = "Terminate and exit after completion. /exit"
 
-# Concatenate into a single prompt
+## Concatenate into a single prompt
 $PROMPT = "$PROMPT_1 $PROMPT_2 $PROMPT_3"
 
+## Run command
 try {
+	### --- CCR STATUS ---
+	function Get-CCRStatus {
+		$status = ccr status 2>$null
+
+		if ($status -match "Status: Running") { return "running" }
+		if ($status -match "Status: Not Running") { return "stopped" }
+
+		return "unknown"
+	}
+	
+	### --- CCR STATUS CHECK ---
+	$CCRState = Get-CCRStatus
+	Write-Host "🔍 CCR status: $CCRState"
+
+	if ($CCRState -eq "running") {
+		Write-Host "⚡ CCR already running — no restart needed."
+	}
+	else {
+		Write-Host "❓ CCR status is not running or unknown — restarting for safety."
+		
+		Write-Host "🛑 Stopping CCR..."
+		ccr stop
+		
+		Write-Host "🔄 Restarting CCR..."
+		ccr restart
+	}
     Write-Host "📁 Switching to project directory..."
     Set-Location "$PJT_LOC" 
-
-    Write-Host "🛑 Stopping CCR..."
-    ccr stop
-
-    Write-Host "🔄 Restarting CCR..."
-    ccr restart
 
     Write-Host "🤖 Running Claude Code task..."
     ccr code --print --dangerously-skip-permissions "$PROMPT"
 
     Write-Host "✅ Task complete."
 
-    Write-Host "🛑 Stopping CCR..."
-    ccr stop
+	if ($CCRState -ne "running") {
+		Write-Host "🛑 Stopping CCR..."
+		ccr stop
+	}
 }
 catch {
     Write-Host "❌ An error occurred:"
