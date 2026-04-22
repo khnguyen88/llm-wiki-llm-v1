@@ -15,6 +15,7 @@ Tracks which source files have been ingested into the wiki.
 | raw/articles/farzapedia.md | ingested | [[summaries/farzapedia-commentary]] | 2026-04-22 |
 | raw/repos/claude-code-router/ | ingested | [[summaries/claude-code-router]] | 2026-04-22 |
 | raw/document/working_ps_script_to_run_headless_claude_code.txt | ingested | [[summaries/headless-claude-code-ps]] | 2026-04-22 |
+| raw/repos/claude-memory-compiler/ | ingested | [[summaries/claude-memory-compiler]] | 2026-04-22 |
 
 ---
-*Last updated: 2026-04-22 (ingested headless-claude-code-ps)*
+*Last updated: 2026-04-22 (ingested claude-memory-compiler)*

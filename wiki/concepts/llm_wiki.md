@@ -37,3 +37,4 @@ Works well at ~100 sources / hundreds of pages using index-guided retrieval. At 
 - [[index-guided-retrieval]] — the retrieval strategy
 - [[file-over-app]] — the data philosophy
 - [[memex]] — the historical precedent
+- [[claude-memory-compiler]] — a reference implementation of the LLM Wiki pattern for conversation-based compilation

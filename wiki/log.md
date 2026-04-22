@@ -45,6 +45,13 @@ A chronological record of operations on the external knowledge base.
 - Created concept: concepts/headless_llm_execution.md
 - Updated index.md, sources-manifest.md, cross-references on claude-code-router and model_routing
 
+## [2026-04-22] ingest | Claude Memory Compiler
+- Source: raw/repos/claude-memory-compiler/ (README.md, AGENTS.md, scripts/flush.py, pyproject.toml)
+- Created summary: summaries/claude-memory-compiler.md
+- Created concept: concepts/memory_flush.md
+- Created entity: entities/coleam00.md
+- Updated index.md, sources-manifest.md, cross-references on llm_wiki, compound_knowledge, andrej_karpathy
+
 ---
 
 *Append new entries at the bottom*

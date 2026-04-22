@@ -31,3 +31,4 @@ AI researcher and educator who proposed the LLM Wiki pattern — using LLMs to b
 
 - [[llm_wiki]] — the pattern he described
 - [[memex]] — the historical precedent he cited
+- [[coleam00]] — adapted Karpathy's pattern into the claude-memory-compiler tool

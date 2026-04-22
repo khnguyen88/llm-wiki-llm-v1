@@ -66,9 +66,6 @@ def build_context() -> str:
     recent_log = get_recent_log()
     parts.append(f"## Recent Daily Log\n\n{recent_log}")
 
-    # Sync-check reminder — runs at the start of every session
-    parts.append("## Session Startup Task\n\nRun a sync-check at session start. Use the sync-check agent (`.claude/agents/sync-check.md`) to verify all config files, schemas, and agents stay consistent. Report any inconsistencies found.")
-
     context = "\n\n---\n\n".join(parts)
 
     # Truncate if too long

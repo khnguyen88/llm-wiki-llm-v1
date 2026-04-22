@@ -8,6 +8,7 @@ sources:
   - raw/articles/farzapedia.md
   - raw/repos/claude-code-router/
   - raw/document/working_ps_script_to_run_headless_claude_code.txt
+  - raw/repos/claude-memory-compiler/
 ---
 
 # Synthesis
@@ -29,6 +30,7 @@ sources:
 - The three operations (ingest, query, lint) form a complete cycle for building and maintaining knowledge
 - Claude Code Router demonstrates the BYOAI pattern in practice: a proxy that unifies multiple LLM providers behind one interface, with scenario-based routing, format transformers, and per-project config. This is the tooling layer that makes "use any LLM" actually work.
 - Headless execution bridges LLM tools into automation workflows — the PowerShell script shows a complete pattern: check router status, conditionally start it, run a task with `--dangerously-skip-permissions`, and clean up. This is how [[model_routing]] moves from interactive use to CI/CD and batch processing.
+- [[claude-memory-compiler]] is the reference implementation of this entire architecture — it operationalizes the LLM Wiki pattern with hooks for automatic capture, a flush-compile-query-lint pipeline, and the same index-guided retrieval. This project's scripts and hooks are adapted from its originals.
 
 ## Open Questions
 

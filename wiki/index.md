@@ -6,6 +6,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 - [[entities/andrej_karpathy|Andrej Karpathy]]
 - [[entities/claude_code_router|Claude Code Router (musistudio)]]
+- [[entities/coleam00|coleam00]]
 
 ## Concepts
 
@@ -19,6 +20,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concepts/request_transformers|Request Transformers]]
 - [[concepts/claude_code|Claude Code]]
 - [[concepts/headless_llm_execution|Headless LLM Execution]]
+- [[concepts/memory_flush|Memory Flush]]
 
 ## Summaries
 
@@ -27,6 +29,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[summaries/farzapedia-commentary|Farzapedia Commentary]]
 - [[summaries/claude-code-router|Claude Code Router]]
 - [[summaries/headless-claude-code-ps|Headless Claude Code via PowerShell]]
+- [[summaries/claude-memory-compiler|Claude Memory Compiler]]
 
 ## Source Manifest
 
@@ -42,4 +45,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-04-22 (ingested headless-claude-code-ps)*
+*Last updated: 2026-04-22 (ingested claude-memory-compiler)*
