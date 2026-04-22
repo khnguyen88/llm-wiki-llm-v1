@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "schema/WIKI_WORKFLOWS.md",
+                "file": "wiki/concepts/compound_knowledge.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WIKI_WORKFLOWS"
+              "title": "compound_knowledge"
             }
           }
         ],
@@ -205,13 +205,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "1d374e9a677f8226",
+  "active": "ca5fb38c05a36a3e",
   "lastOpenFiles": [
+    "compound-knowledge.md",
+    "wiki/synthesis.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "wiki/concepts/compound_knowledge.md",
+    "scripts/session-flush-50e4b756-b8c8-4628-beff-81c025fb86b6-20260422-133321.md",
+    "schema/WIKI_WORKFLOWS.md",
     "schema/WIKI_SCHEMA.md",
     "schema/WIKI_AGENTS.md",
     "wiki/concepts/file_over_app.md",
     "wiki/sources-manifest.md",
-    "wiki/synthesis.md",
     "wiki/concepts/llm_wiki.md",
     "wiki/log.md",
     "INITIAL_SOURCE/other-users-karpathy-llm-wiki-setup.md",
@@ -231,7 +237,6 @@
     "scripts/session-flush-5610ddfc-4fe7-486e-a128-bc9833ff8da5-20260422-105929.md",
     "scripts/last-flush.json",
     "scripts/flush-context-5610ddfc-4fe7-486e-a128-bc9833ff8da5-20260422-105406.md",
-    "CLAUDE.md",
     "knowledge/concepts/wiki-llm-system.md",
     "raw/articles/farzapedia.md",
     "raw/articles/karpathy-tweet-llm-wiki.md",
@@ -239,8 +244,6 @@
     "wiki/index.md",
     "schema/WORKFLOWS.md",
     "schema/SCHEMA.md",
-    "schema/AGENTS.md",
-    "INITIAL_SOURCE/ADVANCE_PROJECT_HISTORY/cole-medin-youtube-transcript-llm-wiki-guide.md",
-    "INITIAL_SOURCE/ADVANCE_PROJECT_HISTORY/cole-medin-llm-wiki-guide.md"
+    "schema/AGENTS.md"
   ]
 }

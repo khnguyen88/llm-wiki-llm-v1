@@ -94,17 +94,17 @@ tags:
 
 When the human says "Process this source" or "Ingest X":
 
-1. **Check source size** — If the file is a PDF, binary document, or exceeds ~3,000 words, invoke the document-processor agent to segment it into `processed/` first
-2. **Read source** — from `raw/` for small files, or from `processed/` for segmented documents
-3. **Extract information**: entities, concepts, key claims, quotes
-4. **Write summary**: `wiki/summaries/[source-name].md` — link to `processed/` segments if applicable
-5. **Create/update entity pages**: `wiki/entities/[entity].md`
-6. **Create/update concept pages**: `wiki/concepts/[concept].md`
-7. **Update index.md**: Add entries for new pages
-8. **Update sources-manifest.md**: Add row with source path, status `ingested`, wiki page link, date
-9. **Update log.md**: Append entry with format `## [YYYY-MM-DD] ingest | Source Title`
-10. **Update cross-references**: Link related pages
-11. **Update synthesis.md**: If relevant to overarching theme
+0. **Check source size** (pre-processing) — If the file is a PDF, binary document, or exceeds ~3,000 words, invoke the document-processor agent to segment it into `processed/` first. Small markdown files go directly to step 1.
+1. **Read source** — from `raw/` for small files, or from `processed/` for segmented documents
+2. **Extract information**: entities, concepts, key claims, quotes
+3. **Write summary**: `wiki/summaries/[source-name].md` — link to `processed/` segments if applicable
+4. **Create/update entity pages**: `wiki/entities/[entity].md`
+5. **Create/update concept pages**: `wiki/concepts/[concept].md`
+6. **Update index.md**: Add entries for new pages
+7. **Update sources-manifest.md**: Add row with source path, status `ingested`, wiki page link, date
+8. **Update log.md**: Append entry with format `## [YYYY-MM-DD] ingest | Source Title`
+9. **Update cross-references**: Link related pages
+10. **Update synthesis.md**: If relevant to overarching theme
 
 ### 2. Query Workflow
 

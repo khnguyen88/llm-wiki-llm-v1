@@ -119,7 +119,7 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
    - Report with severity: warning (may be intentional)
 
 3. **Orphan sources**
-   - Find raw sources not yet compiled to wiki
+   - Find source documents in `raw/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki
    - Cross-check against `wiki/sources-manifest.md` for tracking
    - Report with severity: suggestion
 
