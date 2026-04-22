@@ -1,9 +1,12 @@
 
+
 # A  Working powershell script to execute headless claude code using a router (claude code router) to perform a task using a different sourced LLM. 
+## By Khiem Nguyen with copilot assist
+## Created: 2026-04-22
 ## Note: 'ccr' can be replaced with 'claude' if desired, but generally we default to 'ccr'
 
 ## Define prompt parts
-$PJT_LOC = "C:\_AAA\JVR\jvr-website"
+$PJT_LOC = "C:\PATH\TO\PROJECT\FILE"
 $PROMPT_1 = "Create a hello-world.html file in the docs folder. If it exists, override it."
 $PROMPT_2 = "Create a raw html file with complete basic tag sets and have it say 'hello world'"
 $PROMPT_3 = "Terminate and exit after completion. /exit"
