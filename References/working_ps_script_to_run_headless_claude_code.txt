@@ -1,5 +1,5 @@
 
-# A  Working powershell script to execute headless claude code using a router to perform a task using a different sourced LLM. 
+# A  Working powershell script to execute headless claude code using a router (claude code router) to perform a task using a different sourced LLM. 
 ## Note: 'ccr' can be replaced with 'claude' if desired, but generally we default to 'ccr'
 
 ## Define prompt parts
