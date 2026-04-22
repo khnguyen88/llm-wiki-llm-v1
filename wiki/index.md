@@ -14,13 +14,17 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 *List of source document summaries*
 
+## Source Manifest
+
+- [[sources-manifest|Sources Manifest]]
+
 ## Q&A
 
 *List of Q&A articles*
 
 ## Synthesis
 
-- [[synthesis.md|Overall Synthesis]]
+- [[synthesis|Overall Synthesis]]
 
 ---
 

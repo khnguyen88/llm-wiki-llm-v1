@@ -15,7 +15,7 @@ Both use the same core insight: instead of RAG (rediscovering knowledge on every
 
 Tell your AI coding agent:
 
-> "Read AGENTS.md and schema/WIKI_AGENTS.md. Set up the external knowledge base from sources in raw/. Process the karpathy-llm-wiki.md source first."
+> "Read AGENTS.md and schema/WIKI_AGENTS.md. Set up the external knowledge base from sources in raw/. Large files will be segmented into processed/ first. Process the karpathy-llm-wiki.md source first."
 
 The agent will:
 1. Read the schema files to understand the wiki structure
@@ -29,13 +29,15 @@ The agent will:
 
 ### External Knowledge Base (Karpathy's Pattern)
 ```
-Raw sources (articles, papers, repos) -> LLM processes -> wiki/
-    -> index.md, entities/, concepts/, summaries/
+Raw sources (articles, papers, repos) -> [large files] -> processed/ (segmented markdown)
+                                         -> [small files]  -> wiki/
+    -> index.md, entities/, concepts/, summaries/, qanda/
         -> Query against index (no RAG needed)
 ```
 
 - **raw/**: Source documents (read-only for LLM)
-- **wiki/**: LLM-generated markdown (index, entities, concepts, summaries, qanda)
+- **processed/**: Segmented markdown from large raw files (PDFs, long reports) broken into LLM-sized parts
+- **wiki/**: LLM-generated markdown (index, entities, concepts, summaries, qanda, synthesis)
 - **schema/WIKI_AGENTS.md**: Defines LLM as wiki maintainer
 
 ### Internal Knowledge Base (claude-memory-compiler)
@@ -60,13 +62,15 @@ llm-wiki-llm-v1/
 │   ├── repos/
 │   ├── datasets/
 │   └── assets/                   # Images and attachments
+├── processed/                    # Segmented markdown from large raw files
 ├── wiki/                         # External knowledge base (LLM-owned)
 │   ├── index.md                  #   Master catalog
+│   ├── sources-manifest.md       #   Source tracking (raw/processed → wiki status)
 │   ├── log.md                    #   Operation log
 │   ├── synthesis.md              #   Overarching thesis
 │   ├── concepts/                 #   Concept pages
 │   ├── entities/                 #   Entity pages
-│   ├── sources/                  #   Source summaries
+│   ├── summaries/                #   Source summaries
 │   └── qanda/                    #   Q&A articles
 ├── daily/                        # Internal conversation logs
 ├── knowledge/                    # Internal compiled knowledge
@@ -81,16 +85,26 @@ llm-wiki-llm-v1/
 │   └── WIKI_WORKFLOWS.md         #   External KB workflows
 ├── AGENTS.md                     # Internal KB schema (coleam00/claude-memory-compiler)
 ├── scripts/                      # CLI tools
-│   ├── compile.py
-│   ├── query.py
-│   └── lint.py
+│   ├── compile.py                #   Compile daily logs -> knowledge
+│   ├── query.py                  #   Ask the knowledge base
+│   ├── lint.py                   #   Health checks
+│   ├── flush.py                  #   Extract memories (background)
+│   ├── config.py                 #   Path constants
+│   └── utils.py                  #   Shared helpers
 ├── hooks/                        # Claude Code hooks
 │   ├── session-start.py
 │   ├── session-end.py
 │   └── pre-compact.py
+├── reports/                      # Lint reports
 ├── .claude/                      # Claude Code configuration
-│   └── settings.json
-├── AGENTS.md                     # Main schema (internal KB)
+│   ├── settings.json
+│   └── agents/                   # Project-specific agents
+│       ├── wiki-maintainer.md
+│       ├── document-processor.md
+│       ├── knowledge-compiler.md
+│       ├── wiki-linter.md
+│       ├── wiki-query.md
+│       └── sync-check.md
 └── README.md                     # This file
 ```
 
@@ -100,14 +114,14 @@ llm-wiki-llm-v1/
 
 ### External Knowledge Base
 ```bash
-# Process a source from raw/
+# Process a source from raw/ (large files are segmented into processed/ first)
 # (Done by LLM when you say "Process this source")
 
 # Query the wiki
-uv run python scripts/wiki-query.py "What are the key concepts?"
+uv run python scripts/query.py "What are the key concepts?"
 
 # Lint the wiki for issues
-uv run python scripts/wiki-lint.py
+uv run python scripts/lint.py
 ```
 
 ### Internal Knowledge Base
@@ -140,10 +154,12 @@ Both knowledge bases work natively in Obsidian:
 
 | File | Purpose |
 |------|---------|
-| **AGENTS.md** | Internal KB schema - how the LLM compiles conversations |
-| **schema/WIKI_AGENTS.md** | External KB schema - how the LLM maintains the wiki |
+| **AGENTS.md** | Internal KB schema — how the LLM compiles conversations |
+| **schema/WIKI_AGENTS.md** | External KB schema — how the LLM maintains the wiki |
 | **schema/WIKI_SCHEMA.md** | File formats and conventions for the external wiki |
 | **schema/WIKI_WORKFLOWS.md** | Ingest, Query, and Lint workflows |
+| **.claude/agents/** | Project-specific Claude Code agents |
+| **CLAUDE.md** | Project instructions for Claude Code sessions |
 
 ---
 
@@ -152,6 +168,7 @@ Both knowledge bases work natively in Obsidian:
 | Aspect | External KB | Internal KB |
 |--------|-------------|-------------|
 | Raw data | Articles, papers, repos | Claude Code conversations |
+| Staging | `processed/` (segmented from large files) | N/A |
 | Compiled to | `wiki/` | `knowledge/` |
 | Schema | `schema/WIKI_*.md` | `AGENTS.md` |
 | Trigger | Manual "Process this source" | Automatic hooks (SessionEnd) |

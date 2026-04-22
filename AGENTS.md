@@ -289,13 +289,37 @@ Output: a markdown report with severity levels (error, warning, suggestion).
 ## Full Project Structure
 
 ```
-llm-personal-kb/
+llm-wiki-llm-v1/
 |-- .claude/
 |   |-- settings.json                # Hook configuration (auto-activates in Claude Code)
+|   |-- agents/                      # Project-specific Claude Code agents
+|       |-- wiki-maintainer.md
+|       |-- document-processor.md
+|       |-- knowledge-compiler.md
+|       |-- wiki-linter.md
+|       |-- wiki-query.md
+|       |-- sync-check.md
 |-- .gitignore                       # Excludes runtime state, temp files, caches
 |-- AGENTS.md                        # This file - schema + full technical reference
+|-- CLAUDE.md                        # Project instructions for Claude Code sessions
 |-- README.md                        # Concise overview + quick start
 |-- pyproject.toml                   # Dependencies (at root so hooks can find it)
+|-- raw/                             # External source documents (human-curated)
+|   |-- articles/
+|   |-- papers/
+|   |-- repos/
+|   |-- datasets/
+|   |-- assets/                      # Images and attachments
+|-- processed/                       # Segmented markdown from large raw files (LLM-owned)
+|-- wiki/                            # External knowledge base (LLM-owned)
+|   |-- index.md                     #   Master catalog
+|   |-- sources-manifest.md          #   Source tracking (raw/processed → wiki status)
+|   |-- log.md                       #   Operation log
+|   |-- synthesis.md                 #   Overarching thesis
+|   |-- concepts/
+|   |-- entities/
+|   |-- summaries/
+|   |-- qanda/
 |-- daily/                           # "Source code" - conversation logs (immutable)
 |-- knowledge/                       # "Executable" - compiled knowledge (LLM-owned)
 |   |-- index.md                     #   Master catalog - THE retrieval mechanism
@@ -303,6 +327,10 @@ llm-personal-kb/
 |   |-- concepts/                    #   Atomic knowledge articles
 |   |-- connections/                 #   Cross-cutting insights linking 2+ concepts
 |   |-- qa/                          #   Filed query answers (compounding knowledge)
+|-- schema/                          # External KB configuration
+|   |-- WIKI_AGENTS.md               #   External KB agent role
+|   |-- WIKI_SCHEMA.md               #   External KB file formats
+|   |-- WIKI_WORKFLOWS.md            #   External KB workflows
 |-- scripts/                         # CLI tools
 |   |-- compile.py                   #   Compile daily logs -> knowledge articles
 |   |-- query.py                     #   Ask questions (index-guided, no RAG)

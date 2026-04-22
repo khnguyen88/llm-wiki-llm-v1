@@ -19,20 +19,37 @@ Most people use RAG: upload files, LLM retrieves chunks at query time, generates
 | Layer | Purpose | Who Owns |
 |-------|---------|----------|
 | **raw/** | Source documents (articles, papers, images, data) | Human (read-only for LLM) |
+| **processed/** | Segmented markdown from large raw files (PDFs, long reports) | LLM |
 | **wiki/** | LLM-generated markdown files | LLM |
 | **schema/** | Configuration for LLM operations | Human |
 
 ## Wiki Structure
 
 ```
-wiki/
-├── index.md           # Catalog of all pages (LLM updates on every change)
-├── log.md             # Chronological operation log
-├── synthesis.md       # Overarching thesis/summary
-├── concepts/          # Concept pages (e.g., concepts/attention-mechanism.md)
-├── entities/          # Entity pages (e.g., entities/transformer-model.md)
-├── sources/           # Source document summaries
-└── qanda/             # Q&A articles (answers filed back into wiki)
+raw/                        # Source documents (human-curated, read-only for LLM)
+├── articles/
+├── papers/
+├── repos/
+├── datasets/
+└── assets/                 # Images and attachments
+
+processed/                  # Segmented markdown from large raw files
+├── articles/
+├── papers/
+├── repos/
+├── datasets/
+├── assets/
+└── {base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
+
+wiki/                       # LLM-generated content
+├── index.md               # Catalog of all pages
+├── sources-manifest.md    # Source tracking: raw/processed paths → ingest status
+├── log.md                 # Chronological operation log
+├── synthesis.md           # Overarching thesis/summary
+├── concepts/              # Concept pages
+├── entities/              # Entity pages
+├── summaries/             # Source document summaries
+└── qanda/                 # Q&A articles
 ```
 
 ## File Conventions
@@ -56,7 +73,7 @@ tags:
 
 - **Entities**: snake_case (e.g., `entities/transformer_model.md`)
 - **Concepts**: snake_case (e.g., `concepts/attention_mechanism.md`)
-- **Sources**: kebab-case (e.g., `summaries/attention-is-all-you-need.md`)
+- **Summaries**: kebab-case (e.g., `summaries/attention-is-all-you-need.md`)
 - **Q&A**: kebab-case with question (e.g., `qanda/what-is-attention.md`)
 
 ### Linking
@@ -70,15 +87,17 @@ tags:
 
 When the human says "Process this source" or "Ingest X":
 
-1. **Read source** from `raw/` directory
-2. **Extract information**: entities, concepts, key claims, quotes
-3. **Write summary**: `wiki/sources/[source-name].md`
-4. **Create/update entity pages**: `wiki/entities/[entity].md`
-5. **Create/update concept pages**: `wiki/concepts/[concept].md`
-6. **Update index.md**: Add entries for new pages
-7. **Update log.md**: Append entry with format `## [YYYY-MM-DD] ingest | Source Title`
-8. **Update cross-references**: Link related pages
-9. **Update synthesis.md**: If relevant to overarching theme
+1. **Check source size** — If the file is a PDF, binary document, or exceeds ~3,000 words, invoke the document-processor agent to segment it into `processed/` first
+2. **Read source** — from `raw/` for small files, or from `processed/` for segmented documents
+3. **Extract information**: entities, concepts, key claims, quotes
+4. **Write summary**: `wiki/summaries/[source-name].md` — link to `processed/` segments if applicable
+5. **Create/update entity pages**: `wiki/entities/[entity].md`
+6. **Create/update concept pages**: `wiki/concepts/[concept].md`
+7. **Update index.md**: Add entries for new pages
+8. **Update sources-manifest.md**: Add row with source path, status `ingested`, wiki page link, date
+9. **Update log.md**: Append entry with format `## [YYYY-MM-DD] ingest | Source Title`
+10. **Update cross-references**: Link related pages
+11. **Update synthesis.md**: If relevant to overarching theme
 
 ### 2. Query Workflow
 
@@ -105,7 +124,7 @@ Check for:
 
 ## Key Principles
 
-1. **LLM owns the wiki** - Human curates sources; LLM maintains wiki
+1. **LLM owns the wiki and processed/** - Human curates sources; LLM maintains wiki and segmented files
 2. **Compounding knowledge** - Everything adds up over time
 3. **Explicit over implicit** - You see exactly what the LLM knows
 4. **File over app** - Simple markdown files, universal format
@@ -133,9 +152,9 @@ The wiki is designed to be viewed in Obsidian:
 ## Starting Point
 
 The human has already set up:
-- Directory structure with `raw/` and `wiki/` folders
+- Directory structure with `raw/`, `processed/`, and `wiki/` folders
 - Schema files
 - Empty wiki/index.md and wiki/log.md
 - Source documents in `raw/articles/`
 
-The human will add more sources over time.
+The human will add more sources over time. Large files will be segmented into `processed/` before ingestion.

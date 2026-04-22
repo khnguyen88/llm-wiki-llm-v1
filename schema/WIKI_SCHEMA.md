@@ -12,13 +12,22 @@ raw/              # Source documents (immutable)
   datasets/       # Dataset sources
   assets/         # Images and attachments
 
+processed/        # Segmented markdown from large raw files
+  articles/       # Segmented articles
+  papers/         # Segmented papers
+  repos/          # Segmented repos
+  datasets/       # Segmented datasets
+  assets/         # Segmented assets
+  {base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
+
 wiki/             # LLM-generated content
   index.md        # Catalog of all wiki pages
   log.md          # Chronological operation log
+  sources-manifest.md # Source tracking: raw/processed paths → ingest status
   synthesis.md    # Overarching thesis/summary
   concepts/       # Concept pages
   entities/       # Entity pages
-  sources/        # Source document summaries
+  summaries/      # Source document summaries
   qanda/          # Q&A articles
 ```
 
@@ -190,11 +199,14 @@ date: YYYY-MM-DD
 ## Summaries
 - [[summaries/name|Title]]
 
+## Source Manifest
+- [[sources-manifest|Sources Manifest]]
+
 ## Q&A
 - [[qanda/name|Question]]
 
 ## Synthesis
-- [[synthesis.md|Overall Synthesis]]
+- [[synthesis|Overall Synthesis]]
 ```
 
 ## Log Format

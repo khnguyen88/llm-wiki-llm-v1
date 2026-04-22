@@ -12,9 +12,12 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
 
 **Steps**:
 
+0. **Check source size** (pre-processing)
+   - If the file is a PDF, binary document, or exceeds ~3,000 words: invoke the document-processor agent to segment it into `processed/`
+   - Small markdown files go directly to step 1
+
 1. **Read source document**
-   - Load the file from `raw/` directory
-   - If it's an image, note its presence for reference
+   - Load the file from `raw/` (small files) or `processed/` (segmented documents)
 
 2. **Extract key information**
    - Identify entities (people, places, things, organizations)
@@ -24,7 +27,8 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
 3. **Write summary page**
    - Create `wiki/summaries/[source-title].md`
    - Include key points, quotes, and notes
-   - Add YAML frontmatter with source path
+   - Add YAML frontmatter with source path (use `processed/` path for segmented documents)
+   - Link to `processed/` segments if the source was segmented
 
 4. **Create/update entity pages**
    - For each identified entity, create or update `wiki/entities/[entity].md`
@@ -40,16 +44,20 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
    - Add entries for new pages in `wiki/index.md`
    - Organize by category (entities, concepts, summaries, qanda)
 
-7. **Update log**
+7. **Update sources manifest**
+   - Add row to `wiki/sources-manifest.md` table
+   - Columns: source path, status (`ingested`), wiki page link, date
+
+8. **Update log**
    - Append entry to `wiki/log.md`
    - Format: `## [YYYY-MM-DD] ingest | Source Title`
 
-8. **Update cross-references**
+9. **Update cross-references**
    - Add backlinks to related pages
    - Ensure bidirectional linking where appropriate
    - Check for connections between concepts
 
-9. **Update synthesis.md** (if relevant)
+10. **Update synthesis.md** (if relevant)
    - Add key takeaways to overarching summary
    - Note how new source changes or confirms existing understanding
 
@@ -112,6 +120,7 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
 
 3. **Orphan sources**
    - Find raw sources not yet compiled to wiki
+   - Cross-check against `wiki/sources-manifest.md` for tracking
    - Report with severity: suggestion
 
 4. **Stale articles**
