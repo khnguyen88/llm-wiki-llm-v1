@@ -30,3 +30,6 @@ Claude Code is the tool that [[claude-code-router]] extends by proxying its API 
 
 - [[claude-code-router]] — the proxy extending Claude Code
 - [[model_routing]] — how requests get directed to different models
+- [[context_management]] — strategies for managing context windows
+- [[single_loop_architecture]] — lean prompt pattern for Claude Code
+- [[claude_code_ecosystem]] — community tools and plugins

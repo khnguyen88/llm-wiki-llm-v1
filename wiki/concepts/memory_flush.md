@@ -41,3 +41,4 @@ The process of extracting important knowledge from a conversation transcript and
 - [[claude-memory-compiler]] — the system this concept comes from
 - [[llm_wiki]] — the architecture pattern
 - [[headless_llm_execution]] — another automation pattern using background processes
+- [[context_management]] — the broader context preservation strategy

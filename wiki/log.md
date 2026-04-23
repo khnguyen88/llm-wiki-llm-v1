@@ -102,7 +102,20 @@ A chronological record of operations on the external knowledge base.
 - Created entity: entities/templespark.md
 - Updated index.md, sources-manifest.md, synthesis.md
 
-## [2026-04-23] query | Qwen3.6-35b-a3b naming explained
+## [2026-04-23] ingest | Best GitHub Repos for Claude Code
+- Source: raw/forum-thread/Best GitHub repos for Claude Code.md
+- Created summary: summaries/best-github-repos-for-claude-code.md
+- Created concepts: concepts/context_management.md, concepts/single_loop_architecture.md, concepts/claude_code_ecosystem.md
+- Created entity: entities/i_am_hylian.md
+- Updated index.md, sources-manifest.md, synthesis.md
+- Updated cross-references on claude_code, memory_flush
+
+## [2026-04-23] ingest | Managing Context in Claude Code
+- Source: raw/forum-thread/How are you guys managing context in Claude Code_ 200K just ain't cutting it..md
+- Created summary: summaries/managing-context-in-claude-code.md
+- Updated concepts: context_management (added source), single_loop_architecture (added source), claude_code_ecosystem (added source)
+- Created entities: entities/dangerous_formal5641.md, entities/restaurant_hefty322.md
+- Updated index.md, sources-manifest.md, synthesis.md
 - Question: explain how to interpret qwen3.6-35b-a3b — what does that mean?
 - Read: concepts/llm_naming_conventions, concepts/parameter_counts, concepts/mixture_of_experts, concepts/model_quantization, concepts/training_variants, summaries/llm-model-names-decoded
 - Created: qanda/qwen3-6-35b-a3b-naming.md

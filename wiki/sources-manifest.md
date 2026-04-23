@@ -22,6 +22,8 @@ Tracks which source files have been ingested into the wiki.
 | raw/articles/LLM Naming Explained (What do the options mean_).md | ingested | [[summaries/llm-naming-explained]] | 2026-04-23 |
 | raw/articles/Naming Conventions of LLM Models.md | ingested | [[summaries/naming-conventions-of-llm-models]] | 2026-04-23 |
 | raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md | ingested | [[summaries/understanding-naming-conventions-of-llm-files]] | 2026-04-23 |
+| raw/forum-thread/Best GitHub repos for Claude Code.md | ingested | [[summaries/best-github-repos-for-claude-code]] | 2026-04-23 |
+| raw/forum-thread/How are you guys managing context in Claude Code_ 200K just ain't cutting it..md | ingested | [[summaries/managing-context-in-claude-code]] | 2026-04-23 |
 
 ---
-*Last updated: 2026-04-23 (ingested 6 LLM naming articles)*
+*Last updated: 2026-04-23 (ingested 2 forum threads)*

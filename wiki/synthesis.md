@@ -15,6 +15,8 @@ sources:
   - raw/articles/LLM Naming Explained (What do the options mean_).md
   - raw/articles/Naming Conventions of LLM Models.md
   - raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md
+  - raw/forum-thread/Best GitHub repos for Claude Code.md
+  - raw/forum-thread/How are you guys managing context in Claude Code_ 200K just ain't cutting it..md
 ---
 
 # Synthesis
@@ -42,6 +44,9 @@ sources:
 - **MoE is everywhere in 2026:** Mixture of Experts has become the default architecture for frontier open-weight models. The naming convention encodes total vs active parameters (e.g., 35B-A3B), which determines RAM vs compute costs. Knowledge capacity scales with total parameters; inference speed scales with active parameters.
 - **Paid vs open-source naming reflects different design goals:** Paid models (GPT-4o, Gemini 1.5 Pro) are product artifacts with branding tiers. Open-source models are engineering artifacts with explicit technical metadata. Understanding this difference prevents costly deployment mistakes like selecting a base model for a chatbot use case.
 - **The distillation economy is reshaping local inference:** DeepSeek-R1 proved that 80%+ of frontier reasoning can be captured in 7-32B distilled models. Community quantizers (bartowski, unsloth) and fine-tuning labs (Nous Research, Eric Hartford) have become critical infrastructure nodes in the open-weight ecosystem.
+- **Context management is the dominant Claude Code problem:** The community consensus is clear — stop treating the context window as primary memory and start treating files as memory. CLAUDE.md, handoff documents, subagent delegation, and file-based memory all serve this principle. The 200K window degrades past 100K; even 1M windows suffer "lost in the middle" quality loss.
+- **Single Loop Architecture emerged from practice:** Keep CLAUDE.md under 60 lines with shape directives only, load domain rules on demand via skills. This pattern — now named and formalized — directly mirrors this project's own architecture (lean CLAUDE.md, on-demand agent loading).
+- **The Claude Code tool ecosystem is mature and opinionated:** ccusage and repomix have the highest retention. Phase-based frameworks (GSD) beat ad-hoc planning but add token overhead. Hooks-based tools (OpenWolf) are "invisible" after setup. Tiny global defaults plus repo-local rules beat giant universal setups.
 
 ## Open Questions
 
@@ -51,6 +56,8 @@ sources:
 - How do multi-user wikis work? Can team wikis be maintained by LLMs with human review?
 - At what parameter scale does quantization quality degradation become unacceptable for production use cases?
 - Will MoE architectures eventually dominate dense models entirely, or will both coexist?
+- Can knowledge graph approaches scale context management beyond what flat markdown files can achieve, or is the tooling not ready yet?
+- Is the "lean prompt + on-demand skills" pattern universally applicable, or does it break down for projects with many interdependent rules?
 
 ## How This File Works
 
@@ -64,4 +71,4 @@ You rarely need to edit this directly - let the LLM maintain it as you add sourc
 
 ---
 
-*Last updated: 2026-04-23*
+*Last updated: 2026-04-23 (added forum threads on context management and ecosystem)*

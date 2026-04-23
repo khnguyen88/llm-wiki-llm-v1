@@ -17,8 +17,11 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[entities/bartowski|bartowski]]
 - [[entities/claude_code_router|Claude Code Router (musistudio)]]
 - [[entities/coleam00|coleam00]]
+- [[entities/dangerous_formal5641|Dangerous-Formal5641]]
 - [[entities/dylan_boudro|Dylan Boudro]]
+- [[entities/i_am_hylian|I_AM_HYLIAN]]
 - [[entities/martin_kollie|Martin Kollie]]
+- [[entities/restaurant_hefty322|RestaurantHefty322]]
 - [[entities/sudarshan|Sudarshan]]
 - [[entities/templespark|templespark]]
 - [[entities/trevor_royer|Trevor Royer]]
@@ -37,6 +40,9 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concepts/claude_code|Claude Code]]
 - [[concepts/headless_llm_execution|Headless LLM Execution]]
 - [[concepts/memory_flush|Memory Flush]]
+- [[concepts/context_management|Context Management]]
+- [[concepts/single_loop_architecture|Single Loop Architecture]]
+- [[concepts/claude_code_ecosystem|Claude Code Ecosystem]]
 - [[concepts/llm_naming_conventions|LLM Naming Conventions]]
 - [[concepts/model_quantization|Model Quantization]]
 - [[concepts/parameter_counts|Parameter Counts]]
@@ -59,6 +65,8 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[summaries/llm-naming-explained|LLM Naming Explained]]
 - [[summaries/naming-conventions-of-llm-models|Naming Conventions of LLM Models]]
 - [[summaries/understanding-naming-conventions-of-llm-files|Understanding Naming Conventions of LLM Files]]
+- [[summaries/best-github-repos-for-claude-code|Best GitHub Repos for Claude Code]]
+- [[summaries/managing-context-in-claude-code|Managing Context in Claude Code]]
 
 ## Source Manifest
 
@@ -74,4 +82,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-04-23 (ingested 6 LLM naming articles)*
+*Last updated: 2026-04-23 (ingested 2 forum threads on Claude Code)*
