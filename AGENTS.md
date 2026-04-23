@@ -312,6 +312,8 @@ llm-wiki-llm-v1/
 |   |-- assets/                      # Images and attachments
 |   |-- document/                   #   Documents (papers, PDFs, datasets)
 |   |-- web/                         #   Web sources (articles, repos, tweets)
+|   |-- forum-thread/               #   Forum discussions
+|   |-- transcripts/                #   Conversation transcripts
 |-- processed/                       # Segmented markdown from large raw files (LLM-owned)
 |   |-- articles/
 |   |-- papers/
@@ -320,6 +322,8 @@ llm-wiki-llm-v1/
 |   |-- assets/
 |   |-- document/                   #   Segmented document sources
 |   |-- web/                         #   Segmented web sources
+|   |-- forum-thread/               #   Segmented forum discussions
+|   |-- transcripts/                #   Segmented conversation transcripts
 |-- wiki/                            # External knowledge base (LLM-owned)
 |   |-- index.md                     #   Master catalog
 |   |-- sources-manifest.md          #   Source tracking (raw/processed → wiki status)

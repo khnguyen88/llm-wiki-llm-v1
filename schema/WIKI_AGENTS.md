@@ -37,7 +37,9 @@ raw/                        # Source documents (human-curated, read-only for LLM
 ├── datasets/
 ├── assets/                 # Images and attachments
 ├── document/               #   Documents (papers, PDFs, datasets)
-└── web/                    #   Web sources (articles, repos, tweets)
+├── web/                    #   Web sources (articles, repos, tweets)
+├── forum-thread/           #   Forum discussions
+└── transcripts/            #   Conversation transcripts
 
 processed/                  # Segmented markdown from large raw files
 ├── articles/
@@ -46,7 +48,9 @@ processed/                  # Segmented markdown from large raw files
 ├── datasets/
 ├── assets/
 ├── document/               #   Segmented document sources
-└── web/                    #   Segmented web sources
+├── web/                    #   Segmented web sources
+├── forum-thread/           #   Segmented forum discussions
+└── transcripts/            #   Segmented conversation transcripts
 
 wiki/                       # LLM-generated content
 ├── index.md               # Catalog of all pages
@@ -66,7 +70,7 @@ wiki/                       # LLM-generated content
 ```yaml
 ---
 title: Page Title
-type: entity | concept | summary | qanda | index | other
+type: entity | concept | summary | qanda | index | manifest | synthesis | other
 date: YYYY-MM-DD
 sources:
   - raw/document/path/to/source.md or raw/web/path/to/source.md

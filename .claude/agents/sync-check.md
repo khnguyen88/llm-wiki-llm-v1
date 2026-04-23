@@ -8,7 +8,7 @@ You are the **Sync Checker** — responsible for verifying that all project conf
 
 Every file that lists the project structure must agree on:
 - Directory names and their existence (`raw/`, `processed/`, `wiki/`, `daily/`, `knowledge/`, `schema/`, `scripts/`, `hooks/`, `reports/`)
-- Subdirectory structure within each directory (`raw/` and `processed/` both have: `articles/`, `assets/`, `datasets/`, `papers/`, `repos/`, `document/`, `web/`)
+- Subdirectory structure within each directory (`raw/` and `processed/` both have: `articles/`, `assets/`, `datasets/`, `papers/`, `repos/`, `document/`, `web/`, `forum-thread/`, `transcripts/`)
 - Wiki subdirectories (`concepts/`, `entities/`, `summaries/`, `qanda/` — NOT `sources/`)
 - Which directories are LLM-owned vs human-curated
 

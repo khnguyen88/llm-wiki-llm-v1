@@ -1,3 +1,11 @@
+---
+title: Wiki Log
+type: index
+date: 2026-04-22
+sources: []
+tags: [structural]
+---
+
 # Wiki Log
 
 A chronological record of operations on the external knowledge base.

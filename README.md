@@ -63,7 +63,9 @@ llm-wiki-llm-v1/
 │   ├── datasets/
 │   ├── assets/                   # Images and attachments
 │   ├── document/                 # Document sources (papers, PDFs, datasets)
-│   └── web/                      # Web sources (articles, repos, tweets)
+│   ├── web/                      # Web sources (articles, repos, tweets)
+│   ├── forum-thread/             # Forum discussions
+│   └── transcripts/              # Conversation transcripts
 ├── processed/                    # Segmented markdown from large raw files
 │   ├── articles/
 │   ├── papers/
@@ -71,7 +73,9 @@ llm-wiki-llm-v1/
 │   ├── datasets/
 │   ├── assets/
 │   ├── document/                 # Segmented document sources
-│   └── web/                      # Segmented web sources
+│   ├── web/                      # Segmented web sources
+│   ├── forum-thread/             # Segmented forum discussions
+│   └── transcripts/              # Segmented conversation transcripts
 ├── wiki/                         # External knowledge base (LLM-owned)
 │   ├── index.md                  #   Master catalog
 │   ├── sources-manifest.md       #   Source tracking (raw/processed → wiki status)

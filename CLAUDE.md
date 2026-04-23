@@ -11,63 +11,45 @@ Two parallel knowledge bases implementing Karpathy's LLM Wiki pattern — no RAG
 
 Core insight: the LLM incrementally builds a **persistent, compounding wiki** instead of rediscovering knowledge from scratch on every query.
 
-## Directory Layout
+## Key Directories
 
-- `raw/` — Source documents (human-curated, read-only for LLM): `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/` (papers, PDFs, datasets), `web/` (articles, repos, tweets)
-- `processed/` — Segmented markdown from large raw files: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`
-- `wiki/` — External KB (LLM-owned): index.md, sources-manifest.md, log.md, synthesis.md, entities/, concepts/, summaries/, qanda/
+- `raw/` — Source documents (human-curated, read-only for LLM)
+- `processed/` — Segmented markdown from large raw files (LLM-owned)
+- `wiki/` — External KB (LLM-owned)
 - `daily/` — Conversation logs (immutable)
-- `knowledge/` — Internal KB (LLM-owned): index.md, log.md, concepts/, connections/, qa/
-- `schema/` — WIKI_AGENTS.md, WIKI_SCHEMA.md, WIKI_WORKFLOWS.md
-- `AGENTS.md` — Internal KB compiler specification
-- `scripts/` — compile.py, query.py, lint.py, flush.py
-- `hooks/` — session-start.py, session-end.py, pre-compact.py
-- `reports/` — Lint reports (gitignored)
+- `knowledge/` — Internal KB (LLM-owned)
 
-## Operations
-
-**External KB** — Large files in `raw/` get segmented into `processed/` first (PDF → markdown parts, then delete PDF). Sources are organized as `raw/document/` (papers, datasets) or `raw/web/` (articles, repos). Ingest into wiki pages, update index.md + log.md. Query via index.md first, drill into relevant pages. Lint for broken links, orphans, contradictions.
-
-**Internal KB** — Compile daily logs into knowledge articles. Query via index.md. Lint: 7 checks (broken links, orphans, orphan sources, stale, missing backlinks, sparse, contradictions).
+Full directory tree with all subfolders: see `schema/WIKI_SCHEMA.md` → Directory Structure
 
 ## Project Agents
 
-Defined in `.claude/agents/`:
+Defined in `.claude/agents/`. Each agent file is self-contained with its own operations, conventions, and examples. Invoke by name; don't inline their rules here.
 
-| Agent | Purpose |
-|-------|---------|
-| `wiki-maintainer` | Ingests sources from `raw/` and `processed/` (all subfolders) into `wiki/`, creates entities/concepts/summaries, updates index + log |
-| `document-processor` | Segments large raw files into `processed/` (matching subfolder), handles tables/images |
-| `knowledge-compiler` | Compiles `daily/` logs into `knowledge/` concepts, connections, qa articles |
-| `wiki-linter` | Health checks across both KBs: broken links, orphans, contradictions, stale articles |
-| `wiki-query` | Index-guided retrieval against both KBs, files valuable answers back |
-| `sync-check` | Verifies all config files, schemas, and agents stay consistent with each other |
+| Agent | When to invoke |
+|-------|---------------|
+| `wiki-maintainer` | "Process this source", "Ingest X" |
+| `document-processor` | Files >3,000 words or PDFs |
+| `knowledge-compiler` | "Compile daily logs" |
+| `wiki-linter` | "Lint the wiki", "Run health check" |
+| `wiki-query` | Questions about compiled knowledge |
+| `sync-check` | After structural changes to dirs/schemas/agents |
+| `context-loader` | "Load rules for X", "Audit CLAUDE.md", "Guard prompt health" |
 
-## Conventions
+## Core Conventions
 
 - LLM owns `wiki/` and `knowledge/` — human curates `raw/` and `daily/`
 - Wikilinks: `[[path/to/article]]` (no `.md`)
 - Frontmatter required on all wiki pages (title, type, date, sources, tags)
 - Naming: snake_case for entities/concepts, kebab-case for summaries/qanda
-- Processed files: `processed/{subfolder}/{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md`
 - Dates: ISO 8601 (YYYY-MM-DD)
 - Style: encyclopedia-style, factual, concise
 
-## Scripts
+## On-Demand Details
 
-All via `uv run python scripts/<name>.py`:
-- `compile.py` — daily logs → knowledge (`--all`, `--file`, `--dry-run`)
-- `query.py` — ask a KB (`--file-back` saves answer)
-- `lint.py` — health checks (`--structural-only` skips LLM judgment)
-- `flush.py` — extract from conversations (background, spawned by hooks)
-
-## Hooks
-
-Configured in `.claude/settings.json`:
-- **SessionStart**: injects KB index into session context
-- **PreCompact**: captures context before compaction discards it
-- **SessionEnd**: extracts conversation → daily log, spawns background flush
-
-## Obsidian
-
-Both KBs work natively — graph view, backlinks, Dataview, Marp slides.
+Operations, file formats, scripts, hooks, and Obsidian integration live in:
+- **Workflows**: `schema/WIKI_WORKFLOWS.md`
+- **File formats**: `schema/WIKI_SCHEMA.md`
+- **Agent roles**: `schema/WIKI_AGENTS.md` and `.claude/agents/*.md`
+- **Internal KB**: `AGENTS.md`
+- **Scripts**: `scripts/*.py` (run via `uv run python scripts/<name>.py`)
+- **Hooks**: `.claude/settings.json`

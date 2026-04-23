@@ -1,3 +1,11 @@
+---
+title: Wiki Index
+type: index
+date: 2026-04-22
+sources: []
+tags: [structural]
+---
+
 # Wiki Index
 
 A catalog of all wiki pages. The LLM updates this on every source ingest.
