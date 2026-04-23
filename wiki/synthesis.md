@@ -1,7 +1,7 @@
 ---
 title: Synthesis
 type: synthesis
-date: 2026-04-22
+date: 2026-04-23
 sources:
   - raw/articles/karpathy-github-llm-wiki.md
   - raw/articles/karpathy-tweet-llm-wiki.md
@@ -9,6 +9,12 @@ sources:
   - raw/repos/claude-code-router/
   - raw/document/working_ps_script_to_run_headless_claude_code.txt
   - raw/repos/claude-memory-compiler/
+  - raw/articles/How to navigate LLM model names.md
+  - raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md
+  - raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md
+  - raw/articles/LLM Naming Explained (What do the options mean_).md
+  - raw/articles/Naming Conventions of LLM Models.md
+  - raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md
 ---
 
 # Synthesis
@@ -31,6 +37,11 @@ sources:
 - Claude Code Router demonstrates the BYOAI pattern in practice: a proxy that unifies multiple LLM providers behind one interface, with scenario-based routing, format transformers, and per-project config. This is the tooling layer that makes "use any LLM" actually work.
 - Headless execution bridges LLM tools into automation workflows — the PowerShell script shows a complete pattern: check router status, conditionally start it, run a task with `--dangerously-skip-permissions`, and clean up. This is how [[model_routing]] moves from interactive use to CI/CD and batch processing.
 - [[claude-memory-compiler]] is the reference implementation of this entire architecture — it operationalizes the LLM Wiki pattern with hooks for automatic capture, a flush-compile-query-lint pipeline, and the same index-guided retrieval. This project's scripts and hooks are adapted from its originals.
+- **LLM naming conventions encode deployment-critical metadata:** A model name is structured metadata, not an arbitrary label. The pattern `[Org/]Family-Version-Size[-Active]-Training[-Format][-Quantization]` communicates parameter count, alignment stage, quantization method, and hardware requirements at a glance.
+- **Quantization is the dominant deployment decision:** Q4_K_M is the mainstream default (~92% quality, ~75% size reduction). GPU-native formats (AWQ, GPTQ, EXL2) outperform GGUF on NVIDIA but lack CPU fallback. The rule of thumb: prefer a larger model at lower quantization over a smaller model at higher quantization.
+- **MoE is everywhere in 2026:** Mixture of Experts has become the default architecture for frontier open-weight models. The naming convention encodes total vs active parameters (e.g., 35B-A3B), which determines RAM vs compute costs. Knowledge capacity scales with total parameters; inference speed scales with active parameters.
+- **Paid vs open-source naming reflects different design goals:** Paid models (GPT-4o, Gemini 1.5 Pro) are product artifacts with branding tiers. Open-source models are engineering artifacts with explicit technical metadata. Understanding this difference prevents costly deployment mistakes like selecting a base model for a chatbot use case.
+- **The distillation economy is reshaping local inference:** DeepSeek-R1 proved that 80%+ of frontier reasoning can be captured in 7-32B distilled models. Community quantizers (bartowski, unsloth) and fine-tuning labs (Nous Research, Eric Hartford) have become critical infrastructure nodes in the open-weight ecosystem.
 
 ## Open Questions
 
@@ -38,6 +49,8 @@ sources:
 - How well does finetuning on a wiki work as an alternative to context-window retrieval?
 - What product could make this workflow accessible beyond the "agent-proficient" user?
 - How do multi-user wikis work? Can team wikis be maintained by LLMs with human review?
+- At what parameter scale does quantization quality degradation become unacceptable for production use cases?
+- Will MoE architectures eventually dominate dense models entirely, or will both coexist?
 
 ## How This File Works
 
@@ -51,4 +64,4 @@ You rarely need to edit this directly - let the LLM maintain it as you add sourc
 
 ---
 
-*Last updated: 2026-04-22*
+*Last updated: 2026-04-23*
