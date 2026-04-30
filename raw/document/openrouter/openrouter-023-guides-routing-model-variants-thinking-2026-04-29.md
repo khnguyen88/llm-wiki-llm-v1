@@ -1,0 +1,33 @@
+<!--
+URL: https://openrouter.ai/docs/guides/routing/model-variants/thinking.mdx
+Download Date: 2026-04-29
+Website: openrouter
+Webpage: guides-routing-model-variants-thinking
+Index: 23
+-->
+
+```
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://openrouter.ai/docs/llms.txt.
+> For full documentation content, see https://openrouter.ai/docs/llms-full.txt.
+
+# Thinking Variant
+
+The `:thinking` variant enables extended reasoning capabilities for complex problem-solving tasks.
+
+## Usage
+
+Append `:thinking` to any model ID:
+
+```json
+{
+  "model": "deepseek/deepseek-r1:thinking"
+}
+```
+
+## Details
+
+Thinking variants provide access to models with extended reasoning capabilities, allowing for more thorough analysis and step-by-step problem solving. This is particularly useful for complex tasks that benefit from chain-of-thought reasoning.
+
+See also: [Reasoning Tokens](/docs/best-practices/reasoning-tokens)
+```

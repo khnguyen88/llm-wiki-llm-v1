@@ -29,3 +29,5 @@ scripts/uv.lock
 Thumbs.db
 
 .obsidian/
+
+.crawl4ai.env
