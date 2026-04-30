@@ -3,12 +3,12 @@ title: "What does Qwen3.6-35b-a3b mean?"
 type: qanda
 date: 2026-04-23
 sources:
-  - concepts/llm_naming_conventions
-  - concepts/parameter_counts
-  - concepts/mixture_of_experts
-  - concepts/model_quantization
-  - concepts/training_variants
-  - summaries/llm-model-names-decoded
+  - raw/articles/How to navigate LLM model names.md
+  - raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md
+  - raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md
+  - raw/articles/LLM Naming Explained (What do the options mean_).md
+  - raw/articles/Naming Conventions of LLM Models.md
+  - raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md
 tags:
   - qwen
   - naming-conventions

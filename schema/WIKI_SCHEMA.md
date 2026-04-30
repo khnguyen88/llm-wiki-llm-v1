@@ -60,25 +60,73 @@ wiki/             # LLM-generated content
 
 ## Frontmatter Format
 
-All wiki pages should include YAML frontmatter:
+All wiki pages must include YAML frontmatter. Fields are split into **required** and **optional provenance** groups.
+
+### Required Fields
 
 ```yaml
 ---
 title: Page Title
+summary: One-line description of what this page covers
 type: entity | concept | summary | qanda | index | manifest | synthesis | other
-date: YYYY-MM-DD
 sources:
   - raw/document/path/to/source.md or raw/web/path/to/source.md or ai-research/web/path/to/source.md
 tags:
   - topic1
   - topic2
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
 ---
 ```
+
+### Optional Provenance Fields
+
+Add these when the LLM has enough information to populate them. They improve lint quality and knowledge tracking.
+
+```yaml
+confidence: 0.9                    # 0.0–1.0 float — overall confidence in this page's claims
+provenance: extracted               # extracted | merged | inferred | ambiguous
+contradictedBy: []                 # list of slugs referencing contradicting pages (with optional reason)
+orphaned: false                    # true when source was deleted and no other source contributes
+```
+
+**`provenance` values:**
+- `extracted` — content directly extracted from source material
+- `merged` — content combined from multiple sources
+- `inferred` — content synthesized or inferred (not directly stated in sources)
+- `ambiguous` — content with unclear or conflicting source support
+
+**`confidence` guidance:**
+- `1.0` — directly verbatim from source
+- `0.8–0.9` — well-supported by sources
+- `0.5–0.7` — partially supported, some inference needed
+- `<0.5` — flag for review, consider adding to `## Open Questions` instead
+
+## Claim-Level Citations
+
+In addition to page-level `sources:` in frontmatter, pages can use **inline claim citations** for paragraph-level provenance:
+
+- `^[raw/articles/source.md]` — cite an entire source file (use project-root-relative path)
+- `^[raw/articles/source.md:42-58]` — cite specific line range
+- `^[raw/articles/source.md:45]` — cite a single line
+
+For multiple sources, use separate citation markers rather than combining them in one bracket.
+
+Example in body:
+
+```markdown
+The transformer architecture uses self-attention to process sequences in parallel.^[raw/articles/attention-is-all-you-need.md]
+
+Key innovations include scaled dot-product attention^[raw/articles/attention-is-all-you-need.md:3-12] and multi-head attention^[raw/articles/attention-is-all-you-need.md].
+```
+
+Claim citations are validated by the linter (broken-citation and malformed-citation checks). Citations must use project-root-relative paths (e.g., `^[raw/articles/source.md]`) for unambiguous file resolution.
 
 ## Linking Conventions
 
 - **Internal links**: `[[Page Name]]` or `[[entities/transformer_model|Transformer Model]]`
 - **External links**: `[Text](https://example.com)`
+- **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]`
 - **Backlinks**: Automatically maintained by Obsidian
 
 ## File Formats
@@ -88,8 +136,16 @@ tags:
 ```markdown
 ---
 title: Entity Name
+summary: One-line description of this entity
 type: entity
-date: YYYY-MM-DD
+sources:
+  - raw/document/path/to/source.md or raw/web/path/to/source.md
+tags:
+  - topic1
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
+confidence: 0.9
+provenance: extracted
 ---
 
 # Entity Name
@@ -97,7 +153,7 @@ date: YYYY-MM-DD
 Brief definition/description.
 
 ## Key Facts
-- Fact 1
+- Fact 1^[raw/articles/source.md]
 - Fact 2
 
 ## Related
@@ -110,8 +166,16 @@ Brief definition/description.
 ```markdown
 ---
 title: Concept Name
+summary: One-line explanation of this concept
 type: concept
-date: YYYY-MM-DD
+sources:
+  - raw/document/path/to/source.md or ai-research/web/path/to/source.md
+tags:
+  - topic1
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
+confidence: 0.85
+provenance: merged
 ---
 
 # Concept Name
@@ -119,7 +183,7 @@ date: YYYY-MM-DD
 Explanation of the concept.
 
 ## Origins
-- When/where it was introduced
+- When/where it was introduced^[raw/articles/source.md:10-25]
 - Key contributors
 
 ## Applications
@@ -136,20 +200,24 @@ Explanation of the concept.
 ```markdown
 ---
 title: Source Title
+summary: One-line summary of this source document
 type: summary
-date: YYYY-MM-DD
 sources:
   - raw/document/path/to/source.md or raw/web/path/to/source.md or ai-research/web/path/to/source.md
+tags:
+  - topic1
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
 ---
 
 # Source Title
 
 ## Key Points
-- Point 1
+- Point 1^[raw/articles/source.md]
 - Point 2
 
 ## Quotes
-> "Important quote"
+> "Important quote"^[raw/articles/source.md:45]
 
 ## Notes
 Additional remarks.
@@ -160,8 +228,14 @@ Additional remarks.
 ```markdown
 ---
 title: Q: Original Question
+summary: One-line summary of the answer
 type: qanda
-date: YYYY-MM-DD
+sources:
+  - raw/document/path/to/source.md or ai-research/web/path/to/source.md
+tags:
+  - topic1
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
 ---
 
 # Q: Original Question
@@ -180,8 +254,16 @@ date: YYYY-MM-DD
 ```markdown
 ---
 title: Synthesis
+summary: Overarching thesis or summary of all knowledge
 type: synthesis
-date: YYYY-MM-DD
+sources:
+  - raw/document/path/to/source.md
+tags:
+  - topic1
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
+confidence: 0.7
+provenance: inferred
 ---
 
 # Synthesis

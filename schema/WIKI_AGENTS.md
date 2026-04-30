@@ -19,80 +19,23 @@ Most people use RAG: upload files, LLM retrieves chunks at query time, generates
 | Layer | Purpose | Who Owns |
 |-------|---------|----------|
 | **raw/** | Source documents (articles, papers, images, data) | Human (read-only for LLM) |
-| **raw/document/** | Document sources (papers, PDFs, datasets) | Human (read-only for LLM) |
-| **raw/web/** | Web sources (articles, repos, tweets) | Human (read-only for LLM) |
 | **ai-research/** | AI-discovered web sources (immutable once saved) | LLM-writes, then immutable |
-| **processed/** | Segmented markdown from large raw files (PDFs, long reports) | LLM |
-| **processed/document/** | Segmented document sources | LLM |
-| **processed/web/** | Segmented web sources | LLM |
+| **processed/** | Segmented markdown from large raw files | LLM |
 | **wiki/** | LLM-generated markdown files | LLM |
 | **schema/** | Configuration for LLM operations | Human |
 
-## Wiki Structure
-
-```
-raw/                        # Source documents (human-curated, read-only for LLM)
-├── articles/
-├── papers/
-├── repos/
-├── datasets/
-├── assets/                 # Images and attachments
-├── document/               #   Documents (papers, PDFs, datasets)
-├── web/                    #   Web sources (articles, repos, tweets)
-├── forum-thread/           #   Forum discussions
-└── transcripts/            #   Conversation transcripts
-
-ai-research/                # AI-discovered web sources (LLM-writes, immutable once saved)
-├── articles/
-├── papers/
-├── repos/
-├── datasets/
-├── assets/
-├── document/
-├── web/
-├── forum-thread/
-└── transcripts/
-
-processed/                  # Segmented markdown from large raw files
-├── articles/
-├── papers/
-├── repos/
-├── datasets/
-├── assets/
-├── document/               #   Segmented document sources
-├── web/                    #   Segmented web sources
-├── forum-thread/           #   Segmented forum discussions
-└── transcripts/            #   Segmented conversation transcripts
-
-wiki/                       # LLM-generated content
-├── index.md               # Catalog of all pages
-├── sources-manifest.md    # Source tracking: raw/processed paths → ingest status
-├── log.md                 # Chronological operation log
-├── synthesis.md           # Overarching thesis/summary
-├── concepts/              # Concept pages
-├── entities/              # Entity pages
-├── summaries/             # Source document summaries
-└── qanda/                 # Q&A articles
-```
+Full directory tree: see `schema/WIKI_SCHEMA.md` → Directory Structure.
 
 ## File Conventions
 
-### YAML Frontmatter (required for all wiki pages)
+### Frontmatter
 
-```yaml
----
-title: Page Title
-type: entity | concept | summary | qanda | index | manifest | synthesis | other
-date: YYYY-MM-DD
-sources:
-  - raw/document/path/to/source.md or raw/web/path/to/source.md
-tags:
-  - topic1
-  - topic2
----
-```
+All wiki pages require YAML frontmatter. See `schema/WIKI_SCHEMA.md` → Frontmatter Format for the full specification including required and optional provenance fields.
 
-### Page Naming
+Required: `title`, `summary`, `type`, `sources`, `tags`, `created`, `updated`.
+Optional: `confidence`, `provenance`, `contradictedBy`, `orphaned`.
+
+### Naming
 
 - **Entities**: snake_case (e.g., `entities/transformer_model.md`)
 - **Concepts**: snake_case (e.g., `concepts/attention_mechanism.md`)
@@ -103,60 +46,27 @@ tags:
 
 - **Internal**: `[[Page Name]]` or `[[entities/transformer_model|Transformer Model]]`
 - **External**: `[Text](https://example.com)`
+- **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` — see `schema/WIKI_SCHEMA.md` → Claim-Level Citations
 
 ## Operations
 
 ### 1. Ingest Workflow
 
-When the human says "Process this source" or "Ingest X":
+See `schema/WIKI_WORKFLOWS.md` → Ingest Workflow for the full 10-step process.
 
-0. **Check source size** (pre-processing) — If the file is a PDF, binary document, or exceeds ~3,000 words, invoke the document-processor agent to segment it into `processed/` first. Small markdown files go directly to step 1.
-1. **Read source** — from `raw/` for small files, or from `processed/` for segmented documents
-2. **Extract information**: entities, concepts, key claims, quotes
-3. **Write summary**: `wiki/summaries/[source-name].md` — link to `processed/` segments if applicable
-4. **Create/update entity pages**: `wiki/entities/[entity].md`
-5. **Create/update concept pages**: `wiki/concepts/[concept].md`
-6. **Update index.md**: Add entries for new pages
-7. **Update sources-manifest.md**: Add row with source path, status `ingested`, wiki page link, date
-8. **Update log.md**: Append entry with format `## [YYYY-MM-DD] ingest | Source Title`
-9. **Update cross-references**: Link related pages
-10. **Update synthesis.md**: If relevant to overarching theme
+Key additions: include `summary` in frontmatter, set `created`/`updated` timestamps, assign `confidence` and `provenance` during extraction, use claim citations for paragraph-level provenance.
 
 ### 2. Query Workflow
 
-When the human asks a question:
-
-1. **Read index.md** to find relevant pages
-2. **Read relevant pages** (3-10 typically)
-3. **Synthesize answer** with citations
-4. **Format output**: Markdown, table, slide deck (Marp), or chart
-5. **Optionally file back**: Create `wiki/qanda/[question].md` for valuable answers
+See `schema/WIKI_WORKFLOWS.md` → Query Workflow.
 
 ### 3. Lint Workflow
 
-When the human says "Run health check" or "Lint the wiki":
-
-Check for:
-- **Contradictions** between pages
-- **Stale claims** (superseded by newer sources)
-- **Orphan pages** (no inbound links)
-- **Missing entity pages** (mentions without their own page)
-- **Missing concept pages**
-- **Missing cross-references**
-- **Data gaps** (suggest web search to fill)
-- **Unsourced claims** (statements not traceable to raw/ or ai-research/ source)
+See `schema/WIKI_WORKFLOWS.md` → Lint Workflow for the full 12-check specification.
 
 ### 4. Research Workflow
 
-When a query reveals gaps or the human asks to research a topic:
-
-1. **Search the web** for relevant, high-quality sources
-2. **One source, one file** in `ai-research/` — never combine multiple URLs into one file
-3. Include frontmatter: `url`, `fetched`, `summary`
-4. Save FULL cleaned content, not summaries
-5. Do NOT overwrite existing files — always create new files
-6. **Run standard Ingest** to compile saved sources into `wiki/`
-7. A single wiki article can cite multiple `ai-research/` files in its `sources:` frontmatter
+See `schema/WIKI_WORKFLOWS.md` → Research Workflow.
 
 ## Key Principles
 
@@ -187,12 +97,28 @@ The wiki is designed to be viewed in Obsidian:
 - At **~100 sources, ~100 pages**: index.md is sufficient for retrieval
 - At **~2,000+ articles**: Consider adding hybrid RAG (e.g., qmd search engine)
 
-## Starting Point
+---
 
-The human has already set up:
-- Directory structure with `raw/`, `processed/`, and `wiki/` folders
-- Schema files
-- Empty wiki/index.md and wiki/log.md
-- Source documents in `raw/articles/`
+## Wiki Repair Agent
 
-The human will add more sources over time. Large files will be segmented into `processed/` before ingestion.
+**Role:** Act on lint findings to fix structural issues in existing wiki pages. The linter detects; the repairer resolves.
+
+**Scope:** External KB (`wiki/`) only.
+
+**When to invoke:** "Fix broken links", "Resolve orphans", "Repair lint errors", "Add backlinks", "Prune stubs"
+
+**Operations:**
+
+| Operation | What it does |
+|-----------|-------------|
+| `fix-broken-links` | Fix wikilinks pointing to non-existent targets (kebab→snake, missing path prefix, wrong type) |
+| `add-backlinks` | Add missing return links where A→B but B→A is absent |
+| `resolve-orphans` | Fix pages with zero inbound links — add links from topic-adjacent pages or flag for deletion |
+| `prune-stubs` | Mark or flag entity pages with <30 words and no source material for expansion or deletion |
+| `merge-duplicates` | Consolidate pages covering the same topic from the same sources with >70% overlap |
+| `validate-sources` | Fix frontmatter source paths that reference non-existent files or use wrong formats |
+| `fix-naming` | Rename files violating the naming convention (snake_case for entities/concepts, kebab-case for summaries/qanda) |
+
+**Key boundary:** Wiki-repair does NOT create new content from sources (that is wiki-maintainer's job). It only fixes structural defects in existing content.
+
+Full definition: `.claude/agents/wiki-repair.md`

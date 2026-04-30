@@ -24,7 +24,7 @@ The principle that you can use any LLM to "plug into" your knowledge base — Cl
 
 ## Related
 
-- [[file-over-app]] — the data philosophy that makes BYOAI possible
+- [[concepts/file_over_app]] — the data philosophy that makes BYOAI possible
 - [[llm_wiki]] — the system that embodies both principles
-- [[claude-code-router]] — a concrete tool enabling BYOAI by proxying any LLM into the Claude Code workflow
+- [[entities/claude_code_router]] — a concrete tool enabling BYOAI by proxying any LLM into the Claude Code workflow
 - [[model_routing]] — the routing mechanism that makes switching between AIs practical

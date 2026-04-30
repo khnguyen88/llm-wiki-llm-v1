@@ -25,5 +25,5 @@ Each cycle adds permanent structure. Cross-references, contradictions, and synth
 ## Related
 
 - [[llm_wiki]] — the system built on this principle
-- [[file-over-app]] — the data philosophy enabling compounding
-- [[claude-memory-compiler]] — implements the compounding loop via `--file-back` queries and auto-compilation
+- [[concepts/file_over_app]] — the data philosophy enabling compounding
+- [[summaries/claude-memory-compiler]] — implements the compounding loop via `--file-back` queries and auto-compilation

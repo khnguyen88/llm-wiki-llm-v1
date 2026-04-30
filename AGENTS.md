@@ -132,6 +132,8 @@ sources:
   - "daily/2026-04-03.md"
 created: 2026-04-01
 updated: 2026-04-03
+confidence: 0.9
+provenance: extracted
 ---
 
 # Concept Name
@@ -261,16 +263,20 @@ When processing a daily log:
 
 ### 3. Lint (Health Checks)
 
-Eight checks, run periodically:
+Twelve checks, run periodically. See the lint checks table in the Script Details section for the full specification.
 
-1. **Broken links** - `[[wikilinks]]` pointing to non-existent articles
-2. **Orphan pages** - Articles with zero inbound links from other articles
-3. **Orphan sources** - Daily logs not yet compiled, or raw/ai-research sources not yet ingested
-4. **Stale articles** - Source daily log changed since article was last compiled
-5. **Contradictions** - Conflicting claims across articles (requires LLM judgment)
-6. **Missing backlinks** - A links to B but B doesn't link back to A
-7. **Sparse articles** - Below 200 words, likely incomplete
-8. **Unsourced claims** - Statements not traceable to a raw/ or ai-research/ source file
+1. **Broken links** - `[[wikilinks]]` pointing to non-existent articles (error)
+2. **Orphan pages** - Articles with zero inbound links from other articles (warning). `orphaned: true` in frontmatter flags automatically.
+3. **Orphan sources** - Daily logs not yet compiled, or raw/ai-research sources not yet ingested (suggestion)
+4. **Stale articles** - Source daily log changed since article was last compiled (warning)
+5. **Missing backlinks** - A links to B but B doesn't link back to A (suggestion)
+6. **Sparse articles** - Below 200 words (suggestion), below 50 chars body (warning)
+7. **Unsourced claims** - Statements not traceable to a source file (daily logs for internal KB, raw/ or ai-research/ for external wiki) (warning)
+8. **Missing summary** - Empty or missing `summary` in frontmatter (suggestion)
+9. **Duplicate concept** - Multiple pages with same title case-insensitive (error)
+10. **Malformed citation** - `^[...]` with invalid syntax: non-numeric ranges, reversed ranges, missing brackets (error)
+11. **Broken citation** - `^[path/to/source.md]` referencing nonexistent file, or line ranges exceeding source length (error)
+12. **Contradictions** - Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
 
 Output: a markdown report with severity levels (error, warning, suggestion).
 
@@ -303,9 +309,10 @@ When a query reveals gaps the wiki cannot answer from existing sources, or the h
 
 - **Wikilinks:** Use Obsidian-style `[[path/to/article]]` without `.md` extension
 - **Writing style:** Encyclopedia-style, factual, third-person where appropriate
-- **Dates:** ISO 8601 (YYYY-MM-DD for dates, full ISO for timestamps in log.md)
+- **Dates:** ISO 8601 with timestamps for frontmatter (`"2026-04-05T12:00:00Z"`), date-only for log entries (`YYYY-MM-DD`)
 - **File naming:** lowercase, hyphens for spaces (e.g., `supabase-row-level-security.md`)
-- **Frontmatter:** Every article must have YAML frontmatter with at minimum: title, sources, created, updated
+- **Frontmatter:** Every article must have YAML frontmatter with at minimum: title, sources, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
+- **Claim citations:** `^[source.md]` or `^[source.md:42-58]` for paragraph-level provenance
 - **Sources:** Always link back to the daily log(s) that contributed to an article
 - **Never invent claims:** Every sentence in a wiki article must trace back to a source. Flag gaps in a `## Open Questions` section rather than filling them with speculation.
 - **Don't invent operations:** If the human asks something outside these defined rules, ask a clarifying question rather than silently inventing a new operation.
@@ -323,6 +330,7 @@ llm-wiki-llm-v1/
 |       |-- document-processor.md
 |       |-- knowledge-compiler.md
 |       |-- wiki-linter.md
+|       |-- wiki-repair.md
 |       |-- wiki-query.md
 |       |-- sync-check.md
 |       |-- context-loader.md
@@ -384,7 +392,7 @@ llm-wiki-llm-v1/
 |-- scripts/                         # CLI tools
 |   |-- compile.py                   #   Compile daily logs -> knowledge articles
 |   |-- query.py                     #   Ask questions (index-guided, no RAG)
-|   |-- lint.py                      #   7 health checks
+|   |-- lint.py                      #   12 health checks
 |   |-- flush.py                     #   Extract memories from conversations (background)
 |   |-- config.py                    #   Path constants
 |   |-- utils.py                     #   Shared helpers
@@ -520,7 +528,7 @@ With `--file-back`, creates a Q&A article in `knowledge/qa/` and updates the ind
 
 ### lint.py - Health Checks
 
-Seven checks:
+Twelve checks:
 
 | Check | Type | Catches |
 |-------|------|---------|
@@ -529,9 +537,13 @@ Seven checks:
 | Orphan sources | Structural | Daily logs not yet compiled |
 | Stale articles | Structural | Source logs changed since compilation |
 | Missing backlinks | Structural | A links to B but B doesn't link back |
-| Sparse articles | Structural | Under 200 words |
-| Contradictions | LLM | Conflicting claims across articles |
+| Sparse articles | Structural | Under 200 words (suggestion), under 50 chars body (warning) |
 | Unsourced claims | Structural | Statements not traceable to source file |
+| Missing summary | Structural | Empty or missing `summary` in frontmatter |
+| Duplicate concept | Structural | Multiple pages with same title case-insensitive |
+| Malformed citation | Structural | `^[...]` with invalid syntax |
+| Broken citation | Structural | `^[path/to/source.md]` referencing nonexistent file |
+| Contradictions | LLM | Conflicting claims across articles |
 
 **CLI:**
 ```bash

@@ -23,21 +23,31 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Identify entities (people, places, things, organizations)
    - Identify concepts (ideas, techniques, theories, methods)
    - Extract key claims, facts, and quotes
+   - Assign `confidence` (0.0–1.0) and `provenance` (extracted|merged|inferred|ambiguous) to extracted content
 
 3. **Write summary page**
    - Create `wiki/summaries/[source-title].md`
    - Include key points, quotes, and notes
-   - Add YAML frontmatter with source path (use `processed/` path for segmented documents)
+   - Add YAML frontmatter with all required fields (title, summary, type, sources, tags, created, updated)
+   - Add optional provenance fields (confidence, provenance, contradictedBy, orphaned) when applicable
+   - Use claim citations `^[source.md]` for paragraph-level provenance
    - Link to `processed/` segments if the source was segmented
 
 4. **Create/update entity pages**
    - For each identified entity, create or update `wiki/entities/[entity].md`
    - Add facts, relations to other entities
+   - Include `summary` in frontmatter (one-line description)
+   - Set `created`/`updated` timestamps (ISO 8601)
+   - When updating existing entities: set `provenance: merged` if combining multiple sources
    - Update existing entity if topic expands
 
 5. **Create/update concept pages**
    - For each identified concept, create or update `wiki/concepts/[concept].md`
    - Explain the concept, link to related entities
+   - Include `summary` in frontmatter (one-line description)
+   - Set `created`/`updated` timestamps (ISO 8601)
+   - When updating existing concepts: set `provenance: merged`, reconcile `confidence` (take minimum across sources)
+   - Use claim citations `^[source.md:line-range]` for specific extracted claims
    - Update existing concept if new information emerges
 
 6. **Update index**
@@ -110,42 +120,65 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 **Checks**:
 
-1. **Broken links**
+1. **Broken links** (error)
    - Find `[[wikilinks]]` pointing to non-existent articles
-   - Report with severity: error
 
-2. **Orphan pages**
+2. **Orphan pages** (warning)
    - Find pages with zero inbound links from other articles
-   - Report with severity: warning (may be intentional)
+   - Pages with `orphaned: true` in frontmatter are flagged automatically
 
-3. **Orphan sources**
+3. **Orphan sources** (suggestion)
    - Find source documents in `raw/` or `ai-research/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki
    - Cross-check against `wiki/sources-manifest.md` for tracking
-   - Report with severity: suggestion
 
-4. **Stale articles**
-   - Find articles whose source has changed since compilation
-   - Report with severity: warning
+4. **Stale articles** (warning)
+   - Find articles whose source has changed since compilation (compare hashes/timestamps)
 
-5. **Contradictions**
-   - Compare claims across pages for conflicts
-   - Requires LLM judgment
-   - Report with severity: error
-
-6. **Missing backlinks**
+5. **Missing backlinks** (suggestion)
    - Find A links to B but B doesn't link back to A
-   - Report with severity: suggestion
 
-7. **Sparse articles**
-   - Find articles under 200 words
-   - Likely incomplete
-   - Report with severity: suggestion
+6. **Sparse articles** (suggestion for <200 words, warning for <50 chars body)
+   - Find articles under 200 words (likely incomplete)
+   - Flag body under 50 characters as a stronger warning (essentially empty)
 
-8. **Unsourced claims**
+7. **Unsourced claims** (warning)
    - Find statements in wiki articles not traceable to a `raw/` or `ai-research/` source file
-   - Report with severity: warning
+
+8. **Missing summary** (suggestion)
+   - Find pages with empty or missing `summary` in frontmatter
+
+9. **Duplicate concept** (error)
+   - Find multiple pages with the same title (case-insensitive comparison)
+
+10. **Malformed citation** (error)
+    - Find `^[...]` claim citation markers with invalid syntax: non-numeric line ranges, reversed ranges, missing brackets
+
+11. **Broken citation** (error)
+    - Find `^[source.md]` references pointing to nonexistent source files
+    - Citations must use paths relative to the project root (e.g., `^[raw/articles/source.md]`) for unambiguous resolution
+    - Find claim citations with line ranges exceeding source file length
+
+12. **Contradictions** (error, requires LLM judgment)
+    - Compare claims across pages for conflicts
+    - When found, add `contradictedBy` to frontmatter of affected pages
 
 **Output**: Report of issues found with severity levels (error, warning, suggestion)
+
+---
+
+## 3b. Repair Workflow
+
+**Purpose**: Act on lint findings to fix structural issues in the wiki.
+
+**Trigger**: Human prompts "Fix broken links", "Resolve orphans", "Repair lint errors"
+
+**Agent**: wiki-repair (see `.claude/agents/wiki-repair.md`)
+
+**Operations**: fix-broken-links, add-backlinks, resolve-orphans, prune-stubs, merge-duplicates, validate-sources, fix-naming
+
+**Boundary**: The repair agent fixes structural defects in existing pages. It does NOT create new content from sources (that is wiki-maintainer's job during ingest). It does NOT run lint checks (that is wiki-linter's job).
+
+**Output**: Changes to wiki files, updated lint score, log entry in `wiki/log.md`
 
 ---
 

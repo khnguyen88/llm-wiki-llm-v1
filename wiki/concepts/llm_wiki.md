@@ -33,8 +33,8 @@ Works well at ~100 sources / hundreds of pages using index-guided retrieval. At 
 
 ## Related
 
-- [[compound-knowledge]] — the compounding mechanism
-- [[index-guided-retrieval]] — the retrieval strategy
-- [[file-over-app]] — the data philosophy
+- [[concepts/compound_knowledge]] — the compounding mechanism
+- [[concepts/index_guided_retrieval]] — the retrieval strategy
+- [[concepts/file_over_app]] — the data philosophy
 - [[memex]] — the historical precedent
-- [[claude-memory-compiler]] — a reference implementation of the LLM Wiki pattern for conversation-based compilation
+- [[summaries/claude-memory-compiler]] — a reference implementation of the LLM Wiki pattern for conversation-based compilation

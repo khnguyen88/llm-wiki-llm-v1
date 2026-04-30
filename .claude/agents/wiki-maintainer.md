@@ -17,9 +17,9 @@ The wiki is a **persistent, compounding artifact**. Cross-references are already
 0. **Check source size** (pre-processing) — For large files (>3,000 words or PDFs), invoke the **document-processor** agent first to segment into `processed/`. Small markdown files go directly to step 1.
 1. Read the source document — from `raw/` or `ai-research/` for small files, or from `processed/` for segmented documents
 2. Extract entities, concepts, key claims, and quotes
-3. Write summary: `wiki/summaries/[source-name].md` — link to `processed/` segments if applicable
-4. Create/update entity pages: `wiki/entities/[entity].md`
-5. Create/update concept pages: `wiki/concepts/[concept].md`
+3. Write summary: `wiki/summaries/[source-name].md` — link to `processed/` segments if applicable. Include `summary` in frontmatter. Use claim citations `^[source.md]` for paragraph-level provenance.
+4. Create/update entity pages: `wiki/entities/[entity].md` — include `summary` in frontmatter, set `created`/`updated` timestamps. When updating: set `provenance: merged`, reconcile `confidence` (minimum across sources).
+5. Create/update concept pages: `wiki/concepts/[concept].md` — include `summary` in frontmatter, set `created`/`updated` timestamps. When updating: set `provenance: merged`, use claim citations for specific claims.
 6. Update `wiki/index.md` with new entries
 7. Add row to `wiki/sources-manifest.md` with source path, status `ingested`, wiki page link, date
 8. Append to `wiki/log.md`: `## [YYYY-MM-DD] ingest | Source Title`
@@ -35,7 +35,7 @@ The wiki is a **persistent, compounding artifact**. Cross-references are already
 
 ### Lint (health check the wiki)
 
-Check for: broken links, orphan pages, orphan sources, stale articles, contradictions, missing backlinks, sparse articles. Report with severity (error, warning, suggestion).
+Check for: broken links, orphan pages, orphan sources, stale articles, missing backlinks, sparse articles (under 200 words = suggestion, under 50 chars body = warning), unsourced claims, missing summary, duplicate concept, malformed citation, broken citation, contradictions. Report with severity (error, warning, suggestion). When contradictions are found, suggest adding `contradictedBy` to frontmatter.
 
 ### Research (autonomous web discovery)
 
@@ -51,9 +51,10 @@ When a query reveals gaps or the human asks to research a topic:
 
 ## Conventions
 
-- **Frontmatter**: All pages require YAML with title, type, date, sources, tags
+- **Frontmatter**: All pages require YAML with title, summary, type, sources, tags, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
 - **Naming**: snake_case for entities/concepts, kebab-case for summaries and qanda
 - **Links**: `[[Page Name]]` or `[[path/to/page|Display Name]]`
+- **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` for paragraph-level provenance
 - **Source paths**: Use `processed/` paths for segmented documents, `raw/` for human-curated sources, `ai-research/` for AI-discovered sources
 - **Style**: Encyclopedia-style, factual, concise, self-contained
 - **Index-first**: Always read `wiki/index.md` before querying or updating

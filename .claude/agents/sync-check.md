@@ -47,10 +47,11 @@ CLI commands referenced in any file must match actual scripts in `scripts/`. Che
 
 Naming and format conventions must be consistent across all files:
 - Wikilink format: `[[path/to/article]]` (no `.md`)
-- Frontmatter fields: title, type, date, sources, tags
+- Frontmatter fields: title, summary, type, sources, tags, created, updated (optional: confidence, provenance, contradictedBy, orphaned)
 - File naming: snake_case for entities/concepts, kebab-case for summaries/qanda
+- Claim citation syntax: `^[path/to/source.md]` or `^[path/to/source.md:42-58]`
 - Processed file naming: `{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md`
-- Dates: ISO 8601
+- Dates: ISO 8601 with timestamps for frontmatter, date-only for log entries
 
 ### 5. Processed/ pipeline
 

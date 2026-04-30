@@ -32,6 +32,7 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 | `document-processor` | Files >3,000 words or PDFs                                   |
 | `knowledge-compiler` | "Compile daily logs"                                         |
 | `wiki-linter`        | "Lint the wiki", "Run health check"                          |
+| `wiki-repair`        | "Fix broken links", "Resolve orphans", "Repair lint errors"  |
 | `wiki-query`         | Questions about compiled knowledge                           |
 | `sync-check`         | After structural changes to dirs/schemas/agents              |
 | `context-loader`     | "Load rules for X", "Audit CLAUDE.md", "Guard prompt health" |
@@ -43,9 +44,11 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 - Never invent claims — flag gaps in `## Open Questions` instead
 - Don't invent operations — ask for clarification when outside defined rules
 - Wikilinks: `[[path/to/article]]` (no `.md`)
-- Frontmatter required on all wiki pages (title, type, date, sources, tags)
+- Claim citations: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` for paragraph-level provenance
+- Frontmatter required on all wiki pages (title, summary, type, sources, tags, created, updated)
+- Optional provenance fields: confidence, provenance, contradictedBy, orphaned
 - Naming: snake_case for entities/concepts, kebab-case for summaries/qanda
-- Dates: ISO 8601 (YYYY-MM-DD)
+- Dates: ISO 8601 with timestamps (`"2026-04-05T12:00:00Z"`)
 - Style: encyclopedia-style, factual, concise
 
 ## On-Demand Details

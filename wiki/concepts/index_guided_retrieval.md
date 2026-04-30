@@ -26,4 +26,4 @@ At ~2,000+ articles / ~2M+ tokens, the index exceeds the context window. At that
 ## Related
 
 - [[llm_wiki]] — the system that uses this retrieval
-- [[compound-knowledge]] — the compounding loop that makes retrieval effective
+- [[concepts/compound_knowledge]] — the compounding loop that makes retrieval effective
