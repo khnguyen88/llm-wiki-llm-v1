@@ -216,7 +216,47 @@ Both knowledge bases work natively in Obsidian:
 
 **The key difference**: The wiki is a **persistent, compounding artifact**. The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've read. The wiki keeps getting richer with every source you add and every question you ask.
 
-## How to get started
+---
+
+## Sources & Integration
+
+This project fuses four open-source projects, each contributing a distinct layer:
+
+### 1. Karpathy's LLM Wiki Pattern (Base)
+
+- [Karpathy's LLM Wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) / [Original tweet](https://x.com/karpathy/status/2039805659525644595)
+
+**What it added:** The foundational insight and folder structure. No RAG — the LLM reads a structured index to find relevant articles. The `raw/` → `wiki/` pipeline, wiki page types (entities, concepts, summaries, qanda), `index.md` as the retrieval hub, and `log.md` for audit trail all come from this pattern. The wiki-maintainer agent role and the principle that the LLM owns `wiki/` while humans own `raw/` are also Karpathy's.
+
+**Why we integrated it:** At personal scale (50-500 articles), index-guided retrieval outperforms vector similarity because the LLM understands what you're asking, not just what words look similar. This is the core thesis the entire project is built on.
+
+### 2. Cole Medin's claude-memory-compiler (Internal KB)
+
+- [github.com/coleam00/claude-memory-compiler](https://github.com/coleam00/claude-memory-compiler) / [YouTube walkthrough](https://www.youtube.com/watch?v=7huCP6RkcY4)
+
+**What it added:** The `daily/` → `knowledge/` pipeline and all supporting infrastructure. This includes: Claude Code hooks (`session-start.py`, `session-end.py`, `pre-compact.py`) that automatically capture conversations; `flush.py` for background memory extraction; `compile.py` for compiling daily logs into knowledge articles; `query.py` and `lint.py` as CLI tools; `AGENTS.md` as the internal KB schema; the `knowledge-compiler` agent; and the concept that conversations are "source code" and `knowledge/` is the "executable."
+
+**Why we integrated it:** Karpathy's pattern handles external sources only. Cole's system adds the missing half — automatically capturing and compiling your own AI conversations into a searchable internal KB, then injecting that context back into future sessions.
+
+### 3. Atomic Memory's llm-wiki-compiler (Schema & Quality)
+
+- [github.com/atomicmemory/llm-wiki-compiler](https://github.com/atomicmemory/llm-wiki-compiler)
+
+**What it added:** Enhanced frontmatter with `summary`, `created`/`updated` timestamps, `confidence` (0-1), `provenance` (extracted|merged|inferred|ambiguous), `contradictedBy`, and `orphaned` fields. Claim-level citations (`^[raw/articles/source.md]`, `^[raw/articles/source.md:42-58]`). Expanded the linter from 8 to 12 checks (added: missing summary, duplicate concept, malformed citation, broken citation). The `wiki-linter`, `sync-check`, and `context-loader` agents. The `sources-manifest.md` tracking file and the `document-processor` agent for segmenting large files.
+
+**Why we integrated it:** Karpathy's pattern has no quality gates. Atomic Memory adds provenance tracking (where a claim came from, how confident it is, whether it's been contradicted) and a linter that catches stale, orphaned, or contradictory content — essential when the wiki compounds over time.
+
+### 4. Josh Pocock's karpathy-obsidian-vault (Visualization)
+
+- [github.com/joshpocock/karpathy-obsidian-vault](https://github.com/joshpocock/karpathy-obsidian-vault)
+
+**What it added:** The `ai-research/` directory — a separate namespace for AI-discovered web sources, distinct from user-curated `raw/` files. This separation makes it clear what the human added vs. what the LLM found autonomously. Also added Obsidian-specific conventions — wikilink format `[[path/to/article]]`, Dataview frontmatter queries, Marp slide generation, graph view integration, and backlink navigation. The directory naming and frontmatter structure are designed to work natively inside Obsidian as a vault.
+
+**Why we integrated it:** Distinguishing human-curated sources from AI-discovered ones prevents trust confusion — you always know which claims came from your own research vs. LLM web searches. Obsidian turns the compiled knowledge into something you can explore visually via graph view, backlinks, and Dataview.
+
+---
+
+## How to Get Started
 
 ### Github Repo
 
@@ -235,40 +275,59 @@ Both knowledge bases work natively in Obsidian:
 
 ### Karpathy LLM Wiki / Vault Template
 
--
-
 #### Why
 
 - This is the basis of our Karpathy LLM Project Folder. This folder contains markdown files that an LLM harness can use to build up the project infrastructure
 
 - We use a template to ensure that it is consistent throughout the project
 
-### Karpathy Base
+#### Steps
 
 - In the project folder create a directory called "init_source"
 
 - Download these files into the directory:
     - [Karpathy's Wiki LLM markdown](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
     - [Karpathy's Original Tweet on Wiki LLM](https://x.com/i/flow/login?redirect_after_login=%2Fkarpathy%2Fthread%2F20398056595256445950)
-    -
 
-- Youtube video - https://www.youtube.com/watch?v=7huCP6RkcY4
-
-### Karpathy Extension (Cole Medin Extension)
+### Cole Medin Extension (claude-memory-compiler)
 
 #### Why
 
-- Expands Karpathy's Wiki LLM to extrapolate, log, and summarize daily work activites
+- Expands Karpathy's Wiki LLM to extrapolate, log, and summarize daily work activites. It also has tools and hooks for linting the wiki and maintaining the integrity of the links.
 
 #### Steps
 
-- Download files from [Cole Medin's Karpathy LLM Repo](https://github.com/coleam00/claude-memory-compiler)
+- Download files from [Cole Medin's Claude Memory Compiler Repo](https://github.com/coleam00/claude-memory-compiler)
 
 * Tell your AI coding agent / harness:
 
     > "Clone https://github.com/coleam00/claude-memory-compiler into this project. Set up the Claude Code hooks so my conversations automatically get captured into daily logs, compiled into a knowledge base, and injected back into future sessions. Read the AGENTS.md for the full technical reference on how everything works."
 
 - Youtube video - https://www.youtube.com/watch?v=7huCP6RkcY4
+
+### Atomic Memory Extension (llm-wiki-compiler)
+
+#### Why
+
+- Enhances linting and review with structured page metadata (confidence, provenance, contradiction tracking), claim-level citations, and 4 additional lint checks (missing summary, duplicate concept, malformed citation, broken citation). No CLI or MCP integration — pure schema and agent enhancements.
+
+#### Steps
+
+- Download ideas from [Atomic Memory's LLM Wiki Compiler Repo](https://github.com/atomicmemory/llm-wiki-compiler)
+
+* Integrated features (no code installation required):
+
+    > Enhanced frontmatter with `summary`, `created`/`updated` ISO 8601 timestamps, `confidence` (0-1), `provenance` (extracted|merged|inferred|ambiguous), `contradictedBy` (page slugs), and `orphaned` (boolean). Added claim-level citations (`^[raw/articles/source.md]`, `^[raw/articles/source.md:42-58]`). Expanded linter from 8 to 12 checks.
+
+### Josh Pocock Extension (karpathy-obsidian-vault)
+
+#### Why
+
+- Provides the `ai-research/` directory convention for separating human-curated sources from AI-discovered ones, and Obsidian vault integration for visual exploration.
+
+#### Steps
+
+- Download files from [Josh Pocock's karpathy-obsidian-vault Repo](https://github.com/joshpocock/karpathy-obsidian-vault)
 
 ### Obsidian
 
