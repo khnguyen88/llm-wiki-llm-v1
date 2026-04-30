@@ -16,6 +16,17 @@ raw/              # Source documents (immutable)
   forum-thread/   # Forum discussions
   transcripts/    # Conversation transcripts
 
+ai-research/      # AI-discovered web sources (LLM-writes, immutable once saved)
+  articles/
+  papers/
+  repos/
+  datasets/
+  assets/
+  document/
+  web/
+  forum-thread/
+  transcripts/
+
 processed/        # Segmented markdown from large raw files
   articles/       # Segmented articles
   papers/         # Segmented papers
@@ -57,7 +68,7 @@ title: Page Title
 type: entity | concept | summary | qanda | index | manifest | synthesis | other
 date: YYYY-MM-DD
 sources:
-  - raw/document/path/to/source.md or raw/web/path/to/source.md
+  - raw/document/path/to/source.md or raw/web/path/to/source.md or ai-research/web/path/to/source.md
 tags:
   - topic1
   - topic2
@@ -128,7 +139,7 @@ title: Source Title
 type: summary
 date: YYYY-MM-DD
 sources:
-  - raw/document/path/to/source.md or raw/web/path/to/source.md
+  - raw/document/path/to/source.md or raw/web/path/to/source.md or ai-research/web/path/to/source.md
 ---
 
 # Source Title
@@ -189,6 +200,25 @@ date: YYYY-MM-DD
 - Question 1
 - Question 2
 ```
+
+### AI-Research Source Files (`ai-research/`)
+
+When the LLM conducts autonomous web research, save full cleaned source content here:
+
+```markdown
+---
+url: https://example.com/article
+fetched: YYYY-MM-DD
+summary: One-line description of what this source covers
+---
+
+[Full article content in markdown, cleaned, not summarized]
+```
+
+- One source, one file — never combine multiple URLs into one file
+- File names: lowercase hyphenated (e.g., `ai-research/web/qmd-github-readme.md`)
+- Immutable once saved — do not overwrite, create new files
+- These are the source of truth for citation verification
 
 ## Index Format
 

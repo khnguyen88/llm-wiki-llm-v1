@@ -21,6 +21,7 @@ Most people use RAG: upload files, LLM retrieves chunks at query time, generates
 | **raw/** | Source documents (articles, papers, images, data) | Human (read-only for LLM) |
 | **raw/document/** | Document sources (papers, PDFs, datasets) | Human (read-only for LLM) |
 | **raw/web/** | Web sources (articles, repos, tweets) | Human (read-only for LLM) |
+| **ai-research/** | AI-discovered web sources (immutable once saved) | LLM-writes, then immutable |
 | **processed/** | Segmented markdown from large raw files (PDFs, long reports) | LLM |
 | **processed/document/** | Segmented document sources | LLM |
 | **processed/web/** | Segmented web sources | LLM |
@@ -40,6 +41,17 @@ raw/                        # Source documents (human-curated, read-only for LLM
 ├── web/                    #   Web sources (articles, repos, tweets)
 ├── forum-thread/           #   Forum discussions
 └── transcripts/            #   Conversation transcripts
+
+ai-research/                # AI-discovered web sources (LLM-writes, immutable once saved)
+├── articles/
+├── papers/
+├── repos/
+├── datasets/
+├── assets/
+├── document/
+├── web/
+├── forum-thread/
+└── transcripts/
 
 processed/                  # Segmented markdown from large raw files
 ├── articles/
@@ -132,14 +144,29 @@ Check for:
 - **Missing concept pages**
 - **Missing cross-references**
 - **Data gaps** (suggest web search to fill)
+- **Unsourced claims** (statements not traceable to raw/ or ai-research/ source)
+
+### 4. Research Workflow
+
+When a query reveals gaps or the human asks to research a topic:
+
+1. **Search the web** for relevant, high-quality sources
+2. **One source, one file** in `ai-research/` — never combine multiple URLs into one file
+3. Include frontmatter: `url`, `fetched`, `summary`
+4. Save FULL cleaned content, not summaries
+5. Do NOT overwrite existing files — always create new files
+6. **Run standard Ingest** to compile saved sources into `wiki/`
+7. A single wiki article can cite multiple `ai-research/` files in its `sources:` frontmatter
 
 ## Key Principles
 
-1. **LLM owns the wiki and processed/** - Human curates sources; LLM maintains wiki and segmented files
+1. **LLM owns the wiki, processed/, and ai-research/** - Human curates raw/ sources; LLM maintains wiki, segmented files, and AI-discovered sources
 2. **Compounding knowledge** - Everything adds up over time
 3. **Explicit over implicit** - You see exactly what the LLM knows
 4. **File over app** - Simple markdown files, universal format
 5. **BYOAI** - Works with any LLM (Claude, Codex, etc.)
+6. **Never invent claims** - Flag gaps in `## Open Questions` rather than speculating
+7. **Don't invent operations** - Ask for clarification when outside defined rules
 
 ## Obsidian Integration
 

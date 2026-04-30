@@ -19,6 +19,20 @@ INDEX_FILE = KNOWLEDGE_DIR / "index.md"
 LOG_FILE = KNOWLEDGE_DIR / "log.md"
 STATE_FILE = SCRIPTS_DIR / "state.json"
 
+# External KB paths
+WIKI_DIR = ROOT_DIR / "wiki"
+WIKI_CONCEPTS_DIR = WIKI_DIR / "concepts"
+WIKI_ENTITIES_DIR = WIKI_DIR / "entities"
+WIKI_SUMMARIES_DIR = WIKI_DIR / "summaries"
+WIKI_QANDA_DIR = WIKI_DIR / "qanda"
+WIKI_INDEX_FILE = WIKI_DIR / "index.md"
+WIKI_SOURCES_MANIFEST_FILE = WIKI_DIR / "sources-manifest.md"
+WIKI_LOG_FILE = WIKI_DIR / "log.md"
+
+RAW_DIR = ROOT_DIR / "raw"
+AI_RESEARCH_DIR = ROOT_DIR / "ai-research"
+PROCESSED_DIR = ROOT_DIR / "processed"
+
 # ── Timezone ───────────────────────────────────────────────────────────
 TIMEZONE = "America/Chicago"
 

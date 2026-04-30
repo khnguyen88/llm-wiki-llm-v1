@@ -14,7 +14,7 @@ Run these checks against both `wiki/` and `knowledge/`:
 
 1. **Broken links** (error) — `[[wikilinks]]` pointing to non-existent files
 2. **Orphan pages** (warning) — Articles with zero inbound links from other articles
-3. **Orphan sources** (suggestion) — Source documents in `raw/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki. Cross-check against `wiki/sources-manifest.md` for tracking
+3. **Orphan sources** (suggestion) — Source documents in `raw/` or `ai-research/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki. Cross-check against `wiki/sources-manifest.md` for tracking
 4. **Stale articles** (warning) — Source changed since article was last compiled (compare hashes/timestamps)
 5. **Missing backlinks** (suggestion) — A links to B but B doesn't link back to A
 6. **Sparse articles** (suggestion) — Articles under 200 words, likely incomplete
@@ -22,6 +22,7 @@ Run these checks against both `wiki/` and `knowledge/`:
 ### LLM Judgment Check
 
 7. **Contradictions** (error) — Conflicting claims across articles. Requires reading multiple articles and reasoning about whether claims are truly incompatible.
+8. **Unsourced claims** (warning) — Statements in wiki articles that do not trace back to a `raw/` or `ai-research/` source file, or claims that do not appear in the cited source.
 
 ## Output Format
 
@@ -50,6 +51,8 @@ Generate a markdown report with severity levels:
 ```bash
 uv run python scripts/lint.py                    # all checks (both KBs)
 uv run python scripts/lint.py --structural-only  # skip contradiction check (free)
+uv run python scripts/lint.py --kb internal      # internal KB only
+uv run python scripts/lint.py --kb external      # external KB only
 ```
 
 Reports save to `reports/lint-YYYY-MM-DD.md`.
@@ -60,3 +63,5 @@ Reports save to `reports/lint-YYYY-MM-DD.md`.
 - For contradictions, quote the conflicting text verbatim so the human can judge
 - Suggest specific fixes where obvious (e.g., "create missing entity page", "add backlink")
 - Prioritize errors > warnings > suggestions
+- Never invent claims — flag gaps rather than speculating in reports
+- Don't invent operations — ask for clarification when outside defined rules

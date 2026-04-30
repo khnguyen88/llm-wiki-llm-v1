@@ -38,15 +38,16 @@ queries      = runtime      (using the knowledge)
 4. Synthesize answer with `[[wikilink]]` citations
 5. If `--file-back`: create `knowledge/qa/` article, update index.md and log.md
 
-### Lint (7 health checks)
+### Lint (8 health checks)
 
 1. **Broken links** — `[[wikilinks]]` to non-existent articles (error)
 2. **Orphan pages** — Articles with zero inbound links (warning)
-3. **Orphan sources** — Daily logs not yet compiled (suggestion)
+3. **Orphan sources** — Daily logs not yet compiled, or raw/ai-research sources not yet ingested (suggestion)
 4. **Stale articles** — Source log changed since compilation (warning)
 5. **Missing backlinks** — A links to B but B doesn't link back (suggestion)
 6. **Sparse articles** — Under 200 words, likely incomplete (suggestion)
 7. **Contradictions** — Conflicting claims across articles (error, requires LLM judgment)
+8. **Unsourced claims** — Statements not traceable to a source file (warning)
 
 ## Article Formats
 
@@ -83,3 +84,5 @@ Filed answers with: question, consulted articles, answer with citations, follow-
 - **Frontmatter**: Every article must have YAML (title, sources, created, updated at minimum)
 - **Sources**: Always link back to contributing daily logs
 - **Prefer updating** existing articles over creating near-duplicates
+- **Never invent claims**: Flag gaps in `## Open Questions` rather than speculating
+- **Don't invent operations**: Ask for clarification when outside defined rules

@@ -1,6 +1,6 @@
 # Wiki Workflows - External Knowledge Base
 
-This file defines the three core operations: Ingest, Query, and Lint for the external knowledge base.
+This file defines the four core operations: Ingest, Query, Lint, and Research for the external knowledge base.
 
 ---
 
@@ -8,7 +8,7 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
 
 **Purpose**: Process a new source document into the wiki.
 
-**Trigger**: Human adds file to `raw/` (any subfolder: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) and prompts "Process this source"
+**Trigger**: Human adds file to `raw/` or `ai-research/` (any subfolder: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) and prompts "Process this source"
 
 **Steps**:
 
@@ -17,7 +17,7 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
    - Small markdown files go directly to step 1
 
 1. **Read source document**
-   - Load the file from `raw/` (small files) or `processed/` (segmented documents)
+   - Load the file from `raw/` or `ai-research/` (small files) or `processed/` (segmented documents)
 
 2. **Extract key information**
    - Identify entities (people, places, things, organizations)
@@ -119,7 +119,7 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
    - Report with severity: warning (may be intentional)
 
 3. **Orphan sources**
-   - Find source documents in `raw/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki
+   - Find source documents in `raw/` or `ai-research/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki
    - Cross-check against `wiki/sources-manifest.md` for tracking
    - Report with severity: suggestion
 
@@ -141,7 +141,35 @@ This file defines the three core operations: Ingest, Query, and Lint for the ext
    - Likely incomplete
    - Report with severity: suggestion
 
+8. **Unsourced claims**
+   - Find statements in wiki articles not traceable to a `raw/` or `ai-research/` source file
+   - Report with severity: warning
+
 **Output**: Report of issues found with severity levels (error, warning, suggestion)
+
+---
+
+## 4. Research Workflow
+
+**Purpose**: Fill knowledge gaps by discovering and saving web sources.
+
+**Trigger**: Human asks to research a topic, or a query reveals gaps the wiki cannot answer from existing sources.
+
+**Steps**:
+
+1. **Search the web** for relevant, high-quality sources on the topic
+2. **Save each source as a separate file** in `ai-research/` (one source, one file)
+   - Include frontmatter: `url`, `fetched` date, `summary`
+   - Save the FULL cleaned content, not a summary
+   - Use lowercase hyphenated file names (e.g., `ai-research/web/topic-source-name.md`)
+   - Do NOT overwrite existing files — always create new files
+3. **Ingest saved sources** into `wiki/` using the standard Ingest workflow
+   - A single wiki article can cite multiple `ai-research/` files in its frontmatter `sources:` field
+   - The wiki article is where summarization happens, not `ai-research/`
+4. **Log the operation** in `wiki/log.md`:
+   - Format: `## [YYYY-MM-DD] research | Topic Name | ai-research/path/to/source.md`
+
+**Output**: New source files in `ai-research/`, new/updated wiki pages, updated index and manifest
 
 ---
 

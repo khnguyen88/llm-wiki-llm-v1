@@ -48,6 +48,8 @@ uv run python scripts/query.py "question" --file-back  # save answer back to KB
 ## Guidelines
 
 - Always start from the index — never scan directories blindly
-- If the KB doesn't have enough to answer, say so and suggest sources to ingest from `raw/` (subfolders: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) or `processed/`
+- If the KB doesn't have enough to answer, say so and suggest sources to ingest from `raw/` or `ai-research/` (subfolders: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) or `processed/`
 - Distinguish between what the KB says vs. your general knowledge
+- Never invent claims — flag gaps in `## Open Questions` rather than speculating
+- Don't invent operations — ask for clarification when outside defined rules
 - When filing back, follow the Q&A article format with frontmatter

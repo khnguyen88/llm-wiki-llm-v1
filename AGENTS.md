@@ -261,17 +261,41 @@ When processing a daily log:
 
 ### 3. Lint (Health Checks)
 
-Seven checks, run periodically:
+Eight checks, run periodically:
 
 1. **Broken links** - `[[wikilinks]]` pointing to non-existent articles
 2. **Orphan pages** - Articles with zero inbound links from other articles
-3. **Orphan sources** - Daily logs that haven't been compiled yet
+3. **Orphan sources** - Daily logs not yet compiled, or raw/ai-research sources not yet ingested
 4. **Stale articles** - Source daily log changed since article was last compiled
 5. **Contradictions** - Conflicting claims across articles (requires LLM judgment)
 6. **Missing backlinks** - A links to B but B doesn't link back to A
 7. **Sparse articles** - Below 200 words, likely incomplete
+8. **Unsourced claims** - Statements not traceable to a raw/ or ai-research/ source file
 
 Output: a markdown report with severity levels (error, warning, suggestion).
+
+### 4. Research (autonomous web discovery)
+
+When a query reveals gaps the wiki cannot answer from existing sources, or the human asks to research a topic:
+
+1. Search the web for relevant, high-quality sources on the topic
+2. **One source, one file.** For each URL found, save it as its OWN markdown file in `ai-research/`. Do NOT combine multiple sources into one file. Use this format for each:
+
+   ```
+   ---
+   url: https://example.com/article
+   fetched: YYYY-MM-DD
+   summary: One-line description of what this source covers
+   ---
+
+   [Full article content in markdown, cleaned, not summarized]
+   ```
+
+3. File names: lowercase hyphenated, e.g., `ai-research/web/qmd-github-readme.md`
+4. Save the FULL cleaned content from each source, not a summary. The wiki article is where summarization happens, not here. These files are the source of truth for citation verification.
+5. Do NOT overwrite existing files in `ai-research/`. Always create new files.
+6. After saving ALL sources, run the standard Ingest procedure to compile them into `wiki/`. A single wiki article can cite multiple `ai-research/` files in its frontmatter `sources:` field.
+7. In the wiki article's sources, list every `ai-research/` file used so lint can verify each claim back to its original source.
 
 ---
 
@@ -283,6 +307,8 @@ Output: a markdown report with severity levels (error, warning, suggestion).
 - **File naming:** lowercase, hyphens for spaces (e.g., `supabase-row-level-security.md`)
 - **Frontmatter:** Every article must have YAML frontmatter with at minimum: title, sources, created, updated
 - **Sources:** Always link back to the daily log(s) that contributed to an article
+- **Never invent claims:** Every sentence in a wiki article must trace back to a source. Flag gaps in a `## Open Questions` section rather than filling them with speculation.
+- **Don't invent operations:** If the human asks something outside these defined rules, ask a clarifying question rather than silently inventing a new operation.
 
 ---
 
@@ -299,6 +325,7 @@ llm-wiki-llm-v1/
 |       |-- wiki-linter.md
 |       |-- wiki-query.md
 |       |-- sync-check.md
+|       |-- context-loader.md
 |-- .gitignore                       # Excludes runtime state, temp files, caches
 |-- AGENTS.md                        # This file - schema + full technical reference
 |-- CLAUDE.md                        # Project instructions for Claude Code sessions
@@ -314,6 +341,16 @@ llm-wiki-llm-v1/
 |   |-- web/                         #   Web sources (articles, repos, tweets)
 |   |-- forum-thread/               #   Forum discussions
 |   |-- transcripts/                #   Conversation transcripts
+|-- ai-research/                     # AI-discovered web sources (LLM-writes, immutable once saved)
+|   |-- articles/
+|   |-- papers/
+|   |-- repos/
+|   |-- datasets/
+|   |-- assets/
+|   |-- document/
+|   |-- web/
+|   |-- forum-thread/
+|   |-- transcripts/
 |-- processed/                       # Segmented markdown from large raw files (LLM-owned)
 |   |-- articles/
 |   |-- papers/
@@ -494,11 +531,14 @@ Seven checks:
 | Missing backlinks | Structural | A links to B but B doesn't link back |
 | Sparse articles | Structural | Under 200 words |
 | Contradictions | LLM | Conflicting claims across articles |
+| Unsourced claims | Structural | Statements not traceable to source file |
 
 **CLI:**
 ```bash
-uv run python scripts/lint.py                    # all checks
+uv run python scripts/lint.py                    # all checks, both KBs
 uv run python scripts/lint.py --structural-only  # skip LLM check (free)
+uv run python scripts/lint.py --kb internal      # internal KB only
+uv run python scripts/lint.py --kb external      # external KB only
 ```
 
 Reports saved to `reports/lint-YYYY-MM-DD.md`.

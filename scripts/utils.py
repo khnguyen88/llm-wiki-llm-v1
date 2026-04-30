@@ -6,14 +6,23 @@ import re
 from pathlib import Path
 
 from config import (
+    AI_RESEARCH_DIR,
     CONCEPTS_DIR,
     CONNECTIONS_DIR,
     DAILY_DIR,
     INDEX_FILE,
     KNOWLEDGE_DIR,
     LOG_FILE,
+    PROCESSED_DIR,
     QA_DIR,
+    RAW_DIR,
     STATE_FILE,
+    WIKI_CONCEPTS_DIR,
+    WIKI_DIR,
+    WIKI_ENTITIES_DIR,
+    WIKI_QANDA_DIR,
+    WIKI_SOURCES_MANIFEST_FILE,
+    WIKI_SUMMARIES_DIR,
 )
 
 
@@ -131,3 +140,85 @@ def build_index_entry(rel_path: str, summary: str, sources: str, updated: str) -
     """Build a single index table row."""
     link = rel_path.replace(".md", "")
     return f"| [[{link}]] | {summary} | {sources} | {updated} |"
+
+
+# ── External wiki helpers ──────────────────────────────────────────────
+
+def list_wiki_pages() -> list[Path]:
+    """List all external wiki article files (concepts, entities, summaries, qanda)."""
+    articles = []
+    for subdir in [WIKI_CONCEPTS_DIR, WIKI_ENTITIES_DIR, WIKI_SUMMARIES_DIR, WIKI_QANDA_DIR]:
+        if subdir.exists():
+            articles.extend(sorted(subdir.glob("*.md")))
+    return articles
+
+
+def wiki_page_exists(link: str) -> bool:
+    """Check if a wikilinked wiki page exists on disk."""
+    for subdir in [WIKI_CONCEPTS_DIR, WIKI_ENTITIES_DIR, WIKI_SUMMARIES_DIR, WIKI_QANDA_DIR]:
+        if not subdir.exists():
+            continue
+        candidate = subdir / f"{link.split('/')[-1]}.md"
+        if candidate.exists():
+            return True
+    return False
+
+
+def list_source_files() -> list[Path]:
+    """List all source files in raw/ and ai-research/ (all subfolders)."""
+    files = []
+    for base in [RAW_DIR, AI_RESEARCH_DIR]:
+        if not base.exists():
+            continue
+        for md_file in sorted(base.rglob("*.md")):
+            files.append(md_file)
+    return files
+
+
+def list_processed_files() -> list[Path]:
+    """List all files in processed/ (all subfolders)."""
+    if not PROCESSED_DIR.exists():
+        return []
+    return sorted(PROCESSED_DIR.rglob("*.md"))
+
+
+def parse_frontmatter(content: str) -> dict:
+    """Parse YAML frontmatter from markdown content into a dict."""
+    if not content.startswith("---"):
+        return {}
+    end = content.find("---", 3)
+    if end == -1:
+        return {}
+    fm_text = content[3:end].strip()
+    result = {}
+    current_list_key = None
+    for line in fm_text.split("\n"):
+        line = line.strip()
+        if line.startswith("- "):
+            if current_list_key and current_list_key in result:
+                if isinstance(result[current_list_key], list):
+                    result[current_list_key].append(line[2:].strip().strip('"').strip("'"))
+            continue
+        if ":" in line:
+            key, _, val = line.partition(":")
+            key = key.strip()
+            val = val.strip().strip('"').strip("'")
+            if val == "":
+                result[key] = []
+                current_list_key = key
+            else:
+                result[key] = val
+                current_list_key = None
+    return result
+
+
+def get_wiki_sources(article_path: Path) -> list[str]:
+    """Extract source file paths from a wiki article's frontmatter."""
+    content = article_path.read_text(encoding="utf-8")
+    fm = parse_frontmatter(content)
+    sources_raw = fm.get("sources", "")
+    if isinstance(sources_raw, str):
+        if not sources_raw:
+            return []
+        return [s.strip().strip('"').strip("'") for s in sources_raw.split(",") if s.strip()]
+    return sources_raw

@@ -4,16 +4,17 @@ Two parallel knowledge bases implementing Karpathy's LLM Wiki pattern — no RAG
 
 ## Architecture
 
-| KB       | Raw source                      | Compiled to  | Schema             |
-| -------- | ------------------------------- | ------------ | ------------------ |
-| External | `raw/` → `processed/` → `wiki/` | `wiki/`      | `schema/WIKI_*.md` |
-| Internal | `daily/` (conversation logs)    | `knowledge/` | `AGENTS.md`        |
+| KB       | Raw source                                    | Compiled to  | Schema             |
+| -------- | --------------------------------------------- | ------------ | ------------------ |
+| External | `raw/` + `ai-research/` → `processed/` → `wiki/` | `wiki/`      | `schema/WIKI_*.md` |
+| Internal | `daily/` (conversation logs)                    | `knowledge/` | `AGENTS.md`        |
 
 Core insight: the LLM incrementally builds a **persistent, compounding wiki** instead of rediscovering knowledge from scratch on every query.
 
 ## Key Directories
 
 - `raw/` — Source documents (human-curated, read-only for LLM)
+- `ai-research/` — AI-discovered web sources (LLM-writes, immutable once saved)
 - `processed/` — Segmented markdown from large raw files (LLM-owned)
 - `wiki/` — External KB (LLM-owned)
 - `daily/` — Conversation logs (immutable)
@@ -38,6 +39,9 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 ## Core Conventions
 
 - LLM owns `wiki/` and `knowledge/` — human curates `raw/` and `daily/`
+- `ai-research/` sources are LLM-discovered but immutable once saved
+- Never invent claims — flag gaps in `## Open Questions` instead
+- Don't invent operations — ask for clarification when outside defined rules
 - Wikilinks: `[[path/to/article]]` (no `.md`)
 - Frontmatter required on all wiki pages (title, type, date, sources, tags)
 - Naming: snake_case for entities/concepts, kebab-case for summaries/qanda

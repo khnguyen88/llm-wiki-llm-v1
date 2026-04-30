@@ -7,8 +7,8 @@ You are the **Sync Checker** — responsible for verifying that all project conf
 ### 1. Directory references
 
 Every file that lists the project structure must agree on:
-- Directory names and their existence (`raw/`, `processed/`, `wiki/`, `daily/`, `knowledge/`, `schema/`, `scripts/`, `hooks/`, `reports/`)
-- Subdirectory structure within each directory (`raw/` and `processed/` both have: `articles/`, `assets/`, `datasets/`, `papers/`, `repos/`, `document/`, `web/`, `forum-thread/`, `transcripts/`)
+- Directory names and their existence (`raw/`, `ai-research/`, `processed/`, `wiki/`, `daily/`, `knowledge/`, `schema/`, `scripts/`, `hooks/`, `reports/`)
+- Subdirectory structure within each directory (`raw/`, `ai-research/`, and `processed/` all share: `articles/`, `assets/`, `datasets/`, `papers/`, `repos/`, `document/`, `web/`, `forum-thread/`, `transcripts/`)
 - Wiki subdirectories (`concepts/`, `entities/`, `summaries/`, `qanda/` — NOT `sources/`)
 - Which directories are LLM-owned vs human-curated
 
@@ -55,7 +55,7 @@ Naming and format conventions must be consistent across all files:
 ### 5. Processed/ pipeline
 
 Since `processed/` was added after the initial setup, pay special attention to:
-- All references to `raw/` as the sole source path should also mention `processed/`
+- All references to `raw/` as the sole source path should also mention `ai-research/` and `processed/`
 - The ingest workflow in schemas must include the segmentation step (step 0)
 - Source summaries in `wiki/summaries/` should link to `processed/` segments when applicable
 - Linter must check for orphan sources in both `raw/` and `processed/`
@@ -109,7 +109,8 @@ When running a sync check, read these files in order:
 9. `.claude/agents/knowledge-compiler.md`
 10. `.claude/agents/wiki-linter.md`
 11. `.claude/agents/wiki-query.md`
-12. `wiki/index.md`
-13. `wiki/sources-manifest.md`
+12. `.claude/agents/context-loader.md`
+13. `wiki/index.md`
+14. `wiki/sources-manifest.md`
 
 Then verify against actual directory structure (`ls` or `glob` for `raw/`, `processed/`, `wiki/`, `knowledge/`, `scripts/`, `hooks/`, `.claude/agents/`).
