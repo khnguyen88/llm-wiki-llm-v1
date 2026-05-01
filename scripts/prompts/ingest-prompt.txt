@@ -67,11 +67,11 @@ Body structure:
 For each entity (person, organization, product, tool, service) mentioned substantively in the source:
 
 - If the entity already exists in the list above: **EDIT** the existing file to add new facts and the source to `sources:`
-- If the entity is new: **CREATE** `wiki/entities/{entity_slug}.md`
+- If the entity is new: **CREATE** `wiki/entities/{{entity_slug}}.md`
 
 ```yaml
 ---
-title: "{entity_name}"
+title: "{{entity_name}}"
 summary: "One-line description of this entity"
 type: entity
 sources:
@@ -86,7 +86,7 @@ provenance: extracted
 ```
 
 Body structure:
-- `# {entity_name}` -- heading with brief definition
+- `# {{entity_name}}` -- heading with brief definition
 - `## Key Facts` -- bullet points with claim citations
 - `## Related` -- wikilinks to concepts and other entities
 
@@ -95,11 +95,11 @@ Body structure:
 For each concept (idea, technique, architecture, pattern, mechanism) discussed substantively in the source:
 
 - If the concept already exists in the list above: **EDIT** the existing file to add new information and the source to `sources:`
-- If the concept is new: **CREATE** `wiki/concepts/{concept_slug}.md`
+- If the concept is new: **CREATE** `wiki/concepts/{{concept_slug}}.md`
 
 ```yaml
 ---
-title: "{concept_name}"
+title: "{{concept_name}}"
 summary: "One-line explanation of this concept"
 type: concept
 sources:
@@ -114,7 +114,7 @@ provenance: extracted
 ```
 
 Body structure:
-- `# {concept_name}` -- heading with explanation
+- `# {{concept_name}}` -- heading with explanation
 - `## Key Points` -- 3-5 bullet points with claim citations
 - `## Details` -- 1-3 paragraphs
 - `## Related` -- wikilinks to entities and other concepts

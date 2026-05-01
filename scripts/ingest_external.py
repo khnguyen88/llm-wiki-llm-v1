@@ -29,6 +29,7 @@ from config import (
     RAW_DIR,
     ROOT_DIR,
     WIKI_CONCEPTS_DIR,
+    WIKI_DIR,
     WIKI_ENTITIES_DIR,
     WIKI_INDEX_FILE,
     WIKI_LOG_FILE,
@@ -157,11 +158,12 @@ def build_prompt(
 
 def snapshot_wiki_pages() -> dict[str, set[str]]:
     """Snapshot current wiki page stems by type for diffing."""
+    plural = {"summary": "summaries", "entity": "entities", "concept": "concepts"}
     result: dict[str, set[str]] = {"summaries": set(), "entities": set(), "concepts": set()}
     for page in list_wiki_pages():
         pt = wiki_page_type(page)
-        if pt in ("summary", "entity", "concept"):
-            result[f"{pt}s"].add(page.stem)
+        if pt in plural:
+            result[plural[pt]].add(page.stem)
     return result
 
 
