@@ -125,25 +125,15 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 ---
 
-## Batch Ingester Agent
+## Ingestion Pattern
 
-**Role:** Run bulk ingestion of source documents into the external wiki via `scripts/ingest_external.py`.
+All source ingestion uses **subagent-driven dispatch** — one fresh subagent per source, using the wiki-maintainer agent. The operator reviews between tasks and iterates fast. This produces higher-quality, more descriptive wiki pages than batch script-based ingestion because each source gets full interactive attention with cross-referencing, reconciliation, and provenance tracking.
 
-**Scope:** External KB (`wiki/`) only.
+The pattern:
 
-**When to invoke:** "Ingest all pending sources", "Bulk ingest raw docs", more than 5 sources need ingestion at once.
+1. **Dispatch**: For each source, dispatch a fresh subagent using the wiki-maintainer agent
+2. **Review**: After each source completes, review the output before moving to the next
+3. **Iterate**: Fast iteration — if quality is insufficient, re-dispatch with adjustments
+4. **Track**: `wiki/sources-manifest.md` and `wiki/log.md` continue to track ingestion state
 
-**Operations:**
-
-```bash
-uv run python scripts/ingest_external.py                    # new/changed only
-uv run python scripts/ingest_external.py --all              # force re-ingest
-uv run python scripts/ingest_external.py --file <path>      # single file
-uv run python scripts/ingest_external.py --dry-run          # preview only
-uv run python scripts/ingest_external.py --max-words 3000   # skip large files
-uv run python scripts/ingest_external.py --workers 4        # parallel (experimental)
-```
-
-**Key boundary:** Batch-ingester runs the Python script and reports results. It does not create wiki pages interactively (that is wiki-maintainer's job) or segment large files (that is document-processor's job).
-
-Full definition: `.claude/agents/batch-ingester.md`
+This replaces the former batch-ingester agent and `scripts/ingest_external.py`.
