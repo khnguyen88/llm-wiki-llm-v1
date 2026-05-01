@@ -332,8 +332,10 @@ llm-wiki-llm-v1/
 |       |-- wiki-linter.md
 |       |-- wiki-repair.md
 |       |-- wiki-query.md
+|       |-- wiki-repair.md
 |       |-- sync-check.md
 |       |-- context-loader.md
+|       |-- batch-ingester.md
 |-- .gitignore                       # Excludes runtime state, temp files, caches
 |-- AGENTS.md                        # This file - schema + full technical reference
 |-- CLAUDE.md                        # Project instructions for Claude Code sessions
@@ -396,6 +398,7 @@ llm-wiki-llm-v1/
 |   |-- flush.py                     #   Extract memories from conversations (background)
 |   |-- config.py                    #   Path constants
 |   |-- utils.py                     #   Shared helpers
+|   |-- ingest_external.py           #   Bulk ingest raw/ai-research → wiki
 |-- hooks/                           # Claude Code hooks
 |   |-- session-start.py             #   Injects knowledge into every session
 |   |-- session-end.py               #   Extracts conversation -> daily log

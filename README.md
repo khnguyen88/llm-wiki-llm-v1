@@ -118,7 +118,8 @@ llm-wiki-llm-v1/
 │   ├── lint.py                   #   Health checks
 │   ├── flush.py                  #   Extract memories (background)
 │   ├── config.py                 #   Path constants
-│   └── utils.py                  #   Shared helpers
+│   ├── utils.py                  #   Shared helpers
+│   └── ingest_external.py        #   Bulk ingest raw/ai-research → wiki
 ├── hooks/                        # Claude Code hooks
 │   ├── session-start.py
 │   ├── session-end.py
@@ -132,8 +133,10 @@ llm-wiki-llm-v1/
 │       ├── knowledge-compiler.md
 │       ├── wiki-linter.md
 │       ├── wiki-query.md
+│       ├── wiki-repair.md
 │       ├── sync-check.md
-│       └── context-loader.md
+│       ├── context-loader.md
+│       └── batch-ingester.md
 └── README.md                     # This file
 ```
 

@@ -49,10 +49,10 @@ Shows which files would be ingested without running.
 ### Skip Large Files
 
 ```bash
-uv run python scripts/ingest_external.py --max-words 3000
+uv run python scripts/ingest_external.py --max-words 10000
 ```
 
-Files exceeding the word limit are skipped with a warning. Default: 3000.
+Files exceeding the word limit are skipped with a warning. Default: 30000.
 
 ### Parallel Mode
 
