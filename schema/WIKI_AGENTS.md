@@ -44,7 +44,7 @@ Optional: `confidence`, `provenance`, `contradictedBy`, `orphaned`.
 
 ### Linking
 
-- **Internal**: `[[Page Name]]` or `[[entities/transformer_model|Transformer Model]]`
+- **Internal**: `[[path/to/article]]` or `[[entities/transformer_model|Transformer Model]]`
 - **External**: `[Text](https://example.com)`
 - **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` — see `schema/WIKI_SCHEMA.md` → Claim-Level Citations
 
@@ -62,7 +62,7 @@ See `schema/WIKI_WORKFLOWS.md` → Query Workflow.
 
 ### 3. Lint Workflow
 
-See `schema/WIKI_WORKFLOWS.md` → Lint Workflow for the full 12-check specification.
+See `schema/WIKI_WORKFLOWS.md` → Lint Workflow for the full 8-check specification.
 
 ### 4. Research Workflow
 

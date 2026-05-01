@@ -53,7 +53,7 @@ When a query reveals gaps or the human asks to research a topic:
 
 - **Frontmatter**: All pages require YAML with title, summary, type, sources, tags, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
 - **Naming**: snake_case for entities/concepts, kebab-case for summaries and qanda
-- **Links**: `[[Page Name]]` or `[[path/to/page|Display Name]]`
+- **Internal**: `[[path/to/article]]` or `[[path/to/article|Display Name]]`
 - **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` for paragraph-level provenance
 - **Source paths**: Use `processed/` paths for segmented documents, `raw/` for human-curated sources, `ai-research/` for AI-discovered sources
 - **Style**: Encyclopedia-style, factual, concise, self-contained
