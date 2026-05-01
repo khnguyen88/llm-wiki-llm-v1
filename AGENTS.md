@@ -334,7 +334,6 @@ llm-wiki-llm-v1/
 |       |-- wiki-query.md
 |       |-- sync-check.md
 |       |-- context-loader.md
-|       |-- batch-ingester.md
 |-- .gitignore                       # Excludes runtime state, temp files, caches
 |-- AGENTS.md                        # This file - schema + full technical reference
 |-- CLAUDE.md                        # Project instructions for Claude Code sessions
@@ -397,7 +396,6 @@ llm-wiki-llm-v1/
 |   |-- flush.py                     #   Extract memories from conversations (background)
 |   |-- config.py                    #   Path constants
 |   |-- utils.py                     #   Shared helpers
-|   |-- ingest_external.py           #   Bulk ingest raw/ai-research → wiki
 |-- hooks/                           # Claude Code hooks
 |   |-- session-start.py             #   Injects knowledge into every session
 |   |-- session-end.py               #   Extracts conversation -> daily log
@@ -564,24 +562,9 @@ uv run python scripts/lint.py --kb external      # external KB only
 
 Reports saved to `reports/lint-YYYY-MM-DD.md`.
 
-### ingest_external.py - Batch Ingest
+### Source Ingestion
 
-Bulk ingestion of source documents from `raw/` and `ai-research/` into the external wiki.
-
-**CLI:**
-```bash
-uv run python scripts/ingest_external.py              # ingest new/changed only
-uv run python scripts/ingest_external.py --all         # force re-ingest everything
-uv run python scripts/ingest_external.py --file raw/document/example.md
-uv run python scripts/ingest_external.py --dry-run
-uv run python scripts/ingest_external.py --max-words 10000   # skip files over limit
-uv run python scripts/ingest_external.py --workers 4   # experimental parallel mode
-```
-
-- `--max-words N`: Skip files exceeding N words with a warning. Default: 30000.
-- `--workers N`: Run N parallel workers. Risk: entity page conflicts when two sources produce the same entity. Run lint + repair afterward.
-- Incremental: tracks SHA-256 hashes in `state.json`, skips unchanged files.
-- After batch ingestion, run `lint.py --structural-only --kb external` and invoke wiki-repair if needed.
+Source ingestion is subagent-driven — dispatch one wiki-maintainer subagent per source, review between tasks. See `schema/WIKI_AGENTS.md` → Ingestion Pattern.
 
 ---
 
