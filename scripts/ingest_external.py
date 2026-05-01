@@ -297,18 +297,65 @@ def update_wiki_log(
     WIKI_LOG_FILE.write_text(content, encoding="utf-8")
 
 
+def update_wiki_synthesis(source_path: Path, diff: dict[str, list[str]], today: str) -> None:
+    """Update wiki/synthesis.md with new source reference if relevant."""
+    synthesis_file = WIKI_DIR / "synthesis.md"
+    if not synthesis_file.exists():
+        return
+
+    content = synthesis_file.read_text(encoding="utf-8")
+    source_rel = str(source_path.relative_to(ROOT_DIR)).replace("\\", "/")
+    source_title = derive_source_title(source_path)
+
+    # Add source to frontmatter sources list if not already present
+    if source_rel not in content:
+        lines = content.split("\n")
+        new_lines = []
+        in_sources = False
+        for line in lines:
+            new_lines.append(line)
+            if line.strip().startswith("sources:"):
+                in_sources = True
+            elif in_sources and line.strip().startswith("- "):
+                pass  # continue in sources list
+            elif in_sources and not line.startswith("  ") and not line.strip().startswith("-"):
+                # End of sources list — insert new source before this line
+                indent = "  "
+                new_lines.insert(len(new_lines) - 1, f"{indent}- {source_rel}")
+                in_sources = False
+        content = "\n".join(new_lines)
+
+    # Update frontmatter timestamps
+    content = re.sub(
+        r'(updated:)\s*["\']?\d{4}-\d{2}-\d{2}[^"\']*["\']?',
+        f'updated: "{today}T12:00:00Z"',
+        content,
+    )
+    content = re.sub(
+        r'(updated:)\s*\d{4}-\d{2}-\d{2}(?!\d)',
+        f'updated: "{today}T12:00:00Z"',
+        content,
+    )
+
+    # Update footer
+    content = _update_footer(content, today, f"ingested {source_title}")
+
+    synthesis_file.write_text(content, encoding="utf-8")
+
+
 def update_structural_files(
     source_path: Path,
     diff: dict[str, list[str]],
     cost: float,
 ) -> None:
-    """Update all three structural files after a successful ingestion."""
+    """Update all structural files after a successful ingestion."""
     today = today_iso()
     summary_slug = derive_summary_slug(source_path)
 
     update_wiki_index(diff, today)
     update_sources_manifest(source_path, summary_slug, today)
     update_wiki_log(source_path, diff, today, cost)
+    update_wiki_synthesis(source_path, diff, today)
 
 
 # ── Core ingestion ─────────────────────────────────────────────────────────

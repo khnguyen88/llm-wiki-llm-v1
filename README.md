@@ -93,7 +93,7 @@ llm-wiki-llm-v1/
 │   └── transcripts/              # Segmented conversation transcripts
 ├── wiki/                         # External knowledge base (LLM-owned)
 │   ├── index.md                  #   Master catalog
-│   ├── sources-manifest.md       #   Source tracking (raw/processed → wiki status)
+│   ├── sources-manifest.md       #   Source tracking (raw/ai-research/processed → wiki status)
 │   ├── log.md                    #   Operation log
 │   ├── synthesis.md              #   Overarching thesis
 │   ├── concepts/                 #   Concept pages
@@ -125,6 +125,13 @@ llm-wiki-llm-v1/
 │   ├── session-end.py
 │   └── pre-compact.py
 ├── reports/                      # Lint reports
+├── tools_scripts/                # Crawl scripts and utilities
+│   ├── claude_en_urls.txt
+│   ├── crawl_claude_docs.py
+│   ├── crawl_openrouter_docs.py
+│   ├── crawl4ai/
+│   │   └── basic.py
+│   └── rename_add_index.py
 ├── .claude/                      # Claude Code configuration
 │   ├── settings.json
 │   └── agents/                   # Project-specific agents

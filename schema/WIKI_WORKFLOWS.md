@@ -144,23 +144,9 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 7. **Unsourced claims** (warning)
    - Find statements in wiki articles not traceable to a `raw/` or `ai-research/` source file
 
-8. **Missing summary** (suggestion)
-   - Find pages with empty or missing `summary` in frontmatter
-
-9. **Duplicate concept** (error)
-   - Find multiple pages with the same title (case-insensitive comparison)
-
-10. **Malformed citation** (error)
-    - Find `^[...]` claim citation markers with invalid syntax: non-numeric line ranges, reversed ranges, missing brackets
-
-11. **Broken citation** (error)
-    - Find `^[source.md]` references pointing to nonexistent source files
-    - Citations must use paths relative to the project root (e.g., `^[raw/articles/source.md]`) for unambiguous resolution
-    - Find claim citations with line ranges exceeding source file length
-
-12. **Contradictions** (error, requires LLM judgment)
-    - Compare claims across pages for conflicts
-    - When found, add `contradictedBy` to frontmatter of affected pages
+8. **Contradictions** (error, requires LLM judgment)
+   - Compare claims across pages for conflicts
+   - When found, add `contradictedBy` to frontmatter of affected pages
 
 **Output**: Report of issues found with severity levels (error, warning, suggestion)
 

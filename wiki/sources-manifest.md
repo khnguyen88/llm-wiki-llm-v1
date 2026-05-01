@@ -1,7 +1,11 @@
 ---
 title: Sources Manifest
+summary: Tracks which source files have been ingested into the wiki
 type: manifest
-date: 2026-04-22
+sources: []
+tags: [structural]
+created: "2026-04-22T12:00:00Z"
+updated: "2026-04-23T12:00:00Z"
 ---
 
 # Sources Manifest

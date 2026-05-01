@@ -38,7 +38,7 @@ queries      = runtime      (using the knowledge)
 4. Synthesize answer with `[[wikilink]]` citations
 5. If `--file-back`: create `knowledge/qa/` article, update index.md and log.md
 
-### Lint (12 health checks)
+### Lint (8 health checks)
 
 1. **Broken links** — `[[wikilinks]]` to non-existent articles (error)
 2. **Orphan pages** — Articles with zero inbound links (warning). Pages with `orphaned: true` flagged automatically.
@@ -47,11 +47,7 @@ queries      = runtime      (using the knowledge)
 5. **Missing backlinks** — A links to B but B doesn't link back (suggestion)
 6. **Sparse articles** — Under 200 words (suggestion), under 50 chars body (warning)
 7. **Unsourced claims** — Statements not traceable to a source file (warning)
-8. **Missing summary** — Empty or missing `summary` in frontmatter (suggestion)
-9. **Duplicate concept** — Multiple pages with same title case-insensitive (error)
-10. **Malformed citation** — `^[...]` with invalid syntax (error)
-11. **Broken citation** — `^[path/to/source.md]` referencing nonexistent file (error)
-12. **Contradictions** — Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
+8. **Contradictions** — Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
 
 ## Article Formats
 
@@ -87,7 +83,7 @@ Filed answers with: question, consulted articles, answer with citations, follow-
 - **Style**: Encyclopedia-style, factual, third-person
 - **Dates**: ISO 8601
 - **Naming**: lowercase, hyphens for spaces
-- **Frontmatter**: Every article must have YAML (title, sources, created, updated at minimum). Optional: confidence, provenance, contradictedBy, orphaned.
+- **Frontmatter**: Every article must have YAML (title, summary, type, sources, tags, created, updated at minimum). Optional: confidence, provenance, contradictedBy, orphaned.
 - **Claim citations**: `^[source.md]` or `^[source.md:42-58]` for paragraph-level provenance
 - **Sources**: Always link back to contributing daily logs
 - **Prefer updating** existing articles over creating near-duplicates

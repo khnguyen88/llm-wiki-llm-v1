@@ -31,3 +31,8 @@ Thumbs.db
 .obsidian/
 
 .crawl4ai.env
+
+# Personal scratch files
+.agents/
+_useful_tools.md
+compound-knowledge.md

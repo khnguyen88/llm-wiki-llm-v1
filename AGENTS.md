@@ -130,8 +130,8 @@ tags: [domain, topic]
 sources:
   - "daily/2026-04-01.md"
   - "daily/2026-04-03.md"
-created: 2026-04-01
-updated: 2026-04-03
+created: "2026-04-01T12:00:00Z"
+updated: "2026-04-03T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -170,8 +170,8 @@ connects:
   - "concepts/concept-y"
 sources:
   - "daily/2026-04-04.md"
-created: 2026-04-04
-updated: 2026-04-04
+created: "2026-04-04T12:00:00Z"
+updated: "2026-04-04T12:00:00Z"
 ---
 
 # Connection: X and Y
@@ -263,7 +263,7 @@ When processing a daily log:
 
 ### 3. Lint (Health Checks)
 
-Twelve checks, run periodically. See the lint checks table in the Script Details section for the full specification.
+Eight checks, run periodically. See the lint checks table in the Script Details section for the full specification.
 
 1. **Broken links** - `[[wikilinks]]` pointing to non-existent articles (error)
 2. **Orphan pages** - Articles with zero inbound links from other articles (warning). `orphaned: true` in frontmatter flags automatically.
@@ -272,11 +272,7 @@ Twelve checks, run periodically. See the lint checks table in the Script Details
 5. **Missing backlinks** - A links to B but B doesn't link back to A (suggestion)
 6. **Sparse articles** - Below 200 words (suggestion), below 50 chars body (warning)
 7. **Unsourced claims** - Statements not traceable to a source file (daily logs for internal KB, raw/ or ai-research/ for external wiki) (warning)
-8. **Missing summary** - Empty or missing `summary` in frontmatter (suggestion)
-9. **Duplicate concept** - Multiple pages with same title case-insensitive (error)
-10. **Malformed citation** - `^[...]` with invalid syntax: non-numeric ranges, reversed ranges, missing brackets (error)
-11. **Broken citation** - `^[path/to/source.md]` referencing nonexistent file, or line ranges exceeding source length (error)
-12. **Contradictions** - Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
+8. **Contradictions** - Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
 
 Output: a markdown report with severity levels (error, warning, suggestion).
 
@@ -311,7 +307,7 @@ When a query reveals gaps the wiki cannot answer from existing sources, or the h
 - **Writing style:** Encyclopedia-style, factual, third-person where appropriate
 - **Dates:** ISO 8601 with timestamps for frontmatter (`"2026-04-05T12:00:00Z"`), date-only for log entries (`YYYY-MM-DD`)
 - **File naming:** lowercase, hyphens for spaces (e.g., `supabase-row-level-security.md`)
-- **Frontmatter:** Every article must have YAML frontmatter with at minimum: title, sources, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
+- **Frontmatter:** Every article must have YAML frontmatter with at minimum: title, summary, type, sources, tags, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
 - **Claim citations:** `^[source.md]` or `^[source.md:42-58]` for paragraph-level provenance
 - **Sources:** Always link back to the daily log(s) that contributed to an article
 - **Never invent claims:** Every sentence in a wiki article must trace back to a source. Flag gaps in a `## Open Questions` section rather than filling them with speculation.
@@ -332,7 +328,6 @@ llm-wiki-llm-v1/
 |       |-- wiki-linter.md
 |       |-- wiki-repair.md
 |       |-- wiki-query.md
-|       |-- wiki-repair.md
 |       |-- sync-check.md
 |       |-- context-loader.md
 |       |-- batch-ingester.md
@@ -373,7 +368,7 @@ llm-wiki-llm-v1/
 |   |-- transcripts/                #   Segmented conversation transcripts
 |-- wiki/                            # External knowledge base (LLM-owned)
 |   |-- index.md                     #   Master catalog
-|   |-- sources-manifest.md          #   Source tracking (raw/processed → wiki status)
+|   |-- sources-manifest.md          #   Source tracking (raw/ai-research/processed → wiki status)
 |   |-- log.md                       #   Operation log
 |   |-- synthesis.md                 #   Overarching thesis
 |   |-- concepts/
@@ -394,7 +389,7 @@ llm-wiki-llm-v1/
 |-- scripts/                         # CLI tools
 |   |-- compile.py                   #   Compile daily logs -> knowledge articles
 |   |-- query.py                     #   Ask questions (index-guided, no RAG)
-|   |-- lint.py                      #   12 health checks
+|   |-- lint.py                      #   8 health checks
 |   |-- flush.py                     #   Extract memories from conversations (background)
 |   |-- config.py                    #   Path constants
 |   |-- utils.py                     #   Shared helpers
@@ -404,6 +399,12 @@ llm-wiki-llm-v1/
 |   |-- session-end.py               #   Extracts conversation -> daily log
 |   |-- pre-compact.py               #   Safety net: captures context before compaction
 |-- reports/                         # Lint reports (gitignored)
+|-- tools_scripts/                   # Standalone utility scripts
+|   |-- claude_en_urls.txt           #   URL list for Claude doc crawling
+|   |-- crawl_claude_docs.py         #   Crawl Claude documentation
+|   |-- crawl_openrouter_docs.py     #   Crawl OpenRouter documentation
+|   |-- crawl4ai/basic.py            #   Basic crawl4ai usage example
+|   |-- rename_add_index.py          #   Batch rename files with index prefix
 ```
 
 ---
@@ -433,6 +434,7 @@ Commands use simple relative paths from the project root. Empty `matcher` catche
 - Reads `knowledge/index.md` and the most recent daily log
 - Outputs JSON to stdout: `{"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": "..."}}`
 - Claude sees the knowledge base index at the start of every session
+- Also injects a sync-check reminder at session start
 - Max context: 20,000 characters
 
 **`session-end.py`** (SessionEnd)
@@ -452,7 +454,7 @@ Commands use simple relative paths from the project root. Empty `matcher` catche
 ### Background Flush Process (`flush.py`)
 
 Spawned by both hooks as a fully detached background process:
-- **Windows:** `CREATE_NEW_PROCESS_GROUP | DETACHED_PROCESS` flags
+- **Windows:** `CREATE_NO_WINDOW` (note: DETACHED_PROCESS breaks Agent SDK subprocess I/O)
 - **Mac/Linux:** `start_new_session=True`
 
 This ensures flush.py survives after Claude Code's hook process exits.
@@ -531,7 +533,7 @@ With `--file-back`, creates a Q&A article in `knowledge/qa/` and updates the ind
 
 ### lint.py - Health Checks
 
-Twelve checks:
+Eight checks:
 
 | Check | Type | Catches |
 |-------|------|---------|
@@ -542,10 +544,6 @@ Twelve checks:
 | Missing backlinks | Structural | A links to B but B doesn't link back |
 | Sparse articles | Structural | Under 200 words (suggestion), under 50 chars body (warning) |
 | Unsourced claims | Structural | Statements not traceable to source file |
-| Missing summary | Structural | Empty or missing `summary` in frontmatter |
-| Duplicate concept | Structural | Multiple pages with same title case-insensitive |
-| Malformed citation | Structural | `^[...]` with invalid syntax |
-| Broken citation | Structural | `^[path/to/source.md]` referencing nonexistent file |
 | Contradictions | LLM | Conflicting claims across articles |
 
 **CLI:**
@@ -557,6 +555,25 @@ uv run python scripts/lint.py --kb external      # external KB only
 ```
 
 Reports saved to `reports/lint-YYYY-MM-DD.md`.
+
+### ingest_external.py - Batch Ingest
+
+Bulk ingestion of source documents from `raw/` and `ai-research/` into the external wiki.
+
+**CLI:**
+```bash
+uv run python scripts/ingest_external.py              # ingest new/changed only
+uv run python scripts/ingest_external.py --all         # force re-ingest everything
+uv run python scripts/ingest_external.py --file raw/document/example.md
+uv run python scripts/ingest_external.py --dry-run
+uv run python scripts/ingest_external.py --max-words 10000   # skip files over limit
+uv run python scripts/ingest_external.py --workers 4   # experimental parallel mode
+```
+
+- `--max-words N`: Skip files exceeding N words with a warning. Default: 30000.
+- `--workers N`: Run N parallel workers. Risk: entity page conflicts when two sources produce the same entity. Run lint + repair afterward.
+- Incremental: tracks SHA-256 hashes in `state.json`, skips unchanged files.
+- After batch ingestion, run `lint.py --structural-only --kb external` and invoke wiki-repair if needed.
 
 ---
 
@@ -580,7 +597,7 @@ Both are gitignored and regenerated automatically.
 - `claude-agent-sdk>=0.1.29` - Claude Agent SDK for LLM calls with tool use
 - `python-dotenv>=1.0.0` - Environment variable management
 - `tzdata>=2024.1` - Timezone data
-- Python 3.12+, managed by [uv](https://docs.astral.sh/uv/)
+- Python >=3.11, managed by [uv](https://docs.astral.sh/uv/)
 
 No API key needed - uses Claude Code's built-in credentials at `~/.claude/.credentials.json`.
 

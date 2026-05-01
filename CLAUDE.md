@@ -58,7 +58,8 @@ Operations, file formats, scripts, hooks, and Obsidian integration live in:
 
 - **Workflows**: `schema/WIKI_WORKFLOWS.md`
 - **File formats**: `schema/WIKI_SCHEMA.md`
-- **Agent roles**: `schema/WIKI_AGENTS.md` and `.claude/agents/*.md`
+- **Agent roles**: `schema/WIKI_AGENTS.md`
+- **Internal KB**: `AGENTS.md`
 - **Internal KB**: `AGENTS.md`
 - **Scripts**: `scripts/*.py` (run via `uv run python scripts/<name>.py`)
 - **Hooks**: `.claude/settings.json`

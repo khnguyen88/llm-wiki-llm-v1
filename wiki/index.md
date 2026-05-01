@@ -1,9 +1,11 @@
 ---
 title: Wiki Index
+summary: Master catalog of all wiki pages
 type: index
-date: 2026-04-22
 sources: []
 tags: [structural]
+created: "2026-04-22T12:00:00Z"
+updated: "2026-04-23T12:00:00Z"
 ---
 
 # Wiki Index

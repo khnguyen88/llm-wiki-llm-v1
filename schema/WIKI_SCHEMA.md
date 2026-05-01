@@ -124,7 +124,7 @@ Claim citations are validated by the linter (broken-citation and malformed-citat
 
 ## Linking Conventions
 
-- **Internal links**: `[[Page Name]]` or `[[entities/transformer_model|Transformer Model]]`
+- **Internal links**: `[[path/to/article]]` or `[[entities/transformer_model|Transformer Model]]`
 - **External links**: `[Text](https://example.com)`
 - **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]`
 - **Backlinks**: Automatically maintained by Obsidian
