@@ -35,7 +35,6 @@ Every agent must reference the correct:
 - `.claude/agents/wiki-linter.md`
 - `.claude/agents/wiki-query.md`
 - `.claude/agents/wiki-repair.md`
-- `.claude/agents/batch-ingester.md`
 
 ### 3. Script names
 
@@ -44,7 +43,6 @@ CLI commands referenced in any file must match actual scripts in `scripts/`. Che
 - `scripts/query.py` — flags: `--file-back`
 - `scripts/lint.py` — flags: `--structural-only`
 - `scripts/flush.py` — background process, spawned by hooks
-- `scripts/ingest_external.py` — flags: `--all`, `--file`, `--dry-run`, `--max-words`, `--workers`
 
 ### 4. Conventions
 
@@ -115,8 +113,7 @@ When running a sync check, read these files in order:
 11. `.claude/agents/wiki-query.md`
 12. `.claude/agents/context-loader.md`
 13. `.claude/agents/wiki-repair.md`
-14. `.claude/agents/batch-ingester.md`
-15. `wiki/index.md`
+14. `wiki/index.md`
 16. `wiki/sources-manifest.md`
 
 Then verify against actual directory structure (`ls` or `glob` for `raw/`, `processed/`, `wiki/`, `knowledge/`, `scripts/`, `hooks/`, `.claude/agents/`).
