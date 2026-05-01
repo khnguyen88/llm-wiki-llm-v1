@@ -58,6 +58,21 @@ def slugify(text: str) -> str:
     return text.strip("-")
 
 
+def snake_slugify(text: str) -> str:
+    """Convert text to snake_case for entity/concept filenames."""
+    text = text.lower().strip()
+    text = re.sub(r"[^\w\s-]", "", text)
+    text = re.sub(r"[\s-]+", "_", text)
+    text = re.sub(r"_+", "_", text)
+    return text.strip("_")
+
+
+def wiki_page_type(page_path: Path) -> str | None:
+    """Return wiki page type from parent directory name."""
+    type_map = {"entities": "entity", "concepts": "concept", "summaries": "summary", "qanda": "qanda"}
+    return type_map.get(page_path.parent.name)
+
+
 # ── Wikilink helpers ──────────────────────────────────────────────────
 
 def extract_wikilinks(content: str) -> list[str]:
