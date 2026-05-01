@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Fix 25 consistency issues across docs/schemas/agents/wiki/code, implement synthesis.md update in ingest_external.py, clean up stray files, and create README-USER-GUIDE.md and README-OWNER-GUIDE.md.
+**Goal:** Fix consistency issues across docs/schemas/agents/wiki/code, clean up stray files, and create README-USER-GUIDE.md and README-OWNER-GUIDE.md.
 
-**Architecture:** Fix documentation mismatches first (AGENTS.md, WIKI_SCHEMA.md, WIKI_WORKFLOWS.md, wiki-linter.md, knowledge-compiler.md, batch-ingester.md, README.md, CLAUDE.md, settings.json), then fix wiki frontmatter, then implement the code change (synthesis.md update), then clean up stray files, then write the two guide documents.
+**Architecture:** Fix documentation mismatches first (AGENTS.md, WIKI_SCHEMA.md, WIKI_WORKFLOWS.md, wiki-linter.md, knowledge-compiler.md, README.md, CLAUDE.md, settings.json), then fix wiki frontmatter, then clean up stray files, then write the two guide documents.
 
-**Tech Stack:** Python (ingest_external.py), Markdown (all docs/wiki files), Git
+**Tech Stack:** Markdown (all docs/wiki files), Git
 
 ---
 
@@ -15,16 +15,14 @@
 **Modified files:**
 - `.claude/settings.json` — Hook commands: `python` → `uv run python`
 - `CLAUDE.md` — Add WIKI_AGENTS.md to On-Demand Details
-- `AGENTS.md` — 11 fixes (duplicate entry, Python version, context-loader, Windows flags, tools_scripts, sources-manifest comment, frontmatter dates, frontmatter fields, sync-check docs, lint count 12→8, --max-words 3000→30000)
+- `AGENTS.md` — 10 fixes (duplicate entry, Python version, context-loader, Windows flags, tools_scripts, sources-manifest comment, frontmatter dates, frontmatter fields, sync-check docs, lint count 12→8)
 - `README.md` — Add tools_scripts/, fix sources-manifest comment
 - `schema/WIKI_SCHEMA.md` — Fix `[[Page Name]]` → `[[path/to/article]]`
 - `schema/WIKI_WORKFLOWS.md` — Update lint check count 12→8, remove 4 unimplemented checks
 - `.claude/agents/wiki-linter.md` — Update check count 12→8, remove 4 unimplemented checks
 - `.claude/agents/knowledge-compiler.md` — Add summary/type/tags to frontmatter required fields
-- `.claude/agents/batch-ingester.md` — Update --max-words default 3000→30000
 - `wiki/index.md` — Add summary field, change date→created/updated
 - `wiki/sources-manifest.md` — Add missing frontmatter fields
-- `scripts/ingest_external.py` — Add update_wiki_synthesis() function
 - `.gitignore` — Add .agents/, compound-knowledge.md, _useful_tools.md
 
 **Created files:**
@@ -36,7 +34,7 @@
 
 ---
 
-### Task 1: Fix AGENTS.md (11 changes)
+### Task 1: Fix AGENTS.md (10 changes)
 
 **Files:**
 - Modify: `AGENTS.md`
@@ -172,15 +170,11 @@ Also update the "Script Details > lint.py" section. Change "Twelve checks:" to "
 
 Also update the `lint.py` description in the project tree from `#   12 health checks` to `#   8 health checks`.
 
-- [ ] **Step 11: Update --max-words default from 3000 to 30000**
-
-In the Batch Ingest section, the line `Default: 3000.` should be changed to `Default: 30000.`
-
-- [ ] **Step 12: Commit AGENTS.md changes**
+- [ ] **Step 11: Commit AGENTS.md changes**
 
 ```bash
 git add AGENTS.md
-git commit -m "fix: 11 consistency fixes in AGENTS.md
+git commit -m "fix: 10 consistency fixes in AGENTS.md
 
 - Remove duplicate wiki-repair.md entry
 - Fix Python version 3.12+ → >=3.11
@@ -192,7 +186,6 @@ git commit -m "fix: 11 consistency fixes in AGENTS.md
 - Add summary/type/tags to required frontmatter fields
 - Document session-start.py sync-check injection
 - Update lint check count 12→8, remove 4 unimplemented checks
-- Update --max-words default 3000→30000
 
 Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 ```
@@ -330,12 +323,11 @@ Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 
 ---
 
-### Task 5: Fix agent files (wiki-linter.md, knowledge-compiler.md, batch-ingester.md)
+### Task 5: Fix agent files (wiki-linter.md, knowledge-compiler.md)
 
 **Files:**
 - Modify: `.claude/agents/wiki-linter.md`
 - Modify: `.claude/agents/knowledge-compiler.md`
-- Modify: `.claude/agents/batch-ingester.md`
 
 - [ ] **Step 1: Update wiki-linter.md check count and remove unimplemented checks**
 
@@ -374,22 +366,14 @@ to:
 - **Frontmatter**: Every article must have YAML (title, summary, type, sources, tags, created, updated at minimum). Optional: confidence, provenance, contradictedBy, orphaned.
 ```
 
-- [ ] **Step 3: Update batch-ingester.md --max-words default**
-
-In `.claude/agents/batch-ingester.md` around line 55, change:
-```
-Files exceeding the word limit are skipped with a warning. Default: 30000.
-```
-
-- [ ] **Step 4: Commit agent file fixes**
+- [ ] **Step 3: Commit agent file fixes**
 
 ```bash
-git add .claude/agents/wiki-linter.md .claude/agents/knowledge-compiler.md .claude/agents/batch-ingester.md
+git add .claude/agents/wiki-linter.md .claude/agents/knowledge-compiler.md
 git commit -m "fix: update agent files for consistency
 
 - wiki-linter.md: reduce check count 12→8, remove 4 unimplemented checks
 - knowledge-compiler.md: add summary/type/tags to required frontmatter
-- batch-ingester.md: update --max-words default to 30000
 
 Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 ```
@@ -504,99 +488,9 @@ Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 
 ---
 
-### Task 8: Implement synthesis.md update in ingest_external.py
+### Task 8: Superseded — synthesis.md update via wiki-maintainer subagent
 
-**Files:**
-- Modify: `scripts/ingest_external.py`
-
-- [ ] **Step 1: Add update_wiki_synthesis() function**
-
-Add the following function after `update_wiki_log()` (around line 298) in `scripts/ingest_external.py`:
-
-```python
-def update_wiki_synthesis(source_path: Path, diff: dict[str, list[str]], today: str) -> None:
-    """Update wiki/synthesis.md with new source reference if relevant."""
-    synthesis_file = WIKI_DIR / "synthesis.md"
-    if not synthesis_file.exists():
-        return
-
-    content = synthesis_file.read_text(encoding="utf-8")
-    source_rel = str(source_path.relative_to(ROOT_DIR)).replace("\\", "/")
-    source_title = derive_source_title(source_path)
-
-    # Add source to frontmatter sources list if not already present
-    if source_rel not in content:
-        # Find the sources list in frontmatter and append
-        lines = content.split("\n")
-        in_sources = False
-        new_lines = []
-        for i, line in enumerate(lines):
-            new_lines.append(line)
-            if line.strip().startswith("sources:"):
-                in_sources = True
-            elif in_sources and line.strip().startswith("- "):
-                # Check if this source is already listed
-                if source_rel in line:
-                    in_sources = False
-            elif in_sources and not line.startswith("  ") and not line.strip().startswith("-"):
-                # End of sources list — insert new source
-                indent = "  "
-                new_lines.append(f"{indent}- {source_rel}")
-                in_sources = False
-        content = "\n".join(new_lines)
-
-    # Update frontmatter timestamps
-    content = re.sub(
-        r'(updated:)\s*["\']?\d{4}-\d{2}-\d{2}[^"\']*["\']?',
-        f'updated: "{today}T12:00:00Z"',
-        content,
-    )
-    # Also handle date-only format without quotes
-    content = re.sub(
-        r'(updated:)\s*\d{4}-\d{2}-\d{2}(?!\d)',
-        f'updated: "{today}T12:00:00Z"',
-        content,
-    )
-
-    # Update footer
-    content = _update_footer(content, today, f"ingested {source_title}")
-
-    synthesis_file.write_text(content, encoding="utf-8")
-```
-
-- [ ] **Step 2: Add WIKI_DIR import and call update_wiki_synthesis in update_structural_files**
-
-First, verify that `WIKI_DIR` is already imported in `ingest_external.py`. It is — it's in the `from config import (...)` block at the top of the file.
-
-Then, in the `update_structural_files()` function (around line 300-311), add the synthesis update call after `update_wiki_log`:
-
-```python
-def update_structural_files(
-    source_path: Path,
-    diff: dict[str, list[str]],
-    cost: float,
-) -> None:
-    """Update all structural files after a successful ingestion."""
-    today = today_iso()
-    summary_slug = derive_summary_slug(source_path)
-
-    update_wiki_index(diff, today)
-    update_sources_manifest(source_path, summary_slug, today)
-    update_wiki_log(source_path, diff, today, cost)
-    update_wiki_synthesis(source_path, diff, today)  # <-- ADD THIS LINE
-```
-
-- [ ] **Step 3: Commit the synthesis update**
-
-```bash
-git add scripts/ingest_external.py
-git commit -m "feat: add update_wiki_synthesis() to ingest pipeline
-
-Completes ingest step 10 — the pipeline now updates wiki/synthesis.md
-with new source references and timestamps after each ingestion.
-
-Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
-```
+> **Note:** The original task was to add `update_wiki_synthesis()` to `scripts/ingest_external.py`. This script no longer exists. Synthesis.md updates are now handled by the subagent-driven wiki-maintainer pattern, which updates `wiki/synthesis.md` as part of its 10-step ingest workflow (step 10). No code changes needed.
 
 ---
 
@@ -677,14 +571,9 @@ uv sync
 # Add source documents to raw/ (any subfolder)
 cp ~/my-article.md raw/articles/
 
-# Ingest into the wiki
-uv run python scripts/ingest_external.py
-
-# Or ingest a specific file
-uv run python scripts/ingest_external.py --file raw/articles/my-article.md
-
-# Dry run to see what would be ingested
-uv run python scripts/ingest_external.py --dry-run
+# Ingest into the wiki (tell Claude Code)
+# "Process raw/articles/my-article.md" or "Ingest my-article"
+# The wiki-maintainer agent handles the full 10-step ingest workflow
 ```
 
 ## The Two Knowledge Bases
@@ -774,7 +663,6 @@ scripts/               # CLI tools (run via uv run python scripts/<name>.py)
 ├── query.py           # Ask the knowledge base (index-guided, no RAG)
 ├── lint.py            # Health checks (8 structural + 1 LLM check)
 ├── flush.py            # Extract memories from conversations (background)
-├── ingest_external.py # Bulk ingest raw/ai-research → wiki
 ├── config.py           # Path constants and time helpers
 └── utils.py            # Shared helpers
 
@@ -786,7 +674,7 @@ hooks/                 # Claude Code hooks (auto-activate in sessions)
 .claude/
 ├── settings.json      # Hook configuration
 ├── mcp.json           # MCP server configuration (crawl4ai)
-└── agents/            # 9 project-specific Claude Code agents
+└── agents/            # 8 project-specific Claude Code agents
     ├── wiki-maintainer.md
     ├── document-processor.md
     ├── knowledge-compiler.md
@@ -795,7 +683,6 @@ hooks/                 # Claude Code hooks (auto-activate in sessions)
     ├── wiki-query.md
     ├── sync-check.md
     ├── context-loader.md
-    └── batch-ingester.md
 
 tools_scripts/         # Crawling and utility scripts
 ├── claude_en_urls.txt
@@ -824,10 +711,6 @@ pyproject.toml         # Dependencies (claude-agent-sdk, python-dotenv, tzdata)
 | `uv run python scripts/lint.py --structural-only` | Run structural checks only (free, no API calls) |
 | `uv run python scripts/lint.py --kb internal` | Lint internal KB only |
 | `uv run python scripts/lint.py --kb external` | Lint external KB only |
-| `uv run python scripts/ingest_external.py` | Ingest new/changed sources |
-| `uv run python scripts/ingest_external.py --all` | Force re-ingest all sources |
-| `uv run python scripts/ingest_external.py --dry-run` | Show what would be ingested |
-| `uv run python scripts/ingest_external.py --max-words 30000` | Skip files over N words |
 
 ## Using the Agents
 
@@ -843,7 +726,6 @@ Tell Claude Code:
 | `wiki-query` | Questions about compiled knowledge |
 | `sync-check` | After structural changes to dirs/schemas/agents |
 | `context-loader` | "Load rules for X", "Audit CLAUDE.md" |
-| `batch-ingester` | "Ingest all pending sources", "Bulk ingest raw docs" |
 
 ## Obsidian Integration
 
@@ -928,7 +810,7 @@ Internal reference for how the system works, what to maintain, and what to watch
 ```
 1. You add file to raw/ or ai-research/
 2. If file >3000 words → document-processor segments to processed/
-3. wiki-maintainer (or ingest_external.py) processes source
+3. wiki-maintainer processes source
 4. Creates/updates: summary, entities, concepts in wiki/
 5. Updates: index.md, sources-manifest.md, log.md, synthesis.md
 6. Lint + repair if batch ingesting
@@ -961,7 +843,6 @@ Internal reference for how the system works, what to maintain, and what to watch
 | `query.py` | Index-guided KB query | `--file-back` (saves Q&A article) | `scripts/state.json` (query count) |
 | `lint.py` | Health checks (8 structural + 1 LLM) | `--structural-only`, `--kb internal\|external\|both` | `scripts/state.json` (last lint), `reports/lint-*.md` |
 | `flush.py` | Extract memories from conversations | (spawned by hooks, not manual) | `scripts/last-flush.json` (dedup) |
-| `ingest_external.py` | Bulk ingest raw/ai-research → wiki | `--all`, `--file <path>`, `--dry-run`, `--max-words N`, `--workers N` | `scripts/state.json` (ingestion tracking) |
 | `config.py` | Path constants and time helpers | (imported, not run directly) | — |
 | `utils.py` | Shared helpers (slugify, frontmatter, etc.) | (imported, not run directly) | — |
 
@@ -991,7 +872,6 @@ Internal reference for how the system works, what to maintain, and what to watch
 | Questions about compiled knowledge | `wiki-query` | 7-step query with optional file-back |
 | After structural changes | `sync-check` | 7 categories of consistency checks |
 | "Load rules for X", "Audit CLAUDE.md" | `context-loader` | On-demand rule loading, prompt health |
-| "Ingest all pending sources" | `batch-ingester` | Run ingest_external.py, then lint + repair |
 
 ## Schema Cross-References
 
@@ -1006,7 +886,6 @@ Internal reference for how the system works, what to maintain, and what to watch
 ## Known Issues & Design Decisions
 
 - **Lint checks**: 8 structural + 1 LLM = 9 total. The 4 checks removed from docs (missing summary, duplicate concept, malformed citation, broken citation) are not implemented in lint.py. If you need them, add implementations before updating docs.
-- **`--max-words` default**: Script default is 30000. The GitHub Actions workflow overrides to 3000 for cost control. The batch-ingester agent doc matches the script at 30000.
 - **`daily/` and `knowledge/` are gitignored**: They're regenerated by hooks and scripts. If you lose the local copies, re-run compilation from a backup of daily logs.
 - **`ai-research/` is currently empty**: The Research workflow has never been executed. All current wiki content comes from `raw/` sources.
 - **`processed/` is currently empty**: No large files have been segmented yet.
@@ -1022,7 +901,6 @@ Internal reference for how the system works, what to maintain, and what to watch
 | Run lint | After batch ingestion, or weekly | `uv run python scripts/lint.py --structural-only` |
 | Run full lint | Monthly or before releases | `uv run python scripts/lint.py` |
 | Reset state | If state.json gets corrupted | `rm scripts/state.json scripts/last-flush.json` |
-| Check ingestion status | Anytime | `uv run python scripts/ingest_external.py --dry-run` |
 | Compile daily logs | After 6 PM (automatic), or manually | `uv run python scripts/compile.py` |
 | Review lint reports | After running lint | Check `reports/lint-YYYY-MM-DD.md` |
 ```
@@ -1064,11 +942,10 @@ If any additional fixes were needed, commit them.
 
 After completing all tasks, verify:
 
-- [ ] All 25 spec items are addressed (16 doc fixes + 2 wiki fixes + 1 code fix + 3 cleanup items + 2 guide files + 1 verification = 25 items addressed)
+- [ ] All spec items are addressed (15 doc fixes + 2 wiki fixes + 0 code fixes + 3 cleanup items + 2 guide files + 1 verification)
 - [ ] No placeholder text in README-USER-GUIDE.md or README-OWNER-GUIDE.md
 - [ ] All file paths in the plan match actual file paths on disk
 - [ ] The lint check count is consistently 8 across all files (AGENTS.md, WIKI_WORKFLOWS.md, wiki-linter.md, knowledge-compiler.md, README.md, README-USER-GUIDE.md, README-OWNER-GUIDE.md)
-- [ ] The `--max-words` default is consistently 30000 across batch-ingester.md, ingest_external.py, README-USER-GUIDE.md
 - [ ] Hook commands use `uv run python` in all files (settings.json, AGENTS.md)
 - [ ] Python version is consistently >=3.11 across all files (AGENTS.md, pyproject.toml, README-USER-GUIDE.md)
 - [ ] Frontmatter conventions are consistent (title, summary, type, sources, tags, created, updated)

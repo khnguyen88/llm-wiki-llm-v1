@@ -101,7 +101,7 @@ After all changes, run the sync-check agent to verify consistency.
 ### Rebuild steps
 
 1. Delete `wiki/` and `knowledge/` directories
-2. Run `batch-ingester` agent to re-ingest all sources from `raw/` and `ai-research/`
+2. Re-ingest all sources from `raw/` and `ai-research/` using wiki-maintainer subagent dispatch
 3. Run `knowledge-compiler` agent to rebuild `knowledge/` from `daily/` logs
 4. Run `wiki-linter` agent with `--structural-only` to validate all 12 checks
 5. Fix any lint issues found during validation
