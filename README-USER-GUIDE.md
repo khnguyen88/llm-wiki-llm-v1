@@ -28,14 +28,8 @@ uv sync
 # Add source documents to raw/ (any subfolder)
 cp ~/my-article.md raw/articles/
 
-# Ingest into the wiki
-uv run python scripts/ingest_external.py
-
-# Or ingest a specific file
-uv run python scripts/ingest_external.py --file raw/articles/my-article.md
-
-# Dry run to see what would be ingested
-uv run python scripts/ingest_external.py --dry-run
+# Ingest into the wiki using subagent-driven dispatch
+# Tell Claude Code: "Ingest raw/articles/my-article.md using wiki-maintainer"
 ```
 
 ## The Two Knowledge Bases
@@ -125,7 +119,6 @@ scripts/             # CLI tools (run via uv run python scripts/<name>.py)
   query.py           # Ask the knowledge base (index-guided, no RAG)
   lint.py            # Health checks (8 structural + 1 LLM check)
   flush.py           # Extract memories from conversations (background)
-  ingest_external.py # Bulk ingest raw/ai-research -> wiki
   config.py          # Path constants and time helpers
   utils.py           # Shared helpers
 
@@ -137,7 +130,7 @@ hooks/               # Claude Code hooks (auto-activate in sessions)
 .claude/
   settings.json      # Hook configuration
   mcp.json           # MCP server configuration (crawl4ai)
-  agents/            # 9 project-specific Claude Code agents
+  agents/            # 8 project-specific Claude Code agents
     wiki-maintainer.md
     document-processor.md
     knowledge-compiler.md
@@ -146,7 +139,6 @@ hooks/               # Claude Code hooks (auto-activate in sessions)
     wiki-query.md
     sync-check.md
     context-loader.md
-    batch-ingester.md
 
 tools_scripts/       # Crawling and utility scripts
   claude_en_urls.txt
@@ -175,10 +167,6 @@ pyproject.toml       # Dependencies (claude-agent-sdk, python-dotenv, tzdata)
 | `uv run python scripts/lint.py --structural-only` | Run structural checks only (free, no API calls) |
 | `uv run python scripts/lint.py --kb internal` | Lint internal KB only |
 | `uv run python scripts/lint.py --kb external` | Lint external KB only |
-| `uv run python scripts/ingest_external.py` | Ingest new/changed sources |
-| `uv run python scripts/ingest_external.py --all` | Force re-ingest all sources |
-| `uv run python scripts/ingest_external.py --dry-run` | Show what would be ingested |
-| `uv run python scripts/ingest_external.py --max-words 30000` | Skip files over N words |
 
 ## Using the Agents
 
@@ -194,7 +182,6 @@ Tell Claude Code:
 | `wiki-query` | Questions about compiled knowledge |
 | `sync-check` | After structural changes to dirs/schemas/agents |
 | `context-loader` | "Load rules for X", "Audit CLAUDE.md" |
-| `batch-ingester` | "Ingest all pending sources", "Bulk ingest raw docs" |
 
 ## Obsidian Integration
 
