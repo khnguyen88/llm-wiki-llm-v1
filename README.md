@@ -360,6 +360,212 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 ### Tools to Install
 
+#### ccstatusline
+
+---
+
+Real-time session context window monitoring in the Claude Code status bar. Helps manage hallucination risk and output integrity by keeping context utilization visible.
+
+Example output: `Model: glm-5.1:cloud | Ctx: 103.0k | Ctx Used: 52.0% | Cost: $55.31 | Session: 2hr 22m | ⎇ main | 𖠰 main`
+
+#### Steps
+
+1. Add to your global Claude Code settings (`~/.claude/settings.json`):
+
+```json
+"statusLine": {
+  "type": "command",
+  "command": "npx -y ccstatusline@latest",
+  "padding": 0
+}
+```
+
+2. No separate install needed — `npx` downloads it on the fly each run.
+
+3. Configure which widgets appear in the status line. Run the interactive widget editor:
+
+```bash
+npx -y ccstatusline@latest
+# Then press 'a' to add widgets, 'd' to delete, 'Enter' to reorder
+```
+
+4. To match the example output above, add these widgets in order:
+
+| Widget | What it shows | Config key |
+|---|---|---|
+| **Model** | Current model name (e.g. `glm-5.1:cloud`) | `r` toggles raw value mode |
+| **Context Length** | Context window size (e.g. `103.0k`) | Raw value mode for compact display |
+| **Context %** | Context used percentage (e.g. `52.0%`) | Press `u` to toggle used/remaining |
+| **Session Cost** | Session cost in USD (e.g. `$55.31`) | Requires CC 1.0.85+ |
+| **Session Clock** | Elapsed session time (e.g. `2hr 22m`) | Raw value mode for compact display |
+| **Git Branch** | Current branch (e.g. `main`) | Press `h` to hide when not in git repo |
+| **Git Worktree** | Active worktree name | Shows when in a worktree |
+
+5. Widget editor keybinds:
+
+| Key | Action |
+|---|---|
+| `a` | Add widget |
+| `i` | Insert widget before selected |
+| `d` | Delete selected widget |
+| `Enter` | Enter/exit move mode (reorder) |
+| `r` | Toggle raw value mode (hides labels) |
+| `m` | Cycle merge mode (off → merge → merge no padding) |
+
+6. Settings are saved to `~/.config/ccstatusline/settings.json`. You can also edit this file directly or specify a custom path with `--config /path/to/settings.json`.
+
+#### Superpowers
+
+---
+
+Structured brainstorming, planning, and execution skills for Claude Code. Enforces discipline: brainstorm before building, write plans before coding, verify before claiming done. Skills include brainstorming, writing-plans, executing-plans, test-driven-development, systematic-debugging, verification-before-completion, and more.
+
+#### Steps
+
+- Enable in your global Claude Code settings (`~/.claude/settings.json`):
+
+```json
+"enabledPlugins": {
+  "superpowers@claude-plugins-official": true
+}
+```
+
+- Skills are invoked automatically by Claude Code when relevant, or manually via `/brainstorming`, `/writing-plans`, `/executing-plans`, etc.
+
+### Optional Tools
+
+#### Ollama
+
+---
+
+Run LLM models locally for background tasks, testing, or cost savings. Ollama serves local models through an OpenAI-compatible API that Claude Code Router can route to.
+
+**Why:** Offload background tasks (linting, summarization, simple queries) to a local model instead of paying per-token for a cloud model. Also useful for air-gapped or offline work.
+
+##### Steps
+
+1. Download and install [Ollama](https://ollama.com/)
+
+2. Pull a model:
+
+```bash
+ollama pull qwen2.5-coder
+```
+
+3. Launch a model:
+
+```bash
+ollama run qwen2.5-coder
+```
+
+4. Ollama exposes an OpenAI-compatible endpoint at `http://localhost:11434/v1/chat/completions` — configure it as a provider in Claude Code Router (see below).
+
+#### Claude Code Router (ccr)
+
+---
+
+Route Claude Code requests to any model — local (Ollama), subscription (OpenRouter, Gemini, DeepSeek), or direct API (Anthropic). Run non-Claude models from within Claude Code with model-aware routing.
+
+**Why:** Use cheaper models for background tasks, reasoning models for plan mode, long-context models for large files, and your primary model for everything else — all from a single `ccr code` command.
+
+##### Steps
+
+1. Install [Claude Code](https://docs.anthropic.com/en/docs/claude-code/quickstart) and [Claude Code Router](https://github.com/musistudio/claude-code-router):
+
+```bash
+npm install -g @anthropic-ai/claude-code
+npm install -g @musistudio/claude-code-router
+```
+
+2. Create `~/.claude-code-router/config.json`. Example with local + cloud providers:
+
+```json
+{
+  "Providers": [
+    {
+      "name": "ollama",
+      "api_base_url": "http://localhost:11434/v1/chat/completions",
+      "api_key": "ollama",
+      "models": ["qwen2.5-coder:latest"]
+    },
+    {
+      "name": "openrouter",
+      "api_base_url": "https://openrouter.ai/api/v1/chat/completions",
+      "api_key": "sk-or-xxx",
+      "models": [
+        "anthropic/claude-sonnet-4",
+        "google/gemini-2.5-pro-preview"
+      ],
+      "transformer": { "use": ["openrouter"] }
+    },
+    {
+      "name": "deepseek",
+      "api_base_url": "https://api.deepseek.com/chat/completions",
+      "api_key": "sk-xxx",
+      "models": ["deepseek-chat", "deepseek-reasoner"],
+      "transformer": { "use": ["deepseek"] }
+    }
+  ],
+  "Router": {
+    "default": "ollama,qwen2.5-coder:latest",
+    "background": "ollama,qwen2.5-coder:latest",
+    "think": "deepseek,deepseek-reasoner",
+    "longContext": "openrouter,google/gemini-2.5-pro-preview",
+    "longContextThreshold": 60000
+  }
+}
+```
+
+3. Start Claude Code through the router:
+
+```bash
+ccr code
+```
+
+4. Switch models on the fly inside Claude Code:
+
+```
+/model openrouter,anthropic/claude-sonnet-4
+```
+
+5. Manage providers and models interactively:
+
+```bash
+ccr model          # interactive model selector
+ccr ui             # web-based config editor
+ccr restart        # restart after config changes
+```
+
+6. Set environment variables so `claude` command also routes through ccr:
+
+```bash
+eval "$(ccr activate)"
+```
+
+For full documentation, see [github.com/musistudio/claude-code-router](https://github.com/musistudio/claude-code-router).
+
+#### OpenRouter
+
+---
+
+Unified API gateway to 200+ models from Anthropic, Google, Meta, Mistral, and more. Pay per token across all providers through a single API key.
+
+**Why:** Access any model without managing separate API keys and billing for each provider. Works directly with Claude Code Router as a provider.
+
+##### Steps
+
+1. Create an account at [openrouter.ai](https://openrouter.ai/)
+
+2. Generate an API key from your [OpenRouter keys page](https://openrouter.ai/settings/keys)
+
+3. Add as a provider in `~/.claude-code-router/config.json` (see Claude Code Router config above)
+
+4. OpenRouter models support online search by appending `:online` to the model name:
+
+```json
+"models": ["anthropic/claude-sonnet-4:online"]
+```
+
 #### Crawl4AI
 
 ---
