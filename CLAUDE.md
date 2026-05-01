@@ -36,7 +36,6 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 | `wiki-query`         | Questions about compiled knowledge                           |
 | `sync-check`         | After structural changes to dirs/schemas/agents              |
 | `context-loader`     | "Load rules for X", "Audit CLAUDE.md", "Guard prompt health" |
-| `batch-ingester`     | "Ingest all pending sources", "Bulk ingest raw docs"         |
 
 ## Core Conventions
 
