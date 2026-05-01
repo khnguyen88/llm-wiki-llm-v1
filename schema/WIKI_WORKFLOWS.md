@@ -120,6 +120,8 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 **Checks**:
 
+### Structural Checks (no LLM judgment needed)
+
 1. **Broken links** (error)
    - Find `[[wikilinks]]` pointing to non-existent articles
 
@@ -144,9 +146,24 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 7. **Unsourced claims** (warning)
    - Find statements in wiki articles not traceable to a `raw/` or `ai-research/` source file
 
-8. **Contradictions** (error, requires LLM judgment)
-   - Compare claims across pages for conflicts
-   - When found, add `contradictedBy` to frontmatter of affected pages
+8. **Missing summary** (suggestion)
+   - Find pages with empty or missing `summary` in frontmatter
+
+9. **Duplicate concept** (error)
+   - Find multiple pages with the same title (case-insensitive comparison)
+
+10. **Malformed citation** (error)
+    - Find `^[...]` claim citation markers with invalid syntax: non-numeric line ranges, reversed ranges, line 0, or paths not starting with `raw/`, `ai-research/`, or `processed/`
+
+11. **Broken citation** (error)
+    - Find `^[source.md]` references pointing to nonexistent source files
+    - Find claim citations with line ranges exceeding source file length
+
+### LLM Judgment Check
+
+12. **Contradictions** (error, requires LLM judgment)
+    - Compare claims across pages for conflicts
+    - When found, add `contradictedBy` to frontmatter of affected pages
 
 **Output**: Report of issues found with severity levels (error, warning, suggestion)
 

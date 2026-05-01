@@ -62,7 +62,7 @@ See `schema/WIKI_WORKFLOWS.md` → Query Workflow.
 
 ### 3. Lint Workflow
 
-See `schema/WIKI_WORKFLOWS.md` → Lint Workflow for the full 8-check specification.
+See `schema/WIKI_WORKFLOWS.md` → Lint Workflow for the full 12-check specification.
 
 ### 4. Research Workflow
 

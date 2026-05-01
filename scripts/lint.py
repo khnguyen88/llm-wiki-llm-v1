@@ -1,8 +1,9 @@
 """
 Lint the knowledge base for structural and semantic health.
 
-Runs 8 checks: broken links, orphan pages, orphan sources, stale articles,
-contradictions (LLM), missing backlinks, sparse articles, and unsourced claims.
+Runs 12 checks: broken links, orphan pages, orphan sources, stale articles,
+contradictions (LLM), missing backlinks, sparse articles, unsourced claims,
+missing summaries, duplicate concepts, malformed citations, and broken citations.
 
 Supports both Internal KB (knowledge/) and External KB (wiki/).
 
@@ -17,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import re
 from pathlib import Path
 
 from config import (
@@ -259,6 +261,53 @@ def check_unsourced_claims_internal() -> list[dict]:
     return issues
 
 
+def check_missing_summary_internal() -> list[dict]:
+    """Check for internal articles with missing or empty summary in frontmatter."""
+    issues = []
+    for article in list_wiki_articles():
+        content = article.read_text(encoding="utf-8")
+        rel = article.relative_to(KNOWLEDGE_DIR)
+        fm = parse_frontmatter(content)
+        summary = fm.get("summary", "")
+        if not summary or (isinstance(summary, str) and not summary.strip()):
+            issues.append({
+                "severity": "suggestion",
+                "check": "missing_summary",
+                "kb": "internal",
+                "file": str(rel),
+                "detail": "Missing summary field in frontmatter",
+            })
+    return issues
+
+
+def check_duplicate_concept_internal() -> list[dict]:
+    """Check for internal articles with duplicate titles (case-insensitive)."""
+    title_map: dict[str, list[str]] = {}
+    for article in list_wiki_articles():
+        content = article.read_text(encoding="utf-8")
+        rel = article.relative_to(KNOWLEDGE_DIR)
+        fm = parse_frontmatter(content)
+        title = fm.get("title", "")
+        if title:
+            key = title.lower().strip()
+            if key not in title_map:
+                title_map[key] = []
+            title_map[key].append(str(rel))
+
+    issues = []
+    for title_lower, files in title_map.items():
+        if len(files) > 1:
+            for f in files:
+                issues.append({
+                    "severity": "error",
+                    "check": "duplicate_concept",
+                    "kb": "internal",
+                    "file": f,
+                    "detail": f"Duplicate title '{title_lower}' also in: {', '.join(f2 for f2 in files if f2 != f)}",
+                })
+    return issues
+
+
 # ── External KB checks ────────────────────────────────────────────────
 
 def check_broken_links_external() -> list[dict]:
@@ -433,6 +482,219 @@ def check_unsourced_claims_external() -> list[dict]:
     return issues
 
 
+def check_missing_summary_external() -> list[dict]:
+    """Check for external wiki pages with missing or empty summary in frontmatter."""
+    issues = []
+    for page in list_wiki_pages():
+        content = page.read_text(encoding="utf-8")
+        rel = page.relative_to(WIKI_DIR)
+        fm = parse_frontmatter(content)
+        summary = fm.get("summary", "")
+        if not summary or (isinstance(summary, str) and not summary.strip()):
+            issues.append({
+                "severity": "suggestion",
+                "check": "missing_summary",
+                "kb": "external",
+                "file": str(rel),
+                "detail": "Missing summary field in frontmatter",
+            })
+    return issues
+
+
+def check_duplicate_concept_external() -> list[dict]:
+    """Check for external wiki pages with duplicate titles (case-insensitive)."""
+    title_map: dict[str, list[str]] = {}
+    for page in list_wiki_pages():
+        content = page.read_text(encoding="utf-8")
+        rel = page.relative_to(WIKI_DIR)
+        fm = parse_frontmatter(content)
+        title = fm.get("title", "")
+        if title:
+            key = title.lower().strip()
+            if key not in title_map:
+                title_map[key] = []
+            title_map[key].append(str(rel))
+
+    issues = []
+    for title_lower, files in title_map.items():
+        if len(files) > 1:
+            for f in files:
+                issues.append({
+                    "severity": "error",
+                    "check": "duplicate_concept",
+                    "kb": "external",
+                    "file": f,
+                    "detail": f"Duplicate title '{title_lower}' also in: {', '.join(f2 for f2 in files if f2 != f)}",
+                })
+    return issues
+
+
+# Citation regex: ^[path] or ^[path:line] or ^[path:start-end]
+_CITATION_RE = re.compile(r"\^\[([^\]]+)\]")
+_VALID_PATH_PREFIXES = ("raw/", "ai-research/", "processed/")
+
+
+def check_malformed_citation_external() -> list[dict]:
+    """Check for malformed claim citation markers in external wiki pages."""
+    issues = []
+    for page in list_wiki_pages():
+        content = page.read_text(encoding="utf-8")
+        rel = page.relative_to(WIKI_DIR)
+
+        # Strip frontmatter before scanning
+        body = content
+        if body.startswith("---"):
+            end = body.find("---", 3)
+            if end != -1:
+                body = body[end + 3:]
+
+        for match in _CITATION_RE.finditer(body):
+            citation = match.group(1)
+
+            # Parse path and optional line range
+            if ":" in citation:
+                path_part, range_part = citation.rsplit(":", 1)
+            else:
+                path_part = citation
+                range_part = None
+
+            # Validate path prefix
+            if not path_part.startswith(_VALID_PATH_PREFIXES):
+                issues.append({
+                    "severity": "error",
+                    "check": "malformed_citation",
+                    "kb": "external",
+                    "file": str(rel),
+                    "detail": f"Malformed citation: ^[{citation}] — path must start with raw/, ai-research/, or processed/",
+                })
+                continue
+
+            # Validate line range if present
+            if range_part is not None:
+                if "-" in range_part:
+                    parts = range_part.split("-", 1)
+                    if not parts[0].isdigit() or not parts[1].isdigit():
+                        issues.append({
+                            "severity": "error",
+                            "check": "malformed_citation",
+                            "kb": "external",
+                            "file": str(rel),
+                            "detail": f"Malformed citation: ^[{citation}] — non-numeric line range",
+                        })
+                        continue
+                    start, end_line = int(parts[0]), int(parts[1])
+                    if start == 0:
+                        issues.append({
+                            "severity": "error",
+                            "check": "malformed_citation",
+                            "kb": "external",
+                            "file": str(rel),
+                            "detail": f"Malformed citation: ^[{citation}] — line numbers must be positive",
+                        })
+                        continue
+                    if end_line < start:
+                        issues.append({
+                            "severity": "error",
+                            "check": "malformed_citation",
+                            "kb": "external",
+                            "file": str(rel),
+                            "detail": f"Malformed citation: ^[{citation}] — reversed line range ({start}-{end_line})",
+                        })
+                        continue
+                else:
+                    if not range_part.isdigit():
+                        issues.append({
+                            "severity": "error",
+                            "check": "malformed_citation",
+                            "kb": "external",
+                            "file": str(rel),
+                            "detail": f"Malformed citation: ^[{citation}] — non-numeric line number",
+                        })
+                        continue
+                    if int(range_part) == 0:
+                        issues.append({
+                            "severity": "error",
+                            "check": "malformed_citation",
+                            "kb": "external",
+                            "file": str(rel),
+                            "detail": f"Malformed citation: ^[{citation}] — line number must be positive",
+                        })
+                        continue
+    return issues
+
+
+def check_broken_citation_external() -> list[dict]:
+    """Check for claim citations pointing to nonexistent source files or exceeding file length."""
+    issues = []
+    for page in list_wiki_pages():
+        content = page.read_text(encoding="utf-8")
+        rel = page.relative_to(WIKI_DIR)
+
+        # Strip frontmatter before scanning
+        body = content
+        if body.startswith("---"):
+            end = body.find("---", 3)
+            if end != -1:
+                body = body[end + 3:]
+
+        for match in _CITATION_RE.finditer(body):
+            citation = match.group(1)
+
+            # Parse path and optional line range
+            if ":" in citation:
+                path_part, range_part = citation.rsplit(":", 1)
+            else:
+                path_part = citation
+                range_part = None
+
+            # Skip if path prefix is invalid (caught by malformed_citation check)
+            if not path_part.startswith(_VALID_PATH_PREFIXES):
+                continue
+
+            # Check if source file exists
+            source_path = ROOT_DIR / path_part
+            if not source_path.exists():
+                issues.append({
+                    "severity": "error",
+                    "check": "broken_citation",
+                    "kb": "external",
+                    "file": str(rel),
+                    "detail": f"Broken citation: ^[{citation}] — source file does not exist: {path_part}",
+                })
+                continue
+
+            # Check line range exceeds file length
+            if range_part is not None:
+                try:
+                    source_content = source_path.read_text(encoding="utf-8")
+                    file_lines = source_content.count("\n") + 1
+
+                    if "-" in range_part:
+                        parts = range_part.split("-", 1)
+                        start, end_line = int(parts[0]), int(parts[1])
+                        if end_line > file_lines:
+                            issues.append({
+                                "severity": "error",
+                                "check": "broken_citation",
+                                "kb": "external",
+                                "file": str(rel),
+                                "detail": f"Broken citation: ^[{citation}] — line range {start}-{end_line} exceeds file length ({file_lines} lines)",
+                            })
+                    else:
+                        line_num = int(range_part)
+                        if line_num > file_lines:
+                            issues.append({
+                                "severity": "error",
+                                "check": "broken_citation",
+                                "kb": "external",
+                                "file": str(rel),
+                                "detail": f"Broken citation: ^[{citation}] — line {line_num} exceeds file length ({file_lines} lines)",
+                            })
+                except (ValueError, OSError):
+                    pass  # Malformed range caught by malformed_citation; OSError is non-fatal
+    return issues
+
+
 async def check_contradictions_external() -> list[dict]:
     """Use LLM to detect contradictions across external wiki pages."""
     from claude_agent_sdk import (
@@ -575,6 +837,8 @@ def main():
             ("Missing backlinks", check_missing_backlinks_internal),
             ("Sparse articles", check_sparse_articles_internal),
             ("Unsourced claims", check_unsourced_claims_internal),
+            ("Missing summaries", check_missing_summary_internal),
+            ("Duplicate concepts", check_duplicate_concept_internal),
         ]
 
         for name, check_fn in internal_checks:
@@ -604,6 +868,10 @@ def main():
                 ("Missing backlinks", check_missing_backlinks_external),
                 ("Sparse articles", check_sparse_articles_external),
                 ("Unsourced claims", check_unsourced_claims_external),
+                ("Missing summaries", check_missing_summary_external),
+                ("Duplicate concepts", check_duplicate_concept_external),
+                ("Malformed citations", check_malformed_citation_external),
+                ("Broken citations", check_broken_citation_external),
             ]
 
             for name, check_fn in external_checks:

@@ -38,7 +38,7 @@ queries      = runtime      (using the knowledge)
 4. Synthesize answer with `[[wikilink]]` citations
 5. If `--file-back`: create `knowledge/qa/` article, update index.md and log.md
 
-### Lint (8 health checks)
+### Lint (12 health checks)
 
 1. **Broken links** — `[[wikilinks]]` to non-existent articles (error)
 2. **Orphan pages** — Articles with zero inbound links (warning). Pages with `orphaned: true` flagged automatically.
@@ -47,7 +47,11 @@ queries      = runtime      (using the knowledge)
 5. **Missing backlinks** — A links to B but B doesn't link back (suggestion)
 6. **Sparse articles** — Under 200 words (suggestion), under 50 chars body (warning)
 7. **Unsourced claims** — Statements not traceable to a source file (warning)
-8. **Contradictions** — Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
+8. **Missing summary** — Pages with empty or missing `summary` in frontmatter (suggestion)
+9. **Duplicate concept** — Multiple pages with the same title (case-insensitive comparison) (error)
+10. **Malformed citation** — Invalid `^[...]` citation syntax (error, external only)
+11. **Broken citation** — Citations pointing to nonexistent files or exceeding file length (error, external only)
+12. **Contradictions** — Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
 
 ## Article Formats
 

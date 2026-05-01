@@ -19,10 +19,14 @@ Run these checks against both `wiki/` and `knowledge/`:
 5. **Missing backlinks** (suggestion) — A links to B but B doesn't link back to A
 6. **Sparse articles** (suggestion for <200 words, warning for <50 chars body) — Articles under 200 words, likely incomplete. Body under 50 characters flagged as stronger warning (essentially empty).
 7. **Unsourced claims** (warning) — Statements in wiki articles that do not trace back to a `raw/` or `ai-research/` source file, or claims that do not appear in the cited source.
+8. **Missing summary** (suggestion) — Pages with empty or missing `summary` in frontmatter
+9. **Duplicate concept** (error) — Multiple pages with the same title (case-insensitive comparison)
+10. **Malformed citation** (error) — `^[...]` claim citation markers with invalid syntax: non-numeric line ranges, reversed ranges, line 0, or paths not starting with `raw/`, `ai-research/`, or `processed/`
+11. **Broken citation** (error) — `^[source.md]` references pointing to nonexistent source files, or claim citations with line ranges exceeding source file length
 
 ### LLM Judgment Check
 
-8. **Contradictions** (error) — Conflicting claims across articles. Requires reading multiple articles and reasoning about whether claims are truly incompatible. When found, suggest adding `contradictedBy` to frontmatter of affected pages.
+12. **Contradictions** (error) — Conflicting claims across articles. Requires reading multiple articles and reasoning about whether claims are truly incompatible. When found, suggest adding `contradictedBy` to frontmatter of affected pages.
 
 ## Output Format
 
@@ -34,6 +38,9 @@ Generate a markdown report with severity levels:
 ## Errors
 - [broken-link] `wiki/concepts/x.md` links to non-existent `[[entities/y]]`
 - [contradiction] `wiki/concepts/a.md` says X, but `wiki/concepts/b.md` says Y
+- [duplicate-concept] `wiki/concepts/transformer.md` and `wiki/entities/Transformer.md` share title "transformer"
+- [malformed-citation] `wiki/concepts/a.md` has `^[notes/overflow.md:5-3]` — reversed line range
+- [broken-citation] `wiki/concepts/a.md` cites `^[raw/articles/missing.md:10-20]` but file does not exist
 
 ## Warnings
 - [stale] `knowledge/concepts/z.md` source has changed since compilation

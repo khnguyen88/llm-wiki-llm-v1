@@ -263,7 +263,7 @@ When processing a daily log:
 
 ### 3. Lint (Health Checks)
 
-Eight checks, run periodically. See the lint checks table in the Script Details section for the full specification.
+Twelve checks, run periodically. See the lint checks table in the Script Details section for the full specification.
 
 1. **Broken links** - `[[wikilinks]]` pointing to non-existent articles (error)
 2. **Orphan pages** - Articles with zero inbound links from other articles (warning). `orphaned: true` in frontmatter flags automatically.
@@ -272,7 +272,11 @@ Eight checks, run periodically. See the lint checks table in the Script Details 
 5. **Missing backlinks** - A links to B but B doesn't link back to A (suggestion)
 6. **Sparse articles** - Below 200 words (suggestion), below 50 chars body (warning)
 7. **Unsourced claims** - Statements not traceable to a source file (daily logs for internal KB, raw/ or ai-research/ for external wiki) (warning)
-8. **Contradictions** - Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
+8. **Missing summary** - Pages with empty or missing `summary` in frontmatter (suggestion)
+9. **Duplicate concept** - Multiple pages with the same title (case-insensitive) (error)
+10. **Malformed citation** - `^[...]` citation markers with invalid syntax (error, external only)
+11. **Broken citation** - Citations pointing to nonexistent files or exceeding file length (error, external only)
+12. **Contradictions** - Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
 
 Output: a markdown report with severity levels (error, warning, suggestion).
 
@@ -389,7 +393,7 @@ llm-wiki-llm-v1/
 |-- scripts/                         # CLI tools
 |   |-- compile.py                   #   Compile daily logs -> knowledge articles
 |   |-- query.py                     #   Ask questions (index-guided, no RAG)
-|   |-- lint.py                      #   8 health checks
+|   |-- lint.py                      #   12 health checks
 |   |-- flush.py                     #   Extract memories from conversations (background)
 |   |-- config.py                    #   Path constants
 |   |-- utils.py                     #   Shared helpers
@@ -533,7 +537,7 @@ With `--file-back`, creates a Q&A article in `knowledge/qa/` and updates the ind
 
 ### lint.py - Health Checks
 
-Eight checks:
+Twelve checks:
 
 | Check | Type | Catches |
 |-------|------|---------|
@@ -544,6 +548,10 @@ Eight checks:
 | Missing backlinks | Structural | A links to B but B doesn't link back |
 | Sparse articles | Structural | Under 200 words (suggestion), under 50 chars body (warning) |
 | Unsourced claims | Structural | Statements not traceable to source file |
+| Missing summary | Structural | Pages with empty or missing `summary` in frontmatter |
+| Duplicate concept | Structural | Multiple pages with the same title (case-insensitive) |
+| Malformed citation | Structural | `^[...]` citation markers with invalid syntax (external only) |
+| Broken citation | Structural | Citations pointing to nonexistent files or exceeding file length (external only) |
 | Contradictions | LLM | Conflicting claims across articles |
 
 **CLI:**
