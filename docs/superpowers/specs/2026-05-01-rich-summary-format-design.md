@@ -1,7 +1,7 @@
 # Design: Rich Summary Format for Wiki Maintainer
 
 **Date:** 2026-05-01
-**Status:** Draft
+**Status:** Approved
 **Problem:** Current wiki summaries are flat bullet lists with per-bullet citations; old summaries had rich sections, tables, and narrative flow.
 
 ## Root Cause
