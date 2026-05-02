@@ -23,15 +23,21 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Identify entities (people, places, things, organizations)
    - Identify concepts (ideas, techniques, theories, methods)
    - Extract key claims, facts, and quotes
+   - Identify structured data suitable for tables (comparisons, tiers, risk matrices, decision guides, parameter lists)
    - Assign `confidence` (0.0–1.0) and `provenance` (extracted|merged|inferred|ambiguous) to extracted content
 
 3. **Write summary page**
    - Create `wiki/summaries/[source-title].md`
-   - Include key points, quotes, and notes
+   - Use rich section headings drawn from the source's structure (not generic "Key Points")
+   - Use tables for structured or comparative data identified in step 2
+   - Include a narrative `## Summary` section (2-4 sentences) as the opening body section
    - Add YAML frontmatter with all required fields (title, summary, type, sources, tags, created, updated)
    - Add optional provenance fields (confidence, provenance, contradictedBy, orphaned) when applicable
-   - Use claim citations `^[source.md]` for paragraph-level provenance
+   - Cite at section level — place `^[source.md]` at end of section or on first claim, not on every bullet
+   - Include a `## Key Quotes` section for the most important direct quotes (2-5 maximum)
+   - Include a `## Related` section with `[[wikilinks]]` to concepts and entities
    - Link to `processed/` segments if the source was segmented
+   - See `schema/WIKI_SCHEMA.md` → Style Guide for Summaries for full guidance
 
 4. **Create/update entity pages**
    - For each identified entity, create or update `wiki/entities/[entity].md`
