@@ -73,6 +73,7 @@ updated: "2026-05-02T12:00:00Z"
 | raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md | ingested | [[summaries/claude-code-ultrareview]] | 2026-05-02 |
 | raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md | ingested | [[summaries/claude-code-voice-dictation]] | 2026-05-02 |
 | raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md | ingested | [[summaries/claude-code-web-quickstart]] | 2026-05-02 |
+| raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md | ingested | [[summaries/claude-code-whats-new-2026-w13]] | 2026-05-02 |
 ---
 
 # Sources Manifest
@@ -83,4 +84,4 @@ Tracks which source files have been ingested into the wiki.
 |-------------|--------|-----------|----------|
 
 ---
-*Last updated: 2026-05-02 (ingested raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md)*
+*Last updated: 2026-05-02 (ingested raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md)*

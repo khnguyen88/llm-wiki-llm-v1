@@ -16,6 +16,7 @@ sources:
   - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
   - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags:
   - agent-sdk
   - sessions
@@ -25,7 +26,7 @@ tags:
   - cli
   - slack
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -74,6 +75,7 @@ Sessions maintain context across multiple exchanges in the Agent SDK. Claude rem
 - Web sessions persist across devices (laptop, phone); closing the browser tab does not stop the session — it continues running in the background until the task finishes, then idles ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 - Web sessions can be pre-filled via URL parameters (`prompt`, `prompt_url`, `repositories`, `environment`) to enable integrations like issue-tracker buttons that open Claude Code with context pre-loaded ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 - Session recap (introduced in Week 17, v2.1.114-119) shows what happened in a session while the terminal was unfocused, allowing users to quickly catch up without scrolling the full transcript ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+- Transcript search (v2.1.83) adds `/` search within transcript mode with `n`/`N` to step through matches, enabling retrieval of specific commands or outputs from long conversations ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
 
 ## Details
 
@@ -106,4 +108,5 @@ Both SDKs expose session utility functions for building custom session pickers, 
 - [[entities/vs_code_extension]]
 - [[concepts/session_prefill]]
 - [[concepts/session_recap]]
+- [[concepts/transcript_search]]
 - [[summaries/claude-code-web-quickstart]]

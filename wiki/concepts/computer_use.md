@@ -4,6 +4,8 @@ summary: "A research preview feature that lets Claude Code control the user's sc
 type: concept
 sources:
   - raw/document/claude code/claude-code-050-computer-use-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
 tags:
   - claude-code
   - computer-use
@@ -14,7 +16,7 @@ tags:
   - accessibility
   - screen-control
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -32,6 +34,8 @@ A feature that lets Claude Code control the user's screen on macOS by opening ap
 - Holds a machine-wide lock so only one session can control the screen at a time; other visible apps are hidden while Claude works ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 - Press `Esc` anywhere to abort immediately; the key press is consumed so prompt injection cannot use it to dismiss dialogs ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 - Screenshots are downscaled automatically (e.g., 3456×2234 → ~1372×887) with no configurable target size; if text is too small after downscaling, increase the app's font size rather than changing display resolution ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- On the Desktop app, computer use can control native apps, click through the iOS simulator, drive hardware control panels, and verify changes on screen; it is off by default and asks before each action ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
+- Computer use expanded to the CLI in Week 14 (v2.1.86+), enabling Claude to open native apps, click through UI, test changes, and fix what breaks from the terminal; best for closing the loop on apps without an API ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
 
 ## Details
 

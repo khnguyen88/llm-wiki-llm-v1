@@ -70,6 +70,7 @@ sources: []
   - raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
   - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
   - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"

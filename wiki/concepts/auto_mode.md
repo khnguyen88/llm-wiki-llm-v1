@@ -6,6 +6,7 @@ sources:
   - raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md
   - raw/document/claude code/claude-code-036-best-practices-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags:
   - claude-code
   - auto-mode
@@ -14,7 +15,7 @@ tags:
   - security
   - trust-boundaries
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -31,6 +32,7 @@ Auto mode lets Claude Code run without permission prompts by routing each tool c
 - The classifier reads `autoMode` from user settings, local project settings, managed settings, and inline JSON — but not from shared project `.claude/settings.json`, preventing repos from injecting their own allow rules ^[raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md]
 - Entries from each scope are combined additively: developers can extend `environment`, `allow`, and `soft_deny` but cannot remove entries that managed settings provide; a developer-added `allow` entry can override an organization `soft_deny` entry ^[raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md]
 - For non-interactive runs with the `-p` flag, auto mode aborts if the classifier repeatedly blocks actions, since there is no user to fall back to ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Cycle to auto mode with `Shift+Tab`, or set it as the default via `"permissions": {"defaultMode": "auto"}` in `.claude/settings.json` ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
 
 ## Details
 

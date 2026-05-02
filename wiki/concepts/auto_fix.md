@@ -4,6 +4,7 @@ summary: "Feature that watches pull requests for CI failures and review comments
 type: concept
 sources:
   - raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags:
   - claude-code
   - cloud
@@ -12,7 +13,7 @@ tags:
   - automation
   - github
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -28,6 +29,7 @@ Auto-fix enables Claude to monitor a pull request and automatically respond to C
 - Claude classifies PR events into three categories: clear fixes (pushed automatically), ambiguous requests (asks for guidance), and duplicate or no-action events (noted and skipped) ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - Claude may reply to review comment threads on GitHub using the user's account; each reply is labeled as coming from Claude Code so reviewers know it was written by the agent ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - Repositories with comment-triggered automation (e.g., Atlantis, Terraform Cloud, custom GitHub Actions on `issue_comment`) should review their automation before enabling auto-fix, since Claude can post comments that trigger those workflows ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Toggle Auto fix in the CI panel after creating a PR on Claude Code web; Claude watches CI, fixes failures and nits, and pushes until green ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
 
 ## Details
 

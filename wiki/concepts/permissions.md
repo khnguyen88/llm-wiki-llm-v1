@@ -16,6 +16,7 @@ sources:
   - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
   - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
   - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags:
   - agent-sdk
   - permissions
@@ -29,6 +30,7 @@ tags:
   - web
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"
+confidence: 0.9
 provenance: merged
 ---
 
@@ -66,6 +68,7 @@ Permissions in the Agent SDK control which tools an agent can use and how tool a
 - In the VS Code extension, the `initialPermissionMode` setting controls the default permission mode for new conversations: `default`, `plan`, `acceptEdits`, or `bypassPermissions`; the mode can also be switched via the mode indicator at the bottom of the prompt box ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 - With auto-edit permissions enabled in VS Code, Claude can modify VS Code configuration files (settings.json, tasks.json) that VS Code may execute automatically; use manual approval mode or VS Code Restricted Mode for untrusted workspaces ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 - Cloud (web) sessions support only two permission modes: Auto accept edits (makes changes and pushes branch without stopping for approval) and Plan (proposes approach, waits for go-ahead before editing); Ask, Auto, and Bypass are not available in cloud sessions ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- `permissions.defaultMode: "auto"` in `.claude/settings.json` sets auto mode as the default; users can also cycle to auto with `Shift+Tab` in the prompt footer ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
 
 ## Details
 

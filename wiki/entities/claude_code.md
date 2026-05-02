@@ -40,6 +40,7 @@ sources:
   - raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
   - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
   - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags:
   - claude-code
   - anthropic
@@ -204,6 +205,7 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - Docker installs hang when run from `/` because the installer scans the entire filesystem; set `WORKDIR /tmp` before running the installer ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
 - TLS/SSL errors from corporate proxies require `curl --cacert /path/to/corporate-ca.pem` during install and `NODE_EXTRA_CA_CERTS` for runtime API requests ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
 - On Windows, Claude Code requires either Git for Windows (for bash) or PowerShell; if Git is installed but not found, set `CLAUDE_CODE_GIT_BASH_PATH` in `settings.json` ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- Week 13 (v2.1.83-85) introduced: auto mode (Shift+Tab or `defaultMode: "auto"`), computer use on Desktop, transcript search (`/` in transcript mode), PowerShell tool preview, conditional `if` hooks, `managed-settings.d/` drop-in directory, `CwdChanged`/`FileChanged` hook events, agent `initialPrompt` frontmatter, `Ctrl+X Ctrl+E` external editor, input restoration on interrupt, `/status` while responding, deep links in preferred terminal, and idle-return nudge to `/clear` ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
 
 ## Related
 
@@ -270,3 +272,5 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - [[concepts/ultrareview]]
 - [[concepts/voice_dictation]]
 - [[summaries/claude-code-voice-dictation]]
+- [[concepts/transcript_search]]
+- [[summaries/claude-code-whats-new-2026-w13]]

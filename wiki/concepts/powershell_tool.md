@@ -4,6 +4,7 @@ summary: "Native PowerShell command execution tool in Claude Code that runs comm
 type: concept
 sources:
   - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags:
   - claude-code
   - powershell
@@ -33,6 +34,7 @@ A built-in tool that executes PowerShell commands natively, providing native Win
 - Preview limitations: PowerShell profiles are not loaded, and sandboxing is not supported on Windows ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 
 - On Windows, set `CLAUDE_CODE_USE_POWERSHELL_TOOL=0` to opt out of the progressive rollout ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+- Introduced as a preview feature in v2.1.84 (Week 13), providing native PowerShell alongside Bash on Windows; opt in via `CLAUDE_CODE_USE_POWERSHELL_TOOL=1` in the `env` section of settings.json ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
 
 ## Details
 

@@ -44,6 +44,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[entitie/qmd|Qmd]]
 
 ## Concepts
+- [[concept/transcript_search|Transcript Search]]
 - [[concept/session_prefill|Session Prefill]]
 - [[concept/voice_dictation|Voice Dictation]]
 - [[concept/ultrareview|Ultrareview]]
@@ -129,6 +130,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concept/llm_wiki|Llm Wiki]]
 
 ## Summaries
+- [[summaries/claude-code-whats-new-2026-w13|Claude Code Whats New 2026 W13]]
 - [[summaries/claude-code-web-quickstart|Claude Code Web Quickstart]]
 - [[summaries/claude-code-voice-dictation|Claude Code Voice Dictation]]
 - [[summaries/claude-code-ultrareview|Claude Code Ultrareview]]

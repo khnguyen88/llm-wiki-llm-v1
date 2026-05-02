@@ -480,6 +480,13 @@ A chronological record of operations on the external knowledge base.
 - Updated index.md, sources-manifest.md
 - Cost: $9.4733
 
+## [2026-05-02] ingest | Claude Code Whats New 2026 W13
+- Source: raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+- Created summary: summaries/claude-code-whats-new-2026-w13.md
+- Created concepts: concepts/transcript_search.md
+- Updated index.md, sources-manifest.md
+- Cost: $9.2475
+
 *Append new entries at the bottom*
 
 ## [2026-05-02] ingest | How to Navigate LLM Model Names

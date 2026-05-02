@@ -9,36 +9,59 @@ tags:
   - knowledge-management
   - workflow
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
-provenance: extracted
+provenance: reingested
 ---
 
 # Karpathy Tweet Llm Wiki
 
-## Key Points
+## Summary
 
-- Karpathy uses LLMs to build personal knowledge bases, shifting token throughput from code manipulation to knowledge manipulation (markdown and images) ^[raw/articles/karpathy-tweet-llm-wiki.md:4]
-- Source documents are indexed into a raw/ directory, then incrementally compiled into a wiki of .md files with summaries, backlinks, concept categorization, and cross-links ^[raw/articles/karpathy-tweet-llm-wiki.md:7]
-- At ~100 articles and ~400K words, RAG is unnecessary — the LLM auto-maintains index files and brief summaries to navigate the wiki ^[raw/articles/karpathy-tweet-llm-wiki.md:13]
-- Query outputs (markdown files, Marp slides, matplotlib images) are filed back into the wiki so that explorations always "add up" in the knowledge base ^[raw/articles/karpathy-tweet-llm-wiki.md:16]
-- LLM "health checks" (linting) find inconsistencies, impute missing data, discover connections for new articles, and improve data integrity ^[raw/articles/karpathy-tweet-llm-wiki.md:19]
-- Custom tools like a vibe-coded search engine can be handed off to the LLM via CLI for larger queries ^[raw/articles/karpathy-tweet-llm-wiki.md:22]
-- As the wiki grows, synthetic data generation and finetuning could let the LLM "know" the data in its weights rather than context windows ^[raw/articles/karpathy-tweet-llm-wiki.md:25]
+In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a condensed, six-step format. He reports shifting his token throughput from manipulating code to manipulating knowledge stored as markdown and images. The tweet serves as the practical companion to the architectural design document (see [[summaries/karpathy-github-llm-wiki]]), emphasizing "how it works in practice" over "what the architecture is." ^[raw/articles/karpathy-tweet-llm-wiki.md:4]
 
-## Quotes
+## Six-Step Workflow
 
-- "I use an LLM to incrementally 'compile' a wiki, which is just a collection of .md files in a directory structure" ^[raw/articles/karpathy-tweet-llm-wiki.md:7]
-- "The LLM writes and maintains all of the data of the wiki, I rarely touch it directly" ^[raw/articles/karpathy-tweet-llm-wiki.md:10]
-- "I thought I had to reach for fancy RAG, but the LLM has been pretty good about auto-maintaining index files and brief summaries" ^[raw/articles/karpathy-tweet-llm-wiki.md:13]
-- "My own explorations and queries always 'add up' in the knowledge base" ^[raw/articles/karpathy-tweet-llm-wiki.md:16]
-- "I think there is room here for an incredible new product instead of a hacky collection of scripts" ^[raw/articles/karpathy-tweet-llm-wiki.md:27]
+| Step | Activity | Key Details |
+|------|----------|-------------|
+| 1. Data Ingest | Collect sources into raw/, LLM compiles wiki | Obsidian Web Clipper + local image download; summaries, backlinks, concepts |
+| 2. IDE | Obsidian as viewing frontend | LLM writes/maintains all data; Marp for slides |
+| 3. Q&A | Ask complex questions against the wiki | No RAG needed at ~100 articles / ~400K words; index files suffice |
+| 4. Output | Render answers as files, file back into wiki | Markdown, Marp slides, matplotlib images; knowledge compounds |
+| 5. Linting | Health checks for inconsistencies | Find stale data, impute missing data (web search), suggest new articles |
+| 6. Extra tools | Custom CLIs for larger queries | Vibe-coded search engine used directly or handed to LLM via CLI |
 
-## Notes
+^[raw/articles/karpathy-tweet-llm-wiki.md:7-22]
 
-- This tweet is a more condensed, practical companion to the longer karpathy-github-llm-wiki source — it focuses on workflow steps rather than architecture
-- The Obsidian Web Clipper and local image download are the primary data ingestion tools mentioned
-- No new entities or concepts beyond those already captured in the wiki
+## Key Observations
+
+- **Scale threshold**: At ~100 articles and ~400K words, the LLM can navigate the wiki without RAG by relying on auto-maintained index files and brief summaries. This suggests a practical scale where index-based navigation is sufficient without embedding infrastructure. ^[raw/articles/karpathy-tweet-llm-wiki.md:13]
+- **Compounding knowledge**: Query outputs are filed back into the wiki rather than disappearing into chat history, so every exploration adds to the knowledge base. ^[raw/articles/karpathy-tweet-llm-wiki.md:16]
+- **Future direction**: As the wiki grows, synthetic data generation + finetuning could allow the LLM to "know" the data in its weights instead of context windows. ^[raw/articles/karpathy-tweet-llm-wiki.md:25]
+
+## Tools Used
+
+| Tool | Purpose |
+|------|---------|
+| Obsidian Web Clipper | Convert web articles to markdown sources |
+| Obsidian (IDE) | View wiki, raw data, visualizations |
+| Marp (Obsidian plugin) | Generate slide decks from markdown |
+| Custom search engine | Vibe-coded for larger queries via CLI |
+| Unix CLI tools | Operate on file-based wiki data |
+
+^[raw/articles/karpathy-tweet-llm-wiki.md:7-10,22]
+
+## Key Quotes
+
+> "I use an LLM to incrementally 'compile' a wiki, which is just a collection of .md files in a directory structure." ^[raw/articles/karpathy-tweet-llm-wiki.md:7]
+
+> "The LLM writes and maintains all of the data of the wiki, I rarely touch it directly." ^[raw/articles/karpathy-tweet-llm-wiki.md:10]
+
+> "I thought I had to reach for fancy RAG, but the LLM has been pretty good about auto-maintaining index files and brief summaries." ^[raw/articles/karpathy-tweet-llm-wiki.md:13]
+
+> "My own explorations and queries always 'add up' in the knowledge base." ^[raw/articles/karpathy-tweet-llm-wiki.md:16]
+
+> "I think there is room here for an incredible new product instead of a hacky collection of scripts." ^[raw/articles/karpathy-tweet-llm-wiki.md:27]
 
 ## Related
 
@@ -46,3 +69,4 @@ provenance: extracted
 - [[concepts/rag]]
 - [[concepts/memex]]
 - [[entities/obsidian]]
+- [[summaries/karpathy-github-llm-wiki]]

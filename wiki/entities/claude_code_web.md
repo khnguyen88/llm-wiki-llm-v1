@@ -10,6 +10,7 @@ sources:
   - raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
   - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
 tags:
   - claude-code
   - cloud
@@ -52,6 +53,7 @@ A research preview of Claude Code (available for Pro, Max, Team, and Enterprise 
 - `/web-setup` (CLI) syncs the local `gh` token to the Claude account and creates a default cloud environment with Trusted network access if none exists; requires CLI v2.1.80+ and claude.ai subscription auth; not available for organizations with Zero Data Retention enabled ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 - Cloud sessions only support Auto accept edits and Plan permission modes; Ask, Auto, and Bypass are not available ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 - The web interface received a redesign in Week 17 (v2.1.114-119) with a new sessions sidebar and drag-and-drop layout ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+- Auto-fix on the web includes a CI panel toggle that enables Claude to watch CI, fix failures and nits, and push until the PR is green ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
 
 ## Related
 
@@ -73,3 +75,4 @@ A research preview of Claude Code (available for Pro, Max, Team, and Enterprise 
 - [[concepts/session_prefill]]
 - [[concepts/permissions]]
 - [[concepts/parallel_sessions]]
+- [[summaries/claude-code-whats-new-2026-w13]]
