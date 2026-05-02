@@ -47,6 +47,7 @@ Optional: `confidence`, `provenance`, `contradictedBy`, `orphaned`.
 - **Internal**: `[[path/to/article]]` or `[[entities/transformer_model|Transformer Model]]`
 - **External**: `[Text](https://example.com)`
 - **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` — see `schema/WIKI_SCHEMA.md` → Claim-Level Citations
+- **Summary style**: Use rich section headings and tables — see `schema/WIKI_SCHEMA.md` → Style Guide for Summaries
 
 ## Operations
 
