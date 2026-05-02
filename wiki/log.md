@@ -437,6 +437,49 @@ A chronological record of operations on the external knowledge base.
 - Updated index.md, sources-manifest.md
 - Cost: $5.1974
 
+## [2026-05-02] ingest | Claude Code Troubleshooting
+- Source: raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md
+- Created summary: summaries/claude-code-troubleshooting.md
+- Created entities: entities/ripgrep.md
+- Created concepts: concepts/troubleshooting.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.5366
+
+## [2026-05-02] ingest | Claude Code Troubleshoot Install
+- Source: raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md
+- Created summary: summaries/claude-code-troubleshoot-install.md
+- Created concepts: concepts/troubleshoot_install.md
+- Updated index.md, sources-manifest.md
+- Cost: $6.0893
+
+## [2026-05-02] ingest | Claude Code Ultraplan
+- Source: raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md
+- Created summary: summaries/claude-code-ultraplan.md
+- Created concepts: concepts/ultraplan.md
+- Updated index.md, sources-manifest.md
+- Cost: $0.7278
+
+## [2026-05-02] ingest | Claude Code Ultrareview
+- Source: raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
+- Created summary: summaries/claude-code-ultrareview.md
+- Created concepts: concepts/ultrareview.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.7412
+
+## [2026-05-02] ingest | Claude Code Voice Dictation
+- Source: raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
+- Created summary: summaries/claude-code-voice-dictation.md
+- Created concepts: concepts/voice_dictation.md
+- Updated index.md, sources-manifest.md
+- Cost: $6.9970
+
+## [2026-05-02] ingest | Claude Code Web Quickstart
+- Source: raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
+- Created summary: summaries/claude-code-web-quickstart.md
+- Created concepts: concepts/session_prefill.md
+- Updated index.md, sources-manifest.md
+- Cost: $9.4733
+
 *Append new entries at the bottom*
 
 ## [2026-05-02] ingest | How to Navigate LLM Model Names

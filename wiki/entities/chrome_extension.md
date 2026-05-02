@@ -4,6 +4,7 @@ summary: "Browser extension connecting Claude Code to Chrome for browser automat
 type: entity
 sources:
   - raw/document/claude code/claude-code-042-chrome-2026-04-29.md
+  - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
 tags:
   - claude-code
   - chrome
@@ -31,6 +32,7 @@ A Chrome Web Store extension (also compatible with Microsoft Edge) that connects
 - The extension's service worker can go idle during extended sessions, breaking the connection; `/chrome` → "Reconnect extension" re-establishes it ^[raw/document/claude code/claude-code-042-chrome-2026-04-29.md]
 - Not supported on Brave, Arc, or other Chromium-based browsers; WSL is also not supported ^[raw/document/claude code/claude-code-042-chrome-2026-04-29.md]
 - Not available through third-party API providers (Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry); requires a direct Anthropic plan (Pro, Max, Team, or Enterprise) ^[raw/document/claude code/claude-code-042-chrome-2026-04-29.md]
+- In VS Code, the Chrome extension is referenced via `@browser` in the prompt box; Claude opens new tabs for browser tasks and shares the browser's login state ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 
 ## Related
 
@@ -38,3 +40,4 @@ A Chrome Web Store extension (also compatible with Microsoft Edge) that connects
 - [[concepts/browser_automation]]
 - [[concepts/permissions]]
 - [[concepts/mcp]]
+- [[entities/vs_code_extension]]

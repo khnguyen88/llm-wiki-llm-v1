@@ -4,16 +4,18 @@ summary: "Mechanism by which Claude Code verifies user identity and authorizes A
 type: concept
 sources:
   - raw/document/claude code/claude-code-034-authentication-2026-04-29.md
+  - raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md
 tags:
   - claude-code
   - authentication
   - credentials
   - security
   - enterprise
+  - troubleshooting
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
-provenance: extracted
+provenance: merged
 ---
 
 # Authentication
@@ -46,6 +48,14 @@ When an active Claude subscription exists alongside `ANTHROPIC_API_KEY`, the API
 
 Teams and organizations can configure Claude Code access through: Claude for Teams or Enterprise (recommended for most teams, provides web + Code with centralized billing), Claude Console (API-based billing, supports SSO), or cloud providers (Amazon Bedrock, Google Vertex AI, Microsoft Foundry). Cloud provider authentication requires setting environment variables before running `claude` and does not require browser login. ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
 
+### Login Troubleshooting
+
+When login fails, a clean re-authentication resolves most cases: run `/logout`, close Claude Code, then restart with `claude`. If the browser doesn't open during OAuth, press `c` to copy the login URL to the clipboard and paste it manually. OAuth `Invalid code` errors mean the login code expired or was truncated; press Enter to retry and complete login quickly. In WSL2, set the `BROWSER` environment variable to the Windows browser path, or use `claude auth login` as a fallback if pasting the code doesn't work in the terminal. ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+
+A 403 Forbidden error after login can mean the subscription is inactive (verify at claude.ai/settings), the Anthropic Console account lacks the "Claude Code" or "Developer" role, or a corporate proxy is interfering. When `ANTHROPIC_API_KEY` is set in the environment, it overrides subscription OAuth credentials and can produce "This organization has been disabled" errors if the key belongs to a disabled or expired organization; unset it and remove it from shell profiles to restore subscription authentication. On macOS, login can fail when the Keychain is locked or its password is out of sync; run `security unlock-keychain ~/Library/Keychains/login.keychain-db` or resync via Keychain Access. ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+
+Cloud provider credential failures (`Could not load credentials from any providers` on Bedrock, `Could not load the default credentials` on Vertex, `ChainedTokenCredential authentication failed` on Foundry) typically mean the cloud CLI is not authenticated in the current shell. Verify with `aws sts get-caller-identity` (Bedrock), `gcloud auth application-default login` (Vertex), or `az login` (Foundry). If credentials work in the terminal but not in VS Code or JetBrains, the IDE process didn't inherit the shell environment; set the provider environment variables in the IDE's own settings or launch the IDE from a terminal where they're already exported. ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+
 ## Related
 
 - [[entities/claude_code]]
@@ -57,3 +67,4 @@ Teams and organizations can configure Claude Code access through: Claude for Tea
 - [[concepts/permissions]]
 - [[concepts/secure_deployment]]
 - [[concepts/sessions]]
+- [[concepts/troubleshoot_install]]

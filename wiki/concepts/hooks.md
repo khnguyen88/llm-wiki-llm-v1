@@ -15,6 +15,7 @@ sources:
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
   - raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
   - raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md
+  - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
 tags:
   - hooks
   - claude-code
@@ -58,6 +59,7 @@ Callbacks that fire at specific points in the agent loop lifecycle, allowing dev
 - Hooks are the first step in the permission evaluation flow: they run before deny rules, permission modes, and allow rules, and can allow, deny, or continue to the next step ^[raw/document/claude code/claude-code-014-agent-sdk-permissions-2026-04-29.md]
 - The `PermissionDenied` hook fires when auto mode denies a tool call, enabling programmatic reaction to denials (e.g., logging, alerting, or auto-remediation) ^[raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md]
 - Hooks are deterministic and guarantee the action happens, unlike CLAUDE.md instructions which are advisory; if a rule in CLAUDE.md keeps being ignored, convert it to a hook ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Conditional `if` hooks (introduced in Week 13, v2.1.83-85) allow hooks to execute only when a specified condition is met, adding conditional logic to hook execution ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
 - Claude can write hooks: try prompts like "Write a hook that runs eslint after every file edit" or "Write a hook that blocks writes to the migrations folder" ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 - Run `/hooks` to browse configured hooks ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 - In cloud sessions, SessionStart hooks defined in the repo's `.claude/settings.json` run on every session including resumes; user-level hooks from `~/.claude/settings.json` do not carry over ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]

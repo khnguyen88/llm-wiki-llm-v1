@@ -8,6 +8,7 @@ sources:
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
   - raw/document/claude code/claude-code-050-computer-use-2026-04-29.md
   - raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md
+  - raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
 tags:
   - claude-code
   - automation
@@ -16,7 +17,7 @@ tags:
   - cli
   - print-mode
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -46,6 +47,7 @@ Running Claude Code without an interactive session using `claude -p "prompt"`, e
 - Use `@` in prompts to include files or directories without waiting for Claude to read them: `claude -p 'Explain @src/utils/auth.js'` includes full file content; `@src/components` provides a directory listing; `@server:resource` fetches MCP resources ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Computer use (screen control) is not available in non-interactive mode; it requires an interactive session ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 - In non-interactive mode with the `-p` flag, server-managed security approval dialogs for shell commands, custom environment variables, and hook configurations are skipped and settings are applied without user approval ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
+- `claude ultrareview` runs ultrareview non-interactively from CI or scripts; it blocks until the remote review finishes, prints findings to stdout, and exits with code 0 on success or 1 on failure; supports `--json` for raw payload and `--timeout <minutes>` to override the 30-minute default; invoking the subcommand counts as consent for billing ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
 
 ## Details
 
@@ -67,3 +69,4 @@ Use `--verbose` for debugging during development and disable it in production. ^
 - [[summaries/claude-code-common-workflows]]
 - [[concepts/computer_use]]
 - [[summaries/claude-code-cli-reference]]
+- [[concepts/ultrareview]]

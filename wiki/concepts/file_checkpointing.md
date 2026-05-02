@@ -7,6 +7,7 @@ sources:
   - raw/document/claude code/claude-code-036-best-practices-2026-04-29.md
   - raw/document/claude code/claude-code-041-checkpointing-2026-04-29.md
   - raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md
+  - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
 tags:
   - claude-code
   - agent-sdk
@@ -38,6 +39,7 @@ A mechanism in the Agent SDK that creates backups of files before they are modif
 - "Summarize from here" compresses messages from the selected point forward into a compact AI-generated summary while keeping earlier context intact; original messages are preserved in the session transcript for reference ^[raw/document/claude code/claude-code-041-checkpointing-2026-04-29.md]
 - External file changes outside the current session are not tracked, unless they modify the same files as the current session ^[raw/document/claude code/claude-code-041-checkpointing-2026-04-29.md]
 - Pre-edit file snapshots are stored at `~/.claude/file-history/<session>/` and auto-cleaned on startup after `cleanupPeriodDays` (default 30 days) ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- In the VS Code extension, hovering over any message reveals a rewind button with three options: "Fork conversation from here" (new branch, keep code changes), "Rewind code to here" (revert files, keep full conversation), and "Fork conversation and rewind code" (new branch and revert files) ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 
 ## Details
 
@@ -56,3 +58,4 @@ Rewinding after a stream completes requires resuming the session with an empty p
 - [[concepts/cost_tracking]]
 - [[summaries/claude-code-best-practices]]
 - [[concepts/application_data]]
+- [[entities/vs_code_extension]]

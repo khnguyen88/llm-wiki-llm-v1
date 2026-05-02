@@ -14,6 +14,8 @@ sources:
   - raw/document/claude code/claude-code-050-computer-use-2026-04-29.md
   - raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
   - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
+  - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
+  - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
 tags:
   - agent-sdk
   - permissions
@@ -24,6 +26,7 @@ tags:
   - cli
   - subagents
   - tools
+  - web
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"
 provenance: merged
@@ -60,6 +63,9 @@ Permissions in the Agent SDK control which tools an agent can use and how tool a
 - In subagents, `bypassPermissions` still prompts for writes to `.git`, `.claude`, `.vscode`, `.idea`, and `.husky` directories (except `.claude/commands`, `.claude/agents`, and `.claude/skills`) ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
 - `Agent(subagent-name)` syntax in `permissions.deny` settings prevents Claude from using specific subagents by name; works for both built-in and custom subagents ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
 - In the CLI, tools requiring explicit permission are: Bash, Edit, ExitPlanMode, Monitor, NotebookEdit, PowerShell, Skill, WebFetch, WebSearch, and Write; all other built-in tools operate without prompting; to disable a tool entirely, add its name to the `deny` array in permission settings ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+- In the VS Code extension, the `initialPermissionMode` setting controls the default permission mode for new conversations: `default`, `plan`, `acceptEdits`, or `bypassPermissions`; the mode can also be switched via the mode indicator at the bottom of the prompt box ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- With auto-edit permissions enabled in VS Code, Claude can modify VS Code configuration files (settings.json, tasks.json) that VS Code may execute automatically; use manual approval mode or VS Code Restricted Mode for untrusted workspaces ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Cloud (web) sessions support only two permission modes: Auto accept edits (makes changes and pushes branch without stopping for approval) and Plan (proposes approach, waits for go-ahead before editing); Ask, Auto, and Bypass are not available in cloud sessions ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 
 ## Details
 
@@ -85,3 +91,6 @@ A common pattern is creating a locked-down agent by pairing `allowedTools` with 
 - [[summaries/claude-code-tools-reference]]
 - [[summaries/claude-code-cli-reference]]
 - [[summaries/claude-code-sub-agents]]
+- [[entities/vs_code_extension]]
+- [[entities/claude_code_web]]
+- [[summaries/claude-code-web-quickstart]]

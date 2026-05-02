@@ -12,6 +12,10 @@ sources:
   - raw/document/claude code/claude-code-045-cli-reference-2026-04-29.md
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
   - raw/document/claude code/claude-code-104-slack-2026-04-29.md
+  - raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md
+  - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
+  - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
+  - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
 tags:
   - agent-sdk
   - sessions
@@ -62,6 +66,14 @@ Sessions maintain context across multiple exchanges in the Agent SDK. Claude rem
 - Resuming by name resolves across the current repository and its worktrees; `claude --resume <name>` opens the picker with the name pre-filled on ambiguity, while `/resume <name>` from inside a session reports an error ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Sessions created by `claude -p` or SDK invocations do not appear in the picker but can be resumed by passing their session ID directly to `claude --resume <session-id>` ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Slack-initiated sessions follow a distinct flow: @mention → intent detection → session creation on claude.ai/code → progress updates in Slack thread → completion summary with action buttons (View Session, Create PR, Change Repo) ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- If Claude Code becomes unresponsive and the terminal is closed, conversation history is not lost; `claude --resume` in the same directory picks up the session where it left off ^[raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md]
+- In the VS Code extension, session history is accessed via the Session history button at the top of the panel, with search by keyword and browsing by time (Today, Yesterday, Last 7 days, etc.); hovering reveals rename and remove actions ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Remote sessions from Claude Code on the Web can be resumed locally in VS Code via the Session history Remote tab; requires signing in with Claude.ai Subscription (not Anthropic Console); only web sessions started with a GitHub repository appear, and changes are not synced back to claude.ai ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- The VS Code extension and CLI share the same conversation history; continue an extension conversation in the CLI with `claude --resume` ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Web session lifecycle: (1) clone and prepare — repository is cloned to an Anthropic-managed VM and setup script runs if configured; (2) configure network — internet access is set based on the environment's access level; (3) work — Claude analyzes, makes changes, runs tests, checks work; (4) push branch — Claude pushes its branch to GitHub for review; the session stays live after the push so PR creation and further edits happen within the same conversation ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- Web sessions persist across devices (laptop, phone); closing the browser tab does not stop the session — it continues running in the background until the task finishes, then idles ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- Web sessions can be pre-filled via URL parameters (`prompt`, `prompt_url`, `repositories`, `environment`) to enable integrations like issue-tracker buttons that open Claude Code with context pre-loaded ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- Session recap (introduced in Week 17, v2.1.114-119) shows what happened in a session while the terminal was unfocused, allowing users to quickly catch up without scrolling the full transcript ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
 
 ## Details
 
@@ -90,3 +102,8 @@ Both SDKs expose session utility functions for building custom session pickers, 
 - [[summaries/claude-code-cli-reference]]
 - [[entities/slack]]
 - [[concepts/routing_mode]]
+- [[concepts/troubleshooting]]
+- [[entities/vs_code_extension]]
+- [[concepts/session_prefill]]
+- [[concepts/session_recap]]
+- [[summaries/claude-code-web-quickstart]]

@@ -4,6 +4,7 @@ summary: "Anthropic-managed VMs that host Claude Code on the Web sessions, with 
 type: concept
 sources:
   - raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md
+  - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
 tags:
   - claude-code
   - cloud
@@ -29,6 +30,8 @@ Each Claude Code on the Web session runs in a fresh Anthropic-managed VM with th
 - Environment caching reuses the snapshot for roughly seven days or until the setup script or network settings change; resuming an existing session never re-runs the setup script ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - Setup scripts run as root on Ubuntu 24.04 and need network access to reach registries; they fail under "None" network access; append `|| true` to non-critical commands to avoid blocking the session ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - PostgreSQL and Redis are pre-installed but not running by default; ask Claude to start them with `service postgresql start` or `service redis-server start` ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Environment creation form fields: Name (display label), Network access (controls outbound connections; default is Trusted), Environment variables (optional, `.env` format without quotes around values, visible to anyone who can edit the environment), Setup script (optional Bash script that runs before Claude Code launches, result is cached) ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- `/web-setup` in the CLI creates a default cloud environment with Trusted network access and no setup script if one doesn't already exist; it syncs the local `gh` token to the Claude account ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 
 ## Details
 
@@ -44,3 +47,4 @@ Mid-session package installs do not carry over to other sessions. To persist pac
 - [[concepts/network_access]]
 - [[concepts/sessions]]
 - [[concepts/hooks]]
+- [[summaries/claude-code-web-quickstart]]

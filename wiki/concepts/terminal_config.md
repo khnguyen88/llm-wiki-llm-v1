@@ -4,6 +4,7 @@ summary: "Configuring terminal emulators to send correct key signals and notific
 type: concept
 sources:
   - raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md
+  - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
 tags:
   - claude-code
   - terminal
@@ -29,6 +30,7 @@ Terminal configuration for Claude Code ensures that the terminal emulator sends 
 - Desktop notifications reach the OS natively in Ghostty and Kitty without setup; iTerm2 requires enabling "Notification Center Alerts" and "Send escape sequence-generated alerts" in its settings ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 - Tmux requires three settings in `~/.tmux.conf`: `allow-passthrough on` (for notifications and progress), `extended-keys on`, and `terminal-features 'xterm*:extkeys'` (for Shift+Enter); run `tmux source-file ~/.tmux.conf` to apply ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 - Pasting more than 10,000 characters collapses the input to a `[Pasted text]` placeholder while still sending the full content on submission; VS Code's integrated terminal can drop characters from very large pastes ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- Voice dictation's hold mode relies on terminal key-repeat events; if key-repeat is disabled at the OS level, hold detection does not work and tap mode or a modifier keybinding should be used instead ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
 - Windows Terminal, gnome-terminal, and JetBrains IDEs do not support Shift+Enter; users must use Ctrl+J or `\` then Enter for newlines ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 
 ## Details
@@ -62,3 +64,4 @@ Fullscreen rendering mode draws to a separate screen buffer that the terminal re
 - [[entities/claude_code]]
 - [[entities/tmux]]
 - [[summaries/claude-code-terminal-config]]
+- [[concepts/voice_dictation]]

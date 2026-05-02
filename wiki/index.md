@@ -13,6 +13,7 @@ updated: "2026-05-02T12:00:00Z"
 A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ## Entities
+- [[entitie/ripgrep|Ripgrep]]
 - [[entitie/tmux|Tmux]]
 - [[entitie/slack|Slack]]
 - [[entitie/claude_code_web|Claude Code Web]]
@@ -43,6 +44,12 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[entitie/qmd|Qmd]]
 
 ## Concepts
+- [[concept/session_prefill|Session Prefill]]
+- [[concept/voice_dictation|Voice Dictation]]
+- [[concept/ultrareview|Ultrareview]]
+- [[concept/ultraplan|Ultraplan]]
+- [[concept/troubleshoot_install|Troubleshoot Install]]
+- [[concept/troubleshooting|Troubleshooting]]
 - [[concept/lsp_tool|Lsp Tool]]
 - [[concept/monitor_tool|Monitor Tool]]
 - [[concept/powershell_tool|Powershell Tool]]
@@ -122,6 +129,12 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concept/llm_wiki|Llm Wiki]]
 
 ## Summaries
+- [[summaries/claude-code-web-quickstart|Claude Code Web Quickstart]]
+- [[summaries/claude-code-voice-dictation|Claude Code Voice Dictation]]
+- [[summaries/claude-code-ultrareview|Claude Code Ultrareview]]
+- [[summaries/claude-code-ultraplan|Claude Code Ultraplan]]
+- [[summaries/claude-code-troubleshoot-install|Claude Code Troubleshoot Install]]
+- [[summaries/claude-code-troubleshooting|Claude Code Troubleshooting]]
 - [[summaries/claude-code-tools-reference|Claude Code Tools Reference]]
 - [[summaries/claude-code-third-party-integrations|Claude Code Third Party Integrations]]
 - [[summaries/how-to-navigate-llm-model-names|How to Navigate LLM Model Names]]
@@ -196,4 +209,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-05-02 (batch ingest: 4 pages)*
+*Last updated: 2026-05-02 (batch ingest: 2 pages)*

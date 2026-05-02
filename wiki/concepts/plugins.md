@@ -6,6 +6,8 @@ sources:
   - raw/document/claude code/claude-code-015-agent-sdk-plugins-2026-04-29.md
   - raw/document/claude code/claude-code-039-channels-2026-04-29.md
   - raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md
+  - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
+  - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
 tags:
   - agent-sdk
   - plugins
@@ -43,9 +45,16 @@ Successful plugin loading is verified through the system init message (`message.
 
 The plugin directory structure includes `.claude-plugin/plugin.json` (required), and optional `skills/`, `commands/` (legacy), `agents/`, `hooks/`, and `.mcp.json` directories/files. Each skill must have its own subdirectory under `skills/` with a `SKILL.md` file (e.g., `skills/my-skill/SKILL.md`). ^[raw/document/claude code/claude-code-015-agent-sdk-plugins-2026-04-29.md]
 
+- In the VS Code extension, `/plugins` opens a graphical dialog with Plugins (installed/available with search and toggle switches) and Marketplaces (add/remove sources) tabs; plugins installed from the extension use the same CLI commands under the hood and configurations are shared ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- VS Code plugin installation offers three scopes: "Install for you" (user scope, all projects), "Install for this project" (project scope, shared with collaborators), "Install locally" (local scope, only you, only this repository) ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Plugin marketplaces in VS Code accept GitHub repos, URLs, or local paths; clicking the refresh icon updates the plugin list and the trash icon removes a marketplace; changes prompt a Claude Code restart ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Plugin executables are available on the Bash tool's PATH, allowing plugin-provided commands to be invoked directly from shell commands ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+- Plugins can contribute custom themes that appear in the `/theme` list alongside built-in presets and user-created themes ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+
 ## Related
 
 - [[entities/agent_sdk]]
+- [[entities/vs_code_extension]]
 - [[concepts/skills]]
 - [[concepts/hooks]]
 - [[concepts/mcp]]

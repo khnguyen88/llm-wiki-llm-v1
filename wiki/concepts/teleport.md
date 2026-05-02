@@ -4,6 +4,7 @@ summary: "Mechanisms for moving Claude Code tasks between the web cloud and loca
 type: concept
 sources:
   - raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md
+  - raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md
 tags:
   - claude-code
   - cloud
@@ -35,7 +36,9 @@ Teleport and remote are the two mechanisms for moving Claude Code tasks between 
 
 Multiple `--remote` commands create independent cloud sessions that run in parallel, enabling concurrent task execution. Use `/tasks` in the CLI to monitor all sessions. The Desktop app provides a "Continue in" menu that can send a local session to the web (this capability does not exist in the CLI).
 
-For complex tasks, a "plan locally, execute remotely" pattern is recommended: start Claude in plan mode (`claude --permission-mode plan`) locally to collaborate on the approach, commit and push the plan, then start a cloud session with `claude --remote "Execute the migration plan in docs/migration-plan.md"` for autonomous execution. The ultraplan feature provides a cloud-native alternative for drafting and reviewing plans in the web interface.
+For complex tasks, a "plan locally, execute remotely" pattern is recommended: start Claude in plan mode (`claude --permission-mode plan`) locally to collaborate on the approach, commit and push the plan, then start a cloud session with `claude --remote "Execute the migration plan in docs/migration-plan.md"` for autonomous execution. The [[concepts/ultraplan|ultraplan]] feature provides a cloud-native alternative for drafting and reviewing plans in the web interface.
+
+Ultraplan's "teleport back to terminal" option sends an approved cloud plan to the waiting CLI session with three choices: "Implement here" (inject the plan into the current conversation), "Start new session" (begin fresh with only the plan as context), or "Cancel" (save the plan to a file). The web session is archived upon teleporting back so it does not continue in parallel. ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 
 Bundled repositories that exceed 100 MB fall back to bundling only the current branch, then to a single squashed snapshot of the working tree. Bundled sessions cannot push results back to a remote unless GitHub authentication is also configured.
 

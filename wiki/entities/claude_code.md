@@ -35,6 +35,11 @@ sources:
   - raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
   - raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md
   - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
+  - raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md
+  - raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md
+  - raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
+  - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
+  - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
 tags:
   - claude-code
   - anthropic
@@ -75,6 +80,9 @@ tags:
   - lsp
   - monitoring
   - powershell
+  - troubleshooting
+  - ultrareview
+  - voice-dictation
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
@@ -176,8 +184,26 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - Custom themes are JSON files in `~/.claude/themes/` with `name`, `base` (preset name), and `overrides` (color token map); require v2.1.118+ and are hot-reloaded on file change ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 - Vim editor mode for the prompt input is enabled via `/config` → Editor mode or by setting `editorMode` to `"vim"` in `~/.claude/settings.json`; Enter still submits in INSERT mode, use `o`/`O` or Ctrl+J for newlines ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 - `CLAUDE_CODE_NO_FLICKER=1` environment variable enables fullscreen rendering mode by default, which draws to a separate screen buffer to fix display flicker and scroll jumps ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- Voice dictation streams audio to Anthropic's servers for live transcription; requires a Claude.ai account (not available with API key, Bedrock, Vertex AI, or Foundry) and v2.1.69+ (hold mode) or v2.1.116+ (tap mode) ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Voice dictation has two modes: hold mode (push-to-talk, default, Space key) and tap mode (tap to start/stop); transcription is tuned for coding vocabulary and auto-submits in tap mode when transcript is at least three words ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Voice dictation is not available in remote environments (Claude Code on the Web, SSH sessions, VS Code Remote) because it requires local microphone access; WSL requires WSLg (WSL2 on Windows 11) ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
 - Provides 30+ built-in tools; tools requiring explicit permission are Bash, Edit, ExitPlanMode, Monitor, NotebookEdit, PowerShell, Skill, WebFetch, WebSearch, and Write; the LSP tool provides code intelligence via language server plugins; the Monitor tool (v2.1.98+) streams background script output mid-conversation; the PowerShell tool enables native Windows command execution ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 - Bash tool persists working directory changes across commands within the project directory or additional working directories (`--add-dir`, `additionalDirectories`), but environment variables do not persist between commands; use `CLAUDE_ENV_FILE` or a SessionStart hook for persistent env vars, or `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1` to disable directory carry-over ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+- Ultrareview (research preview, v2.1.86+) runs a fleet of reviewer agents in a remote sandbox for deep multi-agent code review; findings are independently reproduced and verified, and the review runs entirely in the cloud so the terminal stays free ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
+- `/ultrareview` reviews the current branch diff (including uncommitted/staged changes); `/ultrareview <PR-number>` reviews a GitHub PR directly in the remote sandbox; requires Claude.ai authentication and is not available with Bedrock, Vertex AI, Foundry, or Zero Data Retention ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
+- `claude ultrareview` runs ultrareview non-interactively for CI/scripts, blocking until completion; exits 0 on success, 1 on failure, 130 on Ctrl-C; supports `--json` for raw payload and `--timeout <minutes>` to override the 30-minute default ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
+- `/doctor` runs an automated check of installation, settings, MCP servers, and context usage; `claude doctor` runs the same check from the shell when the CLI cannot start ^[raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md]
+- `/heapdump` writes a JavaScript heap snapshot and memory breakdown to `~/Desktop` (or `~/` on Linux without a Desktop folder); open the `.heapsnapshot` file in Chrome DevTools under Memory → Load to inspect retainers ^[raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md]
+- If Claude Code hangs or freezes, press Ctrl+C to cancel; if unresponsive, close the terminal and restart with `claude --resume` to resume the session without losing conversation history ^[raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md]
+- WSL cross-filesystem access degrades search performance; move projects to the Linux filesystem (`/home/`) or run Claude Code natively on Windows for better file system performance ^[raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md]
+- The native installer places the binary at `~/.local/bin/claude` (macOS/Linux) or `%USERPROFILE%\.local\bin\claude.exe` (Windows); `command not found` after install means this directory is not on PATH ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- Multiple installations (native, npm global, legacy `~/.claude/local/`, Homebrew, WinGet) can cause version mismatches; the native install is recommended, remove others with `npm uninstall -g @anthropic-ai/claude-code` or `rm -rf ~/.claude/local` ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- Requires at least 4 GB of RAM; the Linux OOM killer terminates installs on low-memory servers, fixed by adding 2 GB swap (`fallocate`, `mkswap`, `swapon`) ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- Platform-specific install issues: WSL1 produces `Exec format error` (convert to WSL2 or use dynamic linker); musl/glibc mismatches cause shared library errors; `Illegal instruction` indicates missing CPU instructions (AVX); `dyld: cannot load` means macOS 13.0+ required ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- `ANTHROPIC_API_KEY` overrides subscription OAuth and can cause 403 "organization disabled" errors from stale keys; unset it and remove from shell profiles to use subscription authentication ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- Docker installs hang when run from `/` because the installer scans the entire filesystem; set `WORKDIR /tmp` before running the installer ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- TLS/SSL errors from corporate proxies require `curl --cacert /path/to/corporate-ca.pem` during install and `NODE_EXTRA_CA_CERTS` for runtime API requests ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+- On Windows, Claude Code requires either Git for Windows (for bash) or PowerShell; if Git is installed but not found, set `CLAUDE_CODE_GIT_BASH_PATH` in `settings.json` ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
 
 ## Related
 
@@ -238,3 +264,9 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - [[concepts/powershell_tool]]
 - [[summaries/claude-code-terminal-config]]
 - [[summaries/claude-code-tools-reference]]
+- [[concepts/troubleshooting]]
+- [[concepts/troubleshoot_install]]
+- [[entities/ripgrep]]
+- [[concepts/ultrareview]]
+- [[concepts/voice_dictation]]
+- [[summaries/claude-code-voice-dictation]]

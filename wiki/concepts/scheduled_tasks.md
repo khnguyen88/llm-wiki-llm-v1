@@ -5,6 +5,7 @@ type: concept
 sources:
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
   - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
+  - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
 tags:
   - claude-code
   - scheduling
@@ -24,7 +25,7 @@ Running Claude Code tasks automatically on a recurring basis or at specific time
 
 ## Key Points
 
-- **Routines** run on Anthropic-managed infrastructure and can operate even when your computer is off; they also support API call and GitHub event triggers in addition to schedules; configure at claude.ai/code/routines ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- **Routines** run on Anthropic-managed infrastructure and can operate even when your computer is off; they also support API call and GitHub event triggers in addition to schedules; configure at claude.ai/code/routines; Routines fire templated cloud agents from a schedule, GitHub event, or API call ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
 - **Desktop scheduled tasks** run on your local machine via the Claude Code desktop app, providing direct access to local files, tools, and uncommitted changes ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - **GitHub Actions** run in your CI pipeline, suited for tasks tied to repo events (opened PRs) or cron schedules alongside workflow config ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - **`/loop`** is an in-session CLI command for quick polling while a session is open; tasks stop when you start a new conversation, but `--resume` and `--continue` can restore unexpired ones ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]

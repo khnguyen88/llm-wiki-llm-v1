@@ -5,6 +5,7 @@ type: concept
 sources:
   - raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md
   - raw/document/claude code/claude-code-036-best-practices-2026-04-29.md
+  - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
 tags:
   - claude-code
   - auto-mode
@@ -20,7 +21,7 @@ provenance: extracted
 
 # Auto Mode
 
-Auto mode lets Claude Code run without permission prompts by routing each tool call through a classifier that blocks anything irreversible, destructive, or aimed outside the environment. The classifier uses trust rules defined in the `autoMode` settings block to distinguish routine internal operations from potentially harmful actions. ^[raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md]
+Auto mode lets Claude Code run without permission prompts by routing each tool call through a classifier that blocks anything irreversible, destructive, or aimed outside the environment. The classifier uses trust rules defined in the `autoMode` settings block to distinguish routine internal operations from potentially harmful actions. Auto mode is the middle ground between approving everything and `--dangerously-skip-permissions`: safe actions run without interruption while risky ones get blocked. ^[raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
 
 ## Key Points
 

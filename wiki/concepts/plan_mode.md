@@ -4,6 +4,7 @@ summary: "A read-only permission mode that restricts Claude to analysis and plan
 type: concept
 sources:
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
+  - raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md
 tags:
   - claude-code
   - permissions
@@ -42,5 +43,6 @@ The Shift+Tab cycle goes through Normal Mode → Auto-Accept Mode (`⏵⏵ accep
 - [[concepts/permissions]]
 - [[concepts/non_interactive_mode]]
 - [[concepts/sessions]]
+- [[concepts/ultraplan]]
 - [[entities/claude_code]]
 - [[summaries/claude-code-common-workflows]]

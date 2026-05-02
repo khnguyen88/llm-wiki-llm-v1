@@ -7,6 +7,7 @@ sources:
   - raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md
   - raw/document/claude code/claude-code-046-code-review-2026-04-29.md
   - raw/document/claude code/claude-code-047-commands-2026-04-29.md
+  - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
 tags:
   - github
   - claude-code
@@ -16,6 +17,7 @@ tags:
   - authentication
   - code-review
   - commands
+  - quickstart
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
@@ -39,6 +41,8 @@ Code hosting platform that integrates with Claude Code analytics to provide cont
 - Code Review findings appear as inline PR comments, as annotations on the Files changed tab, and in the check run Details severity table; the check run always completes with a neutral conclusion so it never blocks merging through branch protection rules ^[raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
 - Manual review triggers use `@claude review` or `@claude review once` as top-level PR comments; require owner, member, or collaborator access; `@claude review` also subscribes the PR to future push-triggered reviews ^[raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
 - `/install-github-app` sets up the Claude GitHub Actions app for a repository, walking through repo selection and integration configuration ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- The Claude GitHub App needs explicit repository access for each repo; configure at github.com Settings → Applications → Claude → Configure under Repository access; private repos require the same authorization as public ones ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- To start a new project on the web, create an empty GitHub repository first since cloud sessions work with existing repos only ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 
 ## Related
 
@@ -50,3 +54,4 @@ Code hosting platform that integrates with Claude Code analytics to provide cont
 - [[concepts/auto_fix]]
 - [[concepts/code_review]]
 - [[concepts/commands]]
+- [[summaries/claude-code-web-quickstart]]

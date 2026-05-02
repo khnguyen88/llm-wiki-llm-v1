@@ -4,6 +4,7 @@ summary: "Automated PR review feature in Claude Code that uses multi-agent analy
 type: concept
 sources:
   - raw/document/claude code/claude-code-046-code-review-2026-04-29.md
+  - raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
 tags:
   - claude-code
   - code-review
@@ -12,7 +13,7 @@ tags:
   - automation
   - severity
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -29,6 +30,7 @@ Automated PR review feature in Claude Code that uses a fleet of specialized agen
 - REVIEW.md at the repository root overrides review behavior as highest-priority instruction injected into every review agent; CLAUDE.md rules are treated as project context with violations flagged as nits ^[raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
 - The check run always completes with a neutral conclusion so it never blocks merging through branch protection rules; a machine-readable severity breakdown is available for custom CI gating via `gh api` ^[raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
 - Reviews average $15-25 in cost and about 20 minutes to complete, scaling with PR size, codebase complexity, and issue verification depth ^[raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
+- Code Review posts findings as inline GitHub comments on the PR itself, unlike [[concepts/ultrareview|ultrareview]] which returns findings in the CLI session ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
 
 ## Details
 
@@ -59,3 +61,4 @@ Code Review is billed based on token usage, averaging $15-25 per review, billed 
 - [[concepts/claude_directory]]
 - [[concepts/verification]]
 - [[concepts/auto_fix]]
+- [[concepts/ultrareview]]

@@ -4,6 +4,7 @@ summary: "A customizable status bar in Claude Code that runs a user-defined shel
 type: concept
 sources:
   - raw/document/claude code/claude-code-105-statusline-2026-04-29.md
+  - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
 tags:
   - statusline
   - claude-code
@@ -30,6 +31,7 @@ A customizable status bar at the bottom of Claude Code that runs any shell scrip
 - Scripts can output multiple lines (each `echo`/`print` produces a separate row), ANSI escape codes for terminal colors, and OSC 8 escape sequences for clickable hyperlinks ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
 - The `hideVimModeIndicator` field suppresses the built-in `-- INSERT --` text below the prompt when the script renders `vim.mode` itself ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
 - The `subagentStatusLine` setting renders custom row bodies for subagents in the agent panel, receiving all visible subagent rows as a single JSON object on stdin ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- When voice dictation is enabled and the prompt is empty, the input footer shows a `hold Space to speak` hint; this hint is suppressed when a custom status line is configured ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
 
 ## Details
 
@@ -73,3 +75,4 @@ The `subagentStatusLine` setting renders a custom row body for each subagent sho
 - [[concepts/sessions]]
 - [[concepts/hooks]]
 - [[summaries/claude-code-statusline]]
+- [[concepts/voice_dictation]]

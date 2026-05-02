@@ -8,6 +8,7 @@ sources:
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
   - raw/document/claude code/claude-code-051-context-window-2026-04-29.md
   - raw/document/claude code/claude-code-105-statusline-2026-04-29.md
+  - raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md
 tags:
   - context-window
   - claude-code
@@ -45,6 +46,8 @@ The total amount of information available to a model during a session. The conte
 - Invoked skill bodies are re-injected after compaction, capped at 5,000 tokens per skill and 25,000 tokens total; oldest invoked skills are dropped first when the total budget is exceeded ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
 - Hooks are unaffected by compaction because they execute as code outside the context window, not as context content ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
 - Run `/context` for a live breakdown of context usage by category with optimization suggestions ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
+- Auto-compaction thrashing occurs when a file or tool output immediately refills the context window after compaction; Claude Code stops retrying to avoid wasting API calls on a loop that is not making progress; the error message is `Autocompact is thrashing: the context refilled to the limit...` ^[raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md]
+- To recover from auto-compaction thrashing: read oversized files in smaller chunks (specific line ranges or functions), run `/compact` with a focus that drops the large output, move large-file work to a subagent, or run `/clear` if earlier conversation is no longer needed ^[raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md]
 - Run `/memory` to check which CLAUDE.md and auto memory files loaded at startup ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
 - The statusline provides `context_window.used_percentage` (calculated from input tokens only: `input_tokens + cache_creation_input_tokens + cache_read_input_tokens`, excluding output tokens) and `context_window.remaining_percentage` for at-a-glance monitoring ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
 - `context_window.current_usage` contains per-call token breakdowns (`input_tokens`, `output_tokens`, `cache_creation_input_tokens`, `cache_read_input_tokens`); it is `null` before the first API call ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
@@ -90,3 +93,4 @@ Path-scoped rules and nested CLAUDE.md files load into message history when thei
 - [[summaries/claude-code-common-workflows]]
 - [[summaries/claude-code-context-window]]
 - [[concepts/statusline]]
+- [[concepts/troubleshooting]]

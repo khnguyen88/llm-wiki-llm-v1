@@ -4,6 +4,7 @@ summary: "Git worktrees that create isolated working directories for parallel Cl
 type: concept
 sources:
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
+  - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
 tags:
   - claude-code
   - git
@@ -33,6 +34,7 @@ Git worktrees create separate working directories that each have their own files
 - For full control over worktree creation (including base branch), configure a WorktreeCreate hook in settings.json; the hook replaces Claude Code's default `git worktree` logic entirely ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - For non-git version control (SVN, Perforce, Mercurial), configure WorktreeCreate and WorktreeRemove hooks to provide custom worktree creation and cleanup; `.worktreeinclude` is not processed when custom hooks are active ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Worktrees created with `--worktree` are never removed by the automatic cleanup sweep; only orphaned subagent worktrees are eligible ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- In VS Code, the `--worktree` / `-w` flag starts Claude in an isolated worktree with its own files and branch; each worktree maintains independent file state while sharing git history, preventing Claude instances from interfering with each other ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 
 ## Details
 
@@ -48,4 +50,5 @@ For manual worktree management outside of Claude, use standard Git commands: `gi
 - [[concepts/hooks]]
 - [[entities/github]]
 - [[entities/claude_code]]
+- [[entities/vs_code_extension]]
 - [[summaries/claude-code-common-workflows]]
