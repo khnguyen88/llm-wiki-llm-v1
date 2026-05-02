@@ -212,16 +212,37 @@ updated: "2026-04-05T12:00:00Z"
 
 # Source Title
 
-## Key Points
-- Point 1^[raw/articles/source.md]
-- Point 2
+## Summary
+2-4 sentence narrative overview of the source's argument and significance.^[raw/articles/source.md]
 
-## Quotes
+## [Custom Section Headings]
+Use section headings drawn from the source's structure. When the source
+compares items, creates a taxonomy, or presents data — use tables.
+
+Cite sources at the section level (end of section) rather than per-bullet.
+Use tables whenever the source contains structured or comparative data.
+
+## Key Quotes
 > "Important quote"^[raw/articles/source.md:45]
 
-## Notes
-Additional remarks.
+## Related
+- [[concepts/topic]]
+- [[entities/name]]
 ```
+
+### Style Guide for Summaries
+
+Summaries should be rich, encyclopedia-style articles — not flat bullet lists. Follow these guidelines:
+
+- **Use section headings drawn from the source's structure** (e.g., "Anatomy of an LLM Name", "Decision Guide", "Why Naming Conventions Exist") rather than generic headings like "Key Points"
+- **Use tables** for any comparative, tiered, or structured data from the source (comparison matrices, tier lists, risk/consequence/mitigation tables, parameter tables)
+- **Write narrative paragraphs** for the `## Summary` section and for transitions between sections — not bullet lists
+- **Cite at section level** — place `^[source.md]` at the end of a section or on the first claim in a section, not on every bullet point
+- **The `summary` frontmatter field** is a one-line abstract; the `## Summary` body section is a narrative overview (2-4 sentences)
+- **When a source has distinct topics**, create subsections rather than flattening into a uniform bullet list
+- **Preserve the author's original structure** when it provides clarity (e.g., decision frameworks, comparison matrices, step-by-step guides)
+- **`## Key Quotes`** collects the most important direct quotes from the source (2-5 quotes maximum)
+- **`## Related`** links to wiki concepts and entities with `[[wikilinks]]`
 
 ### Q&A Pages
 
