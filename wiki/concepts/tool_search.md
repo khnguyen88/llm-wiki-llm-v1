@@ -1,18 +1,20 @@
 ---
 title: "Tool Search"
-summary: "A mechanism in the Agent SDK that dynamically discovers and loads only relevant tools on demand, enabling agents to scale to thousands of tools without overwhelming the context window"
+summary: "A mechanism that dynamically discovers and loads only relevant tools on demand, enabling agents to scale to thousands of tools without overwhelming the context window; in the CLI, the ToolSearch tool provides this capability when tool search is enabled"
 type: concept
 sources:
   - raw/document/claude code/claude-code-027-agent-sdk-tool-search-2026-04-29.md
+  - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
 tags:
   - agent-sdk
   - tool-search
   - context-window
   - mcp
+  - cli
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
-provenance: extracted
+provenance: merged
 ---
 
 # Tool Search
@@ -38,6 +40,8 @@ Tool search addresses two challenges that emerge as tool libraries grow. First, 
 The `ENABLE_TOOL_SEARCH` variable accepts five values: unset or `true` (always on, default), `auto` (activates when tool definitions exceed 10% of the context window), `auto:N` (custom percentage threshold), and `false` (disables search, loads all definitions). When using `auto`, the threshold is based on the combined size of all tool definitions across all MCP servers. The variable is set in the `env` option on `query()`. ^[raw/document/claude code/claude-code-027-agent-sdk-tool-search-2026-04-29.md]
 
 Tool search requires Claude Sonnet 4 or later, or Claude Opus 4 or later; Haiku models do not support it. The catalog supports up to 10,000 tools, and each search returns 3-5 of the most relevant results. ^[raw/document/claude code/claude-code-027-agent-sdk-tool-search-2026-04-29.md]
+
+In the Claude Code CLI, tool search is accessible through the **ToolSearch** built-in tool, which searches for and loads deferred tools when tool search is enabled. The ToolSearch tool does not require explicit permission. ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 
 ## Related
 

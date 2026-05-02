@@ -4,12 +4,14 @@ summary: "Per-user TPM and RPM recommendations for Claude Code team deployments,
 type: concept
 sources:
   - raw/document/claude code/claude-code-052-costs-2026-04-29.md
+  - raw/document/claude code/claude-code-105-statusline-2026-04-29.md
 tags:
   - rate-limiting
   - claude-code
   - team-management
   - deployment
   - cost-management
+  - statusline
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
@@ -26,6 +28,7 @@ Per-user Token Per Minute (TPM) and Request Per Minute (RPM) recommendations for
 - TPM per user decreases as team size grows because fewer users tend to use Claude Code concurrently in larger organizations ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 - For organizations with custom rate limits, Claude Code traffic in the workspace counts toward the organization's overall API rate limits; a workspace rate limit can cap Claude Code's share and protect other production workloads ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 - Scenarios with unusually high concurrent usage (such as live training sessions with large groups) may need higher TPM allocations per user ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- The statusline exposes Claude.ai subscription rate limit usage via `rate_limits.five_hour.used_percentage` and `rate_limits.seven_day.used_percentage` (0-100), with `resets_at` Unix epoch timestamps; this field only appears for Pro/Max subscribers after the first API response, and each window may be independently absent ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
 
 ## Details
 
@@ -49,4 +52,5 @@ For example, a 200-user organization might request 20k TPM per user, or 4 millio
 - [[entities/claude_console]]
 - [[concepts/cost_tracking]]
 - [[concepts/token_optimization]]
+- [[concepts/statusline]]
 - [[summaries/claude-code-costs]]

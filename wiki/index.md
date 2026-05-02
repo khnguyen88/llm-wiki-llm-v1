@@ -5,7 +5,7 @@ type: index
 sources: []
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 ---
 
 # Wiki Index
@@ -13,6 +13,8 @@ updated: "2026-05-01T12:00:00Z"
 A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ## Entities
+- [[entitie/tmux|Tmux]]
+- [[entitie/slack|Slack]]
 - [[entitie/claude_code_web|Claude Code Web]]
 - [[entitie/chrome_extension|Chrome Extension]]
 - [[entitie/amazon_bedrock|Amazon Bedrock]]
@@ -41,6 +43,22 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[entitie/qmd|Qmd]]
 
 ## Concepts
+- [[concept/lsp_tool|Lsp Tool]]
+- [[concept/monitor_tool|Monitor Tool]]
+- [[concept/powershell_tool|Powershell Tool]]
+- [[concept/embedding_models|Embedding Models]]
+- [[concept/guard_models|Guard Models]]
+- [[concept/llm_gateway|Llm Gateway]]
+- [[concept/vision_models|Vision Models]]
+- [[concept/custom_themes|Custom Themes]]
+- [[concept/terminal_config|Terminal Config]]
+- [[concept/vim_editor_mode|Vim Editor Mode]]
+- [[concept/subagent_forking|Subagent Forking]]
+- [[concept/statusline|Statusline]]
+- [[concept/routing_mode|Routing Mode]]
+- [[concept/binary_verification|Binary Verification]]
+- [[concept/release_channels|Release Channels]]
+- [[concept/server_managed_settings|Server Managed Settings]]
 - [[concept/computer_use|Computer Use]]
 - [[concept/communications_kit|Communications Kit]]
 - [[concept/extended_thinking|Extended Thinking]]
@@ -104,6 +122,16 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concept/llm_wiki|Llm Wiki]]
 
 ## Summaries
+- [[summaries/claude-code-tools-reference|Claude Code Tools Reference]]
+- [[summaries/claude-code-third-party-integrations|Claude Code Third Party Integrations]]
+- [[summaries/how-to-navigate-llm-model-names|How to Navigate LLM Model Names]]
+- [[summaries/claude-code-terminal-config|Claude Code Terminal Config]]
+- [[summaries/claude-code-sub-agents|Claude Code Sub Agents]]
+- [[summaries/claude-code-statusline|Claude Code Statusline]]
+- [[summaries/claude-code-slack|Claude Code Slack]]
+- [[summaries/claude-code-skills|Claude Code Skills]]
+- [[summaries/claude-code-setup|Claude Code Setup]]
+- [[summaries/claude-code-server-managed-settings|Claude Code Server Managed Settings]]
 - [[summaries/claude-code-context-window|Claude Code Context Window]]
 - [[summaries/claude-code-computer-use|Claude Code Computer Use]]
 - [[summaries/claude-code-communications-kit|Claude Code Communications Kit]]
@@ -168,4 +196,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-05-01 (batch ingest: 1 pages)*
+*Last updated: 2026-05-02 (batch ingest: 4 pages)*

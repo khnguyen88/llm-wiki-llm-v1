@@ -5,7 +5,7 @@ type: manifest
 sources: []
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 | raw/articles/farzapedia.md | ingested | [[summaries/farzapedia]] | 2026-05-01 |
 | raw/articles/karpathy-github-llm-wiki.md | ingested | [[summaries/karpathy-github-llm-wiki]] | 2026-05-01 |
 | raw/articles/karpathy-tweet-llm-wiki.md | ingested | [[summaries/karpathy-tweet-llm-wiki]] | 2026-05-01 |
@@ -14,6 +14,7 @@ updated: "2026-05-01T12:00:00Z"
 | raw/articles/LLM Naming Explained (What do the options mean_).md | ingested | [[summaries/llm-naming-explained-what-do-the-options-mean]] | 2026-05-01 |
 | raw/articles/Naming Conventions of LLM Models.md | ingested | [[summaries/naming-conventions-of-llm-models]] | 2026-05-01 |
 | raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md | ingested | [[summaries/understanding-naming-conventions-of-llm-files-a-comprehensive-guide]] | 2026-05-01 |
+| raw/articles/How to navigate LLM model names.md | ingested | [[summaries/how-to-navigate-llm-model-names]] | 2026-05-02 |
 | raw/document/claude code/claude-code-001-admin-setup-2026-04-29.md | ingested | [[summaries/claude-code-admin-setup]] | 2026-05-01 |
 | raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md | ingested | [[summaries/claude-code-agent-sdk-agent-loop]] | 2026-05-01 |
 | raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md | ingested | [[summaries/claude-code-agent-sdk-claude-code-features]] | 2026-05-01 |
@@ -57,6 +58,15 @@ updated: "2026-05-01T12:00:00Z"
 | raw/document/claude code/claude-code-049-communications-kit-2026-04-29.md | ingested | [[summaries/claude-code-communications-kit]] | 2026-05-01 |
 | raw/document/claude code/claude-code-050-computer-use-2026-04-29.md | ingested | [[summaries/claude-code-computer-use]] | 2026-05-01 |
 | raw/document/claude code/claude-code-051-context-window-2026-04-29.md | ingested | [[summaries/claude-code-context-window]] | 2026-05-01 |
+| raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md | ingested | [[summaries/claude-code-server-managed-settings]] | 2026-05-02 |
+| raw/document/claude code/claude-code-102-setup-2026-04-29.md | ingested | [[summaries/claude-code-setup]] | 2026-05-02 |
+| raw/document/claude code/claude-code-103-skills-2026-04-29.md | ingested | [[summaries/claude-code-skills]] | 2026-05-02 |
+| raw/document/claude code/claude-code-104-slack-2026-04-29.md | ingested | [[summaries/claude-code-slack]] | 2026-05-02 |
+| raw/document/claude code/claude-code-105-statusline-2026-04-29.md | ingested | [[summaries/claude-code-statusline]] | 2026-05-02 |
+| raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md | ingested | [[summaries/claude-code-sub-agents]] | 2026-05-02 |
+| raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md | ingested | [[summaries/claude-code-terminal-config]] | 2026-05-02 |
+| raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md | ingested | [[summaries/claude-code-third-party-integrations]] | 2026-05-02 |
+| raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md | ingested | [[summaries/claude-code-tools-reference]] | 2026-05-02 |
 ---
 
 # Sources Manifest
@@ -67,4 +77,4 @@ Tracks which source files have been ingested into the wiki.
 |-------------|--------|-----------|----------|
 
 ---
-*Last updated: 2026-05-01 (ingested raw/document/claude code/claude-code-051-context-window-2026-04-29.md)*
+*Last updated: 2026-05-02 (ingested raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md)*

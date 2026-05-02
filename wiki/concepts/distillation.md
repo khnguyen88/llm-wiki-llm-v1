@@ -4,13 +4,14 @@ summary: "Training technique where a smaller student model learns to replicate a
 type: concept
 sources:
   - raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md
+  - raw/articles/How to navigate LLM model names.md
 tags:
   - llm
   - training
   - distillation
   - efficiency
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -22,9 +23,12 @@ Distillation is a training technique where a smaller "student" model is trained 
 ## Key Points
 
 - The student model learns from the teacher's outputs rather than only from original training data, transferring capabilities at smaller scale ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+- Distillation reduces training time and produces models that are smaller and faster while maintaining similar accuracy and response quality compared to their teachers ^[raw/articles/How to navigate LLM model names.md]
+- Model names with "-distill-" indicate the teacher model — e.g., deepseek-r1-distill-llama-70b used Llama 70B as the teacher ^[raw/articles/How to navigate LLM model names.md]
 - DeepSeek-R1-Distill-Qwen-32B: a Qwen 2.5 32B model fine-tuned on 800,000 chain-of-thought reasoning samples from DeepSeek-R1 (671B); outperforms OpenAI o1-mini on multiple benchmarks despite being ~20x smaller ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 - The 2026 trend: DeepSeek-R1 proved you can get 80%+ of frontier reasoning in a 7-32B model through distillation; everyone is distilling now ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 - Model names with "-distilled" or "-Distill" suffix indicate distilled models (e.g., DeepSeek-R1-Distill-Qwen-32B) ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+- DeepSeek R1 recently brought reasoning distillation to mainstream attention ^[raw/articles/How to navigate LLM model names.md]
 
 ## Details
 

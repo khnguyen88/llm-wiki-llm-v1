@@ -11,6 +11,7 @@ sources:
   - raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md
   - raw/document/claude code/claude-code-045-cli-reference-2026-04-29.md
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
+  - raw/document/claude code/claude-code-104-slack-2026-04-29.md
 tags:
   - agent-sdk
   - sessions
@@ -18,6 +19,7 @@ tags:
   - context
   - cloud
   - cli
+  - slack
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
@@ -59,6 +61,7 @@ Sessions maintain context across multiple exchanges in the Agent SDK. Claude rem
 - Forked sessions (from `/branch`, `/rewind`, or `--fork-session`) are grouped under their root session in the picker ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Resuming by name resolves across the current repository and its worktrees; `claude --resume <name>` opens the picker with the name pre-filled on ambiguity, while `/resume <name>` from inside a session reports an error ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Sessions created by `claude -p` or SDK invocations do not appear in the picker but can be resumed by passing their session ID directly to `claude --resume <session-id>` ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- Slack-initiated sessions follow a distinct flow: @mention → intent detection → session creation on claude.ai/code → progress updates in Slack thread → completion summary with action buttons (View Session, Create PR, Change Repo) ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
 
 ## Details
 
@@ -85,3 +88,5 @@ Both SDKs expose session utility functions for building custom session pickers, 
 - [[concepts/worktrees]]
 - [[summaries/claude-code-common-workflows]]
 - [[summaries/claude-code-cli-reference]]
+- [[entities/slack]]
+- [[concepts/routing_mode]]

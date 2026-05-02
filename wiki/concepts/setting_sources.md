@@ -10,6 +10,7 @@ sources:
   - raw/document/claude code/claude-code-020-agent-sdk-skills-2026-04-29.md
   - raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md
   - raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md
+  - raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md
 tags:
   - agent-sdk
   - claude-code
@@ -42,6 +43,7 @@ The `settingSources` option (`setting_sources` in Python, `settingSources` in Ty
 - `settings.local.json` at project scope is auto-gitignored and holds personal overrides that should not be committed to git ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
 - `.mcp.json` is project-scope only and holds team-shared MCP server configurations; it should be committed to git ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
 - `CLAUDE.local.md` at the project root holds private developer preferences and should be added to `.gitignore` ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Server-managed settings and endpoint-managed settings both occupy the highest tier in the settings hierarchy, above all other sources including command-line arguments; within that tier, server-managed is checked first, then endpoint-managed; if server-managed delivers any keys, endpoint-managed is ignored entirely ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
 
 ## Details
 
@@ -58,6 +60,7 @@ Agent SDK v0.1.0 introduced a breaking change where settings sources were no lon
 - [[entities/agent_sdk]]
 - [[entities/claude_code]]
 - [[concepts/managed_settings]]
+- [[concepts/server_managed_settings]]
 - [[concepts/hooks]]
 - [[concepts/skills]]
 - [[concepts/system_prompt]]

@@ -5,6 +5,7 @@ type: entity
 sources:
   - raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md
   - raw/document/claude code/claude-code-047-commands-2026-04-29.md
+  - raw/document/claude code/claude-code-104-slack-2026-04-29.md
 tags:
   - claude-code
   - cloud
@@ -12,8 +13,9 @@ tags:
   - anthropic
   - sessions
   - commands
+  - slack
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -34,6 +36,7 @@ A research preview of Claude Code (available for Pro, Max, Team, and Enterprise 
 - The `check-tools` command (cloud sessions only) lists exact pre-installed tool versions ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - Resource limits per session: 4 vCPUs, 16 GB RAM, 30 GB disk ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - `/desktop` (macOS/Windows only) continues the current terminal session in the Claude Code Desktop app; `/teleport` (alias /tp) pulls a web session into the terminal ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- Slack-initiated @Claude mentions create Claude Code sessions on the web; sessions are accessible in Claude Code history and, for Enterprise/Team accounts, automatically visible to the organization ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
 
 ## Related
 
@@ -45,4 +48,6 @@ A research preview of Claude Code (available for Pro, Max, Team, and Enterprise 
 - [[concepts/teleport]]
 - [[concepts/auto_fix]]
 - [[concepts/sessions]]
+- [[entities/slack]]
+- [[concepts/routing_mode]]
 - [[concepts/commands]]

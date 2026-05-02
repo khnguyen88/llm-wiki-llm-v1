@@ -4,12 +4,14 @@ summary: "Security pattern where a proxy outside the agent's security boundary i
 type: concept
 sources:
   - raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md
+  - raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md
 tags:
   - security
   - credential-management
   - proxy
   - agent-sdk
   - deployment
+  - enterprise
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
@@ -36,6 +38,15 @@ For non-Claude-API HTTPS services (GitHub, npm registries, internal APIs), two a
 
 Proxy implementations include Envoy (with `credential_injector` filter), mitmproxy (TLS-terminating), Squid (caching with ACLs), and LiteLLM (LLM gateway with credential injection and rate limiting). ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
+### Corporate Proxy for Enterprise Deployment
+
+Organizations requiring all outbound traffic to pass through a proxy server for security monitoring, compliance, or network policy enforcement can configure a corporate proxy via `HTTPS_PROXY` or `HTTP_PROXY` environment variables. This is distinct from an LLM gateway, which handles authentication and routing for the Claude API specifically. Both configurations can be used together. ^[raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md]
+
+Provider-specific corporate proxy configuration:
+- **Bedrock**: `CLAUDE_CODE_USE_BEDROCK=1`, `AWS_REGION`, `HTTPS_PROXY` ^[raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md]
+- **Foundry**: `CLAUDE_CODE_USE_FOUNDRY=1`, `ANTHROPIC_FOUNDRY_RESOURCE`, `ANTHROPIC_FOUNDRY_API_KEY`, `HTTPS_PROXY` ^[raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md]
+- **Vertex AI**: `CLAUDE_CODE_USE_VERTEX=1`, `CLOUD_ML_REGION`, `ANTHROPIC_VERTEX_PROJECT_ID`, `HTTPS_PROXY` ^[raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md]
+
 ## Related
 
 - [[entities/agent_sdk]]
@@ -43,3 +54,4 @@ Proxy implementations include Envoy (with `credential_injector` filter), mitmpro
 - [[concepts/secure_deployment]]
 - [[concepts/deployment_patterns]]
 - [[concepts/permissions]]
+- [[concepts/llm_gateway]]

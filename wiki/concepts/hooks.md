@@ -13,6 +13,8 @@ sources:
   - raw/document/claude code/claude-code-036-best-practices-2026-04-29.md
   - raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
+  - raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
+  - raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md
 tags:
   - hooks
   - claude-code
@@ -23,8 +25,9 @@ tags:
   - permissions
   - agent-teams
   - cloud-sessions
+  - terminal-config
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -63,6 +66,13 @@ Callbacks that fire at specific points in the agent loop lifecycle, allowing dev
 - Setup scripts differ from SessionStart hooks: setup scripts are attached to the cloud environment (run before Claude launches, benefit from caching), while SessionStart hooks are attached to the repository (run after Claude launches, on every session including resumes) ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - The Notification hook event fires when Claude needs user attention; matcher values filter by event type: `permission_prompt` (tool approval needed), `idle_prompt` (Claude done, waiting for input), `auth_success` (authentication completes), `elicitation_dialog` (MCP server opens form), `elicitation_complete` (MCP form submitted/dismissed), `elicitation_response` (MCP response sent) ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Platform-specific Notification hook commands: macOS uses `osascript -e 'display notification'`, Linux uses `notify-send`, Windows uses `powershell.exe` with `System.Windows.Forms.MessageBox` ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- `SubagentStart` and `SubagentStop` are hook events in `settings.json` that respond to subagent lifecycle in the main session; both support matchers to target specific agent types by name ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- Subagent frontmatter can define hooks that run only while that specific subagent is active and are cleaned up when it finishes; `Stop` hooks in frontmatter are automatically converted to `SubagentStop` events at runtime ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- Frontmatter hooks fire both when the agent is spawned as a subagent through the Agent tool and when the agent runs as the main session via `--agent` or the `agent` setting; in the main-session case they run alongside any hooks defined in `settings.json` ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- `PreToolUse` hooks in subagent frontmatter can validate operations before they execute, enabling patterns like read-only database enforcement where the hook script reads JSON from stdin, extracts the command, and exits with code 2 to block disallowed operations ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- In terminals without native desktop notification support (Warp, Apple Terminal, and others), a Notification hook can play a sound or run a custom command when Claude finishes a task or pauses for permission; hooks run alongside the native desktop notification rather than replacing it ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- Notification hooks are configured in `settings.json` under the `hooks` key with `Notification` event type and a `command` hook type; example: `{"hooks": {"Notification": [{"hooks": [{"type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff"}]}]}}` plays a macOS system sound ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- Desktop notifications reach the OS natively in Ghostty and Kitty without setup; iTerm2 requires enabling "Notification Center Alerts" and "Send escape sequence-generated alerts" in Settings → Profiles → Terminal; notifications also reach local machines over SSH ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 
 ## Details
 
@@ -90,3 +100,7 @@ A `UserPromptSubmit` hook that spawns subagents can create infinite loops if tho
 - [[concepts/cloud_environment]]
 - [[summaries/claude-code-common-workflows]]
 - [[summaries/claude-code-best-practices]]
+- [[concepts/subagents]]
+- [[summaries/claude-code-sub-agents]]
+- [[concepts/terminal_config]]
+- [[summaries/claude-code-terminal-config]]

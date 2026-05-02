@@ -5,13 +5,14 @@ type: concept
 sources:
   - raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md
   - raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md
+  - raw/articles/How to navigate LLM model names.md
 tags:
   - llm
   - training
   - fine-tuning
   - alignment
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -24,6 +25,7 @@ Instruction tuning (suffix: `-instruct`, `-IT`, or `-it`) is a fine-tuning metho
 
 - Three main training variants: Base (pretrained, text completion only), Instruct/IT (fine-tuned on instruction-response pairs, follows prompts reliably), Chat (further optimized for multi-turn conversation via RLHF or DPO) ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 - For general use, always pick the instruct/IT variant; base models are for researchers and fine-tuners ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+- "Instruct" has largely replaced "chat" as the standard naming for conversational models in modern naming conventions ^[raw/articles/How to navigate LLM model names.md]
 - Additional training suffixes indicate specialized fine-tuning: DPO (alignment via Direct Preference Optimization), RLHF (Reinforcement Learning from Human Feedback), reasoning/thinking (chain-of-thought optimization), vision/VL (image input support), coder (code generation) ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 - LoRA (Low-Rank Adaptation) enables efficient fine-tuning by training only adapter weights; QLoRA applies LoRA on top of a 4-bit quantized base model ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 - Alignment tags in model names (Instruct, Chat, base) serve as the strongest first filter for model selection; deploying a base model in a user-facing assistant role is one of the most common and costly mistakes ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]

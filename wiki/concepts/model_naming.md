@@ -7,13 +7,16 @@ sources:
   - raw/articles/LLM Naming Explained (What do the options mean_).md
   - raw/articles/Naming Conventions of LLM Models.md
   - raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md
+  - raw/articles/How to navigate LLM model names.md
+  - raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md
 tags:
   - llm
   - naming-conventions
   - model-selection
   - deployment
+  - cloud-provider
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -25,8 +28,13 @@ LLM model names encode a soft grammar of practical metadata — family, version,
 ## Key Points
 
 - Name pattern: `<family>-<version>-<size>-<alignment>-<context>-<format>-<quant>` — order varies across vendors but the information pattern is similar ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+- Branded names identify vendor and architectural lineage — some encode acronyms (Llama = **L** arge **La** nguage **M** odel **M** eta **A** I), others are marketing-driven (Granite evoking reliability) ^[raw/articles/How to navigate LLM model names.md]
+- Major version changes may break compatibility with serving tools like vLLM, requiring new releases to support the model; minor versions correspond to incremental improvements or data refreshes ^[raw/articles/How to navigate LLM model names.md]
 - Size tags (7B, 8B, 70B) determine memory, latency, and quality trade-offs; quantization tags (Q4, int8, 4bit) signal compressed variants with lower VRAM requirements ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+- Concrete vRAM requirements: granite-3.2-8b-instruct fits on a single A10 (24 GB) with limited context; Llama-3.1-405b-instruct requires 900+ GB across sixteen H100s ^[raw/articles/How to navigate LLM model names.md]
 - Alignment stage (base/instruct/chat) is the strongest first filter for model selection — deploying a base model in a user-facing assistant role is one of the most common and costly mistakes ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+- Model purpose tags in names indicate specialization: base (fine-tuning starting point), instruct (prompt-following, the default for chat), vision (multi-modal input), code (coding, now largely subsumed by instruct), embedding (vector conversion for RAG), guard (safety filtering), reasoning (chain-of-thought before responding) ^[raw/articles/How to navigate LLM model names.md]
+- "Vision-instruct" models combine both vision and instruction-following capabilities in a single model ^[raw/articles/How to navigate LLM model names.md]
 - Memory estimation from names: raw weight storage ≈ P × b/8 bytes, where P is parameter count and b is bits per weight; e.g., 8B at FP16 ≈ 16 GB, 8B at 4-bit ≈ 4 GB (before KV cache and framework overhead) ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 - Naming ambiguity risks: Instruct quality varies across vendors, missing context tags cause truncation surprises, quant tags without method details (NF4, GPTQ, AWQ) risk quality drops, similar names across forks create provenance risks ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 - Simpler naming pattern: model name — parameter count — fine-tuning type — quantization type; e.g., `llama3.3-70b-instruct-q4_K_M` = Llama 3.3, 70B params, instruct-tuned, Q4 K-quant medium ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
@@ -38,6 +46,7 @@ LLM model names encode a soft grammar of practical metadata — family, version,
 - Domain-specific fine-tuning labels include Medical (healthcare), Code (code generation), and Embedding (vector generation), extending beyond the standard Instruct/Chat variants ^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
 - Naming conventions serve four practical purposes: deployment environment selection (smaller quantized models for edge devices), task-specific model identification (Instruct/Chat labels), platform compatibility assessment (format extensions), and performance optimization (quantization levels) ^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
 - For high-stakes applications, prioritize accuracy with higher-bit quantization (Q8); for lower-stakes or resource-constrained deployments, opt for efficient quantization (Q4, INT8) ^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
+- When deploying through cloud providers (Bedrock, Vertex AI, Foundry), pin specific model versions using `ANTHROPIC_DEFAULT_OPUS_MODEL`, `ANTHROPIC_DEFAULT_SONNET_MODEL`, and `ANTHROPIC_DEFAULT_HAIKU_MODEL`; without pinning, model aliases resolve to the latest version which may not yet be enabled in the account ^[raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md]
 
 ## Details
 
@@ -73,4 +82,10 @@ File format extensions in model names signal platform and framework compatibilit
 - [[concepts/instruction_tuning]]
 - [[concepts/gguf]]
 - [[concepts/safetensors]]
+- [[concepts/vision_models]]
+- [[concepts/guard_models]]
+- [[concepts/embedding_models]]
 - [[entities/hugging_face]]
+- [[entities/amazon_bedrock]]
+- [[entities/google_vertex_ai]]
+- [[entities/microsoft_foundry]]

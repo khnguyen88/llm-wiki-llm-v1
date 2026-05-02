@@ -27,6 +27,14 @@ sources:
   - raw/document/claude code/claude-code-049-communications-kit-2026-04-29.md
   - raw/document/claude code/claude-code-050-computer-use-2026-04-29.md
   - raw/document/claude code/claude-code-051-context-window-2026-04-29.md
+  - raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md
+  - raw/document/claude code/claude-code-102-setup-2026-04-29.md
+  - raw/document/claude code/claude-code-103-skills-2026-04-29.md
+  - raw/document/claude code/claude-code-104-slack-2026-04-29.md
+  - raw/document/claude code/claude-code-105-statusline-2026-04-29.md
+  - raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
+  - raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md
+  - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
 tags:
   - claude-code
   - anthropic
@@ -47,13 +55,28 @@ tags:
   - cloud-sessions
   - remote
   - teleport
+  - setup
+  - installation
+  - release-channels
+  - code-signing
   - auto-fix
+  - slack
   - cli-flags
   - code-review
   - commands
   - context-window
+  - statusline
+  - subagents
+  - forking
+  - terminal-config
+  - themes
+  - vim
+  - tools
+  - lsp
+  - monitoring
+  - powershell
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -125,10 +148,41 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - Computer use (research preview, macOS CLI only) lets Claude control the screen by opening apps, clicking, typing, and taking screenshots; enabled as the built-in `computer-use` MCP server via `/mcp`, requires Pro/Max plan and v2.1.85+, not available in non-interactive mode or on Team/Enterprise plans ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 - `/context` shows a live breakdown of context usage by category with optimization suggestions ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
 - `/memory` displays which CLAUDE.md and auto memory files loaded at startup ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
+- Server-managed settings deliver organization-wide configuration from Anthropic's servers at authentication time, occupying the highest precedence tier alongside endpoint-managed settings; they require Claude for Teams (v2.1.38+) or Enterprise (v2.1.30+) and network access to `api.anthropic.com` ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
+- `forceRemoteSettingsRefresh: true` in managed settings enforces fail-closed startup, blocking the CLI until fresh settings are fetched and exiting if the fetch fails ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
+- Server-managed settings are bypassed entirely when third-party model providers are configured (Bedrock, Vertex, Foundry, or custom `ANTHROPIC_BASE_URL`) ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
+- System requirements: macOS 13.0+, Windows 10 1809+/Server 2019+, Ubuntu 20.04+, Debian 10+, Alpine 3.19+; 4 GB+ RAM; x64 or ARM64 processor; internet connection; Bash/Zsh/PowerShell/CMD shell ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Native install (recommended) auto-updates in the background; Homebrew, WinGet, and Linux package manager installations require manual updates ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Windows supports native (Git for Windows recommended, no sandboxing) and WSL (sandboxing supported on WSL 2); WSL 1 also works but without sandboxing ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Alpine and musl-based distributions require `libgcc`, `libstdc++`, and `ripgrep` packages plus `USE_BUILTIN_RIPGREP=0` in settings ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Two release channels: `"latest"` (default, immediate) and `"stable"` (~1 week behind, skips regressions); configured via `autoUpdatesChannel` setting or `/config` ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- `minimumVersion` in managed settings enforces an organization-wide version floor; switching from latest to stable prompts to stay on the current version or allow downgrade ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Every release publishes a signed `manifest.json` with SHA256 checksums; Anthropic GPG key fingerprint: `31DD DE24 DDFA B679 F42D 7BD2 BAA9 29FF 1A7E CACE` ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Skills follow the Agent Skills open standard (agentskills.io) and extend it with invocation control, subagent execution, and dynamic context injection; custom commands have been merged into the skills format ^[raw/document/claude code/claude-code-103-skills-2026-04-29.md]
+- Skill locations follow a precedence hierarchy: enterprise overrides personal, personal overrides project; plugin skills use `plugin-name:skill-name` namespace; skills are also discovered from nested `.claude/skills/` directories in subdirectories and `--add-dir` directories ^[raw/document/claude code/claude-code-103-skills-2026-04-29.md]
+- Bundled skills (/simplify, /batch, /debug, /loop, /claude-api) are prompt-based rather than fixed-logic, giving Claude a detailed playbook to orchestrate work ^[raw/document/claude code/claude-code-103-skills-2026-04-29.md]
+- macOS binaries are notarized by Apple and signed by "Anthropic PBC"; Windows binaries are signed by "Anthropic, PBC"; Linux binaries are not individually code-signed but repository packages are signed ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Requires a Pro, Max, Team, Enterprise, or Console account; the free Claude.ai plan does not include Claude Code access ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Integrates with Slack via the Claude for Slack app; @Claude mentions are routed to Claude Code sessions on the web when coding intent is detected, with two routing modes (Code only, Code + Chat) configurable in App Home ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- The statusline is a customizable bar at the bottom of Claude Code that runs user-configured shell scripts receiving JSON session data on stdin; configured via `statusLine` in settings.json or the `/statusline` command; supports multi-line output, ANSI colors, OSC 8 clickable links, and a `refreshInterval` for time-based data ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- A separate `subagentStatusLine` setting renders custom row bodies for subagents in the agent panel, receiving all visible subagent rows as a single JSON object on stdin ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- Subagents are specialized AI assistants that run in their own context window with custom system prompts, tool restrictions, and independent permissions; built-in subagents include Explore (Haiku), Plan, and General-purpose ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- `/agents` command opens a tabbed interface for managing subagents; `claude agents` lists all configured subagents from the command line ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- Subagent scope priority: managed settings (highest), `--agents` CLI flag, `.claude/agents/` project, `~/.claude/agents/` user, plugin agents (lowest) ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- `--agent <name>` flag starts a session where the main thread uses that subagent's system prompt, tool restrictions, and model; `agent` setting in `.claude/settings.json` makes it the default ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- Forked subagents (experimental, v2.1.117+) inherit the full conversation instead of starting fresh; enabled via `CLAUDE_CODE_FORK_SUBAGENT=1` ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS=1` disables all background task functionality; `CLAUDE_CODE_SUBAGENT_MODEL` overrides the model for all subagent invocations ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- `/terminal-setup` writes Shift+Enter keybindings and other configuration to the host terminal's settings; it should be run directly in the host terminal rather than inside tmux or screen ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- Custom themes are JSON files in `~/.claude/themes/` with `name`, `base` (preset name), and `overrides` (color token map); require v2.1.118+ and are hot-reloaded on file change ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- Vim editor mode for the prompt input is enabled via `/config` → Editor mode or by setting `editorMode` to `"vim"` in `~/.claude/settings.json`; Enter still submits in INSERT mode, use `o`/`O` or Ctrl+J for newlines ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- `CLAUDE_CODE_NO_FLICKER=1` environment variable enables fullscreen rendering mode by default, which draws to a separate screen buffer to fix display flicker and scroll jumps ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- Provides 30+ built-in tools; tools requiring explicit permission are Bash, Edit, ExitPlanMode, Monitor, NotebookEdit, PowerShell, Skill, WebFetch, WebSearch, and Write; the LSP tool provides code intelligence via language server plugins; the Monitor tool (v2.1.98+) streams background script output mid-conversation; the PowerShell tool enables native Windows command execution ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+- Bash tool persists working directory changes across commands within the project directory or additional working directories (`--add-dir`, `additionalDirectories`), but environment variables do not persist between commands; use `CLAUDE_ENV_FILE` or a SessionStart hook for persistent env vars, or `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1` to disable directory carry-over ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 
 ## Related
 
 - [[concepts/managed_settings]]
+- [[concepts/server_managed_settings]]
 - [[entities/agent_sdk]]
 - [[concepts/agent_loop]]
 - [[concepts/context_window]]
@@ -168,3 +222,19 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - [[concepts/scheduled_tasks]]
 - [[concepts/computer_use]]
 - [[summaries/claude-code-common-workflows]]
+- [[concepts/release_channels]]
+- [[concepts/binary_verification]]
+- [[entities/slack]]
+- [[concepts/routing_mode]]
+- [[concepts/statusline]]
+- [[concepts/subagent_forking]]
+- [[summaries/claude-code-sub-agents]]
+- [[concepts/terminal_config]]
+- [[concepts/custom_themes]]
+- [[concepts/vim_editor_mode]]
+- [[entities/tmux]]
+- [[concepts/lsp_tool]]
+- [[concepts/monitor_tool]]
+- [[concepts/powershell_tool]]
+- [[summaries/claude-code-terminal-config]]
+- [[summaries/claude-code-tools-reference]]

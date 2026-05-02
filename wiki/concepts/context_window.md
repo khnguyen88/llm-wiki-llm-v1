@@ -7,6 +7,7 @@ sources:
   - raw/document/claude code/claude-code-036-best-practices-2026-04-29.md
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
   - raw/document/claude code/claude-code-051-context-window-2026-04-29.md
+  - raw/document/claude code/claude-code-105-statusline-2026-04-29.md
 tags:
   - context-window
   - claude-code
@@ -14,6 +15,7 @@ tags:
   - compaction
   - token-management
   - path-scoped-rules
+  - statusline
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
@@ -44,6 +46,9 @@ The total amount of information available to a model during a session. The conte
 - Hooks are unaffected by compaction because they execute as code outside the context window, not as context content ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
 - Run `/context` for a live breakdown of context usage by category with optimization suggestions ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
 - Run `/memory` to check which CLAUDE.md and auto memory files loaded at startup ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
+- The statusline provides `context_window.used_percentage` (calculated from input tokens only: `input_tokens + cache_creation_input_tokens + cache_read_input_tokens`, excluding output tokens) and `context_window.remaining_percentage` for at-a-glance monitoring ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- `context_window.current_usage` contains per-call token breakdowns (`input_tokens`, `output_tokens`, `cache_creation_input_tokens`, `cache_read_input_tokens`); it is `null` before the first API call ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- `exceeds_200k_tokens` indicates whether total tokens from the most recent API response exceed 200k, regardless of actual context window size ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
 
 ## Details
 
@@ -84,3 +89,4 @@ Path-scoped rules and nested CLAUDE.md files load into message history when thei
 - [[summaries/claude-code-best-practices]]
 - [[summaries/claude-code-common-workflows]]
 - [[summaries/claude-code-context-window]]
+- [[concepts/statusline]]

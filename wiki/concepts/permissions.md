@@ -1,6 +1,6 @@
 ---
 title: "Permissions"
-summary: "Mechanism in the Agent SDK that controls which tools an agent can use through a five-step evaluation flow, six permission modes, and declarative allow/deny rules"
+summary: "Mechanism that controls which tools an agent can use through a five-step evaluation flow, six permission modes, and declarative allow/deny rules; in the CLI, specific tools require explicit permission while others operate freely"
 type: concept
 sources:
   - raw/document/claude code/claude-code-013-agent-sdk-overview-2026-04-29.md
@@ -12,6 +12,8 @@ sources:
   - raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md
   - raw/document/claude code/claude-code-045-cli-reference-2026-04-29.md
   - raw/document/claude code/claude-code-050-computer-use-2026-04-29.md
+  - raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
+  - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
 tags:
   - agent-sdk
   - permissions
@@ -20,7 +22,10 @@ tags:
   - permission-modes
   - agent-teams
   - cli
+  - subagents
+  - tools
 created: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 provenance: merged
 ---
 
@@ -51,6 +56,10 @@ Permissions in the Agent SDK control which tools an agent can use and how tool a
 - Computer use uses per-session app approval: the first time Claude needs a specific app, a prompt shows which apps it wants to control, any extra permissions (e.g., clipboard access), and how many other apps will be hidden; approval lasts for the current session only ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 - Apps with broad access show sentinel warnings in the approval prompt: Terminal, iTerm, VS Code, and other terminals/IDEs warn "equivalent to shell access"; Finder warns "can read or write any file"; System Settings warns "can change system settings" ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 - Claude's level of control varies by app category in computer use: browsers and trading platforms are view-only, terminals and IDEs are click-only, and everything else gets full control ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Subagent `permissionMode` field controls how the subagent handles permission prompts: `default` (standard prompts), `acceptEdits` (auto-accept file edits for working directory paths), `auto` (background classifier), `dontAsk` (auto-deny prompts, explicitly allowed tools still work), `bypassPermissions` (skip all prompts), `plan` (read-only) ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- In subagents, `bypassPermissions` still prompts for writes to `.git`, `.claude`, `.vscode`, `.idea`, and `.husky` directories (except `.claude/commands`, `.claude/agents`, and `.claude/skills`) ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- `Agent(subagent-name)` syntax in `permissions.deny` settings prevents Claude from using specific subagents by name; works for both built-in and custom subagents ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+- In the CLI, tools requiring explicit permission are: Bash, Edit, ExitPlanMode, Monitor, NotebookEdit, PowerShell, Skill, WebFetch, WebSearch, and Write; all other built-in tools operate without prompting; to disable a tool entirely, add its name to the `deny` array in permission settings ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 
 ## Details
 
@@ -73,4 +82,6 @@ A common pattern is creating a locked-down agent by pairing `allowedTools` with 
 - [[concepts/auto_mode]]
 - [[concepts/channels]]
 - [[concepts/computer_use]]
+- [[summaries/claude-code-tools-reference]]
 - [[summaries/claude-code-cli-reference]]
+- [[summaries/claude-code-sub-agents]]

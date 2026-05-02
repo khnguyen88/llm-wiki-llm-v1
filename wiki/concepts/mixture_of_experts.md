@@ -4,13 +4,14 @@ summary: "Architecture where a router selects only a fraction of parameters (exp
 type: concept
 sources:
   - raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md
+  - raw/articles/How to navigate LLM model names.md
 tags:
   - llm
   - architecture
   - moe
   - efficiency
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -26,6 +27,8 @@ Mixture of Experts (MoE) is an architecture where the model contains multiple "e
 - Almost every major 2026 LLM release uses MoE: Qwen 3.5, Gemma 4, Llama 4, DeepSeek-V3, GLM-5 ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 - Practical example: Qwen3.5-35B-A3B has 35B total parameters (~20GB at Q4_K_M) but runs at the speed of a 3B model ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 - Dense models (all parameters active on every token) are named by just the parameter count (e.g., 32B, 70B) ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+- Two naming conventions for MoE: Mixtral uses "NxP" (e.g., 8x7B = 8 experts, 7B active per token, 46B total due to shared params), while Llama 4 uses "PxE" (e.g., 17B-16E = 16 experts, 17B active per token, 109B total) ^[raw/articles/How to navigate LLM model names.md]
+- MoE total parameter count is always less than experts × active params because some parameters are shared across all experts ^[raw/articles/How to navigate LLM model names.md]
 
 ## Details
 

@@ -7,6 +7,7 @@ sources:
   - raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md
   - raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md
   - raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md
+  - raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md
 tags:
   - claude-code
   - admin
@@ -34,6 +35,8 @@ Managed settings define organization policy that takes precedence over local dev
 - The `~/.claude.json` global config and auto memory at `~/.claude/projects/<project>/memory/` are also read regardless of `settingSources`; for multi-tenant isolation, set `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in `env` ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
 - In auto mode, managed settings provide the organization-wide scope for `autoMode` configuration; developers can extend `environment`, `allow`, and `soft_deny` but cannot remove entries that managed settings provide ^[raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md]
 - `managed-settings.json` lives at system level (location varies by OS) and is enterprise-enforced; it cannot be overridden by local developer configuration ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Server-managed and endpoint-managed settings both occupy the highest precedence tier; within that tier, server-managed is checked first, and the first source to deliver a non-empty configuration wins — sources do not merge ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
+- Server-managed settings are bypassed entirely when a third-party model provider is configured (Bedrock, Vertex, Foundry, or custom `ANTHROPIC_BASE_URL`) ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
 
 ## Details
 
@@ -53,6 +56,7 @@ Organizations that mix providers should configure server-managed settings for Cl
 
 - [[entities/claude_code]]
 - [[entities/agent_sdk]]
+- [[concepts/server_managed_settings]]
 - [[concepts/setting_sources]]
 - [[concepts/auto_mode]]
 - [[concepts/claude_directory]]

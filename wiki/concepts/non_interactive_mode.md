@@ -7,6 +7,7 @@ sources:
   - raw/document/claude code/claude-code-045-cli-reference-2026-04-29.md
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
   - raw/document/claude code/claude-code-050-computer-use-2026-04-29.md
+  - raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md
 tags:
   - claude-code
   - automation
@@ -44,6 +45,7 @@ Running Claude Code without an interactive session using `claude -p "prompt"`, e
 - Use `claude -p` as a unix-style utility: pipe data in with `cat error.txt | claude -p 'explain this'`, pipe output out with `> result.txt`, and integrate into build scripts (e.g., `"lint:claude": "claude -p 'you are a linter...'"`) ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Use `@` in prompts to include files or directories without waiting for Claude to read them: `claude -p 'Explain @src/utils/auth.js'` includes full file content; `@src/components` provides a directory listing; `@server:resource` fetches MCP resources ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - Computer use (screen control) is not available in non-interactive mode; it requires an interactive session ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- In non-interactive mode with the `-p` flag, server-managed security approval dialogs for shell commands, custom environment variables, and hook configurations are skipped and settings are applied without user approval ^[raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md]
 
 ## Details
 

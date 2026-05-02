@@ -373,4 +373,75 @@ A chronological record of operations on the external knowledge base.
 - Updated index.md, sources-manifest.md
 - Cost: $9.0895
 
+## [2026-05-02] ingest | Claude Code Server Managed Settings
+- Source: raw/document/claude code/claude-code-100-server-managed-settings-2026-04-29.md
+- Created summary: summaries/claude-code-server-managed-settings.md
+- Created concepts: concepts/server_managed_settings.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.9334
+
+## [2026-05-02] ingest | Claude Code Setup
+- Source: raw/document/claude code/claude-code-102-setup-2026-04-29.md
+- Created summary: summaries/claude-code-setup.md
+- Created concepts: concepts/binary_verification.md, concepts/release_channels.md
+- Updated index.md, sources-manifest.md
+- Cost: $6.1708
+
+## [2026-05-02] ingest | Claude Code Skills
+- Source: raw/document/claude code/claude-code-103-skills-2026-04-29.md
+- Created summary: summaries/claude-code-skills.md
+- Updated index.md, sources-manifest.md
+- Cost: $7.7039
+
+## [2026-05-02] ingest | Claude Code Slack
+- Source: raw/document/claude code/claude-code-104-slack-2026-04-29.md
+- Created summary: summaries/claude-code-slack.md
+- Created entities: entities/slack.md
+- Created concepts: concepts/routing_mode.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.9888
+
+## [2026-05-02] ingest | Claude Code Statusline
+- Source: raw/document/claude code/claude-code-105-statusline-2026-04-29.md
+- Created summary: summaries/claude-code-statusline.md
+- Created concepts: concepts/statusline.md
+- Updated index.md, sources-manifest.md
+- Cost: $9.0604
+
+## [2026-05-02] ingest | Claude Code Sub Agents
+- Source: raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
+- Created summary: summaries/claude-code-sub-agents.md
+- Created concepts: concepts/subagent_forking.md
+- Updated index.md, sources-manifest.md
+- Cost: $11.1476
+
+## [2026-05-02] ingest | Claude Code Terminal Config
+- Source: raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md
+- Created summary: summaries/claude-code-terminal-config.md
+- Created entities: entities/tmux.md
+- Created concepts: concepts/custom_themes.md, concepts/terminal_config.md, concepts/vim_editor_mode.md
+- Updated index.md, sources-manifest.md
+- Cost: $4.3548
+
+## [2026-05-02] ingest | Claude Code Third Party Integrations
+- Source: raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md
+- Created summary: summaries/claude-code-third-party-integrations.md
+- Created concepts: concepts/embedding_models.md, concepts/guard_models.md, concepts/llm_gateway.md, concepts/vision_models.md
+- Updated index.md, sources-manifest.md
+- Cost: $4.2743
+
+## [2026-05-02] ingest | Claude Code Tools Reference
+- Source: raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
+- Created summary: summaries/claude-code-tools-reference.md
+- Created concepts: concepts/lsp_tool.md, concepts/monitor_tool.md, concepts/powershell_tool.md
+- Updated index.md, sources-manifest.md
+- Cost: $5.1974
+
 *Append new entries at the bottom*
+
+## [2026-05-02] ingest | How to Navigate LLM Model Names
+- Source: raw/articles/How to navigate LLM model names.md
+- Created summary: summaries/how-to-navigate-llm-model-names.md
+- Updated concepts: concepts/model_naming.md, concepts/quantization.md, concepts/distillation.md, concepts/mixture_of_experts.md, concepts/instruction_tuning.md
+- Merged into existing concepts: vision_models, guard_models, embedding_models (already existed from prior ingest)
+- Updated index.md, sources-manifest.md

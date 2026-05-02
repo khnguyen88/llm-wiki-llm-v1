@@ -6,13 +6,14 @@ sources:
   - raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md
   - raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md
   - raw/articles/LLM Naming Explained (What do the options mean_).md
+  - raw/articles/How to navigate LLM model names.md
 tags:
   - llm
   - quantization
   - compression
   - inference
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -32,6 +33,8 @@ Quantization reduces the numerical precision of model weights — storing each w
 - Quantization tags in model names (Q4, int8, 4bit) signal compressed variants but may omit the method (NF4, GPTQ, AWQ), creating ambiguity that risks unexpected quality drops; always verify the quantization scheme in the model card ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 - Quantization tradeoffs are analogous to video resolution: FP16 ≈ 1080p (high quality, large), Q4_K_M ≈ 720p (balanced), Q2_K ≈ 480p (small but significant quality loss) ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
 - Suffix 0 or 1 indicates uniform quantization; suffix K indicates K-quant method; suffixes _S/_M/_L control block size (Small = low memory, lower precision; Medium = balanced; Large = more precision, more memory) ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
+- Concrete vRAM impact: Llama 405B drops from 900+ GB at fp16 to ~450 GB at fp8 ^[raw/articles/How to navigate LLM model names.md]
+- Neural Magic notation "w4a16" indicates 4-bit weights with 16-bit activations, enabling advanced quantization with minimal accuracy loss ^[raw/articles/How to navigate LLM model names.md]
 - FP16 is full precision 16-bit floating point — least compressed, highest quality, but massive file size; FP32 is lossless but absolutely huge and not recommended for most use cases ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
 
 ## Details

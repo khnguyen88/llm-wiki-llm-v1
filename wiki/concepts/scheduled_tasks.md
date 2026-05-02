@@ -1,9 +1,10 @@
 ---
 title: "Scheduled Tasks"
-summary: "Four approaches for running Claude Code tasks on a schedule or recurring basis: Routines, desktop scheduled tasks, GitHub Actions, and the /loop CLI command"
+summary: "Four approaches for running Claude Code tasks on a schedule or recurring basis: Routines, desktop scheduled tasks, GitHub Actions, and the /loop CLI command; session-scoped cron tools (CronCreate, CronDelete, CronList) manage in-session scheduling"
 type: concept
 sources:
   - raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md
+  - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
 tags:
   - claude-code
   - scheduling
@@ -12,9 +13,9 @@ tags:
   - github-actions
   - cron
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
-provenance: extracted
+provenance: merged
 ---
 
 # Scheduled Tasks
@@ -27,6 +28,10 @@ Running Claude Code tasks automatically on a recurring basis or at specific time
 - **Desktop scheduled tasks** run on your local machine via the Claude Code desktop app, providing direct access to local files, tools, and uncommitted changes ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - **GitHub Actions** run in your CI pipeline, suited for tasks tied to repo events (opened PRs) or cron schedules alongside workflow config ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 - **`/loop`** is an in-session CLI command for quick polling while a session is open; tasks stop when you start a new conversation, but `--resume` and `--continue` can restore unexpired ones ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+
+- **CronCreate**, **CronDelete**, and **CronList** are session-scoped tools for managing scheduled prompts within a running session; CronCreate schedules a recurring or one-shot prompt, CronDelete cancels a scheduled task by ID, and CronList lists all scheduled tasks in the session ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+
+- Cron tasks are session-scoped and are restored on `--resume` or `--continue` if they have not expired ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 - When writing prompts for scheduled tasks, be explicit about what success looks like and what to do with results, since the task runs autonomously and cannot ask clarifying questions ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 
 ## Details
