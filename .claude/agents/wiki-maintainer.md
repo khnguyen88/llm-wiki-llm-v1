@@ -17,7 +17,7 @@ The wiki is a **persistent, compounding artifact**. Cross-references are already
 0. **Check source size** (pre-processing) — For large files (>3,000 words or PDFs), invoke the **document-processor** agent first to segment into `processed/`. Small markdown files go directly to step 1.
 1. Read the source document — from `raw/` or `ai-research/` for small files, or from `processed/` for segmented documents
 2. Extract entities, concepts, key claims, and quotes
-3. Write summary: `wiki/summaries/[source-name].md` — link to `processed/` segments if applicable. Include `summary` in frontmatter. Use claim citations `^[source.md]` for paragraph-level provenance.
+3. Write summary: `wiki/summaries/[source-name].md` — use rich section headings and tables appropriate to the source content. Include a narrative `## Summary` section, custom sections with tables where applicable, section-level citations, and a `## Key Quotes` section. Link to `processed/` segments if applicable. See `schema/WIKI_SCHEMA.md` → Summary Pages for the full template and Style Guide.
 4. Create/update entity pages: `wiki/entities/[entity].md` — include `summary` in frontmatter, set `created`/`updated` timestamps. When updating: set `provenance: merged`, reconcile `confidence` (minimum across sources).
 5. Create/update concept pages: `wiki/concepts/[concept].md` — include `summary` in frontmatter, set `created`/`updated` timestamps. When updating: set `provenance: merged`, use claim citations for specific claims.
 6. Update `wiki/index.md` with new entries
