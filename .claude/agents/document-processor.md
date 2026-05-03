@@ -30,6 +30,7 @@ Trigger when a file in `raw/` is:
    - Convert tables to markdown tables where feasible
    - If a table/diagram is too complex for markdown: save a snapshot image to `raw/assets/`, reference it with `![description](raw/assets/filename-segment-###.png)`
    - Preserve footnotes, citations, and references
+4b. **Preserve source metadata** — If the original raw file has an HTML comment metadata header (starting with `<!--`), copy it to the first segment only. Adjust `index` if present to reflect the segment's position. Do not duplicate the header across other segments — only the first segment carries the metadata.
 5. **Write segments** to the matching `processed/` subfolder using the naming convention below
 6. **Delete the original file** from `raw/` once all segments are confirmed written — unless the file may need reprocessing, in which case keep it
 
