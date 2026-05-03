@@ -78,6 +78,22 @@ The wiki source summary directory is `summaries/` (NOT `sources/`). Check every 
 - File path references must say `wiki/summaries/[name].md`
 - The naming convention table must show `Summary | kebab-case | summaries/...`
 
+### 8. Raw source metadata
+
+The Raw Source Metadata schema in `schema/WIKI_SCHEMA.md` must be consistent with agent references:
+
+- **Source types**: The 7 valid types (`web-crawl`, `web-search`, `ai-research`, `ai-research-multi`, `video-transcript`, `video-transcript-llm`, `manual`) must match across WIKI_SCHEMA.md, WIKI_WORKFLOWS.md, wiki-linter, and wiki-maintainer
+- **Field requirements**: Required and recommended fields per type must match the schema definition
+- **Agent references**: wiki-maintainer must reference the metadata header format in both Ingest and Research steps
+- **Linter checks**: wiki-linter must validate the same 7 types and field requirements
+- **Workflow references**: WIKI_WORKFLOWS.md Research step 2 must reference the metadata schema
+
+Check that:
+- `schema/WIKI_SCHEMA.md` documents all 7 source types with correct required/recommended/optional fields
+- `.claude/agents/wiki-linter.md` references the same 7 types and field tiers
+- `.claude/agents/wiki-maintainer.md` references the metadata header format
+- `schema/WIKI_WORKFLOWS.md` Research step 2 references the metadata schema
+
 ## Output Format
 
 Report inconsistencies as a markdown checklist:
