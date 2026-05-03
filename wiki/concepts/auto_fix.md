@@ -5,6 +5,7 @@ type: concept
 sources:
   - raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md
   - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
 tags:
   - claude-code
   - cloud
@@ -30,12 +31,13 @@ Auto-fix enables Claude to monitor a pull request and automatically respond to C
 - Claude may reply to review comment threads on GitHub using the user's account; each reply is labeled as coming from Claude Code so reviewers know it was written by the agent ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - Repositories with comment-triggered automation (e.g., Atlantis, Terraform Cloud, custom GitHub Actions on `issue_comment`) should review their automation before enabling auto-fix, since Claude can post comments that trigger those workflows ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 - Toggle Auto fix in the CI panel after creating a PR on Claude Code web; Claude watches CI, fixes failures and nits, and pushes until green ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
+- `/autofix-pr` (Week 15, CLI) infers the open PR for the current branch and enables auto-fix on Claude Code on the web in one step; push the branch, run the command, and Claude watches CI and review comments until green ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
 
 ## Details
 
 When auto-fix is active, Claude subscribes to GitHub events for the PR, including new review comments and CI check failures. For each event, Claude investigates and decides how to proceed. Clear fixes that don't conflict with earlier instructions are pushed directly with an explanation in the session. Ambiguous or architecturally significant reviewer comments prompt Claude to ask for guidance before acting. Duplicate or no-action events are noted and skipped.
 
-The `/autofix-pr` CLI command detects the open PR for the current branch using `gh`, spawns a web session, and enables auto-fix in one step. From the web interface, the CI status bar provides an "Auto-fix" toggle. From the mobile app, natural language instructions like "watch this PR and fix any CI failures" activate the feature.
+The `/autofix-pr` CLI command detects the open PR for the current branch using `gh`, spawns a web session, and enables auto-fix in one step. From the web interface, the CI status bar provides an "Auto-fix" toggle. From the mobile app, natural language instructions like "watch this PR and fix any CI failures" activate the feature. ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 
 ## Related
 

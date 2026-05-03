@@ -71,6 +71,80 @@ sources: []
   - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
   - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
   - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
+  - raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
+  - raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md
+  - raw/document/claude code/claude-code-123-whats-new-index-2026-04-29.md
+  - raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md
+  - raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md
+  - raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md
+  - raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md
+  - raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md
+  - raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md
+  - raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md
+  - raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md
+  - raw/document/openrouter/openrouter-009-guides-overview-multimodal-videos-2026-04-29.md
+  - raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md
+  - raw/document/openrouter/openrouter-011-guides-overview-multimodal-tts-2026-04-29.md
+  - raw/document/openrouter/openrouter-012-guides-overview-auth-oauth-2026-04-29.md
+  - raw/document/openrouter/openrouter-013-guides-overview-auth-management-api-keys-2026-04-29.md
+  - raw/document/openrouter/openrouter-014-guides-overview-auth-byok-2026-04-29.md
+  - raw/document/openrouter/openrouter-015-faq-2026-04-29.md
+  - raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md
+  - raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md
+  - raw/document/openrouter/openrouter-019-guides-routing-auto-exacto-2026-04-29.md
+  - raw/document/openrouter/openrouter-020-guides-routing-model-variants-free-2026-04-29.md
+  - raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md
+  - raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md
+  - raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md
+  - raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md
+  - raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md
+  - raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md
+  - raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md
+  - raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md
+  - raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md
+  - raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md
+  - raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md
+  - raw/document/openrouter/openrouter-033-guides-features-server-tools-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md
+  - raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md
+  - raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md
+  - raw/document/openrouter/openrouter-037-guides-features-server-tools-image-generation-2026-04-29.md
+  - raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-040-guides-features-plugins-response-healing-2026-04-29.md
+  - raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md
+  - raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md
+  - raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md
+  - raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md
+  - raw/document/openrouter/openrouter-045-app-attribution-2026-04-29.md
+  - raw/document/openrouter/openrouter-046-guides-features-guardrails-2026-04-29.md
+  - raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md
+  - raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md
+  - raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md
+  - raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md
+  - raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md
+  - raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md
+  - raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md
+  - raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md
+  - raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md
+  - raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md
+  - raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md
+  - raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md
+  - raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md
+  - raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md
+  - raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md
+  - raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md
+  - raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md
+  - raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md
+  - raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md
+  - raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md
+  - raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md
+  - raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md
+  - raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md
+  - raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"
@@ -78,7 +152,30 @@ updated: "2026-05-02T12:00:00Z"
 
 # Synthesis
 
-*This synthesis will be populated as sources are re-ingested during the wiki rebuild.*
+## LLM Wiki Pattern
+
+The LLM Wiki pattern is the foundational architecture of this knowledge base. Originated by Andrej Karpathy, it replaces traditional Retrieval-Augmented Generation (RAG) with a persistent, compounding wiki that is incrementally built and maintained by an LLM. The core insight: LLMs eliminate the bookkeeping burden that causes humans to abandon knowledge bases, enabling a wiki that grows richer with every source.
+
+### Architecture
+
+The pattern defines three layers with clear ownership boundaries:
+- **Raw sources** (`raw/`, `ai-research/`) -- immutable, human-curated source documents
+- **The wiki** (`wiki/`) -- LLM-generated markdown files (summaries, entities, concepts, synthesis, index, log)
+- **The schema** (CLAUDE.md, AGENTS.md) -- co-evolved configuration guiding LLM behavior
+
+### The Four Pillars of Personalization
+
+Karpathy identifies four properties that distinguish the LLM Wiki pattern from implicit AI personalization: **Explicit** (artifacts are viewable), **Yours** (data stays local), **File over App** (universal formats), and **BYOAI** (any AI model can be plugged in).
+
+### Key Differentiator vs. RAG
+
+Unlike RAG, which re-derives knowledge from scratch on every query, the wiki compiles knowledge once and keeps it current. Cross-references are pre-built, contradictions are flagged during ingest, and synthesis accumulates across sources. At moderate scale (~100 sources, ~400K words), embedding-based RAG infrastructure is unnecessary -- an index file and LLM navigation suffice.
+
+### Provenance
+
+- [[summaries/karpathy-github-llm-wiki]] -- Canonical design document (three-layer architecture, three operations)
+- [[summaries/karpathy-tweet-llm-wiki]] -- Practical six-step workflow
+- [[summaries/farzapedia]] -- Personalization pillars and BYOAI vision
 
 ---
 

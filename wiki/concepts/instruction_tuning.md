@@ -19,27 +19,42 @@ provenance: merged
 
 # Instruction Tuning
 
-Instruction tuning (suffix: `-instruct`, `-IT`, or `-it`) is a fine-tuning method that trains LLMs on instruction-response pairs via supervised fine-tuning. It produces models that reliably follow user prompts: "Summarize this," "Write a function that..." — the standard variant for most use cases. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Instruction tuning (suffix: `-instruct`, `-IT`, or `-it`) is a fine-tuning method that trains LLMs on instruction-response pairs via supervised fine-tuning (SFT). It produces models that reliably follow user prompts: "Summarize this," "Write a function that..." -- the standard variant for most use cases. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
-## Key Points
+## Training Variant Hierarchy
 
-- Three main training variants: Base (pretrained, text completion only), Instruct/IT (fine-tuned on instruction-response pairs, follows prompts reliably), Chat (further optimized for multi-turn conversation via RLHF or DPO) ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
-- For general use, always pick the instruct/IT variant; base models are for researchers and fine-tuners ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
-- "Instruct" has largely replaced "chat" as the standard naming for conversational models in modern naming conventions ^[raw/articles/How to navigate LLM model names.md]
-- Additional training suffixes indicate specialized fine-tuning: DPO (alignment via Direct Preference Optimization), RLHF (Reinforcement Learning from Human Feedback), reasoning/thinking (chain-of-thought optimization), vision/VL (image input support), coder (code generation) ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
-- LoRA (Low-Rank Adaptation) enables efficient fine-tuning by training only adapter weights; QLoRA applies LoRA on top of a 4-bit quantized base model ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
-- Alignment tags in model names (Instruct, Chat, base) serve as the strongest first filter for model selection; deploying a base model in a user-facing assistant role is one of the most common and costly mistakes ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
-- Instruct quality varies across vendors — the label alone does not guarantee consistent instruction-following behavior; benchmark on your task set before deployment ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+| Variant | Description | When to Use |
+|---|---|---|
+| Base | Pretrained on text corpora via next-token prediction; completes text patterns but does not follow instructions reliably | Fine-tuning your own model, research, text completion |
+| Instruct / IT | Fine-tuned on instruction-response pairs (SFT); follows user prompts reliably | Coding, Q&A, summarization, analysis -- virtually everything |
+| Chat | Further optimized for multi-turn conversations with RLHF or DPO; better at maintaining context | Chatbot applications, interactive assistants |
 
-## Details
+^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
-The training variant hierarchy is: base (pretrained, raw text completion) → instruct (follows prompts reliably) → chat (optimized for multi-turn dialogue). Each layer builds on the previous one. Base models are for researchers who want to fine-tune their own model or study raw text completion. Instruct models are the default for virtually all practical use cases. Chat models add conversational context awareness. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+## Additional Training Suffixes
 
-Other derivative suffixes found in community fine-tunes: `-abliterated` (safety refusal behavior surgically removed post-training), `-uncensored` (trained on unfiltered data to remove guardrails), `-reasoning` (optimized for chain-of-thought reasoning). ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+| Suffix | Meaning |
+|---|---|
+| `-DPO` | Trained with Direct Preference Optimization (alignment technique) |
+| `-RLHF` | Trained with Reinforcement Learning from Human Feedback |
+| `-reasoning` / `-thinking` | Optimized for chain-of-thought reasoning |
+| `-vision` / `-VL` | Supports image input (vision-language) |
+| `-coder` | Fine-tuned specifically for code generation |
+| `-abliterated` | Safety refusal behavior surgically removed post-training |
+| `-uncensored` | Trained on unfiltered data to remove guardrails |
+| `-LoRA` | Fine-tuned with Low-Rank Adaptation (adapter weights only) |
+
+^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+
+## Naming Guidance
+
+For general use, always pick the instruct/IT variant. Base models are for researchers and fine-tuners. "Instruct" has largely replaced "chat" as the standard naming for conversational models in modern conventions. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md] ^[raw/articles/How to navigate LLM model names.md]
+
+Alignment tags in model names serve as the strongest first filter for model selection -- deploying a base model in a user-facing assistant role is one of the most common and costly selection mistakes. However, Instruct quality varies across vendors -- always benchmark on your task set before deployment. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 
 ## Related
 
 - [[concepts/distillation]]
-- [[concepts/quantization]]
 - [[concepts/model_naming]]
+- [[concepts/quantization]]
 - [[entities/hugging_face]]

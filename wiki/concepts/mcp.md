@@ -9,6 +9,7 @@ sources:
   - raw/document/claude code/claude-code-050-computer-use-2026-04-29.md
   - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
 tags:
   - mcp
   - agent-sdk
@@ -41,6 +42,7 @@ An open standard for connecting AI agents to external tools and data sources. Wi
 - In VS Code, MCP servers are added via `claude mcp add` in the integrated terminal and managed with `/mcp` in the chat panel; the management dialog lets users enable/disable servers, reconnect, and manage OAuth authentication ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 - The VS Code extension runs a built-in IDE MCP server (named `ide`, hidden from `/mcp`) that provides `mcp__ide__getDiagnostics` (read language-server errors) and `mcp__ide__executeCode` (run Jupyter cells with user confirmation); the server binds to `127.0.0.1` with per-activation random auth tokens ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 - A per-tool MCP result-size override allows individual MCP tool calls to return results up to 500K, bypassing the default result size limit ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+- MCP server authors can set `anthropic/maxResultSizeChars` in a tool's `_meta` field within the `tools/list` response to raise the truncation cap up to 500K characters; previously the limit was global, so tools returning inherently large payloads (database schemas, full file trees) were persisted to disk with a file reference ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
 
 ## Details
 

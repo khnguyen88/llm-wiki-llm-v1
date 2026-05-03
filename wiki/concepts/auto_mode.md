@@ -7,6 +7,7 @@ sources:
   - raw/document/claude code/claude-code-036-best-practices-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
   - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+  - raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
 tags:
   - claude-code
   - auto-mode
@@ -33,6 +34,7 @@ Auto mode lets Claude Code run without permission prompts by routing each tool c
 - Entries from each scope are combined additively: developers can extend `environment`, `allow`, and `soft_deny` but cannot remove entries that managed settings provide; a developer-added `allow` entry can override an organization `soft_deny` entry ^[raw/document/claude code/claude-code-035-auto-mode-config-2026-04-29.md]
 - For non-interactive runs with the `-p` flag, auto mode aborts if the classifier repeatedly blocks actions, since there is no user to fall back to ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 - Cycle to auto mode with `Shift+Tab`, or set it as the default via `"permissions": {"defaultMode": "auto"}` in `.claude/settings.json` ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
+- Auto mode is available for Max subscribers on Opus 4.7 without requiring the `--enable-auto-mode` flag ^[raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
 
 ## Details
 

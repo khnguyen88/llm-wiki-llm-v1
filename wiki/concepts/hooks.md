@@ -17,6 +17,9 @@ sources:
   - raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
   - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
+  - raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
 tags:
   - hooks
   - claude-code
@@ -52,6 +55,8 @@ Callbacks that fire at specific points in the agent loop lifecycle, allowing dev
 - Hooks are configured in the `hooks` field of `ClaudeAgentOptions` (Python) or `options` (TypeScript), keyed by event name with arrays of `HookMatcher` objects containing an optional regex `matcher`, a required `hooks` array of callbacks, and an optional `timeout` (default 60 seconds) ^[raw/document/claude code/claude-code-007-agent-sdk-hooks-2026-04-29.md]
 - Every callback receives three arguments: typed input data (with `session_id`, `cwd`, `hook_event_name`, plus event-specific fields), a tool use ID for correlating Pre/Post events, and a context object; in TypeScript, the context contains an `AbortSignal` for cancellation ^[raw/document/claude code/claude-code-007-agent-sdk-hooks-2026-04-29.md]
 - Callbacks return output objects with top-level fields (`systemMessage` to inject context visible to the model, `continue`/`continue_` to control agent continuation) and `hookSpecificOutput` with event-specific fields: `permissionDecision` (`"allow"`, `"deny"`, `"ask"`, or `"defer"` in TypeScript only), `permissionDecisionReason`, and `updatedInput` ^[raw/document/claude code/claude-code-007-agent-sdk-hooks-2026-04-29.md]
+- The `defer` value for `permissionDecision` in `PreToolUse` hooks (added Week 14) causes `-p` sessions to pause at the tool call and exit with a `deferred_tool_use` payload, allowing an SDK app or custom UI to surface the decision and then resume with `--resume` ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
+- Hook output exceeding 50K characters is saved to disk with a file path and preview shown instead of being injected into context ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
 - Permission decision priority: deny > defer > ask > allow; if any hook returns deny, the operation is blocked regardless of other hooks ^[raw/document/claude code/claude-code-007-agent-sdk-hooks-2026-04-29.md]
 - Async output (`{"async": true}` / `{"async_": True}` in Python) tells the agent to proceed without waiting for the hook to finish; used only for side effects like logging, metrics, or notifications ^[raw/document/claude code/claude-code-007-agent-sdk-hooks-2026-04-29.md]
 - Matchers filter by tool name only (not file paths or arguments); to filter by file path, check `tool_input.file_path` inside the callback ^[raw/document/claude code/claude-code-007-agent-sdk-hooks-2026-04-29.md]
@@ -76,6 +81,8 @@ Callbacks that fire at specific points in the agent loop lifecycle, allowing dev
 - In terminals without native desktop notification support (Warp, Apple Terminal, and others), a Notification hook can play a sound or run a custom command when Claude finishes a task or pauses for permission; hooks run alongside the native desktop notification rather than replacing it ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 - Notification hooks are configured in `settings.json` under the `hooks` key with `Notification` event type and a `command` hook type; example: `{"hooks": {"Notification": [{"hooks": [{"type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff"}]}]}}` plays a macOS system sound ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
 - Desktop notifications reach the OS natively in Ghostty and Kitty without setup; iTerm2 requires enabling "Notification Center Alerts" and "Send escape sequence-generated alerts" in Settings → Profiles → Terminal; notifications also reach local machines over SSH ^[raw/document/claude code/claude-code-107-terminal-config-2026-04-29.md]
+- `UserPromptSubmit` hooks can set the session title via `hookSpecificOutput.sessionTitle` (Week 15, v2.1.92-101) ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
+- `PreCompact` hooks can block compaction by exiting with code 2 or returning `"decision":"block"` ^[raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
 
 ## Details
 

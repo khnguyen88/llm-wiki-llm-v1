@@ -487,7 +487,524 @@ A chronological record of operations on the external knowledge base.
 - Updated index.md, sources-manifest.md
 - Cost: $9.2475
 
+## [2026-05-02] ingest | Claude Code Whats New 2026 W14
+- Source: raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
+- Created summary: summaries/claude-code-whats-new-2026-w14.md
+- Created entities: entities/bartowski.md
+- Updated index.md, sources-manifest.md
+- Cost: $6.3011
+
+## [2026-05-02] ingest | Claude Code Whats New 2026 W15
+- Source: raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
+- Created summary: summaries/claude-code-whats-new-2026-w15.md
+- Updated index.md, sources-manifest.md
+- Cost: $5.5230
+
+## [2026-05-02] ingest | Claude Code Whats New 2026 W16
+- Source: raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
+- Created summary: summaries/claude-code-whats-new-2026-w16.md
+- Created concepts: concepts/native_binaries.md, concepts/routines.md
+- Updated index.md, sources-manifest.md
+- Cost: $5.4506
+
+## [2026-05-02] ingest | Claude Code Whats New 2026 W17
+- Source: raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md
+- Created summary: summaries/claude-code-whats-new-2026-w17.md
+- Updated index.md, sources-manifest.md
+- Cost: $12.0376
+
+## [2026-05-02] ingest | Claude Code Whats New Index
+- Source: raw/document/claude code/claude-code-123-whats-new-index-2026-04-29.md
+- Created summary: summaries/claude-code-whats-new-index.md
+- Updated index.md, sources-manifest.md
+- Cost: $4.3176
+
+## [2026-05-02] ingest | Claude Code Zero Data Retention
+- Source: raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md
+- Created summary: summaries/claude-code-zero-data-retention.md
+- Created concepts: concepts/zero_data_retention.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.9826
+
+## [2026-05-02] ingest | Openrouter Quickstart
+- Source: raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md
+- Created summary: summaries/openrouter-quickstart.md
+- Created entities: entities/openrouter.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.5151
+
+## [2026-05-02] ingest | Openrouter Guides Overview Principles
+- Source: raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-principles.md
+- Created concepts: concepts/provider_fallback.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.2948
+
+## [2026-05-02] ingest | Openrouter Guides Overview Models
+- Source: raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-models.md
+- Created concepts: concepts/models_api.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.6735
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Overview
+- Source: raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-overview.md
+- Created concepts: concepts/multimodal.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.7834
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Images
+- Source: raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-images.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.3438
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Image Generation
+- Source: raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-image-generation.md
+- Created entities: entities/sourceful.md
+- Created concepts: concepts/image_generation.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.8734
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Pdfs
+- Source: raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-pdfs.md
+- Created concepts: concepts/pdf_input.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.2698
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Audio
+- Source: raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-audio.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.4502
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Videos
+- Source: raw/document/openrouter/openrouter-009-guides-overview-multimodal-videos-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-videos.md
+- Created entities: entities/google_gemini.md
+- Created concepts: concepts/video_input.md
+- Updated index.md, sources-manifest.md
+- Cost: $5.5096
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Video Generation
+- Source: raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-video-generation.md
+- Created concepts: concepts/video_generation.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.3692
+
+## [2026-05-02] ingest | Openrouter Guides Overview Multimodal Tts
+- Source: raw/document/openrouter/openrouter-011-guides-overview-multimodal-tts-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-multimodal-tts.md
+- Created concepts: concepts/text_to_speech.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.9176
+
+## [2026-05-02] ingest | Openrouter Guides Overview Auth Oauth
+- Source: raw/document/openrouter/openrouter-012-guides-overview-auth-oauth-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-auth-oauth.md
+- Created concepts: concepts/oauth_pkce.md
+- Updated index.md, sources-manifest.md
+- Cost: $0.7126
+
+## [2026-05-02] ingest | Openrouter Guides Overview Auth Management Api Keys
+- Source: raw/document/openrouter/openrouter-013-guides-overview-auth-management-api-keys-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-auth-management-api-keys.md
+- Created concepts: concepts/management_api_keys.md
+- Updated index.md, sources-manifest.md
+- Cost: $0.9511
+
+## [2026-05-02] ingest | Openrouter Guides Overview Auth Byok
+- Source: raw/document/openrouter/openrouter-014-guides-overview-auth-byok-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-auth-byok.md
+- Created entities: entities/azure_ai_services.md
+- Created concepts: concepts/byok.md
+- Updated index.md, sources-manifest.md
+- Cost: $4.8113
+
+## [2026-05-02] ingest | Openrouter Faq
+- Source: raw/document/openrouter/openrouter-015-faq-2026-04-29.md
+- Created summary: summaries/openrouter-faq.md
+- Created concepts: concepts/credit_system.md, concepts/data_privacy.md, concepts/model_variants.md
+- Updated index.md, sources-manifest.md
+- Cost: $8.0392
+
+## [2026-05-02] ingest | Openrouter Guides Overview Report Feedback
+- Source: raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md
+- Created summary: summaries/openrouter-guides-overview-report-feedback.md
+- Created concepts: concepts/report_feedback.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.5228
+
+## [2026-05-02] ingest | Openrouter Guides Routing Model Fallbacks
+- Source: raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-model-fallbacks.md
+- Created concepts: concepts/model_fallback.md
+- Updated index.md, sources-manifest.md
+- Cost: $0.9370
+
+## [2026-05-02] ingest | Openrouter Guides Routing Auto Exacto
+- Source: raw/document/openrouter/openrouter-019-guides-routing-auto-exacto-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-auto-exacto.md
+- Created concepts: concepts/auto_exacto.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.3659
+
+## [2026-05-02] ingest | Openrouter Guides Routing Model Variants Free
+- Source: raw/document/openrouter/openrouter-020-guides-routing-model-variants-free-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-model-variants-free.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.1272
+
+## [2026-05-02] ingest | Openrouter Guides Routing Model Variants Extended
+- Source: raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-model-variants-extended.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.1874
+
+## [2026-05-02] ingest | Openrouter Guides Routing Model Variants Exacto
+- Source: raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-model-variants-exacto.md
+- Created concepts: concepts/exacto.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.8288
+
+## [2026-05-02] ingest | Openrouter Guides Routing Model Variants Thinking
+- Source: raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-model-variants-thinking.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.1711
+
+## [2026-05-02] ingest | Openrouter Guides Routing Model Variants Online
+- Source: raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-model-variants-online.md
+- Created concepts: concepts/online_variant.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.4381
+
+## [2026-05-02] ingest | Openrouter Guides Routing Model Variants Nitro
+- Source: raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-model-variants-nitro.md
+- Created concepts: concepts/nitro_variant.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.7634
+
+## [2026-05-02] ingest | Openrouter Guides Routing Routers Auto Router
+- Source: raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-routers-auto-router.md
+- Created entities: entities/notdiamond.md
+- Created concepts: concepts/auto_router.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.5962
+
+## [2026-05-02] ingest | Openrouter Guides Routing Routers Body Builder
+- Source: raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-routers-body-builder.md
+- Created concepts: concepts/body_builder.md
+- Updated index.md, sources-manifest.md
+- Cost: $0.9805
+
+## [2026-05-02] ingest | Openrouter Guides Routing Routers Free Models Router
+- Source: raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md
+- Created summary: summaries/openrouter-guides-routing-routers-free-models-router.md
+- Created concepts: concepts/free_models_router.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.5399
+
+## [2026-05-02] ingest | Openrouter Guides Features Presets
+- Source: raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-presets.md
+- Created concepts: concepts/presets.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.1737
+
+## [2026-05-02] ingest | Openrouter Guides Features Response Caching
+- Source: raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-response-caching.md
+- Created concepts: concepts/response_caching.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.3381
+
+## [2026-05-02] ingest | Openrouter Guides Features Tool Calling
+- Source: raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-tool-calling.md
+- Created concepts: concepts/interleaved_thinking.md, concepts/tool_calling.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.4605
+
+## [2026-05-02] ingest | Openrouter Guides Features Server Tools Overview
+- Source: raw/document/openrouter/openrouter-033-guides-features-server-tools-overview-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-server-tools-overview.md
+- Created concepts: concepts/server_tools.md
+- Updated index.md, sources-manifest.md
+- Cost: $4.8730
+
+## [2026-05-02] ingest | Openrouter Guides Features Server Tools Web Search
+- Source: raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-server-tools-web-search.md
+- Created entities: entities/exa.md, entities/firecrawl.md, entities/parallel.md
+- Created concepts: concepts/web_search.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.7391
+
+## [2026-05-02] ingest | Openrouter Guides Features Server Tools Web Fetch
+- Source: raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-server-tools-web-fetch.md
+- Created concepts: concepts/web_fetch.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.5612
+
+## [2026-05-02] ingest | Openrouter Guides Features Server Tools Datetime
+- Source: raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-server-tools-datetime.md
+- Created concepts: concepts/server_tools_datetime.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.2867
+
+## [2026-05-02] ingest | Openrouter Guides Features Server Tools Image Generation
+- Source: raw/document/openrouter/openrouter-037-guides-features-server-tools-image-generation-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-server-tools-image-generation.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.5091
+
+## [2026-05-02] ingest | Openrouter Guides Features Plugins Overview
+- Source: raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-plugins-overview.md
+- Created concepts: concepts/context_compression.md, concepts/response_healing.md
+- Updated index.md, sources-manifest.md
+- Cost: $8.8371
+
+## [2026-05-02] ingest | Openrouter Guides Features Plugins Response Healing
+- Source: raw/document/openrouter/openrouter-040-guides-features-plugins-response-healing-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-plugins-response-healing.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.5196
+
+## [2026-05-02] ingest | Openrouter Guides Features Structured Outputs
+- Source: raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-structured-outputs.md
+- Updated index.md, sources-manifest.md
+- Cost: $6.1192
+
+## [2026-05-02] ingest | Openrouter Guides Features Message Transforms
+- Source: raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-message-transforms.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.9240
+
+## [2026-05-02] ingest | Openrouter Guides Features Zero Completion Insurance
+- Source: raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-zero-completion-insurance.md
+- Created concepts: concepts/zero_completion_insurance.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.4619
+
+## [2026-05-02] ingest | Openrouter Guides Features Zdr
+- Source: raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-zdr.md
+- Updated index.md, sources-manifest.md
+- Cost: $7.7090
+
+## [2026-05-02] ingest | Openrouter App Attribution
+- Source: raw/document/openrouter/openrouter-045-app-attribution-2026-04-29.md
+- Created summary: summaries/openrouter-app-attribution.md
+- Created concepts: concepts/app_attribution.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.0782
+
+## [2026-05-02] ingest | Openrouter Guides Features Guardrails
+- Source: raw/document/openrouter/openrouter-046-guides-features-guardrails-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-guardrails.md
+- Created concepts: concepts/guardrails.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.4517
+
+## [2026-05-02] ingest | Openrouter Guides Features Service Tiers
+- Source: raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-service-tiers.md
+- Created entities: entities/openai.md
+- Created concepts: concepts/service_tier.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.8755
+
+## [2026-05-02] ingest | Openrouter Guides Features Input Output Logging
+- Source: raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-input-output-logging.md
+- Created concepts: concepts/broadcast.md, concepts/input_output_logging.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.0955
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Overview
+- Source: raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-overview.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.0886
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Arize
+- Source: raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-arize.md
+- Created entities: entities/arize_ai.md, entities/openinference.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.9613
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Braintrust
+- Source: raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-braintrust.md
+- Created entities: entities/braintrust.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.3815
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Clickhouse
+- Source: raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-clickhouse.md
+- Created entities: entities/clickhouse.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.2972
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Opik
+- Source: raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-opik.md
+- Created entities: entities/comet_opik.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.3906
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Datadog
+- Source: raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-datadog.md
+- Created entities: entities/datadog.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.7745
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Grafana
+- Source: raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-grafana.md
+- Created entities: entities/grafana_cloud.md
+- Created concepts: concepts/traceql.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.6204
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Langfuse
+- Source: raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-langfuse.md
+- Created entities: entities/langfuse.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.3673
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Langsmith
+- Source: raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-langsmith.md
+- Created entities: entities/langsmith.md
+- Updated index.md, sources-manifest.md
+- Cost: $6.7117
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Newrelic
+- Source: raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-newrelic.md
+- Created entities: entities/new_relic.md
+- Updated index.md, sources-manifest.md
+- Cost: $7.2611
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Otel Collector
+- Source: raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-otel-collector.md
+- Created entities: entities/axiom.md
+- Updated index.md, sources-manifest.md
+- Cost: $7.1305
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Posthog
+- Source: raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-posthog.md
+- Created entities: entities/posthog.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.1359
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Ramp
+- Source: raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-ramp.md
+- Created entities: entities/ramp.md
+- Updated index.md, sources-manifest.md
+- Cost: $1.2171
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast S3
+- Source: raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-s3.md
+- Created entities: entities/amazon_s3.md, entities/cloudflare_r2.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.5891
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Sentry
+- Source: raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-sentry.md
+- Created entities: entities/sentry.md
+- Updated index.md, sources-manifest.md
+- Cost: $6.0945
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Snowflake
+- Source: raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-snowflake.md
+- Created entities: entities/snowflake.md
+- Updated index.md, sources-manifest.md
+- Cost: $3.9725
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Weave
+- Source: raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-weave.md
+- Created entities: entities/wandb_weave.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.4066
+
+## [2026-05-02] ingest | Openrouter Guides Features Broadcast Webhook
+- Source: raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md
+- Created summary: summaries/openrouter-guides-features-broadcast-webhook.md
+- Created concepts: concepts/webhook.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.8172
+
+## [2026-05-02] ingest | Openrouter Guides Privacy Data Collection
+- Source: raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md
+- Created summary: summaries/openrouter-guides-privacy-data-collection.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.4821
+
+## [2026-05-02] ingest | Openrouter Guides Privacy Provider Logging
+- Source: raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md
+- Created summary: summaries/openrouter-guides-privacy-provider-logging.md
+- Created concepts: concepts/provider_logging.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.2491
+
+## [2026-05-02] ingest | Openrouter Guides Best Practices Latency And Performance
+- Source: raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md
+- Created summary: summaries/openrouter-guides-best-practices-latency-and-performance.md
+- Updated index.md, sources-manifest.md
+- Cost: $7.2148
+
+## [2026-05-02] ingest | Openrouter Guides Best Practices Prompt Caching
+- Source: raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md
+- Created summary: summaries/openrouter-guides-best-practices-prompt-caching.md
+- Created entities: entities/grok.md, entities/groq.md, entities/moonshot_ai.md
+- Created concepts: concepts/provider_sticky_routing.md
+- Updated index.md, sources-manifest.md
+- Cost: $5.9325
+
+## [2026-05-02] ingest | Openrouter Guides Best Practices Uptime Optimization
+- Source: raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md
+- Created summary: summaries/openrouter-guides-best-practices-uptime-optimization.md
+- Created concepts: concepts/uptime_optimization.md
+- Updated index.md, sources-manifest.md
+- Cost: $2.6961
+
 *Append new entries at the bottom*
+
+## [2026-05-02] re-ingest | 6 LLM Model Naming Convention Sources
+- Sources: all 6 raw/articles/ LLM naming sources re-ingested
+- Regenerated summaries: how-to-navigate-llm-model-names, llm-model-names-decoded-*, llm-model-naming-conventions-*, llm-naming-explained-*, naming-conventions-of-llm-models, understanding-naming-conventions-of-llm-files
+- Updated concepts: model_naming, quantization, gguf, safetensors, mixture_of_experts, distillation, instruction_tuning
+- Updated entities: deepseek, gemma, hugging_face, llama, ollama, qwen, bartowski (new)
+- Updated index.md, sources-manifest.md, synthesis.md
 
 ## [2026-05-02] ingest | How to Navigate LLM Model Names
 - Source: raw/articles/How to navigate LLM model names.md
@@ -495,3 +1012,21 @@ A chronological record of operations on the external knowledge base.
 - Updated concepts: concepts/model_naming.md, concepts/quantization.md, concepts/distillation.md, concepts/mixture_of_experts.md, concepts/instruction_tuning.md
 - Merged into existing concepts: vision_models, guard_models, embedding_models (already existed from prior ingest)
 - Updated index.md, sources-manifest.md
+
+## [2026-05-02] re-ingest | Farzapedia
+- Source: raw/articles/farzapedia.md
+- Regenerated summary: summaries/farzapedia.md (added section-level tables, enriched Key Quotes, expanded personalization pillar descriptions)
+- Updated concepts: concepts/llm_wiki.md, concepts/file_over_app.md, concepts/byoai.md
+- Updated index.md, sources-manifest.md, synthesis.md
+
+## [2026-05-02] re-ingest | Karpathy Github Llm Wiki
+- Source: raw/articles/karpathy-github-llm-wiki.md
+- Regenerated summary: summaries/karpathy-github-llm-wiki.md (added section-level tables for architecture layers, operations, use cases; enriched narrative Summary)
+- Updated concepts: concepts/llm_wiki.md, concepts/memex.md, concepts/rag.md
+- Updated index.md, sources-manifest.md, synthesis.md
+
+## [2026-05-02] re-ingest | Karpathy Tweet Llm Wiki
+- Source: raw/articles/karpathy-tweet-llm-wiki.md
+- Regenerated summary: summaries/karpathy-tweet-llm-wiki.md (added six-step workflow table, tools table, enriched Key Quotes)
+- Updated concepts: concepts/llm_wiki.md, concepts/rag.md
+- Updated index.md, sources-manifest.md, synthesis.md

@@ -4,6 +4,7 @@ summary: "An intermediary service between Claude Code and a cloud provider that 
 type: concept
 sources:
   - raw/document/claude code/claude-code-108-third-party-integrations-2026-04-29.md
+  - raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md
 tags:
   - enterprise
   - deployment
@@ -42,3 +43,4 @@ Each cloud provider has its own base URL environment variable for gateway routin
 - [[concepts/proxy_pattern]]
 - [[concepts/deployment_patterns]]
 - [[concepts/authentication]]
+- [[entities/openrouter]]

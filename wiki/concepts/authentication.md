@@ -5,6 +5,9 @@ type: concept
 sources:
   - raw/document/claude code/claude-code-034-authentication-2026-04-29.md
   - raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md
+  - raw/document/openrouter/openrouter-012-guides-overview-auth-oauth-2026-04-29.md
+  - raw/document/openrouter/openrouter-013-guides-overview-auth-management-api-keys-2026-04-29.md
+  - raw/document/openrouter/openrouter-015-faq-2026-04-29.md
 tags:
   - claude-code
   - authentication
@@ -12,6 +15,9 @@ tags:
   - security
   - enterprise
   - troubleshooting
+  - oauth
+  - api-keys
+  - key-management
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
@@ -29,6 +35,7 @@ Authentication in Claude Code verifies user identity and authorizes API access t
 - `ANTHROPIC_API_KEY` is prompted once for approval in interactive mode (choice remembered); use the "Use custom API key" toggle in `/config` to change later; in non-interactive mode (`-p`), the key is always used ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
 - `claude setup-token` generates a one-year OAuth token for non-interactive environments (CI, scripts); token is scoped to inference only and cannot establish Remote Control sessions ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
 - `apiKeyHelper`, `ANTHROPIC_API_KEY`, and `ANTHROPIC_AUTH_TOKEN` apply only to terminal CLI sessions; Claude Desktop and remote sessions use OAuth exclusively and do not call `apiKeyHelper` or read API key environment variables ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- OpenRouter uses three authentication methods: cookie-based auth for the web interface and chatroom, API keys passed as Bearer tokens for the completions API, and Management API keys for programmatic key management ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
 
 ## Details
 
@@ -68,3 +75,6 @@ Cloud provider credential failures (`Could not load credentials from any provide
 - [[concepts/secure_deployment]]
 - [[concepts/sessions]]
 - [[concepts/troubleshoot_install]]
+- [[concepts/oauth_pkce]]
+- [[concepts/management_api_keys]]
+- [[entities/openrouter]]

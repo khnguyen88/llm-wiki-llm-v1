@@ -4,6 +4,7 @@ summary: "Claude Code's dashboard system for tracking team usage, contribution m
 type: concept
 sources:
   - raw/document/claude code/claude-code-033-analytics-2026-04-29.md
+  - raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md
 tags:
   - analytics
   - claude-code
@@ -36,6 +37,8 @@ The dashboard includes several charts: Adoption (daily active users and sessions
 
 Contribution metrics are in public beta and only cover users within the claude.ai organization. Usage through the Claude Console API or third-party integrations is not included. They are not available for organizations with Zero Data Retention enabled. ^[raw/document/claude code/claude-code-033-analytics-2026-04-29.md]
 
+Under ZDR, the analytics dashboard shows usage metrics only; Claude Code Analytics does not store prompts or model responses but collects productivity metadata such as account emails and usage statistics. ^[raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md]
+
 For API customers, the team insights table shows per-user metrics: members (authenticated users, displayed by key identifier for API key users or email for OAuth users), spend this month, and lines this month. ^[raw/document/claude code/claude-code-033-analytics-2026-04-29.md]
 
 ## Related
@@ -45,3 +48,4 @@ For API customers, the team insights table shows per-user metrics: members (auth
 - [[concepts/pr_attribution]]
 - [[concepts/observability]]
 - [[concepts/cost_tracking]]
+- [[concepts/zero_data_retention]]

@@ -1,42 +1,63 @@
 ---
-title: "Naming Conventions Of Llm Models"
-summary: "Explains LLM naming patterns distinguishing paid models (product-oriented: family + version + tier) from open-source models (engineering-oriented: org + family + version + size + variant + format)"
+title: "Naming Conventions of LLM Models"
+summary: "TO THE NEW blog post by Sudarshan (March 2026) comparing paid and open-source LLM naming conventions, with breakdowns of common suffixes, size hierarchies, and versioning patterns"
 type: summary
 sources:
   - raw/articles/Naming Conventions of LLM Models.md
 tags:
   - llm
   - naming-conventions
-  - model-selection
+  - paid-models
+  - open-source
+  - model-comparison
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
-confidence: 0.9
-provenance: extracted
+updated: "2026-05-02T12:00:00Z"
 ---
 
-# Naming Conventions Of Llm Models
+# Naming Conventions of LLM Models
 
-## Key Points
+## Summary
 
-- LLM model names encode practical metadata: model family, version, capability tier, parameter size, fine-tuning variant, and format ^[raw/articles/Naming Conventions of LLM Models.md]
-- Common suffix meanings: Turbo (speed + cost optimized), Mini (smaller + cheaper), Pro (high capability), Flash (ultra-fast), Instruct (fine-tuned for instructions), Chat (conversation-optimized), rlhf (trained with human feedback) ^[raw/articles/Naming Conventions of LLM Models.md]
-- Size hierarchy: xxl > xl > large > base > small; size indicators use parameter counts (7B, 13B, 70B) ^[raw/articles/Naming Conventions of LLM Models.md]
-- Paid models follow pattern: [Model Family] + [Version] + [Variant/Capability Tier] — naming prioritizes simplicity, branding, and product differentiation for non-technical users ^[raw/articles/Naming Conventions of LLM Models.md]
-- Open-source models follow pattern: [organization]/[model-family]-[version]-[size]-[variant]-[format] — naming is technical and architecture-oriented ^[raw/articles/Naming Conventions of LLM Models.md]
-- Versioning tags (v0.1, v1, v2) indicate iterations of fine-tuning ^[raw/articles/Naming Conventions of LLM Models.md]
-- Paid models are designed like products; open-source models are designed like engineering artifacts ^[raw/articles/Naming Conventions of LLM Models.md]
+This article by Sudarshan (TO THE NEW, March 2026) categorizes LLM naming conventions into two fundamentally different approaches: paid models (product-oriented, branding-focused) and open-source models (engineering artifact-oriented, technically descriptive). The article breaks down common suffixes, size hierarchies, versioning patterns, and provides detailed examples of each category. ^[raw/articles/Naming Conventions of LLM Models.md]
 
-## Quotes
+## Common Suffix Meanings
 
-- "Paid models are designed like products — Open-source models are designed like engineering artifacts" ^[raw/articles/Naming Conventions of LLM Models.md]
+| Suffix | Meaning |
+|---|---|
+| Turbo | Optimised for speed + cost |
+| Mini | Smaller + cheaper |
+| Pro | High capability |
+| Flash | Ultra-fast |
+| Instruct | Fine-tuned to follow instructions |
+| Chat | Optimised for conversations |
+| rlhf | Trained with human feedback |
 
-## Notes
+^[raw/articles/Naming Conventions of LLM Models.md]
 
-- Source is a concise introductory blog post (~460 words); covers naming fundamentals but lacks depth on ambiguity, validation, or decision frameworks found in other sources
+## Paid Model Naming
 
-## Related
+Paid models follow the pattern: `[Model Family] + [Version] + [Variant / Capability Tier]`. Designed for simplicity, branding, and product positioning targeting non-technical users. ^[raw/articles/Naming Conventions of LLM Models.md]
 
-- [[concepts/model_naming]]
-- [[concepts/instruction_tuning]]
-- [[concepts/quantization]]
-- [[entities/hugging_face]]
+| Example | Breakdown | Meaning |
+|---|---|---|
+| GPT-4o | GPT (family) + 4 (gen) + o/omni (multimodal) | 4th-gen model handling text, image, audio |
+| Gemini 1.5 Pro | Gemini (family) + 1.5 (version) + Pro (high capability) | Incremental upgrade, high capability tier |
+
+^[raw/articles/Naming Conventions of LLM Models.md]
+
+## Open-Source Model Naming
+
+Open-source models follow the pattern: `[organization]/[model-family]-[version]-[size]-[variant]-[format]`. Designed like engineering artifacts, exposing technical metadata for practitioners. ^[raw/articles/Naming Conventions of LLM Models.md]
+
+| Example | Breakdown | Meaning |
+|---|---|---|
+| meta-llama/Llama-2-7b-chat-hf | Meta (org) + Llama-2 (family+version) + 7b (size) + chat (variant) + hf (format) | 7B chat-optimized Llama v2 in HF format |
+| mistralai/Mistral-7B-Instruct-v0.1 | Mistral (base) + 7B (size) + Instruct (variant) + v0.1 (version) | Instruction-tuned Mistral 7B, early release |
+
+^[raw/articles/Naming Conventions of LLM Models.md]
+
+## Key Quotes
+
+> "Paid models are designed like products -- Open-source models are designed like engineering artifacts."
+
+> "Understanding this difference can help us to select a better model for our specific requirements."

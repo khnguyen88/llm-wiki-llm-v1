@@ -4,6 +4,7 @@ summary: "Live speech-to-text input for Claude Code CLI prompts, supporting hold
 type: concept
 sources:
   - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
 tags:
   - claude-code
   - voice
@@ -27,6 +28,7 @@ Voice dictation transcribes spoken prompts live into the Claude Code CLI input, 
 - Transcription is tuned for coding vocabulary (e.g., `regex`, `OAuth`, `JSON`, `localhost`); the current project name and git branch name are added as recognition hints automatically ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
 - The dictation key is bound to `voice:pushToTalk` in the `Chat` keybinding context, defaulting to Space; rebind in `~/.claude/keybindings.json` ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
 - Not available in remote environments (Claude Code on the Web, SSH sessions, VS Code Remote including Dev Containers and Codespaces) because it requires local microphone access ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Week 14 (v2.1.86-91) added push-to-talk modifier key combos for hold mode, Windows WebSocket audio support, and macOS Apple Silicon microphone permission handling ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
 
 ## Details
 

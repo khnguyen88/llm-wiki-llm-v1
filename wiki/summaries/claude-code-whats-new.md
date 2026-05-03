@@ -4,6 +4,7 @@ summary: "Weekly digest of notable Claude Code features from weeks 13-17 (March 
 type: summary
 sources:
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-123-whats-new-index-2026-04-29.md
 tags:
   - claude-code
   - release-notes

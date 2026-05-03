@@ -6,6 +6,7 @@ sources:
   - raw/document/claude code/claude-code-004-agent-sdk-cost-tracking-2026-04-29.md
   - raw/document/claude code/claude-code-052-costs-2026-04-29.md
   - raw/document/claude code/claude-code-105-statusline-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
 tags:
   - cost-tracking
   - agent-sdk
@@ -15,7 +16,7 @@ tags:
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
-provenance: extracted
+provenance: merged
 ---
 
 # Cost Tracking
@@ -35,6 +36,7 @@ The mechanism by which the Agent SDK reports token usage and estimated costs acr
 - On Bedrock, Vertex, and Foundry deployments, Claude Code does not send metrics from the cloud; [[entities/litellm|LiteLLM]] is an open-source alternative for tracking spend by key on those platforms ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 - Background token usage (conversation summarization for `--resume`, command processing) typically costs under $0.04 per session ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 - The statusline exposes cost data via `cost.total_cost_usd` (estimated session cost in USD), `cost.total_duration_ms` (total wall-clock time since session start), `cost.total_api_duration_ms` (total time waiting for API responses), and `cost.total_lines_added`/`cost.total_lines_removed` (lines of code changed) ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- `/cost` now shows a per-model and cache-hit breakdown for subscription users (Week 15, v2.1.92-101) ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
 
 ## Details
 

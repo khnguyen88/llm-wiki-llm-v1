@@ -4,6 +4,7 @@ summary: "Background monitoring tool in Claude Code that runs scripts and feeds 
 type: concept
 sources:
   - raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
 tags:
   - claude-code
   - monitoring
@@ -12,7 +13,7 @@ tags:
 created: "2026-05-02T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
-provenance: extracted
+provenance: merged
 ---
 
 # Monitor Tool
@@ -30,6 +31,7 @@ A background monitoring tool (requires Claude Code v2.1.98+) that runs a script 
 - Plugins can declare monitors that start automatically when the plugin is active, instead of requiring Claude to start them manually ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 
 - The tool uses the same permission rules as Bash; `allow` and `deny` patterns configured for Bash apply to Monitor as well ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+- `/loop` self-paces when the interval is omitted, scheduling the next tick based on the task; the Monitor tool enables `/loop` to skip polling altogether by streaming events as they arrive ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
 
 ## Details
 

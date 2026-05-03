@@ -1,0 +1,532 @@
+---
+title: "OpenRouter"
+summary: "A platform providing unified API access to hundreds of AI models through a single endpoint with automatic fallbacks and cost-effective routing"
+type: entity
+sources:
+  - raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md
+  - raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md
+  - raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md
+  - raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md
+  - raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md
+  - raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md
+  - raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md
+  - raw/document/openrouter/openrouter-009-guides-overview-multimodal-videos-2026-04-29.md
+  - raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md
+  - raw/document/openrouter/openrouter-011-guides-overview-multimodal-tts-2026-04-29.md
+  - raw/document/openrouter/openrouter-012-guides-overview-auth-oauth-2026-04-29.md
+  - raw/document/openrouter/openrouter-013-guides-overview-auth-management-api-keys-2026-04-29.md
+  - raw/document/openrouter/openrouter-014-guides-overview-auth-byok-2026-04-29.md
+  - raw/document/openrouter/openrouter-015-faq-2026-04-29.md
+  - raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md
+  - raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md
+  - raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md
+  - raw/document/openrouter/openrouter-019-guides-routing-auto-exacto-2026-04-29.md
+  - raw/document/openrouter/openrouter-020-guides-routing-model-variants-free-2026-04-29.md
+  - raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md
+  - raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md
+  - raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md
+  - raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md
+  - raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md
+  - raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md
+  - raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md
+  - raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md
+  - raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md
+  - raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md
+  - raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md
+  - raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md
+  - raw/document/openrouter/openrouter-033-guides-features-server-tools-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md
+  - raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md
+  - raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md
+  - raw/document/openrouter/openrouter-037-guides-features-server-tools-image-generation-2026-04-29.md
+  - raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-040-guides-features-plugins-response-healing-2026-04-29.md
+  - raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md
+  - raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md
+  - raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md
+  - raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md
+  - raw/document/openrouter/openrouter-045-app-attribution-2026-04-29.md
+  - raw/document/openrouter/openrouter-046-guides-features-guardrails-2026-04-29.md
+  - raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md
+  - raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md
+  - raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md
+  - raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md
+  - raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md
+  - raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md
+  - raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md
+  - raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md
+  - raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md
+  - raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md
+  - raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md
+  - raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md
+  - raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md
+  - raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md
+  - raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md
+  - raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md
+  - raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md
+  - raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md
+  - raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md
+  - raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md
+  - raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md
+  - raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md
+  - raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md
+  - raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md
+  - raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md
+  - raw/document/openrouter/openrouter-072-guides-best-practices-reasoning-tokens-2026-04-29.md
+tags:
+  - openrouter
+  - api
+  - model-routing
+  - llm-gateway
+  - multimodal
+  - tts
+  - sdk
+  - oauth
+  - management-api
+  - api-keys
+  - byok
+  - credits
+  - privacy
+  - faq
+  - feedback
+  - report-feedback
+  - model-fallback
+  - provider-routing
+  - auto-exacto
+  - performance
+  - data-privacy
+  - zdr
+  - quantization-filtering
+  - auto-router
+  - body-builder
+  - free-models-router
+  - workspaces
+  - presets
+  - response-caching
+  - tool-calling
+  - function-calling
+  - interleaved-thinking
+  - server-tools
+  - web-search
+  - domain-filtering
+  - web-fetch
+  - datetime
+  - image-generation
+  - plugins
+  - response-healing
+  - context-compression
+  - structured-outputs
+  - message-transforms
+  - zero-completion-insurance
+  - app-attribution
+  - marketplace-categories
+  - guardrails
+  - service-tier
+  - budget-limits
+  - access-control
+  - input-output-logging
+  - prompt-caching
+  - provider-sticky-routing
+  - latency
+  - edge-computing
+  - cloudflare-workers
+  - cache-warming
+  - uptime-optimization
+  - provider-logging
+  - reasoning-tokens
+  - reasoning-details
+  - data-retention
+  - eu-routing
+  - broadcast
+  - arize
+  - braintrust
+  - clickhouse
+  - openinference
+  - opik
+  - datadog
+  - grafana
+  - langfuse
+  - langsmith
+  - traceql
+  - otlp
+  - newrelic
+  - axiom
+  - jaeger
+  - honeycomb
+  - lightstep
+  - posthog
+  - ramp
+  - s3
+  - sentry
+  - snowflake
+  - cloudflare-r2
+  - wandb-weave
+  - webhook
+created: "2026-05-02T12:00:00Z"
+updated: "2026-05-02T12:00:05Z"
+confidence: 0.9
+provenance: merged
+---
+
+# OpenRouter
+
+A platform providing unified API access to hundreds of AI models through a single endpoint, with automatic fallback handling and cost-effective model selection. ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+
+## Key Facts
+
+- API endpoint at `https://openrouter.ai/api/v1/chat/completions` accepts standard HTTP requests compatible with the OpenAI chat completions format ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Automatically handles model fallbacks and selects cost-effective options across hundreds of available models ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Three integration methods: direct API, Client SDKs, and Agent SDK ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Client SDK: `@openrouter/sdk` (TypeScript) and `openrouter` (Python) — type-safe wrappers with auto-generated types from the OpenAPI spec ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Agent SDK: `@openrouter/agent` (TypeScript) — provides `callModel` function for building agents with tool use, conversation loops, and state management ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Compatible with the OpenAI SDK as a drop-in replacement by setting `baseURL` to `https://openrouter.ai/api/v1` ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Optional `HTTP-Referer` and `X-OpenRouter-Title` headers enable app attribution for rankings on openrouter.ai ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Supports streaming responses via the API ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Interactive Request Builder available at `/request-builder` for generating API requests in multiple languages ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Core mission: helping developers source and optimize AI usage, based on the belief that the future is multi-model and multi-provider ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
+- Scours providers for best prices, lowest latencies, and highest throughput; developers choose how to prioritize routing ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
+- Standardized API eliminates code changes when switching models or providers; supports OAuth so end users can choose and pay for their own models ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
+- Publishes real-world model usage rankings showing how often models are used for different purposes ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
+- Consolidated billing across all providers with transparent pricing ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
+- Higher availability through fallback providers and automatic smart routing when providers go down ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
+- Negotiates directly with providers to deliver higher rate limits and throughput than developers could obtain independently ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
+- Models API (`/api/v1/models`) returns standardized metadata for 300+ models, filterable by `output_modalities` and `supported_parameters` query parameters ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- Each model includes a `canonical_slug` (permanent, never-changing identifier), `pricing` object with per-token-type costs, and `supported_parameters` array listing compatible API parameters ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- RSS feed for new models available at `/api/v1/models?use_rss=true`; model count endpoint at `/v1/models/count` supports same filters ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- Token counts and costs vary across models even for identical inputs due to differing tokenization methods (multi-character chunks vs. character-level) ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- Supports seven multimodal modalities beyond text: image input, image generation, PDF processing, audio input/output, video input, video generation, and text-to-speech ^[raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
+- Most multimodal inputs use the `/api/v1/chat/completions` endpoint with content types `image_url`, `file`, `input_audio`, and `video_url` in the message array ^[raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
+- Text-to-speech uses a separate endpoint at `/api/v1/audio/speech` compatible with the OpenAI Audio Speech API ^[raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
+- Video generation uses an asynchronous API at `/api/v1/videos` with job ID polling ^[raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
+- Multiple modalities (text, images, PDFs, audio, video) can be combined in a single request ^[raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
+- Accepts both URLs and base64-encoded data for multimodal inputs; audio is base64-only; video URL support varies by provider ^[raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
+- For image inputs, recommends sending the text prompt before images in the content array; if images must come first, use the system prompt ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- Supported image content types for multimodal requests: `image/png`, `image/jpeg`, `image/webp`, `image/gif` ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- Image generation uses the same Chat Completions endpoint with `modalities: ["image", "text"]` (for models that also output text) or `modalities: ["image"]` (for image-only models); generated images are returned as base64 PNG data URLs in the `images` field ^[raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md]
+- The `image_config` parameter controls aspect ratio (10 standard ratios, 4 extended on Gemini 3.1), image size (0.5K–4K), and Sourceful-exclusive features: `font_inputs` for custom text rendering and `super_resolution_references` for enhancing low-quality elements ^[raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md]
+- Image generation supports streaming via `stream: true`, delivering images in `delta.images` chunks ^[raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md]
+- PDF input uses the `file` content type in the messages array, supporting both direct URLs and base64-encoded data URLs; works on any model (parsed automatically for non-file-input models) ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- Three PDF processing engines available via the `plugins` parameter: `mistral-ocr` (paid, best for scanned/image PDFs), `cloudflare-ai` (free, converts to markdown), and `native` (for models with built-in file input, charged as input tokens) ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- PDF responses include `file` annotations with a unique `hash` and parsed `content`; re-sending annotations in follow-up requests skips re-parsing, saving time and cost ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- Audio input uses the `input_audio` content type with base64-encoded data and a `format` field (e.g., `wav`, `mp3`, `flac`); direct URLs are not supported for audio content ^[raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md]
+- Supported audio input formats: `wav`, `mp3`, `aiff`, `aac`, `ogg`, `flac`, `m4a`, `pcm16`, `pcm24` — format support varies by model ^[raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md]
+- Audio output requires `modalities: ["text", "audio"]` with an `audio` config specifying `voice` (e.g., `alloy`, `echo`, `fable`, `onyx`, `nova`, `shimmer`) and `format` (e.g., `wav`, `mp3`, `flac`, `opus`, `pcm16`); audio output must use streaming (`stream: true`) ^[raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md]
+- Audio output streaming delivers data incrementally via `delta.audio.data` (base64 audio chunks) and `delta.audio.transcript` (text) in SSE chunks ^[raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md]
+- Video input uses the `video_url` content type on the Chat Completions API, supporting both direct URLs and base64-encoded data URLs; supported formats are `video/mp4`, `video/mpeg`, `video/mov`, and `video/webm` ^[raw/document/openrouter/openrouter-009-guides-overview-multimodal-videos-2026-04-29.md]
+- Video URL support varies by provider: OpenRouter only sends video URLs to providers that explicitly support them; Google Gemini on AI Studio only accepts YouTube links, and Google Gemini on Vertex AI does not support video URLs (requires base64) ^[raw/document/openrouter/openrouter-009-guides-overview-multimodal-videos-2026-04-29.md]
+- Video input is currently only available via the API, not through the OpenRouter chatroom interface ^[raw/document/openrouter/openrouter-009-guides-overview-multimodal-videos-2026-04-29.md]
+- Video generation uses a dedicated asynchronous API at `POST /api/v1/videos` with a submit-poll-download workflow; model discovery via `GET /api/v1/videos/models` returns supported resolutions, aspect ratios, pricing SKUs, and passthrough parameters ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Video generation supports two image-based modes: `frame_images` (image-to-video with first/last frame specification) and `input_references` (reference-to-video with style guidance); `frame_images` takes precedence when both are provided ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Video generation supports webhooks via `callback_url` (per-request or workspace default) with HMAC-SHA256 signature verification and idempotency keys for retry deduplication ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Video generation is not eligible for Zero Data Retention because providers must temporarily retain generated output for retrieval after async completion ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- TTS endpoint at `POST /api/v1/audio/speech` returns a raw audio byte stream (not JSON), compatible with the OpenAI Audio Speech API; supports `mp3` and `pcm` output formats ^[raw/document/openrouter/openrouter-011-guides-overview-multimodal-tts-2026-04-29.md]
+- TTS models are discovered via `output_modalities=speech` on the Models API; pricing is per character of input text ^[raw/document/openrouter/openrouter-011-guides-overview-multimodal-tts-2026-04-29.md]
+- TTS supports provider-specific passthrough via the `provider` parameter (e.g., OpenAI's `instructions` for tone/style control); `speed` parameter is only supported by certain providers and silently ignored by others ^[raw/document/openrouter/openrouter-011-guides-overview-multimodal-tts-2026-04-29.md]
+- Supports OAuth PKCE authentication flow at `/auth` for end-user authorization, producing user-controlled API keys via `POST /api/v1/auth/keys` ^[raw/document/openrouter/openrouter-012-guides-overview-auth-oauth-2026-04-29.md]
+- Management API Keys (created at `/settings/management-keys`) are separate credentials for administrative key management only; they cannot make completion requests and provide full CRUD on API keys via `/api/v1/keys` ^[raw/document/openrouter/openrouter-013-guides-overview-auth-management-api-keys-2026-04-29.md]
+- Key management API supports creating keys with credit limits (`limit`), periodic limit resets (`limit_reset`: daily/weekly/monthly at midnight UTC), BYOK usage inclusion control (`include_byok_in_limit`), and usage tracking with total/daily/weekly/monthly breakdowns for both standard and BYOK usage ^[raw/document/openrouter/openrouter-013-guides-overview-auth-management-api-keys-2026-04-29.md]
+- BYOK (Bring Your Own Key) allows users to bring provider API keys for direct control over rate limits and costs; BYOK keys are securely encrypted and take routing priority over shared capacity regardless of provider ordering ^[raw/document/openrouter/openrouter-014-guides-overview-auth-byok-2026-04-29.md]
+- BYOK cost is a percentage of normal OpenRouter pricing deducted from OpenRouter credits, with the fee waived for the first monthly threshold of requests ^[raw/document/openrouter/openrouter-014-guides-overview-auth-byok-2026-04-29.md]
+- BYOK keys can be configured with "Always use this key" to prevent fallback to shared OpenRouter credits, ensuring all requests go through the user's own account ^[raw/document/openrouter/openrouter-014-guides-overview-auth-byok-2026-04-29.md]
+- BYOK debugging uses the Activity page's "View Raw Metadata" feature; the `provider_responses` field shows HTTP status codes from each provider attempt ^[raw/document/openrouter/openrouter-014-guides-overview-auth-byok-2026-04-29.md]
+- Provider pricing is passed through without markup; OpenRouter revenue comes from a fee charged on credit purchases rather than inference markup ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Three authentication methods: cookie-based (web/chatroom), API keys as Bearer tokens, and Management API keys for programmatic key management ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Model variants modify behavior via slug suffixes: static (`:free`, `:extended`, `:thinking`) apply to specific models; dynamic (`:nitro`, `:floor`, `:exacto`) apply to all models ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Prompt and completion data are not logged by default; an opt-in setting provides a 1% discount in exchange for logging ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Credits may expire after one year of inactivity per OpenRouter's terms; refunds for unused credits are available within 24 hours of purchase (cryptocurrency payments are never refundable) ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Implements the OpenAI API specification for completions and chat completions endpoints; any OpenAI-compatible SDK works as a drop-in replacement ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Technical support via Discord (#help forum); billing and account questions via support@openrouter.ai ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Report Feedback feature lets users flag problematic generations with categories (Latency, Incoherence, Incorrect Response, Formatting, Billing, API Error, Other) from the Chatroom or Activity page; feedback is reviewed to improve model routing, error handling, billing accuracy, and platform reliability ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+- Generation ID is returned in the API response `id` field and is used to associate feedback with specific generations ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+- The `models` parameter on the chat completions endpoint accepts an ordered array of model IDs as fallbacks; if the primary model fails, the next model in the list is tried automatically ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- Any error can trigger model fallback by default, including context length validation errors, moderation flags, rate-limiting, and provider downtime ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- When using model fallback, pricing is based on whichever model ultimately handled the request, as indicated by the `model` attribute in the response body ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- Provider routing defaults to price-based load balancing: providers without recent outages are selected weighted by inverse square of price, with remaining providers as fallbacks ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- The `provider` object in requests controls routing behavior with fields including `order`, `allow_fallbacks`, `require_parameters`, `data_collection`, `zdr`, `enforce_distillable_text`, `only`, `ignore`, `quantizations`, `sort`, `preferred_min_throughput`, `preferred_max_latency`, and `max_price` ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- Model slug suffixes `:nitro` (sort by throughput) and `:floor` (sort by price) are shortcuts for common routing preferences ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- `sort` with `partition: "none"` enables cross-model endpoint sorting, useful for finding the cheapest or fastest option across multiple fallback models ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- Provider slugs support base matching (`"google-vertex"` matches all regions) and specific variant targeting (`"deepinfra/turbo"`, `"google-vertex/us-east5"`) ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- Performance thresholds deprioritize (not exclude) non-compliant providers; percentile metrics (p50, p75, p90, p99) are calculated over a 5-minute rolling window ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- `data_collection: "deny"` excludes providers that store data; `zdr: true` restricts to ZDR endpoints; `enforce_distillable_text: true` restricts to models allowing text distillation ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- Anthropic beta features (fine-grained tool streaming, interleaved thinking, structured outputs) are passed through via the `x-anthropic-beta` header; prompt caching and JSON schema response format are auto-applied ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- EU in-region routing is available for enterprise customers, processing prompts and completions entirely within the EU ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- Auto Exacto runs by default on every tool-calling request, reordering providers based on throughput, tool-calling success rate, and benchmark data rather than price ^[raw/document/openrouter/openrouter-019-guides-routing-auto-exacto-2026-04-29.md]
+- Auto Exacto can be bypassed by explicitly sorting providers by price via `provider.sort: "price"`, the `:floor` model slug suffix, or the default sort setting in account preferences ^[raw/document/openrouter/openrouter-019-guides-routing-auto-exacto-2026-04-29.md]
+- The `:free` variant suffix provides zero-cost access to models but may have different rate limits or availability compared to paid versions ^[raw/document/openrouter/openrouter-020-guides-routing-model-variants-free-2026-04-29.md]
+- A Free Models Router in the Chat Playground provides a dedicated interface for zero-cost inference ^[raw/document/openrouter/openrouter-020-guides-routing-model-variants-free-2026-04-29.md]
+- The `:extended` variant provides access to model versions with extended context windows by appending `:extended` to a model ID (e.g., `"anthropic/claude-sonnet-4.5:extended"`) ^[raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md]
+- The `:exacto` variant explicitly activates quality-first provider sorting by appending `:exacto` to a model slug, preferring providers with stronger tool-calling reliability over price-weighted routing ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- The `:thinking` variant enables extended reasoning capabilities by appending `:thinking` to a model ID (e.g., `"deepseek/deepseek-r1:thinking"`), providing chain-of-thought reasoning for complex problem-solving tasks ^[raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
+- The `:online` variant (deprecated) appended `:online` to a model ID to enable real-time web search; replaced by the `openrouter:web_search` server tool, which gives the model control over search timing and frequency ^[raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
+- The `:nitro` variant sorts providers by throughput (tokens per second), prioritizing the fastest providers; appending `:nitro` to any model ID is exactly equivalent to setting `provider.sort` to `"throughput"` ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- The Auto Router (`openrouter/auto`) uses NotDiamond to analyze prompts and automatically select the optimal model; allowed models can be restricted via the `plugins` parameter with wildcard patterns ^[raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md]
+- Body Builder (`openrouter/bodybuilder`) transforms natural language prompts into structured API request bodies for running the same task across multiple models in parallel; free to use for generation, with standard pricing on executed requests ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+- Free Models Router (`openrouter/free`) automatically selects a free model at random from available free models, filtering by request capabilities (vision, tool calling, structured outputs); completely free with no charge for the router or routed requests ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- Workspaces organize projects into isolated environments with independent API keys, guardrails, BYOK provider keys, routing, presets, plugins, observability, and members under a single account; every account has a Default workspace and additional workspaces can be created by organization admins ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+- Presets are named LLM configurations (provider routing, model selection, system prompts, generation parameters) created via the web app at `/settings/presets` and referenced in API requests via `@preset/slug`, `"preset"` field, or `model@preset/slug` syntax; request parameters shallow-merge over preset defaults ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Response caching (beta) stores and returns identical API responses at zero cost; enabled per-request via `X-OpenRouter-Cache` header or in presets via `cache_enabled`/`cache_ttl_seconds` fields; cache keys derived from API key, model, endpoint type, streaming mode, and SHA-256 hash of request body; default TTL 300 seconds, range 1–86400 seconds; disabled under account-level ZDR ^[raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md]
+- Response caching supports four endpoints: `/api/v1/chat/completions` (OpenAI Chat), `/api/v1/responses` (OpenAI Responses), `/api/v1/messages` (Anthropic Messages), `/api/v1/embeddings` (OpenAI Embeddings); cache keys include an endpoint type discriminator preventing cross-endpoint collisions ^[raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md]
+- Cache hits do not count toward provider rate limits since the request never reaches the provider; there is no request coalescing — concurrent identical requests both result in cache misses ^[raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md]
+- OpenRouter response caching is separate from provider-side prompt caching (e.g., Anthropic prompt caching, OpenAI cached context); the two mechanisms operate at different layers and can be used together ^[raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md]
+- Standardizes the tool calling (function calling) interface across models and providers, enabling the same tool definitions to work with any model that supports tools ^[raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md]
+- Tool-calling support can be filtered at `openrouter.ai/models?supported_parameters=tools` to find compatible models ^[raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md]
+- Supports `tool_choice` parameter (`"auto"`, `"none"`, or a specific function object) and `parallel_tool_calls` parameter (default `true`) for controlling tool invocation behavior ^[raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md]
+- Supports interleaved thinking, allowing models to reason between tool calls for multi-step decision-making ^[raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md]
+- Server tools (beta) are model-invoked, server-executed tools specified via `openrouter:*` type prefix in the `tools` array; four available: `openrouter:web_search`, `openrouter:datetime`, `openrouter:image_generation`, `openrouter:web_fetch` ^[raw/document/openrouter/openrouter-033-guides-features-server-tools-overview-2026-04-29.md]
+- Server tools differ from plugins (always-run-once, mutate request/response) and user-defined tools (model-invoked, client-executed); server tools require no client-side implementation ^[raw/document/openrouter/openrouter-033-guides-features-server-tools-overview-2026-04-29.md]
+- Server tool usage is tracked in the response `usage.server_tool_use` object (e.g., `web_search_requests`) ^[raw/document/openrouter/openrouter-033-guides-features-server-tools-overview-2026-04-29.md]
+- The `openrouter:web_search` server tool gives any model real-time web information with five engine options: `auto` (default, native provider search with Exa fallback), `native`, `exa`, `firecrawl` (BYOK), and `parallel`; the model decides when and how often to search ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Web search supports `max_results` (1–25 per call), `max_total_results` (caps cumulative results across all searches in a request), `search_context_size` (`low`/`medium`/`high`), domain filtering (`allowed_domains`/`excluded_domains`), and `user_location` for location-biased results ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Web search domain filtering varies by engine: Exa supports both include and exclude simultaneously; Parallel supports both but mutually exclusive; Firecrawl returns an error if filters are set; native providers vary (Anthropic allows either but not both, OpenAI silently ignores `excluded_domains`) ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Web search works with both Chat Completions (`/api/v1/chat/completions`) and Responses (`/api/v1/responses`) APIs ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Web search pricing: Exa and Parallel $4/1,000 results via OpenRouter credits; Firecrawl uses own credits (no OpenRouter charge); native provider pricing passed through; all in addition to LLM token costs ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- The `openrouter:web_fetch` server tool gives any model the ability to fetch and extract content from a specific URL; the model decides when to fetch, and OpenRouter handles the request server-side ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Web fetch supports five engines: `auto` (default, native provider fetch with Exa fallback), `native`, `exa` (BYOK supported), `openrouter` (direct HTTP), and `firecrawl` (BYOK) ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Web fetch configuration: `max_uses` (max fetches per request), `max_content_tokens` (content truncation limit), `allowed_domains` (whitelist), `blocked_domains` (blacklist) ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- OpenRouter and native engines have a hard limit of 50 fetches per request; Exa and Firecrawl have no hard limit ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Web fetch works with both Chat Completions (`/api/v1/chat/completions`) and Responses (`/api/v1/responses`) APIs ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Web fetch pricing: Exa $1/1,000 fetches (free with BYOK), Firecrawl uses own credits (no OpenRouter charge), OpenRouter engine free, native pricing passed through; all in addition to LLM token costs ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- The `openrouter:datetime` server tool gives any model access to the current date and time with an optional `timezone` parameter (IANA timezone names, default `UTC`); response returns `datetime` in ISO 8601 with timezone offset; no additional cost beyond standard token usage ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+- The `openrouter:image_generation` server tool enables any model to generate images from text prompts; defaults to `openai/gpt-image-1`, configurable via `parameters.model`; supports `quality`, `size`, `aspect_ratio`, `background`, `output_format`, `output_compression`, and `moderation` parameters; returns an image URL on success; works with both Chat Completions and Responses APIs; cost is in addition to standard LLM token costs ^[raw/document/openrouter/openrouter-037-guides-features-server-tools-image-generation-2026-04-29.md]
+- Plugins extend model capabilities by injecting or mutating requests/responses; they always run once when enabled, unlike server tools which the model calls 0-N times; four plugins available: Web Search (deprecated), PDF Inputs, Response Healing, and Context Compression ^[raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
+- Plugins are enabled per-request via the `plugins` array (e.g., `{ "id": "web" }`) or configured as defaults through the Plugins settings page; multiple plugins can be combined in a single request ^[raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
+- Plugin precedence: request-level settings override account defaults unless "Prevent overrides" is enabled for the plugin; default plugins can be disabled per-request with `{ "id": "web", "enabled": false }` ^[raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
+- The `:online` model variant suffix is a deprecated shortcut for the `web` plugin, equivalent to `{ "model": "...", "plugins": [{ "id": "web" }] }`; replaced by the `openrouter:web_search` server tool ^[raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
+- Response Healing plugin fixes five categories of malformed JSON: missing brackets, markdown code block extraction, mixed text/JSON extraction, trailing commas, and unquoted keys; only works on non-streaming requests with `response_format` set to `json_schema` or `json_object`; cannot repair responses truncated by `max_tokens` ^[raw/document/openrouter/openrouter-040-guides-features-plugins-response-healing-2026-04-29.md]
+- Supports structured outputs via `response_format` with `type: "json_schema"`, enforcing JSON Schema validation on model responses; compatible models listed at `openrouter.ai/models?supported_parameters=structured_outputs` ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Structured outputs support streaming (`stream: true`), delivering valid partial JSON that assembles into a complete schema-conformant response ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Set `require_parameters: true` in provider preferences to ensure only structured-output-capable models handle requests using `response_format` ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Context compression plugin (`context-compression`) removes or truncates messages from the middle of prompts that exceed a model's context window; enabled per-request via `plugins: [{ id: "context-compression" }]` ^[raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md]
+- When context compression is enabled, OpenRouter first selects models whose context length is at least half the total required tokens (input + completion); if none qualify, falls back to the model with the highest available context length ^[raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md]
+- Models with 8k (8,192 tokens) or less context length default to using context compression; can be disabled per-request with `plugins: [{"id": "context-compression", "enabled": false}]` ^[raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md]
+- When Anthropic's Claude models enforce a maximum message count and context compression is enabled, the plugin keeps half the messages from the start and half from the end of the conversation ^[raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md]
+- If context compression is disabled and total tokens exceed the model's context length, the request fails with an error suggesting to reduce length or enable compression ^[raw/document/openrouter/openrouter-042-guides-features-message-transforms-2026-04-29.md]
+- Zero completion insurance automatically waives charges for requests that produce zero completion tokens (with blank/null finish reason) or error finish reasons; applies across all models and providers even when the upstream provider charges for prompt processing ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- Zero Data Retention (ZDR) can be enforced account-wide via `/settings/privacy` or per-request via the `provider.zdr` parameter; ZDR restricts routing to endpoints that do not retain user data ^[raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md]
+- ZDR is distinct from "no training" policy — some providers do not train on data but still retain it for abuse scanning or legal reasons; OpenRouter tracks per-endpoint policies that may differ from provider defaults ^[raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md]
+- If a provider or endpoint data policy cannot be confirmed, OpenRouter conservatively assumes the endpoint both retains and trains on data ^[raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md]
+- In-memory prompt caching (kept temporarily in a provider's datacenter for repeated prompt processing) is not considered data retention under ZDR and is allowed when ZDR routing is in effect ^[raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md]
+- OpenRouter itself operates under a ZDR policy: prompts are not retained unless the user opts in to prompt logging ^[raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md]
+- A programmatic list of ZDR endpoints is available at `https://openrouter.ai/api/v1/endpoints/zdr`, automatically updated when provider data policies change ^[raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md]
+- App attribution allows developers to associate API usage with their application via three HTTP headers: `HTTP-Referer` (required, app URL identifier), `X-OpenRouter-Title` (display name), and `X-OpenRouter-Categories` (marketplace categories) ^[raw/document/openrouter/openrouter-045-app-attribution-2026-04-29.md]
+- `HTTP-Referer` is mandatory for app attribution — without it, no app page is created and usage does not appear in rankings; `X-OpenRouter-Title` alone is insufficient ^[raw/document/openrouter/openrouter-045-app-attribution-2026-04-29.md]
+- Attributed apps appear in public rankings at `openrouter.ai/rankings`, on model "Apps" tabs, and in per-app analytics at `openrouter.ai/apps?url=<referer-url>` ^[raw/document/openrouter/openrouter-045-app-attribution-2026-04-29.md]
+- Marketplace categories are organized into four groups: Coding (`cli-agent`, `ide-extension`, `cloud-agent`, `programming-app`, `native-app-builder`), Creative (`creative-writing`, `video-gen`, `image-gen`), Productivity (`writing-assistant`, `general-chat`, `personal-agent`), Entertainment (`roleplay`, `game`) ^[raw/document/openrouter/openrouter-045-app-attribution-2026-04-29.md]
+- Guardrails let organizations control spending, model/provider access, and data privacy for members and API keys; each guardrail combines budget limits, model allowlists, provider allowlists, and ZDR enforcement; allowlists intersect across guardrails while ZDR uses OR logic; budgets are enforced per-user and per-key independently ^[raw/document/openrouter/openrouter-046-guides-features-guardrails-2026-04-29.md]
+- The `service_tier` parameter controls cost and latency tradeoffs by selecting a processing tier; currently only OpenAI supports it with values `auto`, `default`, `flex`, `priority` ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- API responses include a `service_tier` field indicating which tier was actually used; placement varies by API format: top-level for Chat Completions and Responses APIs, inside `usage` for Messages API ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- Input & Output Logging (Beta) lets users privately save and review full request/response content via the Logs page; enabled via Observability settings; data stored in isolated Google Cloud Storage with AES-256 encryption; minimum 3-month retention; does not apply to EU-routed requests ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Broadcast sends request/response data to external observability platforms; configured in workspace Observability settings alongside Input & Output Logging ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Broadcast supports 17 stable destinations (Langfuse, Datadog, Grafana Cloud, ClickHouse, Snowflake, S3, Webhook, etc.), per-destination API key filtering, configurable sampling rates, Privacy Mode, and custom `trace` metadata with hierarchical keys (`trace_id`, `trace_name`, `span_name`, `generation_name`, `parent_span_id`) ^[raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md]
+- Broadcast traces are sent asynchronously after request completion, adding no latency to API responses; destination credentials are encrypted at rest ^[raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md]
+- Broadcast optional enrichment fields: `user` (end-user association, 128 chars), `session_id` (request grouping, 128 chars or `x-session-id` header), and `trace` (arbitrary JSON metadata) ^[raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md]
+- Organization admins can configure shared Broadcast destinations for all API keys within the organization ^[raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md]
+- Broadcast supports Langfuse as a destination; configuration requires a Secret Key and Public Key (from Langfuse project Settings > API Keys) with an optional Base URL (default `https://us.cloud.langfuse.com`); maps five `trace` keys to Langfuse hierarchy (trace_id → Trace ID, trace_name → Trace Name, span_name → Span Name, generation_name → Generation Name, parent_span_id → Parent Observation ID) ^[raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
+- Broadcast supports LangSmith as a destination; configuration requires a LangSmith API key (prefix `lsv2_pt_...`), project name, and optional endpoint (default `https://api.smith.langchain.com`); traces are sent via OpenTelemetry protocol at the `/otel/v1/traces` endpoint; observation types map to LangSmith run types (GENERATION → `llm`, SPAN → `chain`, EVENT → `tool`) ^[raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md]
+- Broadcast supports Arize AI as a destination using the OpenInference semantic convention; configuration requires API Key, Space Key, Model ID, and optional Base URL (default `https://otlp.arize.com`) ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
+- Broadcast supports ClickHouse as a destination; requires creating the `OPENROUTER_TRACES` table and granting `CREATE TABLE` permissions before connecting; schema uses typed columns for identifiers, timestamps, model info, and metrics, with JSON string columns (ATTRIBUTES, INPUT/OUTPUT, METADATA, MODEL_PARAMETERS) for variable-structure data ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- Broadcast supports Comet Opik as a destination; configuration requires a Comet API key (prefix `opik_...`), workspace name, and project name; Opik maps `trace_id` → trace metadata (`openrouter_trace_id`), `trace_name` → Trace Name, `span_name` → Span Name, `generation_name` → Span Name; uses UUIDv7 internally with original OpenRouter IDs stored as `openrouter_trace_id` and `openrouter_observation_id` in metadata ^[raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md]
+- Broadcast supports Datadog LLM Observability as a destination; configuration requires a Datadog API key, ML App name, and optional URL override (default `https://api.us5.datadoghq.com`); four `trace` metadata keys map to Datadog fields (`trace_id` → Trace ID, `trace_name`/`span_name`/`generation_name` → Span Name); two tags are auto-added (`service:{ml_app}`, `user_id:{user}`); additional `trace` keys pass to the span's `meta` object ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- ClickHouse Broadcast destination uses `JSONExtract*` functions to query nested JSON fields; custom metadata from the `trace` field is stored in the `METADATA` column; materialized columns can be added with `ALTER TABLE ... ADD COLUMN` for high-performance filtering ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- Broadcast supports Grafana Cloud as a destination via the standard OTLP HTTP/JSON endpoint, sending traces to Grafana Tempo for distributed tracing; configuration requires an OTLP base URL, numeric Instance ID, and API key with `traces:write` scope ^[raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
+- Grafana Cloud traces include resource attributes (`service.name: openrouter`, `service.version: 1.0.0`, `openrouter.trace.id`) and span attributes following OpenTelemetry GenAI semantic conventions (`gen_ai.operation.name`, `gen_ai.system`, `gen_ai.request.model`, `gen_ai.response.model`, token usage counts, `gen_ai.response.finish_reason`) ^[raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
+- Custom metadata from the `trace` field maps to `trace.metadata.*` span attributes in Grafana Cloud; `user` maps to `user.id` and `session_id` maps to `session.id` ^[raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
+- Grafana Cloud supports viewing OpenRouter traces via Explore with TraceQL (`{ resource.service.name = "openrouter" }`) or via Drilldown > Traces; TraceQL supports filtering by model, duration, user ID, error status, and custom metadata ^[raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
+- ClickHouse Cloud host URL format is `https://{instance}.{region}.clickhouse.cloud:8443`; self-hosted uses port 8123 ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- Data Discount Logging is an independent Privacy setting (separate from Input & Output Logging) that grants a 1% discount on all model usage in exchange for allowing OpenRouter to use data to improve the product ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Broadcast supports New Relic as a destination; New Relic receives traces via OTLP protocol, requiring an Ingest License Key and region selection (`us` or `eu`); configuration only saves if the Test Connection check passes ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
+- New Relic maps five standard `trace` metadata keys (`trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name, `parent_span_id` → Parent Span ID); custom metadata goes under `trace.metadata.*` namespace; `user` maps to `user.id` and `session_id` maps to `session.id`; GenAI semantic conventions (`gen_ai.*`) are used for model, token, and cost data ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
+- Broadcast supports an OpenTelemetry Collector destination that sends traces to any OTLP-compatible backend (Axiom, Jaeger, Grafana Tempo, Honeycomb, Lightstep, self-hosted) via OTLP/HTTP with JSON encoding; configuration requires an endpoint URL and optional custom HTTP headers for authentication; traces use GenAI semantic conventions (`gen_ai.*`) and `trace.metadata.*` namespace for custom metadata ^[raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+- Broadcast supports PostHog as a destination; configuration requires a PostHog project API key (prefix `phc_...`) with an optional endpoint override (default `https://us.i.posthog.com`, EU: `https://eu.i.posthog.com`); maps `trace_id`, `trace_name`, and `generation_name` to PostHog event properties; `user` maps to `$ai_user` and `session_id` maps to `$ai_session_id`; custom `trace` keys are included as event properties; Privacy Mode excludes `$ai_input` and `$ai_output_choices` while preserving all other analytics data ^[raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
+- Broadcast supports [[entities/ramp|Ramp]] as a destination; Ramp is a finance automation platform for managing expenses and tracking LLM spending; configuration requires a Ramp API key (generated in Settings > Integrations) with optional Base URL (default `https://api.ramp.com/developer/v1/ai-usage/openrouter`) and custom headers; traces are sent via OTLP protocol with five standard `trace` keys mapping to OTLP span attributes; `user` maps to `user.id`, `session_id` maps to `session.id`, custom `trace` keys map to `trace.metadata.*`; Privacy Mode excludes prompt/completion content while preserving all other data ^[raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
+- Broadcast supports S3/S3-Compatible storage as a destination; traces are saved as individual JSON files (`{traceId}-{timestamp}.json`) with configurable path templates using variables `{prefix}`, `{date}`, `{year}`, `{month}`, `{day}`, `{apiKeyName}`; supported services include AWS S3, Cloudflare R2, MinIO, and other S3-compatible providers; custom metadata from the `trace` field is included in each observation's `metadata` field; `user` maps to `userId` and `session_id` maps to `sessionId` in the trace JSON; Privacy Mode excludes prompt/completion content while preserving all other data ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+- Broadcast supports [[entities/sentry|Sentry]] as a destination; Sentry receives traces via the OTLP protocol, requiring both an OTLP Traces Endpoint URL and a DSN for authentication and routing; five standard `trace` keys map to Sentry fields (`trace_id` → Trace ID, `trace_name` → Transaction Name, `span_name` → Span Description, `generation_name` → Span Description, `parent_span_id` → Parent Span ID); custom metadata maps to `trace.metadata.*` span attributes; `user` maps to `user.id`, `session_id` maps to `session.id`; Sentry automatically correlates LLM traces with existing application error and performance data when `parent_span_id` is provided; Privacy Mode excludes prompt/completion content while preserving all other data ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Broadcast supports [[entities/snowflake|Snowflake]] as a destination; setup requires creating the `OPENROUTER_TRACES` table (SQL provided in dashboard), generating a Programmatic Access Token with `ACCOUNTADMIN` permissions, enabling Broadcast, and configuring connection details (account identifier, token, database, schema, table, warehouse); schema uses typed columns for commonly-queried fields and VARIANT columns for variable-structure data (ATTRIBUTES, INPUT/OUTPUT, METADATA, MODEL_PARAMETERS); custom metadata from the `trace` field is stored in the `METADATA` VARIANT column and queried using Snowflake's semi-structured data syntax; materialized views can improve performance on frequently queried metadata; Privacy Mode excludes prompt/completion content while preserving all other data ^[raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md]
+- Broadcast supports a Webhook destination that sends traces in OTLP JSON format to any HTTP endpoint accepting JSON payloads; configuration requires a URL, optional HTTP method (POST default or PUT), and optional custom headers; Test Connection sends an empty OTLP payload with `X-Test-Connection: true` header; five standard `trace` keys map to OTLP fields (`trace_id` → `traceId`, `trace_name` → Span `name`, `span_name` → Span `name`, `generation_name` → Span `name`, `parent_span_id` → `parentSpanId`); custom metadata maps to `trace.metadata.*` span attributes; `user` maps to `user.id`, `session_id` maps to `session.id`; Privacy Mode excludes prompt/completion content ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- OpenRouter does not store prompts or completions by default; two separate opt-in settings control data: Private Input & Output Logging (Observability settings) for debugging, and OpenRouter Use of Inputs/Outputs (Privacy settings) for a 1% usage discount ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- OpenRouter samples a small number of prompts for anonymous categorization (powering reporting and model ranking); if not opted in to data use, categorization is stored completely anonymously and never associated with the account or user ID; categorization uses a model with zero-data-retention policy ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- Metadata (token counts, latency, etc.) is stored for every request but does not include prompt or response content ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- Each AI provider on OpenRouter has its own data handling policies for logging and retention, reflected in structured data on each endpoint ^[raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md]
+- Account settings allow users to opt out of routing to providers that may train on data, with separate settings for paid and free models ^[raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md]
+- Individual requests can be restricted to providers complying with specific data policies via the `provider` object ^[raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md]
+- OpenRouter does not route based on provider data retention policies, but surfaces retention policies per provider so users can make informed choices ^[raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md]
+- Enterprise EU in-region routing processes prompts and completions within the European Union using the base URL `https://eu.openrouter.ai`; available EU models can be listed via `/api/v1/models/user` through the EU domain ^[raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md]
+- EU in-region routing is only available for enterprise customers by request ^[raw/document/openrouter/openrouter-068-guides-privacy-provider-logging-2026-04-29.md]
+- The `reasoning` parameter provides a unified interface for controlling reasoning tokens across providers, normalizing effort levels (OpenAI/Grok style) and `max_tokens` (Anthropic/Gemini style) into a single config object with `effort`, `max_tokens`, `exclude`, and `enabled` fields ^[raw/document/openrouter/openrouter-072-guides-best-practices-reasoning-tokens-2026-04-29.md]
+- Reasoning tokens are included in responses by default (in the `reasoning` field) and charged as output tokens; the `exclude` flag lets models reason internally without returning tokens ^[raw/document/openrouter/openrouter-072-guides-best-practices-reasoning-tokens-2026-04-29.md]
+- The `reasoning_details` API returns structured reasoning data with three types (`reasoning.summary`, `reasoning.encrypted`, `reasoning.text`) and five provider format identifiers (`anthropic-claude-v1`, `openai-responses-v1`, `google-gemini-v1`, `xai-responses-v1`, `azure-openai-responses-v1`) ^[raw/document/openrouter/openrouter-072-guides-best-practices-reasoning-tokens-2026-04-29.md]
+- Reasoning can be preserved across multi-turn conversations by passing `reasoning` or `reasoning_details` back in assistant messages; critical for maintaining context during tool calling ^[raw/document/openrouter/openrouter-072-guides-best-practices-reasoning-tokens-2026-04-29.md]
+- Legacy parameters `include_reasoning: true/false` are deprecated in favor of the unified `reasoning` parameter; the `:thinking` model variant is no longer supported for Anthropic models ^[raw/document/openrouter/openrouter-072-guides-best-practices-reasoning-tokens-2026-04-29.md]
+- Uses edge computing via Cloudflare Workers to minimize latency, with efficient caching of user and API key data at the edge and optimized routing logic ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Cold edge caches during the first 1-2 minutes of operation in a new region cause slightly higher latency until caches warm up ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Performs additional database checks with more aggressive cache expiration when credit balances are low (single-digit dollars) or API keys approach configured limits, increasing latency ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Tracks provider failures and intelligently routes around unavailable providers to prevent fallback latency from recurring on every request ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Recommended minimum credit balance of $10-20 to avoid forced credit checks that add latency ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Uses provider sticky routing to maximize prompt cache hit rates, routing subsequent requests to the same provider endpoint after a cached request ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Continuously monitors response times, error rates, and availability across all AI providers in real time, routing requests based on this health feedback to maximize uptime ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- Provider sticky routing tracks at the account level, per model and per conversation, identified by hashing the first system message and first non-system message ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Supports prompt caching across multiple providers: OpenAI, Grok, Moonshot AI, Groq (automated), Anthropic (automatic or explicit `cache_control`), DeepSeek (automated), and Google Gemini (implicit or explicit) ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Cache usage can be inspected via the Activity page, the `/api/v1/generation` API, or the `prompt_tokens_details` object (with `cached_tokens` and `cache_write_tokens` fields) in API responses ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Broadcast supports [[entities/wandb_weave|W&B Weave]] as a destination; W&B Weave is an observability platform for tracking and evaluating LLM applications; configuration requires an API Key (from W&B User Settings), Entity (username or team name), Project name, and optional Base URL (default `https://trace.wandb.ai`); three `trace` keys are supported (`trace_id` → `openrouter_trace_id` attribute, `trace_name` → `op_name`, `generation_name` → `op_name`); `user` maps to `user_id` and `session_id` maps to `session_id` in attributes; Weave organizes data into Attributes (metadata), Inputs (request data, model parameters), and Summary (token usage, costs, timing); Privacy Mode excludes prompt/completion content while preserving all other data ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+
+## Related
+
+- [[concepts/llm_gateway]]
+- [[concepts/streaming_output]]
+- [[concepts/provider_fallback]]
+- [[entities/agent_sdk]]
+- [[summaries/openrouter-quickstart]]
+- [[summaries/openrouter-guides-overview-principles]]
+- [[concepts/models_api]]
+- [[summaries/openrouter-guides-overview-models]]
+- [[concepts/multimodal]]
+- [[summaries/openrouter-guides-overview-multimodal-overview]]
+- [[summaries/openrouter-guides-overview-multimodal-images]]
+- [[concepts/image_generation]]
+- [[summaries/openrouter-guides-overview-multimodal-image-generation]]
+- [[entities/sourceful]]
+- [[concepts/pdf_input]]
+- [[summaries/openrouter-guides-overview-multimodal-pdfs]]
+- [[summaries/openrouter-guides-overview-multimodal-audio]]
+- [[concepts/video_input]]
+- [[summaries/openrouter-guides-overview-multimodal-videos]]
+- [[concepts/video_generation]]
+- [[summaries/openrouter-guides-overview-multimodal-video-generation]]
+- [[concepts/text_to_speech]]
+- [[summaries/openrouter-guides-overview-multimodal-tts]]
+- [[concepts/oauth_pkce]]
+- [[summaries/openrouter-guides-overview-auth-oauth]]
+- [[concepts/management_api_keys]]
+- [[summaries/openrouter-guides-overview-auth-management-api-keys]]
+- [[concepts/byok]]
+- [[summaries/openrouter-guides-overview-auth-byok]]
+- [[concepts/model_variants]]
+- [[concepts/credit_system]]
+- [[concepts/data_privacy]]
+- [[summaries/openrouter-faq]]
+- [[concepts/report_feedback]]
+- [[summaries/openrouter-guides-overview-report-feedback]]
+- [[entities/google_gemini]]
+- [[concepts/model_fallback]]
+- [[summaries/openrouter-guides-routing-model-fallbacks]]
+- [[concepts/provider_routing]]
+- [[concepts/performance_thresholds]]
+- [[concepts/data_collection_policy]]
+- [[summaries/openrouter-guides-routing-provider-selection]]
+- [[concepts/auto_exacto]]
+- [[summaries/openrouter-guides-routing-auto-exacto]]
+- [[summaries/openrouter-guides-routing-model-variants-free]]
+- [[summaries/openrouter-guides-routing-model-variants-extended]]
+- [[concepts/exacto]]
+- [[summaries/openrouter-guides-routing-model-variants-exacto]]
+- [[summaries/openrouter-guides-routing-model-variants-thinking]]
+- [[concepts/online_variant]]
+- [[summaries/openrouter-guides-routing-model-variants-online]]
+- [[concepts/nitro_variant]]
+- [[summaries/openrouter-guides-routing-model-variants-nitro]]
+- [[entities/anthropic]]
+- [[concepts/auto_router]]
+- [[entities/notdiamond]]
+- [[summaries/openrouter-guides-routing-routers-auto-router]]
+- [[concepts/body_builder]]
+- [[summaries/openrouter-guides-routing-routers-body-builder]]
+- [[concepts/free_models_router]]
+- [[summaries/openrouter-guides-routing-routers-free-models-router]]
+- [[concepts/workspaces]]
+- [[summaries/openrouter-guides-features-workspaces]]
+- [[concepts/presets]]
+- [[summaries/openrouter-guides-features-presets]]
+- [[concepts/response_caching]]
+- [[summaries/openrouter-guides-features-response-caching]]
+- [[concepts/tool_calling]]
+- [[concepts/interleaved_thinking]]
+- [[summaries/openrouter-guides-features-tool-calling]]
+- [[concepts/server_tools]]
+- [[concepts/web_search]]
+- [[entities/exa]]
+- [[entities/firecrawl]]
+- [[entities/parallel]]
+- [[summaries/openrouter-guides-features-server-tools-overview]]
+- [[summaries/openrouter-guides-features-server-tools-web-search]]
+- [[concepts/web_fetch]]
+- [[summaries/openrouter-guides-features-server-tools-web-fetch]]
+- [[concepts/server_tools_datetime]]
+- [[summaries/openrouter-guides-features-server-tools-datetime]]
+- [[summaries/openrouter-guides-features-server-tools-image-generation]]
+- [[concepts/plugins]]
+- [[concepts/response_healing]]
+- [[concepts/context_compression]]
+- [[summaries/openrouter-guides-features-plugins-overview]]
+- [[summaries/openrouter-guides-features-plugins-response-healing]]
+- [[concepts/structured_output]]
+- [[summaries/openrouter-guides-features-structured-outputs]]
+- [[concepts/context_compression]]
+- [[summaries/openrouter-guides-features-message-transforms]]
+- [[concepts/zero_completion_insurance]]
+- [[summaries/openrouter-guides-features-zero-completion-insurance]]
+- [[concepts/zero_data_retention]]
+- [[summaries/openrouter-guides-features-zdr]]
+- [[concepts/app_attribution]]
+- [[summaries/openrouter-app-attribution]]
+- [[concepts/guardrails]]
+- [[summaries/openrouter-guides-features-guardrails]]
+- [[concepts/service_tier]]
+- [[entities/openai]]
+- [[summaries/openrouter-guides-features-service-tiers]]
+- [[concepts/input_output_logging]]
+- [[concepts/broadcast]]
+- [[summaries/openrouter-guides-features-input-output-logging]]
+- [[summaries/openrouter-guides-features-broadcast-overview]]
+- [[entities/arize_ai]]
+- [[entities/openinference]]
+- [[summaries/openrouter-guides-features-broadcast-arize]]
+- [[entities/braintrust]]
+- [[summaries/openrouter-guides-features-broadcast-braintrust]]
+- [[entities/clickhouse]]
+- [[summaries/openrouter-guides-features-broadcast-clickhouse]]
+- [[entities/comet_opik]]
+- [[summaries/openrouter-guides-features-broadcast-opik]]
+- [[entities/datadog]]
+- [[summaries/openrouter-guides-features-broadcast-datadog]]
+- [[entities/grafana_cloud]]
+- [[concepts/traceql]]
+- [[summaries/openrouter-guides-features-broadcast-grafana]]
+- [[entities/langfuse]]
+- [[summaries/openrouter-guides-features-broadcast-langfuse]]
+- [[entities/langsmith]]
+- [[summaries/openrouter-guides-features-broadcast-langsmith]]
+- [[entities/new_relic]]
+- [[summaries/openrouter-guides-features-broadcast-newrelic]]
+- [[entities/axiom]]
+- [[summaries/openrouter-guides-features-broadcast-otel-collector]]
+- [[entities/posthog]]
+- [[summaries/openrouter-guides-features-broadcast-posthog]]
+- [[entities/ramp]]
+- [[summaries/openrouter-guides-features-broadcast-ramp]]
+- [[entities/amazon_s3]]
+- [[entities/cloudflare_r2]]
+- [[summaries/openrouter-guides-features-broadcast-s3]]
+- [[entities/sentry]]
+- [[summaries/openrouter-guides-features-broadcast-sentry]]
+- [[entities/snowflake]]
+- [[summaries/openrouter-guides-features-broadcast-snowflake]]
+- [[entities/wandb_weave]]
+- [[summaries/openrouter-guides-features-broadcast-weave]]
+- [[concepts/webhook]]
+- [[summaries/openrouter-guides-features-broadcast-webhook]]
+- [[summaries/openrouter-guides-privacy-data-collection]]
+- [[concepts/provider_logging]]
+- [[summaries/openrouter-guides-privacy-provider-logging]]
+- [[summaries/openrouter-guides-best-practices-latency-and-performance]]
+- [[concepts/prompt_caching]]
+- [[concepts/provider_sticky_routing]]
+- [[summaries/openrouter-guides-best-practices-prompt-caching]]
+- [[concepts/uptime_optimization]]
+- [[summaries/openrouter-guides-best-practices-uptime-optimization]]
+- [[entities/grok]]
+- [[entities/moonshot_ai]]
+- [[entities/groq]]
+- [[concepts/reasoning_tokens]]
+- [[concepts/reasoning_details]]
+- [[summaries/openrouter-guides-best-practices-reasoning-tokens]]

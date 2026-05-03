@@ -17,6 +17,8 @@ sources:
   - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
   - raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md
   - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
 tags:
   - agent-sdk
   - permissions
@@ -69,6 +71,11 @@ Permissions in the Agent SDK control which tools an agent can use and how tool a
 - With auto-edit permissions enabled in VS Code, Claude can modify VS Code configuration files (settings.json, tasks.json) that VS Code may execute automatically; use manual approval mode or VS Code Restricted Mode for untrusted workspaces ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 - Cloud (web) sessions support only two permission modes: Auto accept edits (makes changes and pushes branch without stopping for approval) and Plan (proposes approach, waits for go-ahead before editing); Ask, Auto, and Bypass are not available in cloud sessions ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 - `permissions.defaultMode: "auto"` in `.claude/settings.json` sets auto mode as the default; users can also cycle to auto with `Shift+Tab` in the prompt footer ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
+- The `PermissionDenied` hook fires when auto mode's classifier denies a tool call; returning `retry: true` lets Claude try a different approach, and `/permissions` -> Recent lets users retry manually with `r` ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
+- The `defer` value for `permissionDecision` in `PreToolUse` hooks causes `-p` (non-interactive) sessions to pause at a tool call and exit with a `deferred_tool_use` payload so an SDK app or custom UI can surface it, then resume with `--resume` ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
+- Bash tool permissions were hardened in Week 15 (v2.1.92-101): backslash-escaped flags, environment-variable prefixes, `/dev/tcp` redirects, and compound commands now prompt correctly instead of being silently allowed ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
+- Week 16 (v2.1.105-113) further hardened Bash permissions: deny rules now match through `env`/`sudo`/`watch` wrappers, and `Bash(find:*)` allow rules no longer auto-approve `-exec` or `-delete` ^[raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
+- `CLAUDE_CODE_PERFORCE_MODE` makes Edit and Write fail on read-only files with a `p4 edit` hint instead of silently overwriting ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
 
 ## Details
 

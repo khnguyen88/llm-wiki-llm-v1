@@ -7,11 +7,14 @@ sources:
   - raw/document/claude code/claude-code-004-agent-sdk-cost-tracking-2026-04-29.md
   - raw/document/claude code/claude-code-006-agent-sdk-file-checkpointing-2026-04-29.md
   - raw/document/claude code/claude-code-017-agent-sdk-quickstart-2026-04-29.md
+  - raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md
 tags:
   - agent-loop
   - claude-code
   - agent-sdk
   - architecture
+  - openrouter
+  - tool-calling
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
@@ -40,6 +43,8 @@ Tool execution follows specific concurrency rules. Read-only tools (Read, Glob, 
 
 The ResultMessage `subtype` field distinguishes termination states: `success` (task completed), `error_max_turns` (hit turn limit), `error_max_budget_usd` (hit budget limit), `error_during_execution` (API failure or cancellation), and `error_max_structured_output_retries` (validation failures). The `result` field containing the final text output is only present on the `success` subtype. ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
 
+OpenRouter implements an agentic loop pattern for tool calling: the loop repeatedly calls the LLM, checks if the response contains `tool_calls`, executes the requested tools locally, appends `tool` role messages with results, and continues until the model responds without tool calls or a maximum iteration count is reached. A `maxIterations` cap (commonly 10) prevents infinite loops. The `tools` parameter must be included in every request so the router can validate the tool schema on each call. ^[raw/document/openrouter/openrouter-032-guides-features-tool-calling-2026-04-29.md]
+
 ## Related
 
 - [[entities/agent_sdk]]
@@ -49,3 +54,5 @@ The ResultMessage `subtype` field distinguishes termination states: `success` (t
 - [[concepts/cost_tracking]]
 - [[concepts/file_checkpointing]]
 - [[concepts/streaming_output]]
+- [[entities/openrouter]]
+- [[concepts/tool_calling]]

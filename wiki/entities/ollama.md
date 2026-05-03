@@ -9,7 +9,7 @@ tags:
   - local-inference
   - tools
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-01T12:00:00Z"
+updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---
@@ -32,5 +32,5 @@ A local LLM inference tool that runs GGUF-format models via a command-line inter
 
 - [[concepts/gguf]]
 - [[concepts/quantization]]
-- [[concepts/mixture_of_experts]]
+- [[concepts/model_naming]]
 - [[entities/hugging_face]]

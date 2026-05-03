@@ -4,12 +4,18 @@ summary: "Real-time incremental delivery of text and tool-call responses from th
 type: concept
 sources:
   - raw/document/claude code/claude-code-022-agent-sdk-streaming-output-2026-04-29.md
+  - raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md
+  - raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md
+  - raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md
 tags:
   - streaming
   - agent-sdk
   - real-time
   - api
   - output
+  - image-generation
+  - audio-output
+  - structured-output
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-01T12:00:00Z"
 confidence: 0.9
@@ -28,6 +34,9 @@ Real-time incremental delivery of LLM responses through the Agent SDK, where tok
 - The `StreamEvent` dataclass (Python) has fields: `uuid` (unique event ID), `session_id`, `event` (raw API event dict), and `parent_tool_use_id` (set when the event originates from a subagent) ^[raw/document/claude code/claude-code-022-agent-sdk-streaming-output-2026-04-29.md]
 - Extended thinking (enabled by setting `max_thinking_tokens` / `maxThinkingTokens`) is incompatible with streaming — no `StreamEvent` messages are emitted when thinking is active ^[raw/document/claude code/claude-code-022-agent-sdk-streaming-output-2026-04-29.md]
 - Structured output JSON is available only in the final `ResultMessage.structured_output` field, not as streaming deltas ^[raw/document/claude code/claude-code-022-agent-sdk-streaming-output-2026-04-29.md]
+- On OpenRouter, image generation supports streaming via `stream: true` on the Chat Completions endpoint; generated images arrive in `delta.images` within SSE chunks, each containing `image_url.url` as a base64 data URL ^[raw/document/openrouter/openrouter-006-guides-overview-multimodal-image-generation-2026-04-29.md]
+- On OpenRouter, audio output requires streaming (`stream: true`); audio data and transcript text are delivered incrementally via `delta.audio.data` (base64 audio chunks) and `delta.audio.transcript` (text) in each SSE chunk ^[raw/document/openrouter/openrouter-008-guides-overview-multimodal-audio-2026-04-29.md]
+- On OpenRouter, structured outputs support streaming via `stream: true`; the model streams valid partial JSON that, when complete, forms a response matching the provided JSON Schema ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
 
 ## Details
 
@@ -43,4 +52,8 @@ Without partial messages enabled, the async iterator yields only `SystemMessage`
 - [[concepts/agent_loop]]
 - [[concepts/sessions]]
 - [[concepts/subagents]]
+- [[concepts/structured_output]]
+- [[concepts/image_generation]]
+- [[summaries/openrouter-guides-overview-multimodal-audio]]
+- [[entities/openrouter]]
 - [[concepts/structured_output]]

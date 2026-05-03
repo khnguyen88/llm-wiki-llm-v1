@@ -5,6 +5,7 @@ type: concept
 sources:
   - raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
 tags:
   - claude-code
   - planning
@@ -29,6 +30,7 @@ Ultraplan delegates a planning task from the local CLI to a [[entities/claude_co
 - The cloud session runs in the account's default [[concepts/cloud_environment|cloud environment]], creating one automatically if none exists ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 - [[concepts/remote_control|Remote Control]] disconnects when ultraplan starts because both features use the claude.ai/code interface simultaneously ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 - Browser review supports inline comments (highlight any passage), emoji reactions, and an outline sidebar; users can iterate on the plan before choosing execution ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- As of v2.1.101 the first ultraplan run auto-creates a default cloud environment, removing the need for a separate web setup step before trying ultraplan ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
 
 ## Details
 

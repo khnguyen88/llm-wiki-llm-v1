@@ -5,6 +5,8 @@ type: concept
 sources:
   - raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
+  - raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md
 tags:
   - claude-code
   - code-review
@@ -27,6 +29,8 @@ Ultrareview is a deep code review feature that launches a fleet of reviewer agen
 - Requires Claude.ai account authentication; not available with Amazon Bedrock, Google Vertex AI, Microsoft Foundry, or Zero Data Retention organizations ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
 - Without arguments, reviews the diff between the current branch and the default branch including uncommitted and staged changes; `/ultrareview 1234` reviews a specific GitHub PR by cloning it in the remote sandbox ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
 - A `claude ultrareview` subcommand supports non-interactive use for CI and scripts, blocking until completion and printing findings to stdout; supports `--json` for raw payload output and `--timeout <minutes>` to override the 30-minute default ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
+- v2.1.111 added parallel reviewer fan-out across the branch, an adversarial critique pass over each finding, and a diffstat in the launch dialog ^[raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
+- Entered public research preview in Week 17 (v2.1.114-119), with findings landing back in the CLI or Desktop automatically; recommended to run before merging critical changes such as auth or data migrations ^[raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md]
 
 ## Details
 
@@ -52,3 +56,5 @@ Both `/review` and `/ultrareview` review code but target different stages. `/rev
 - [[concepts/non_interactive_mode]]
 - [[concepts/ultraplan]]
 - [[summaries/claude-code-ultrareview]]
+- [[summaries/claude-code-whats-new-2026-w16]]
+- [[summaries/claude-code-whats-new-2026-w17]]

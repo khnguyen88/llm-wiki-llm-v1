@@ -41,6 +41,11 @@ sources:
   - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
   - raw/document/claude code/claude-code-115-vs-code-2026-04-29.md
   - raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
+  - raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
+  - raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md
+  - raw/document/claude code/claude-code-123-whats-new-index-2026-04-29.md
+  - raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md
 tags:
   - claude-code
   - anthropic
@@ -84,6 +89,14 @@ tags:
   - troubleshooting
   - ultrareview
   - voice-dictation
+  - routines
+  - native-binaries
+  - effort-levels
+  - bfs
+  - ugrep
+  - gitlab
+  - bitbucket
+  - zero-data-retention
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T12:00:00Z"
 confidence: 0.9
@@ -206,6 +219,12 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - TLS/SSL errors from corporate proxies require `curl --cacert /path/to/corporate-ca.pem` during install and `NODE_EXTRA_CA_CERTS` for runtime API requests ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
 - On Windows, Claude Code requires either Git for Windows (for bash) or PowerShell; if Git is installed but not found, set `CLAUDE_CODE_GIT_BASH_PATH` in `settings.json` ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
 - Week 13 (v2.1.83-85) introduced: auto mode (Shift+Tab or `defaultMode: "auto"`), computer use on Desktop, transcript search (`/` in transcript mode), PowerShell tool preview, conditional `if` hooks, `managed-settings.d/` drop-in directory, `CwdChanged`/`FileChanged` hook events, agent `initialPrompt` frontmatter, `Ctrl+X Ctrl+E` external editor, input restoration on interrupt, `/status` while responding, deep links in preferred terminal, and idle-return nudge to `/clear` ^[raw/document/claude code/claude-code-118-whats-new-2026-w13-2026-04-29.md]
+- Week 14 (v2.1.86-91) introduced: computer use in the CLI (research preview), `/powerup` interactive lessons (v2.1.90), flicker-free alt-screen rendering via `CLAUDE_CODE_NO_FLICKER=1` (v2.1.89), per-tool MCP result-size overrides via `anthropic/maxResultSizeChars` up to 500K (v2.1.91), plugin `bin/` executables on PATH (v2.1.91), `PermissionDenied` hook on classifier denials, `defer` value for `permissionDecision` in `PreToolUse` hooks, `disableSkillShellExecution` setting, Edit tool working on `cat`/`sed -n` viewed files without separate Read, hook output over 50K saved to disk, thinking summaries off by default in interactive sessions, and voice mode push-to-talk modifier combos ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md]
+- Week 16 (v2.1.105-113) introduced: Claude Opus 4.7 model with `xhigh` effort level (default on first switch to 4.7), `/effort` interactive arrow-key slider, [[concepts/routines|Routines]] on Claude Code on the web (schedule/GitHub/API triggers), `/usage` breakdown showing limits drivers (parallel sessions, subagents, cache misses, long context), `/ultrareview` v2.1.111 with parallel reviewers and adversarial critique, native binaries replacing bundled JavaScript (v2.1.113), auto mode for Max on Opus 4.7 without `--enable-auto-mode`, session recap (`/recap`), `/tui` command and `/focus` command, push notification tool via Remote Control, plugin `monitors` manifest key, "Auto (match terminal)" theme option, `/fewer-permission-prompts` transcript scanning, built-in command discovery via Skill tool, `PreCompact` hook blocking with exit code 2, `ENABLE_PROMPT_CACHING_1H` for 1-hour cache TTL on API key/Bedrock/Vertex/Foundry, `sandbox.network.deniedDomains` setting, `/undo` alias for `/rewind`, `/proactive` alias for `/loop`, and hardened Bash permissions (deny rules match through wrappers, `Bash(find:*)` no longer auto-approves `-exec`/`-delete`) ^[raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
+- Week 17 (v2.1.114-119) introduced: ultrareview public research preview, automatic session recaps when returning to a terminal, custom color themes (v2.1.118) with `/theme` picker and plugin themes, redesigned Claude Code on the web with sessions sidebar and drag-and-drop layout, Vim visual mode (`v`/`V`), MCP tool hooks (`type: "mcp_tool"`), `/cost` and `/stats` merged into `/usage` (old names work as shortcuts), `/config` changes persisting to `~/.claude/settings.json`, forked subagents on external builds (`CLAUDE_CODE_FORK_SUBAGENT=1`), default effort level `high` for Pro/Max on Opus 4.6 and Sonnet 4.6, native macOS/Linux builds replacing `Glob`/`Grep` with embedded `bfs`/`ugrep`, `--from-pr` accepting GitLab/Bitbucket/GitHub Enterprise URLs, `"$defaults"` in `autoMode` arrays, `claude plugin tag` command, Opus 4.7 native 1M context window fixing inflated `/context` percentages, and `/resume` up to 67% faster on large sessions ^[raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md]
+- Zero Data Retention (ZDR) is available for Claude Code on Claude for Enterprise; when enabled, prompts and model responses are not stored by Anthropic after delivery, except where required by law or to combat misuse ^[raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md]
+- ZDR is enabled per-organization by the Anthropic account team and does not automatically apply to new organizations under the same account ^[raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md]
+- ZDR disables Claude Code on the Web, remote sessions from the Desktop app, and `/feedback` submission at the backend level; these features return errors when attempted in ZDR organizations ^[raw/document/claude code/claude-code-124-zero-data-retention-2026-04-29.md]
 
 ## Related
 
@@ -274,3 +293,6 @@ Anthropic's command-line tool for interacting with Claude, designed for organiza
 - [[summaries/claude-code-voice-dictation]]
 - [[concepts/transcript_search]]
 - [[summaries/claude-code-whats-new-2026-w13]]
+- [[concepts/routines]]
+- [[concepts/native_binaries]]
+- [[concepts/zero_data_retention]]

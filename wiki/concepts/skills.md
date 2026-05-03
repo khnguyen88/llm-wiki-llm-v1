@@ -10,6 +10,7 @@ sources:
   - raw/document/claude code/claude-code-036-best-practices-2026-04-29.md
   - raw/document/claude code/claude-code-051-context-window-2026-04-29.md
   - raw/document/claude code/claude-code-103-skills-2026-04-29.md
+  - raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
 tags:
   - agent-sdk
   - claude-code
@@ -59,6 +60,7 @@ Skills are markdown files that give agents specialized knowledge and invocable w
 - Skills are preferred over CLAUDE.md for domain knowledge or workflows that are only relevant sometimes; Claude loads skills on demand without bloating every conversation ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 - Create a skill by adding a directory with a `SKILL.md` to `.claude/skills/`; invoke directly with `/skill-name` ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 - After compaction, invoked skill bodies are re-injected, but capped at 5,000 tokens per skill and 25,000 tokens total; when the total budget is exceeded, the oldest invoked skills are dropped first ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
+- Claude can discover and run built-in commands (such as `/init`, `/review`, and `/security-review`) via the Skill tool ^[raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
 - Truncation of skill bodies after compaction preserves the start of the file, so important instructions should be placed near the top of `SKILL.md` ^[raw/document/claude code/claude-code-051-context-window-2026-04-29.md]
 - Legacy `.claude/commands/` custom slash commands are still supported by the CLI and support frontmatter (`description`, `allowed-tools`, `model`, `argument-hint`), dynamic arguments, bash execution, and file references ^[raw/document/claude code/claude-code-021-agent-sdk-slash-commands-2026-04-29.md]
 

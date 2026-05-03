@@ -8,6 +8,10 @@ sources:
   - raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md
   - raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md
   - raw/document/claude code/claude-code-117-whats-new-2026-04-29.md
+  - raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md
+  - raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md
+  - raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md
+  - raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md
 tags:
   - claude-code
   - commands
@@ -46,7 +50,17 @@ The `/voice` command toggles voice dictation on or off, with optional mode argum
 
 Bundled skills are invoked the same way as built-in commands but execute by passing a prompt to Claude. They include /batch (large-scale change orchestration via git worktrees), /claude-api (API reference and migration), /debug (logging and troubleshooting), /fewer-permission-prompts (allowlist generation), /loop (repeated execution; self-paces when the interval is omitted), and /simplify (code quality review). ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
 
-The `/effort` command provides an interactive slider for setting the effort level; `xhigh` is the recommended setting for most coding work. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] The `/usage` command shows what is driving rate limits. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] The `/powerup` command provides interactive lessons for learning Claude Code features. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] The `/team-onboarding` command packages a user's setup into a replayable guide for onboarding new team members. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] Transcript search is accessible by pressing `/` in the session picker, allowing users to search through past session transcripts. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+The `/effort` command provides an interactive slider for setting the effort level; `xhigh` is the recommended setting for most coding work. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] The `/usage` command shows what is driving rate limits. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] The `/powerup` command (v2.1.90) provides interactive lessons that teach Claude Code features through animated demos inside the terminal. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] ^[raw/document/claude code/claude-code-119-whats-new-2026-w14-2026-04-29.md] The `/team-onboarding` command packages a user's setup into a replayable guide for onboarding new team members. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md] Transcript search is accessible by pressing `/` in the session picker, allowing users to search through past session transcripts. ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+
+The `/autofix-pr` command (Week 15) infers the open PR for the current branch and enables auto-fix on Claude Code on the web in one step. ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md] `/release-notes` is now an interactive version picker. ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md] `/agents` has a tabbed layout with a Running tab showing live subagents (with a `● N running` count) plus Run agent and View running instance actions in the Library tab. ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
+
+Focus view (press `Ctrl+O` in flicker-free mode) collapses the display to the last prompt, a one-line tool summary with diffstats, and Claude's final response. ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
+
+Default effort level is now `high` for API-key, Bedrock, Vertex, Foundry, Team, and Enterprise users. ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
+
+Week 16 (v2.1.105-113) added: `/effort` interactive arrow-key slider when called without arguments; `xhigh` effort level as the new default for Opus 4.7; `/usage` breakdown showing percentage contributions from parallel sessions, subagents, cache misses, and long context, with day (`d`) and week (`w`) toggle; `/recap` for on-demand session recap (configurable via `/config`); `/tui` command and `tui` setting for switching between classic and flicker-free rendering; `/focus` command replacing `Ctrl+O` for focus view; `/undo` as alias for `/rewind`; `/proactive` as alias for `/loop`; `/fewer-permission-prompts` scans transcripts for common read-only Bash and MCP calls and proposes an allowlist; built-in commands (`/init`, `/review`, `/security-review`) discoverable and runnable via the Skill tool ^[raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
+
+Week 17 (v2.1.114-119) merged `/cost` and `/stats` into `/usage`; the old names still work as typing shortcuts that open the relevant tab. ^[raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md] `/config` changes (theme, editor mode, verbose, and similar) now persist to `~/.claude/settings.json` and follow the same project/local/policy precedence as other settings. ^[raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md]
 
 ## Related
 
@@ -70,3 +84,5 @@ The `/effort` command provides an interactive slider for setting the effort leve
 - [[entities/managed_agents]]
 - [[concepts/troubleshooting]]
 - [[concepts/voice_dictation]]
+- [[summaries/claude-code-whats-new-2026-w16]]
+- [[summaries/claude-code-whats-new-2026-w17]]

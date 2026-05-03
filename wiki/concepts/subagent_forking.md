@@ -4,6 +4,7 @@ summary: "Experimental feature where a subagent inherits the entire conversation
 type: concept
 sources:
   - raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md
+  - raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md
 tags:
   - subagents
   - forking
@@ -19,7 +20,7 @@ provenance: extracted
 
 # Subagent Forking
 
-Forked subagents inherit the full conversation so far instead of starting with a fresh context, enabling side tasks that need the same background without re-explaining the situation. Forking is experimental and requires Claude Code v2.1.117 or later, enabled via the `CLAUDE_CODE_FORK_SUBAGENT` environment variable set to `1`. ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md]
+Forked subagents inherit the full conversation so far instead of starting with a fresh context, enabling side tasks that need the same background without re-explaining the situation. Forking is experimental and requires Claude Code v2.1.117 or later, enabled via the `CLAUDE_CODE_FORK_SUBAGENT` environment variable set to `1`. ^[raw/document/claude code/claude-code-106-sub-agents-2026-04-29.md] On external builds (Agent SDK), forked subagents can be enabled with the same `CLAUDE_CODE_FORK_SUBAGENT=1` environment variable. ^[raw/document/claude code/claude-code-122-whats-new-2026-w17-2026-04-29.md]
 
 ## Key Points
 
