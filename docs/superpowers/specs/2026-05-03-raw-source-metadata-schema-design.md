@@ -78,7 +78,7 @@ published_date: 2026-03-15
 | `type` | Required | Always `web-crawl` |
 | `url` | Required | Full URL of the source page |
 | `fetched_date` | Required | ISO 8601 date when the page was crawled (`YYYY-MM-DD`) |
-| `website` | Recommended | Domain or site identifier (e.g., `openrouter`, `claude-code`) |
+| `website` | Recommended | Domain or site identifier (e.g., `openrouter`, `claude-code`); derived from URL or set by the extraction tool (e.g., Crawl4AI) |
 | `webpage` | Recommended | Slug identifying the specific page within the site |
 | `index` | Optional | Retrieval order number within a crawl batch. Omit if not available from the extraction tool. |
 | `published_date` | Optional | Date the source content was originally published. Omit if not available from the source. |
@@ -228,7 +228,7 @@ sections: true
 | `type` | Required | Always `video-transcript-llm` |
 | `url` | Required | Full URL of the video |
 | `fetched_date` | Required | ISO 8601 date when transcript was extracted |
-| `extraction_tool` | Required | Name of the tool or MCP that extracted the transcript (e.g., `youtube-mcp`, any web crawler, or any video extraction tool) |
+| `extraction_tool` | Required | Name of the tool or MCP that extracted the transcript (e.g., `youtube-mcp`, `crawl4ai`) |
 | `channel` | Recommended | Channel or creator name |
 | `duration` | Recommended | Video duration |
 | `published_date` | Optional | Original video publication date |
