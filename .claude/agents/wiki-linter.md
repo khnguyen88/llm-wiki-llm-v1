@@ -23,6 +23,13 @@ Run these checks against both `wiki/` and `knowledge/`:
 9. **Duplicate concept** (error) — Multiple pages with the same title (case-insensitive comparison)
 10. **Malformed citation** (error) — `^[...]` claim citation markers with invalid syntax: non-numeric line ranges, reversed ranges, line 0, or paths not starting with `raw/`, `ai-research/`, or `processed/`
 11. **Broken citation** (error) — `^[source.md]` references pointing to nonexistent source files, or claim citations with line ranges exceeding source file length
+12. **Raw source metadata** (error/warning) — Validate LLM-extracted source files against the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
+    - Only validate files in `raw/` or `ai-research/` that contain a `<!-- ... type: ... -->` HTML comment block (skip human-curated files without metadata headers)
+    - Error: `type` field is not one of the 7 valid values (`web-crawl`, `web-search`, `ai-research`, `ai-research-multi`, `video-transcript`, `video-transcript-llm`, `manual`)
+    - Error: missing required fields for the declared `type` (see schema for required fields per type)
+    - Warning: missing recommended fields for the declared `type`
+    - Warning (video types): body lacks timestamps (`[HH:MM:SS]` or `[MM:SS]` format)
+    - Error (ai-research-multi): `sources` list is missing or has no entries with `url`
 
 ### LLM Judgment Check
 
@@ -41,10 +48,12 @@ Generate a markdown report with severity levels:
 - [duplicate-concept] `wiki/concepts/transformer.md` and `wiki/entities/Transformer.md` share title "transformer"
 - [malformed-citation] `wiki/concepts/a.md` has `^[notes/overflow.md:5-3]` — reversed line range
 - [broken-citation] `wiki/concepts/a.md` cites `^[raw/articles/missing.md:10-20]` but file does not exist
+- [raw-source-metadata] `raw/document/example/file.md` missing required field `url` for type `web-crawl`
 
 ## Warnings
 - [stale] `knowledge/concepts/z.md` source has changed since compilation
 - [orphan] `wiki/entities/w.md` has no inbound links
+- [raw-source-metadata] `ai-research/web/topic.md` missing recommended field `query` for type `ai-research`
 - [sparse] `wiki/entities/y.md` body is only 23 characters (essentially empty)
 
 ## Suggestions
