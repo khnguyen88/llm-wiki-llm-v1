@@ -201,7 +201,9 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 1. **Search the web** for relevant, high-quality sources on the topic
 2. **Save each source as a separate file** in `ai-research/` (one source, one file)
-   - Include frontmatter: `url`, `fetched` date, `summary`
+   - Include an HTML comment metadata header at the top with `type: ai-research`, `url`, `search_date`, and other fields per the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
+   - Include YAML frontmatter with `summary` (one-line description of the source content)
+   - For multi-source synthesis: use `type: ai-research-multi` with a `sources` list, and include inline citations (`[1]`, `[2]`, etc.) in the body referencing the sources list order
    - Save the FULL cleaned content, not a summary
    - Use lowercase hyphenated file names (e.g., `ai-research/web/topic-source-name.md`)
    - Do NOT overwrite existing files — always create new files
