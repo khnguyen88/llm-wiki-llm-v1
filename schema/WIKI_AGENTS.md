@@ -55,7 +55,7 @@ Optional: `confidence`, `provenance`, `contradictedBy`, `orphaned`.
 
 See `schema/WIKI_WORKFLOWS.md` → Ingest Workflow for the full 10-step process.
 
-Key additions: include `summary` in frontmatter, set `created`/`updated` timestamps, assign `confidence` and `provenance` during extraction, use claim citations for paragraph-level provenance.
+Key additions: include `summary` in frontmatter, set `created`/`updated` timestamps, assign `confidence` and `provenance` during extraction, use claim citations for paragraph-level provenance. When the source file has an HTML comment metadata header, parse it to extract provenance fields (`type`, `url`, `fetched_date`/`search_date`, `published_date`) and carry them into the wiki page frontmatter where applicable.
 
 ### 2. Query Workflow
 

@@ -18,6 +18,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 1. **Read source document**
    - Load the file from `raw/` or `ai-research/` (small files) or `processed/` (segmented documents)
+   - If the file has an HTML comment metadata header (starting with `<!--`), parse it to extract source provenance: `type`, `url`, `fetched_date`/`search_date`, `published_date`, and any other fields. Carry `url` and `published_date` into the wiki page frontmatter where applicable. Note the `type` for provenance tracking.
 
 2. **Extract key information**
    - Identify entities (people, places, things, organizations)
