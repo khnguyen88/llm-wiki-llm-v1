@@ -15,7 +15,7 @@ The wiki is a **persistent, compounding artifact**. Cross-references are already
 ### Ingest (process a source from raw/, ai-research/, or processed/)
 
 0. **Check source size** (pre-processing) — For large files (>3,000 words or PDFs), invoke the **document-processor** agent first to segment into `processed/`. Small markdown files go directly to step 1.
-1. Read the source document — from `raw/` or `ai-research/` for small files, or from `processed/` for segmented documents
+1. Read the source document — from `raw/` or `ai-research/` for small files, or from `processed/` for segmented documents. If the file has an HTML comment metadata header (starting with `<!--`), parse it to extract source provenance: `type`, `url`, `fetched_date`/`search_date`, `published_date`, and any other fields. Carry `url` and `published_date` into the wiki page frontmatter where applicable. Note the `type` for provenance tracking.
 2. Extract entities, concepts, key claims, and quotes
 3. Write summary: `wiki/summaries/[source-name].md` — use rich section headings and tables appropriate to the source content. Include a narrative `## Summary` section, custom sections with tables where applicable, section-level citations, and a `## Key Quotes` section. Link to `processed/` segments if applicable. See `schema/WIKI_SCHEMA.md` → Summary Pages for the full template and Style Guide.
 4. Create/update entity pages: `wiki/entities/[entity].md` — include `summary` in frontmatter, set `created`/`updated` timestamps. When updating: set `provenance: merged`, reconcile `confidence` (minimum across sources).
@@ -43,9 +43,11 @@ When a query reveals gaps or the human asks to research a topic:
 
 1. Search the web for relevant, high-quality sources
 2. **One source, one file** — save each URL as a separate markdown file in `ai-research/`
-3. Include frontmatter: `url`, `fetched`, `summary`
-4. Save FULL cleaned content, not summaries
-5. Do NOT overwrite existing files — always create new files
+3. Include an HTML comment metadata header at the top with `type: ai-research`, `url`, `search_date`, `query`, and other fields per the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
+4. Include YAML frontmatter with `summary` (one-line description)
+5. For multi-source synthesis, use `type: ai-research-multi` with a `sources` list and inline citations (`[1]`, `[2]`) in the body
+6. Save FULL cleaned content, not summaries
+7. Do NOT overwrite existing files — always create new files
 6. Run the standard Ingest procedure to compile saved sources into `wiki/`
 7. A single wiki article can cite multiple `ai-research/` files in its `sources:` frontmatter
 
