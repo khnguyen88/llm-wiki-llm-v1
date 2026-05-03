@@ -306,22 +306,226 @@ provenance: inferred
 
 ### AI-Research Source Files (`ai-research/`)
 
-When the LLM conducts autonomous web research, save full cleaned source content here:
+When the LLM conducts autonomous web research, save full cleaned source content here. Source metadata uses the HTML comment envelope format defined in [Raw Source Metadata](#raw-source-metadata) — use `type: ai-research` for single sources or `type: ai-research-multi` for multi-source synthesis.
 
-```markdown
+The file body must include a YAML frontmatter block with a `summary` field:
+
+```yaml
 ---
-url: https://example.com/article
-fetched: YYYY-MM-DD
 summary: One-line description of what this source covers
 ---
-
-[Full article content in markdown, cleaned, not summarized]
 ```
 
-- One source, one file — never combine multiple URLs into one file
+- One source, one file — never combine multiple URLs into one file (use `type: ai-research` per URL)
+- For multi-source synthesis, use `type: ai-research-multi` and list all source URLs in the metadata header
 - File names: lowercase hyphenated (e.g., `ai-research/web/qmd-github-readme.md`)
 - Immutable once saved — do not overwrite, create new files
 - These are the source of truth for citation verification
+
+See [Raw Source Metadata](#raw-source-metadata) for the full metadata schema.
+
+### Raw Source Metadata
+
+All LLM-extracted source files must include an HTML comment metadata header at the top of the file. Human-curated files are accepted as-is — no normalization required.
+
+**Two-tier approach:**
+1. **LLM-extracted content** (going forward): Must follow the standardized HTML comment metadata schema. This applies to any web crawler or MCP extraction, web search results, video transcript extractions, and AI research files.
+2. **Human-curated content** (existing and future): The linter accepts whatever metadata format is present — YAML frontmatter, HTML comments, or nothing.
+
+#### Format: HTML Comment Envelope
+
+```html
+<!--
+type: <source-type>
+field1: value1
+field2: value2
+-->
+```
+
+- HTML comments are invisible in rendered markdown/Obsidian and don't interfere with YAML frontmatter
+- The `type` field determines which other fields are required/recommended/optional
+
+#### Field Tiers
+
+| Tier | Meaning | Linter behavior |
+|------|---------|-----------------|
+| **Required** | Must be present for LLM-extracted files | Error if missing |
+| **Recommended** | Should be present when available | Warning if missing |
+| **Optional** | Nice to have, no warning if absent | No check |
+
+If a tool cannot provide a specific field, **omit the field entirely** rather than using placeholder values like `N/A` or `unknown`.
+
+All date fields use ISO 8601 format: `YYYY-MM-DD` (or `YYYY-MM-DDTHH:MM:SSZ` when precision is needed). Field names use `snake_case`.
+
+#### Source Types
+
+**1. `web-crawl`** — Files extracted from websites by any web crawler or MCP tool.
+
+```html
+<!--
+type: web-crawl
+url: https://openrouter.ai/docs/api/reference/overview.mdx
+fetched_date: 2026-04-29
+website: openrouter
+webpage: api-reference-overview
+index: 115
+published_date: 2026-03-15
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `web-crawl` |
+| `url` | Required | Full URL of the source page |
+| `fetched_date` | Required | ISO 8601 date when the page was crawled |
+| `website` | Recommended | Domain or site identifier (e.g., `openrouter`, `claude-code`) |
+| `webpage` | Recommended | Slug identifying the specific page within the site |
+| `index` | Optional | Retrieval order within a crawl batch. Omit if not available. |
+| `published_date` | Optional | Original publication date. Omit if not available. |
+
+**2. `web-search`** — Single page retrieved by an LLM web search tool.
+
+```html
+<!--
+type: web-search
+url: https://example.com/article
+search_date: 2026-05-03
+query: LLM quantization techniques
+website: example.com
+published_date: 2026-01-15
+snippet: Summary of key findings from the page
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `web-search` |
+| `url` | Required | Full URL of the source page |
+| `search_date` | Required | ISO 8601 date when the search was performed |
+| `query` | Recommended | The search query that found this result |
+| `website` | Optional | Domain or site identifier |
+| `published_date` | Optional | Original publication date |
+| `snippet` | Optional | Brief summary of page content |
+
+**3. `ai-research`** — Single-source AI discovery saved to `ai-research/`.
+
+```html
+<!--
+type: ai-research
+url: https://example.com/article
+search_date: 2026-05-03
+query: LLM quantization techniques
+website: example.com
+published_date: 2026-01-15
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `ai-research` |
+| `url` | Required | Full URL of the source |
+| `search_date` | Required | ISO 8601 date when the source was discovered |
+| `query` | Recommended | Search query that found this source |
+| `website` | Optional | Domain or site identifier |
+| `published_date` | Optional | Original publication date |
+
+The file body includes a YAML frontmatter `summary` field (separate from the HTML comment metadata).
+
+**4. `ai-research-multi`** — Multi-source AI synthesis saved to `ai-research/`.
+
+```html
+<!--
+type: ai-research-multi
+search_date: 2026-05-03
+query: LLM quantization techniques
+sources:
+  - url: https://example.com/article
+    title: "Quantization Techniques for LLMs"
+    published_date: 2026-01-15
+  - url: https://other.com/guide
+    title: "A Guide to Model Compression"
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `ai-research-multi` |
+| `search_date` | Required | ISO 8601 date when the research was performed |
+| `sources` | Required | List of source objects, each with at least `url` |
+| `query` | Recommended | Search query that drove the research |
+| `sources[].url` | Required | Full URL of each source |
+| `sources[].title` | Optional | Title of each source |
+| `sources[].published_date` | Optional | Original publication date of each source |
+
+The body must include inline citations referencing which source each claim comes from: `[1]`, `[2]`, etc. corresponding to the `sources` list order.
+
+**5. `video-transcript`** — Video transcript obtained directly.
+
+```html
+<!--
+type: video-transcript
+url: https://youtube.com/watch?v=abc123
+fetched_date: 2026-05-03
+channel: Channel Name
+duration: 45:30
+published_date: 2026-04-01
+sections: true
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `video-transcript` |
+| `url` | Required | Full URL of the video |
+| `fetched_date` | Required | ISO 8601 date when transcript was obtained |
+| `channel` | Recommended | Channel or creator name |
+| `duration` | Recommended | Video duration (`MM:SS` or `HH:MM:SS`) |
+| `published_date` | Optional | Original video publication date |
+| `sections` | Optional | `true` if transcript includes section headers |
+
+Transcript body must include timestamps (`[HH:MM:SS]` or `[MM:SS]`). If `sections: true`, section headers use `## Section Title` format.
+
+**6. `video-transcript-llm`** — Video transcript extracted by an LLM tool or MCP.
+
+```html
+<!--
+type: video-transcript-llm
+url: https://youtube.com/watch?v=abc123
+fetched_date: 2026-05-03
+channel: Channel Name
+duration: 45:30
+extraction_tool: crawl4ai
+published_date: 2026-04-01
+sections: true
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `video-transcript-llm` |
+| `url` | Required | Full URL of the video |
+| `fetched_date` | Required | ISO 8601 date when transcript was extracted |
+| `extraction_tool` | Required | Name of the tool/MCP that extracted the transcript |
+| `channel` | Recommended | Channel or creator name |
+| `duration` | Recommended | Video duration |
+| `published_date` | Optional | Original video publication date |
+| `sections` | Optional | `true` if transcript includes section headers |
+
+**7. `manual`** — Human-curated source with minimal metadata.
+
+```html
+<!--
+type: manual
+fetched_date: 2026-04-29
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `manual` |
+| `fetched_date` | Required | ISO 8601 date when the source was added |
+
+Any additional fields are accepted. Human curators can add `url`, `author`, `published_date`, etc. as they see fit.
 
 ## Index Format
 
