@@ -51,7 +51,9 @@ Naming and format conventions must be consistent across all files:
 - Frontmatter fields: title, summary, type, sources, tags, created, updated (optional: confidence, provenance, contradictedBy, orphaned)
 - File naming: snake_case for entities/concepts, kebab-case for summaries/qanda
 - Claim citation syntax: `^[path/to/source.md]` or `^[path/to/source.md:42-58]`
-- Processed file naming: `{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md`
+- Processed file naming: `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md` (date always at end)
+- Crawl file naming: `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md`
+- LLM-generated file naming: `{slug}-{YYYY-MM-DD}.md` (date always at end)
 - Dates: ISO 8601 with timestamps for frontmatter, date-only for log entries
 
 ### 5. Processed/ pipeline
@@ -82,17 +84,19 @@ The wiki source summary directory is `summaries/` (NOT `sources/`). Check every 
 
 The Raw Source Metadata schema in `schema/WIKI_SCHEMA.md` must be consistent with agent references:
 
-- **Source types**: The 7 valid types (`web-crawl`, `web-search`, `ai-research`, `ai-research-multi`, `video-transcript`, `video-transcript-llm`, `manual`) must match across WIKI_SCHEMA.md, WIKI_WORKFLOWS.md, wiki-linter, and wiki-maintainer
+- **Source types**: The 8 valid types (`web-crawl`, `web-search`, `ai-research`, `ai-research-multi`, `video-transcript`, `video-transcript-llm`, `manual`, `processed-segment`) must match across WIKI_SCHEMA.md, WIKI_WORKFLOWS.md, wiki-linter, and wiki-maintainer
 - **Field requirements**: Required and recommended fields per type must match the schema definition
 - **Agent references**: wiki-maintainer must reference the metadata header format in both Ingest and Research steps
-- **Linter checks**: wiki-linter must validate the same 7 types and field requirements
+- **Linter checks**: wiki-linter must validate the same 8 types and field requirements
 - **Workflow references**: WIKI_WORKFLOWS.md Research step 2 must reference the metadata schema
 
 Check that:
-- `schema/WIKI_SCHEMA.md` documents all 7 source types with correct required/recommended/optional fields
-- `.claude/agents/wiki-linter.md` references the same 7 types and field tiers
+- `schema/WIKI_SCHEMA.md` documents all 8 source types with correct required/recommended/optional fields
+- `.claude/agents/wiki-linter.md` references the same 8 types and field tiers
 - `.claude/agents/wiki-maintainer.md` references the metadata header format
 - `schema/WIKI_WORKFLOWS.md` Research step 2 references the metadata schema
+- **Naming conventions**: Processed, crawl, and LLM-generated file naming patterns in WIKI_SCHEMA.md must match references in document-processor, wiki-maintainer, and wiki-linter
+- **Filename convention lint**: wiki-linter must validate the same naming patterns documented in WIKI_SCHEMA.md
 
 ## Output Format
 
