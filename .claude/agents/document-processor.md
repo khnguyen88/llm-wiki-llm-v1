@@ -31,27 +31,30 @@ Trigger when a file in `raw/` is:
    - If a table/diagram is too complex for markdown: save a snapshot image to `raw/assets/`, reference it with `![description](raw/assets/filename-segment-###.png)`
    - Preserve footnotes, citations, and references
 4b. **Preserve source metadata** — If the original raw file has an HTML comment metadata header (starting with `<!--`), copy it to the first segment only. Adjust `index` if present to reflect the segment's position. Do not duplicate the header across other segments — only the first segment carries the metadata.
+4c. **Generate processed-segment metadata header** — Write an HTML comment metadata header at the top of each segment file with `type: processed-segment`. Include all fields per the schema in `schema/WIKI_SCHEMA.md`: `source`, `document_name`, `part`, `total_parts`, `page_range` (if available), `chapter`, `section`, `subsections`, `prev_section`, `next_section`, `prev_subsection`, `next_subsection`, and `process_date`. If the original raw file had an HTML comment metadata header, combine its fields with the processed-segment fields — the raw source metadata header goes only on the first segment (step 4b), while every segment gets its own `processed-segment` header.
 5. **Write segments** to the matching `processed/` subfolder using the naming convention below
 6. **Delete the original file** from `raw/` once all segments are confirmed written — unless the file may need reprocessing, in which case keep it
 
 ## Naming Convention
 
 ```
-processed/{subfolder}/{base-name}-{YYYY-MM-DD}-part-{###}[-{chapter-##|section-slug}].md
+processed/{subfolder}/{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md
 ```
 
 | Component | Format | Required | Example |
 |-----------|--------|----------|---------|
 | `base-name` | kebab-case filename stem | Yes | `design-report` |
-| `YYYY-MM-DD` | Date of processing | Yes | `2026-04-22` |
 | `part-###` | Zero-padded part number | Yes | `part-001` |
-| `chapter-##` | Chapter number (zero-padded) | No, for reports/papers | `chapter-01` |
-| `section-slug` | kebab-case section name | No | `introduction` |
+| `chapter-##` | Chapter number (zero-padded) | No | `chapter-01` |
+| `section-slug` | kebab-case section name | No | `thermal-analysis` |
+| `YYYY-MM-DD` | Process date (always at end) | Yes | `2026-05-03` |
 
 **Examples:**
-- `processed/document/design-report-2026-04-22-part-001.md` (simple document, no chapters)
-- `processed/papers/research-paper-2026-04-22-part-001-chapter-01.md` (paper with chapters)
-- `processed/document/engineering-spec-2026-04-22-part-003-chapter-02-thermal-analysis.md` (chapter + section)
+- `processed/document/design-report-part-001-2026-05-03.md` (simple document, no chapters)
+- `processed/document/design-report-part-001-chapter-01-2026-05-03.md` (paper with chapters)
+- `processed/document/engineering-spec-part-003-chapter-02-thermal-analysis-2026-05-03.md` (chapter + section)
+
+Page range is captured in the metadata header (see step 4c), not in filenames.
 
 ## Segment Frontmatter
 
@@ -63,10 +66,14 @@ title: "Chapter 2: Thermal Analysis"
 source: "raw/design-report.pdf"
 part: 3
 total_parts: 7
-date: 2026-04-22
-created: "2026-04-22T12:00:00Z"
+date: 2026-05-03
+created: "2026-05-03T12:00:00Z"
 chapter: 2
 section: "Thermal Analysis"
+page_range: "15-28"
+subsections:
+  - "2.1 Heat Transfer"
+  - "2.2 Thermal Resistance"
 word_count: 1240
 has_images: true
 has_tables: true
@@ -79,7 +86,10 @@ At the top of each segment, add navigation links:
 
 ```markdown
 ← [[processed/{subfolder}/{prev-segment}|Previous]] | Part 3 of 7 | [[processed/{subfolder}/{next-segment}|Next]] →
+↑ Section: Chapter 2 · ↓ Next: 2.1 Heat Transfer
 ```
+
+The second line is optional — include it only when `section` and `next_subsection`/`prev_subsection` are available.
 
 ## Table Handling
 
