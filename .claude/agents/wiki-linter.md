@@ -25,15 +25,23 @@ Run these checks against both `wiki/` and `knowledge/`:
 11. **Broken citation** (error) — `^[source.md]` references pointing to nonexistent source files, or claim citations with line ranges exceeding source file length
 12. **Raw source metadata** (error/warning) — Validate LLM-extracted source files against the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
     - Only validate files in `raw/` or `ai-research/` that contain a `<!-- ... type: ... -->` HTML comment block (skip human-curated files without metadata headers)
-    - Error: `type` field is not one of the 7 valid values (`web-crawl`, `web-search`, `ai-research`, `ai-research-multi`, `video-transcript`, `video-transcript-llm`, `manual`)
+    - Error: `type` field is not one of the 8 valid values (`web-crawl`, `web-search`, `ai-research`, `ai-research-multi`, `video-transcript`, `video-transcript-llm`, `manual`, `processed-segment`)
     - Error: missing required fields for the declared `type` (see schema for required fields per type)
     - Warning: missing recommended fields for the declared `type`
     - Warning (video types): body lacks timestamps (`[HH:MM:SS]` or `[MM:SS]` format)
     - Error (ai-research-multi): `sources` list is missing or has no entries with `url`
+    - Error (processed-segment): `source`, `document_name`, `part`, `total_parts`, or `process_date` missing
+    - Warning (processed-segment): missing recommended field `page_range`, `prev_section`, or `next_section`
+
+13. **Filename convention** (warning) — LLM-generated files must follow the naming conventions in `schema/WIKI_SCHEMA.md`
+    - Warning (processed/): filename does not match `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md` pattern
+    - Warning (raw/ crawl files): filename does not match `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md` pattern
+    - Warning (other LLM-generated raw/ai-research/): filename does not end with `-{YYYY-MM-DD}.md`
+    - Only validate files with an HTML comment metadata header (skip human-curated files without headers)
 
 ### LLM Judgment Check
 
-12. **Contradictions** (error) — Conflicting claims across articles. Requires reading multiple articles and reasoning about whether claims are truly incompatible. When found, suggest adding `contradictedBy` to frontmatter of affected pages.
+14. **Contradictions** (error) — Conflicting claims across articles. Requires reading multiple articles and reasoning about whether claims are truly incompatible. When found, suggest adding `contradictedBy` to frontmatter of affected pages.
 
 ## Output Format
 
@@ -54,6 +62,8 @@ Generate a markdown report with severity levels:
 - [stale] `knowledge/concepts/z.md` source has changed since compilation
 - [orphan] `wiki/entities/w.md` has no inbound links
 - [raw-source-metadata] `ai-research/web/topic.md` missing recommended field `query` for type `ai-research`
+- [filename-convention] `raw/web/llm-quantization.md` missing date suffix in filename (expected `-{YYYY-MM-DD}.md`)
+- [filename-convention] `processed/document/report-2026-05-03-part-001.md` uses old naming convention (date before part number)
 - [sparse] `wiki/entities/y.md` body is only 23 characters (essentially empty)
 
 ## Suggestions
