@@ -329,7 +329,7 @@ See [Raw Source Metadata](#raw-source-metadata) for the full metadata schema.
 All LLM-extracted source files must include an HTML comment metadata header at the top of the file. Human-curated files are accepted as-is — no normalization required.
 
 **Two-tier approach:**
-1. **LLM-extracted content** (going forward): Must follow the standardized HTML comment metadata schema. This applies to any web crawler or MCP extraction, web search results, video transcript extractions, and AI research files.
+1. **LLM-extracted content** (going forward): Must follow the standardized HTML comment metadata schema. This applies to any web crawler or MCP extraction, web search results, video transcript extractions, AI research files, and processed document segments.
 2. **Human-curated content** (existing and future): The linter accepts whatever metadata format is present — YAML frontmatter, HTML comments, or nothing.
 
 #### Format: HTML Comment Envelope
@@ -526,6 +526,46 @@ fetched_date: 2026-04-29
 | `fetched_date` | Required | ISO 8601 date when the source was added |
 
 Any additional fields are accepted. Human curators can add `url`, `author`, `published_date`, etc. as they see fit.
+
+**8. `processed-segment`** — Segmented chunk of a large document in `processed/`.
+
+```html
+<!--
+type: processed-segment
+source: raw/document/design-report.pdf
+document_name: Design Report
+part: 1
+total_parts: 7
+page_range: 1-15
+chapter: 1
+section: Introduction
+subsections:
+  - "1.1 Background"
+  - "1.2 Scope"
+prev_section: processed/document/design-report-part-000-2026-05-03.md
+next_section: processed/document/design-report-part-002-2026-05-03.md
+prev_subsection:
+next_subsection: "1.1 Background"
+process_date: 2026-05-03
+-->
+```
+
+| Field | Tier | Description |
+|-------|------|-------------|
+| `type` | Required | Always `processed-segment` |
+| `source` | Required | Relative path to the original raw file |
+| `document_name` | Required | Human-readable title of the source document |
+| `part` | Required | This segment's part number |
+| `total_parts` | Required | Total number of segments |
+| `page_range` | Recommended | Page range from source (e.g., `1-15`, `42-58`). Omit if source has no page numbers. |
+| `chapter` | Recommended | Chapter or main section number |
+| `section` | Recommended | Section heading name |
+| `subsections` | Optional | List of subsection headers within this segment |
+| `prev_section` | Recommended | Relative path from project root to the previous segment. Omit for first segment. |
+| `next_section` | Recommended | Relative path from project root to the next segment. Omit for last segment. |
+| `prev_subsection` | Optional | Name of the prior subsection (for cross-segment navigation) |
+| `next_subsection` | Optional | Name of the following subsection (for cross-segment navigation) |
+| `process_date` | Required | ISO 8601 date when the segment was created |
 
 ## Index Format
 
