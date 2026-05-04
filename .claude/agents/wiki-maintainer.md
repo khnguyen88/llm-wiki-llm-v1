@@ -43,6 +43,7 @@ When a query reveals gaps or the human asks to research a topic:
 
 1. Search the web for relevant, high-quality sources
 2. **One source, one file** — save each URL as a separate markdown file in `ai-research/`
+   - Name the file `{website}-{slug}-{YYYY-MM-DD}.md` per the LLM-Generated File Naming convention in `schema/WIKI_SCHEMA.md`
 3. Include an HTML comment metadata header at the top with `type: ai-research`, `url`, `search_date`, `query`, and other fields per the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
 4. Include YAML frontmatter with `summary` (one-line description)
 5. For multi-source synthesis, use `type: ai-research-multi` with a `sources` list and inline citations (`[1]`, `[2]`) in the body
@@ -55,6 +56,8 @@ When a query reveals gaps or the human asks to research a topic:
 
 - **Frontmatter**: All pages require YAML with title, summary, type, sources, tags, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
 - **Naming**: snake_case for entities/concepts, kebab-case for summaries and qanda
+- **File naming** (raw/ai-research): All LLM-generated files must end with `-{YYYY-MM-DD}.md`. Crawl files: `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md`. Other types: `{slug}-{YYYY-MM-DD}.md`. See `schema/WIKI_SCHEMA.md` → LLM-Generated File Naming and Crawl File Naming.
+- **File naming** (processed): `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md`. See `schema/WIKI_SCHEMA.md` → Processed File Naming.
 - **Internal**: `[[path/to/article]]` or `[[path/to/article|Display Name]]`
 - **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` for paragraph-level provenance
 - **Source paths**: Use `processed/` paths for segmented documents, `raw/` for human-curated sources, `ai-research/` for AI-discovered sources
