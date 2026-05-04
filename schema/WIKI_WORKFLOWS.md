@@ -13,7 +13,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 **Steps**:
 
 0. **Check source size** (pre-processing)
-   - If the file is a PDF, binary document, or exceeds ~3,000 words: invoke the document-processor agent to segment it into `processed/`
+   - If the file is a PDF, binary document, or exceeds ~3,000 words: invoke the document-processor agent to segment it into `processed/` using the naming convention in `schema/WIKI_SCHEMA.md` → Processed File Naming
    - Small markdown files go directly to step 1
 
 1. **Read source document**
