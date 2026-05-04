@@ -58,6 +58,67 @@ wiki/             # LLM-generated content
 | Summary | kebab-case | `summaries/attention-is-all-you-need.md` |
 | Q&A | kebab-case | `qanda/what-is-attention.md` |
 
+### Processed File Naming
+
+Files in `processed/` follow this convention:
+
+```
+processed/{subfolder}/{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md
+```
+
+| Component | Format | Required | Example |
+|-----------|--------|----------|---------|
+| `base-name` | kebab-case filename stem | Yes | `design-report` |
+| `part-###` | Zero-padded part number | Yes | `part-001` |
+| `chapter-##` | Chapter number (zero-padded) | No | `chapter-01` |
+| `section-slug` | kebab-case section name | No | `thermal-analysis` |
+| `YYYY-MM-DD` | Process date (always at end) | Yes | `2026-05-03` |
+
+Examples:
+- `processed/document/design-report-part-001-2026-05-03.md`
+- `processed/document/design-report-part-001-chapter-01-2026-05-03.md`
+- `processed/document/design-report-part-003-chapter-02-thermal-analysis-2026-05-03.md`
+
+Page range is captured in the metadata header only, not in filenames.
+
+### Crawl File Naming
+
+Web crawl files extracted from an index (e.g., `llms.txt`, sitemap) follow:
+
+```
+raw/{subfolder}/{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md
+```
+
+| Component | Format | Required | Example |
+|-----------|--------|----------|---------|
+| `website` | kebab-case site identifier | Yes | `openrouter`, `claude-code` |
+| `index-###` | Zero-padded crawl order from index | Yes | `001`, `115` |
+| `webpage-topic` | kebab-case page topic/slug | Yes | `api-reference-overview` |
+| `YYYY-MM-DD` | Date crawled (always at end) | Yes | `2026-05-03` |
+
+Examples:
+- `raw/document/openrouter-115-api-reference-overview-2026-04-29.md`
+- `raw/document/claude-code-001-admin-setup-2026-04-29.md`
+
+### LLM-Generated File Naming
+
+All LLM-generated files in `raw/` and `ai-research/` must end with the curation date in `YYYY-MM-DD` format:
+
+```
+{subfolder}/{slug}-{YYYY-MM-DD}.md
+```
+
+| Source Type | Naming Pattern | Example |
+|-------------|---------------|---------|
+| `web-search` | `{topic-slug}-{YYYY-MM-DD}.md` | `raw/web/llm-quantization-2026-05-03.md` |
+| `video-transcript` | `{channel-or-topic}-{YYYY-MM-DD}.md` | `raw/transcripts/karpathy-llm-wiki-2026-05-03.md` |
+| `video-transcript-llm` | `{channel-or-topic}-{YYYY-MM-DD}.md` | `raw/transcripts/3b1b-attention-2026-05-03.md` |
+| `ai-research` | `{website}-{slug}-{YYYY-MM-DD}.md` | `ai-research/web/openrouter-pricing-2026-05-03.md` |
+| `ai-research-multi` | `{topic-slug}-{YYYY-MM-DD}.md` | `ai-research/web/quantization-techniques-2026-05-03.md` |
+| `manual` | `{descriptive-slug}-{YYYY-MM-DD}.md` | `raw/articles/llm-wiki-pattern-2026-05-03.md` |
+
+Exception: `web-crawl` files use the Crawl File Naming convention above.
+
 ## Frontmatter Format
 
 All wiki pages must include YAML frontmatter. Fields are split into **required** and **optional provenance** groups.
