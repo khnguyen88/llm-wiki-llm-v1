@@ -69,6 +69,8 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | Schema cross-link minimum | — | — | A | — | O |
 | Missing concepts (mentioned 3+ times) | — | — | — | A | M (flagged by wiki-linter) |
 | Unsourced claims | — | — | — | A | A |
+| Raw source metadata (8 types, field tiers) | — | — | — | — | N |
+| Filename convention (processed, crawl, LLM-generated) | — | — | — | — | N |
 | **Agents** | | | | | |
 | wiki-maintainer | — | — | — | A | M (formalized as agent file) |
 | document-processor | — | — | — | — | N |
@@ -79,6 +81,7 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | sync-check | — | — | — | — | N |
 | context-loader | — | — | — | — | N |
 | ~~batch-ingester~~ (removed) | — | — | — | — | R |
+| Subagent-driven ingestion | — | — | — | — | N (replaced batch-ingester) |
 | **Tools & Integrations** | | | | | |
 | Obsidian as read-only IDE | A | — | — | A | A |
 | Obsidian Web Clipper | A | — | — | A | A |
@@ -104,6 +107,11 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | Lowercase hyphenated (Josh Pocock) | — | — | — | A | M (split by page type) |
 | ISO 8601 dates with timestamps | — | A | — | — | A |
 | Wikilinks `[[path/to/article]]` | A | A | A | A | A |
+| Processed file naming (date at end) | — | — | — | — | N |
+| Crawl file naming (website-index-topic-date) | — | — | — | — | N |
+| LLM-generated file naming (slug-date) | — | — | — | — | N |
+| Raw source metadata schema (8 types) | — | — | — | — | N |
+| HTML comment metadata envelope | — | — | — | — | N |
 
 ---
 
@@ -126,7 +134,7 @@ The foundational concept document. Karpathy described the pattern abstractly —
 **What was modified:**
 - Karpathy's schema is intentionally abstract ("this document describes the idea, not a specific implementation"). This project instantiated it with concrete file formats, naming conventions, and agent roles.
 - The three layers became five (added `daily/` + `knowledge/` from Cole Medin, and `ai-research/` from Josh Pocock).
-- Lint expanded from Karpathy's informal list to 12+1 formalized checks.
+- Lint expanded from Karpathy's informal list to 13+1 formalized checks.
 - Query expanded to search both KBs (external wiki + internal knowledge), not just the wiki.
 
 **What was omitted:**
@@ -160,7 +168,7 @@ The "internal KB" system. Cole Medin adapted Karpathy's pattern to compile Claud
 **What was modified:**
 - Cole Medin's AGENTS.md serves as the sole schema. This project split the schema into AGENTS.md (internal KB) + CLAUDE.md (project-level lean config) + schema/ files (external KB). The intent: CLAUDE.md stays under 60 lines for fast context loading.
 - Frontmatter was expanded from Cole Medin's minimal set (title, sources, created, updated) to include Atomic Memory's provenance fields (confidence, provenance, contradictedBy, orphaned).
-- Lint checks expanded from 7 (6 structural + 1 LLM) to 12+1 by merging Atomic Memory's checks.
+- Lint checks expanded from 7 (6 structural + 1 LLM) to 13+1 by merging Atomic Memory's checks and adding raw-source-metadata and filename convention checks.
 - The `connections/` article type was kept but `qa/` was aligned with the external wiki's `qanda/` naming convention.
 - Scripts were extended: added `ingest_external.py` for the raw→wiki pipeline that Cole Medin doesn't have.
 - Hook timeouts were tuned for the dual-KB context.
@@ -177,7 +185,7 @@ The "internal KB" system. Cole Medin adapted Karpathy's pattern to compile Claud
 The most engineering-heavy source. A full TypeScript/Node.js compiler with 4 LLM providers, MCP server, two-phase compilation pipeline, review queue, and 11 lint rules. It targets the raw→wiki pipeline with sophisticated citation tracking and provenance metadata.
 
 **Core concepts adopted:**
-- Enhanced frontmatter with provenance fields: `confidence` (0-1), `provenanceState` (extracted/merged/inferred/ambiguous), `contradictedBy`, `orphaned`
+- Enhanced frontmatter with provenance fields: `confidence` (0-1), `provenanceState` (extracted/merged/inferred/ambiguous), `contradictedBy`, `orphaned` — further expanded with raw source metadata schema (8 types, HTML comment envelope, field tiers)
 - Claim-level citations: `^[file.md]` (paragraph) and `^[file.md:42-58]` (line-range)
 - Page kinds: concept, entity, comparison, overview
 - Multiple lint rules beyond basic broken-links/orphans: broken-citation, malformed-claim-citation, low-confidence, contradicted-page, duplicate-concept, missing-summary, excess-inferred-paragraphs
@@ -221,7 +229,7 @@ The most minimal implementation. A pure prompt-driven architecture where the ent
 **Core concepts adopted:**
 - `ai-research/` directory for AI-discovered web sources (separate from human `raw/`)
 - The `raw/` vs `ai-research/` ownership split: human curates raw/, LLM discovers ai-research/, both immutable once saved
-- "One source, one file" in ai-research/ with frontmatter (url, fetched, summary)
+- "One source, one file" in ai-research/ with frontmatter (url, fetched, summary) — expanded to HTML comment metadata headers with 8 source types and field tiers
 - Obsidian as the read-only IDE with bundled plugins (Dataview, Local Images Plus)
 - Graph view configured to show orphans
 - 3-level index navigation (master-index → topic _index → articles)
@@ -265,25 +273,33 @@ Features that none of the four sources had — purely this project's own additio
 
 | Feature | Description |
 |---------|-------------|
-| **9 specialized agents** | Formalized agent files in `.claude/agents/` with distinct roles, boundaries, and operations. Cole Medin had no agents (prompt-only). Josh Pocock had operations in CLAUDE.md. Atomic Memory had a CLI, not agents. |
+| **8 specialized agents** | Formalized agent files in `.claude/agents/` with distinct roles, boundaries, and operations. Cole Medin had no agents (prompt-only). Josh Pocock had operations in CLAUDE.md. Atomic Memory had a CLI, not agents. Batch-ingester was removed in favor of subagent-driven dispatch. |
 | **wiki-repair agent** | 7 structural repair operations (fix-broken-links, add-backlinks, resolve-orphans, prune-stubs, merge-duplicates, validate-sources, fix-naming). No source had a dedicated repair subsystem. |
 | **sync-check agent** | Verifies consistency across config files, schemas, and agents. No source had cross-file consistency checking. |
 | **context-loader agent** | On-demand rule loading with Guard (enforce CLAUDE.md < 60 lines) and Audit (find duplicated/orphaned/missing rules). No source had prompt health management. |
-| **batch-ingester agent** | Agent SDK-based wrapper for bulk ingestion. Karpathy mentioned batch-ingest; this project implemented it. |
+| **Subagent-driven ingestion** | One fresh wiki-maintainer subagent per source, with review between tasks. Replaces the former batch-ingester agent and `scripts/ingest_external.py`. Higher quality than batch processing — each source gets full interactive attention. |
 | **document-processor agent** | Dedicated agent for segmenting large files into processed/. No source had this. |
 
 ### Lint System
 
 | Feature | Description |
 |---------|-------------|
-| **12+1 merged lint checks** | Combined the best of Cole Medin's 7 checks, Atomic Memory's 11 checks, and Josh Pocock's 7-point lint report into a single 12-check structural + 1 LLM contradiction check. |
+| **13+1 merged lint checks** | Combined the best of Cole Medin's 7 checks, Atomic Memory's 11 checks, and Josh Pocock's 7-point lint report into 13 structural checks + 1 LLM contradiction check. Added: raw-source-metadata (validate HTML comment headers against 8 source types), filename convention (validate processed/crawl/LLM-generated naming patterns). |
 | **Lint severity levels with auto-fixable flag** | Errors (broken links, duplicate concepts, citations), warnings (orphans, stale, contradictions), suggestions (sparse, missing backlinks). Wiki-repair agent handles auto-fixable items. |
+
+### Metadata & Naming
+
+| Feature | Description |
+|---------|-------------|
+| **Raw Source Metadata schema** | 8 source types (web-crawl, web-search, ai-research, ai-research-multi, video-transcript, video-transcript-llm, manual, processed-segment) with HTML comment envelope format and required/recommended/optional field tiers. Two-tier approach: LLM-extracted files must follow the schema, human-curated files are accepted as-is. No source had a formalized metadata schema for raw sources. |
+| **File naming conventions** | Three formalized naming patterns: processed documents (`{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md`), deep crawl (`{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md`), and LLM-generated (`{slug}-{YYYY-MM-DD}.md`). All enforce date-at-end convention. No source had standardized naming rules for source files. |
+| **Filename convention lint** | Check #13 validates LLM-generated files follow naming patterns; skips human-curated files without metadata headers. |
 
 ### Scripts
 
 | Feature | Description |
 |---------|-------------|
-| **ingest_external.py** | Bulk ingestion of raw/ and ai-research/ sources into wiki/. Uses Agent SDK with `max_turns=30`. No source had a separate bulk-ingest script (Atomic Memory uses the CLI compile command). |
+| **~~ingest_external.py~~** (removed) | Was bulk ingestion of raw/ and ai-research/ sources into wiki/. Replaced by subagent-driven dispatch. |
 | **Dual-KB query** | query.py searches both `wiki/` and `knowledge/` in a single operation. No source had a unified query across two KBs. |
 
 ### Documentation
@@ -303,11 +319,11 @@ Where this project significantly diverged from any source's approach:
 |------|----------------|------------------------|-----|
 | **Language** | Atomic Memory: TypeScript/Node.js | Python | Consistency with Cole Medin's scripts; Agent SDK is Python-native; avoids Node.js dependency |
 | **Automation** | Josh Pocock: pure prompt (no scripts/hooks) | Hooks + Agent SDK scripts | Mechanical enforcement is more reliable than prompt-only instructions; flush system needs background processes |
-| **Lint** | Cole Medin: 7 checks; Atomic Memory: 11 checks; Josh Pocock: 7-point manual report | Merged 12+1 checks | Take the strongest structural checks from each source; add one LLM contradiction check |
+| **Lint** | Cole Medin: 7 checks; Atomic Memory: 11 checks; Josh Pocock: 7-point manual report | Merged 13+1 checks | Take the strongest structural checks from each source; add raw-source-metadata validation, filename convention check, and one LLM contradiction check |
 | **Schema storage** | Atomic Memory: `.llmwiki/schema.json`; Josh Pocock: single CLAUDE.md | Convention-based (AGENTS.md + schema/*.md) | Markdown is easier for the LLM to read and edit than JSON; matches the wiki's own format |
 | **Page kinds** | Atomic Memory: concept, entity, comparison, overview | concept, entity, summary, qanda, synthesis | Different page taxonomy: `summary` for source-level summaries (from Josh Pocock), `qanda` for filed queries (from Cole Medin), `synthesis` for the evolving thesis (unique) |
 | **Frontmatter** | Cole Medin: minimal (title, sources, created, updated); Atomic Memory: full provenance | Merged: required (title, summary, type, sources, tags, created, updated) + optional provenance (confidence, provenance, contradictedBy, orphaned) | Best of both: required fields ensure minimum quality, optional provenance enables epistemic tracking |
-| **Ingestion** | Josh Pocock: manual (human says "compile"); Atomic Memory: CLI command | Agent SDK scripts (ingest_external.py, compile.py) + batch-ingester agent | Automation reduces human effort; Agent SDK gives the LLM direct file I/O tools |
+| **Ingestion** | Josh Pocock: manual (human says "compile"); Atomic Memory: CLI command | Subagent-driven dispatch (one wiki-maintainer per source, review between tasks) | Higher quality than batch — each source gets full interactive attention with cross-referencing and provenance tracking |
 | **Query** | All sources: single-KB query | Dual-KB query (wiki + knowledge) | Both KBs may contain relevant information; unified query avoids the user deciding which KB to search |
 | **Context injection** | Cole Medin: knowledge/index.md only | Knowledge index + daily log + sync-check reminder | More context at session start; sync-check catches drift early |
 | **Citations** | Josh Pocock: `**Source:**` inline; Atomic Memory: `^[file.md]` footnote | `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` in footnote style with full path | Full path enables lint to verify source existence; line ranges enable paragraph-level provenance |
@@ -375,9 +391,11 @@ Karpathy Gist (concept)
                     ▼
               THIS PROJECT
               ├── Dual KB architecture (unique)
-              ├── 9 specialized agents (unique)
-              ├── 12+1 merged lint checks (merged from all)
-              ├── Agent SDK batch ingestion (unique)
+              ├── 8 specialized agents (unique)
+              ├── 13+1 merged lint checks (merged from all)
+              ├── Subagent-driven ingestion (unique, replaces batch-ingester)
+              ├── Raw Source Metadata schema with 8 types (unique)
+              ├── File naming conventions (unique)
               ├── Split documentation model (unique)
               ├── processed/ directory (unique)
               ├── sync-check + context-loader agents (unique)
