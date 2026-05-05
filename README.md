@@ -591,6 +591,18 @@ docker start crawl4ai      # Start it again
 docker restart crawl4ai    # Restart (stop + start in one command)
 ```
 
+### Obsidian Clipper
+
+Browser extension (Firefox) for extracting single-page articles or threads directly into your Obsidian vault.
+
+**Why:** Quickly capture web content in one click without running a full crawl — ideal for one-off sources that don't warrant a Crawl4AI session.
+
+**Setup:**
+
+1. Install [Obsidian Clipper](https://obsidian.md/clipper) for Firefox
+2. Point it to your vault folder
+3. Click the Obsidian icon in your browser toolbar to clip any page as Markdown
+
 ---
 
 ## Files You Should Read
