@@ -389,26 +389,26 @@ npx -y ccstatusline@latest
 
 4. To match the example output above, add these widgets in order:
 
-| Widget | What it shows | Config key |
-|---|---|---|
-| **Model** | Current model name (e.g. `glm-5.1:cloud`) | `r` toggles raw value mode |
-| **Context Length** | Context window size (e.g. `103.0k`) | Raw value mode for compact display |
-| **Context %** | Context used percentage (e.g. `52.0%`) | Press `u` to toggle used/remaining |
-| **Session Cost** | Session cost in USD (e.g. `$55.31`) | Requires CC 1.0.85+ |
-| **Session Clock** | Elapsed session time (e.g. `2hr 22m`) | Raw value mode for compact display |
-| **Git Branch** | Current branch (e.g. `main`) | Press `h` to hide when not in git repo |
-| **Git Worktree** | Active worktree name | Shows when in a worktree |
+| Widget             | What it shows                             | Config key                             |
+| ------------------ | ----------------------------------------- | -------------------------------------- |
+| **Model**          | Current model name (e.g. `glm-5.1:cloud`) | `r` toggles raw value mode             |
+| **Context Length** | Context window size (e.g. `103.0k`)       | Raw value mode for compact display     |
+| **Context %**      | Context used percentage (e.g. `52.0%`)    | Press `u` to toggle used/remaining     |
+| **Session Cost**   | Session cost in USD (e.g. `$55.31`)       | Requires CC 1.0.85+                    |
+| **Session Clock**  | Elapsed session time (e.g. `2hr 22m`)     | Raw value mode for compact display     |
+| **Git Branch**     | Current branch (e.g. `main`)              | Press `h` to hide when not in git repo |
+| **Git Worktree**   | Active worktree name                      | Shows when in a worktree               |
 
 5. Widget editor keybinds:
 
-| Key | Action |
-|---|---|
-| `a` | Add widget |
-| `i` | Insert widget before selected |
-| `d` | Delete selected widget |
-| `Enter` | Enter/exit move mode (reorder) |
-| `r` | Toggle raw value mode (hides labels) |
-| `m` | Cycle merge mode (off → merge → merge no padding) |
+| Key     | Action                                            |
+| ------- | ------------------------------------------------- |
+| `a`     | Add widget                                        |
+| `i`     | Insert widget before selected                     |
+| `d`     | Delete selected widget                            |
+| `Enter` | Enter/exit move mode (reorder)                    |
+| `r`     | Toggle raw value mode (hides labels)              |
+| `m`     | Cycle merge mode (off → merge → merge no padding) |
 
 6. Settings are saved to `~/.config/ccstatusline/settings.json`. You can also edit this file directly or specify a custom path with `--config /path/to/settings.json`.
 
@@ -479,38 +479,38 @@ npm install -g @musistudio/claude-code-router
 
 ```json
 {
-  "Providers": [
-    {
-      "name": "ollama",
-      "api_base_url": "http://localhost:11434/v1/chat/completions",
-      "api_key": "ollama",
-      "models": ["qwen2.5-coder:latest"]
-    },
-    {
-      "name": "openrouter",
-      "api_base_url": "https://openrouter.ai/api/v1/chat/completions",
-      "api_key": "sk-or-xxx",
-      "models": [
-        "anthropic/claude-sonnet-4",
-        "google/gemini-2.5-pro-preview"
-      ],
-      "transformer": { "use": ["openrouter"] }
-    },
-    {
-      "name": "deepseek",
-      "api_base_url": "https://api.deepseek.com/chat/completions",
-      "api_key": "sk-xxx",
-      "models": ["deepseek-chat", "deepseek-reasoner"],
-      "transformer": { "use": ["deepseek"] }
-    }
-  ],
-  "Router": {
-    "default": "ollama,qwen2.5-coder:latest",
-    "background": "ollama,qwen2.5-coder:latest",
-    "think": "deepseek,deepseek-reasoner",
-    "longContext": "openrouter,google/gemini-2.5-pro-preview",
-    "longContextThreshold": 60000
-  }
+	"Providers": [
+		{
+			"name": "ollama",
+			"api_base_url": "http://localhost:11434/v1/chat/completions",
+			"api_key": "ollama",
+			"models": ["qwen2.5-coder:latest"]
+		},
+		{
+			"name": "openrouter",
+			"api_base_url": "https://openrouter.ai/api/v1/chat/completions",
+			"api_key": "sk-or-xxx",
+			"models": [
+				"anthropic/claude-sonnet-4",
+				"google/gemini-2.5-pro-preview"
+			],
+			"transformer": { "use": ["openrouter"] }
+		},
+		{
+			"name": "deepseek",
+			"api_base_url": "https://api.deepseek.com/chat/completions",
+			"api_key": "sk-xxx",
+			"models": ["deepseek-chat", "deepseek-reasoner"],
+			"transformer": { "use": ["deepseek"] }
+		}
+	],
+	"Router": {
+		"default": "ollama,qwen2.5-coder:latest",
+		"background": "ollama,qwen2.5-coder:latest",
+		"think": "deepseek,deepseek-reasoner",
+		"longContext": "openrouter,google/gemini-2.5-pro-preview",
+		"longContextThreshold": 60000
+	}
 }
 ```
 
@@ -566,23 +566,109 @@ Unified API gateway to 200+ models from Anthropic, Google, Meta, Mistral, and mo
 
 #### Crawl4AI
 
+**Why:**
+
 ---
 
 #### Steps (Easy Docker Version)
 
 - **Preferred method**
+
 - This docker instance can be spun and used across multiple project
 
 - Download and install Install docker desktop for Windows
     - [Download Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-#### Steps (Local Project)
+1. Create
+
+2. Create a `.llm.env` file in your project root:
+
+```env
+# .llm.env
+OPENAI_API_KEY=sk-or-your-openrouter-key
+OPENAI_BASE_URL=https://openrouter.ai/api/v1
+
+# Default model (use any OpenRouter model string)
+LLM_PROVIDER=openai/gpt-4o
+LLM_TEMPERATURE=0.7
+```
+
+> ⚠️ Never commit `.llm.env` to version control. Add it to `.gitignore`.
+
+3. Run the container with the env file attached:
+   **macOS / Linux (bash):**
+
+```bash
+docker run -d \
+  -p 11235:11235 \
+  --name crawl4ai \
+  --env-file .llm.env \
+  --shm-size=1g \
+  unclecode/crawl4ai:latest
+```
+
+**Windows (PowerShell):**
 
 ```powershell
-# Force install into the active venv's Python directly
-python -m pip install "crawl4ai[all]"
+docker run -d `
+  -p 11235:11235 `
+  --name crawl4ai `
+  --env-file .llm.env `
+  --shm-size=1g `
+  unclecode/crawl4ai:latest
+```
 
-# Then run setup
-python -m pip install playwright
-python -m playwright install chromium
+4. Connect Claude Code via MCP
+
+Run this inside your project directory:
+
+```bash
+claude mcp add crawl4ai --url http://localhost:11235/mcp
+```
+
+Verify it's connected:
+
+```bash
+claude mcp list
+```
+
+You should see `crawl4ai` listed. Claude Code will now be able to call crawl4ai tools directly during conversations.
+
+> ⚠️ Always start the Docker container before opening a Claude Code session. MCP connections are established at startup.
+
+5. Use Crawl4AI via prompt
+
+All of these would trigger the `crawl` tool:
+
+```
+Crawl https://example.com
+Scrape https://example.com
+Fetch all content from https://example.com
+Pull the page at https://example.com
+```
+
+All of these would trigger a deep/recursive crawl:
+
+```
+Deep crawl https://docs.example.com
+Crawl the entire site at https://docs.example.com
+Index all pages under https://docs.example.com
+Crawl https://docs.example.com up to 3 levels deep
+```
+
+6. Start and stop docker
+
+### Stop & Start
+
+**CLI:**
+
+```bash
+# Stop the container (keeps it, just pauses it)
+docker stop crawl4ai
+
+# Start it again
+docker start crawl4ai
+
+# Restart (stop + start in one command)
+docker restart crawl4ai
 ```
