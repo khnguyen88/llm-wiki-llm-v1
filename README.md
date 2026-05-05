@@ -2,12 +2,42 @@
 
 **Your AI conversations compile themselves into a searchable knowledge base. External sources compile into a wiki.**
 
-This project implements **two parallel systems** based on Karpathy's LLM Knowledge Base pattern:
+This project implements **two parallel systems** based on Karpathy's LLM Knowledge Base pattern. Both use the same core insight: instead of RAG (rediscovering knowledge on every query), the LLM **incrementally builds and maintains a persistent wiki** that compacts knowledge over time.
 
-1. **External Knowledge Base (wiki/)**: Web articles, papers, repos, and datasets compiled by the LLM into a structured wiki
-2. **Internal Knowledge Base (knowledge/)**: Your Claude Code conversations compiled into a searchable knowledge base
+---
 
-Both use the same core insight: instead of RAG (rediscovering knowledge on every query), the LLM **incrementally builds and maintains a persistent wiki** that compacts knowledge over time.
+## External Knowledge Base (`wiki/`)
+
+Web articles, papers, repos, and datasets compiled by the LLM into a structured wiki. The LLM reads a structured `index.md` to find relevant articles — no vector search needed.
+
+```
+Raw sources (articles, papers, repos) -> [large files] -> processed/ (segmented markdown)
+                                         -> [small files]  -> wiki/
+AI-discovered sources (ai-research/) -> [small files]  -> wiki/
+    -> index.md, entities/, concepts/, summaries/, qanda/
+        -> Query against index (no RAG needed)
+```
+
+| Directory             | Purpose                                                    |
+| --------------------- | ---------------------------------------------------------- |
+| **raw/**              | Source documents (read-only for LLM)                       |
+| **ai-research/**      | AI-discovered web sources (LLM-writes, immutable once saved) |
+| **processed/**        | Segmented markdown from large raw files (PDFs, long reports) broken into LLM-sized parts |
+| **wiki/**             | LLM-generated markdown (index, entities, concepts, summaries, qanda, synthesis) |
+
+## Internal Knowledge Base (`knowledge/`)
+
+Your Claude Code conversations compiled into a searchable knowledge base. Hooks automatically capture sessions, compile them into knowledge articles, and inject context back into future sessions.
+
+```
+Conversations -> Hooks -> daily/ -> compile.py -> knowledge/
+    -> SessionStart injects index -> cycle repeats
+```
+
+| Directory         | Purpose                                           |
+| ----------------- | ------------------------------------------------- |
+| **daily/**        | Conversation logs (read-only for LLM)             |
+| **knowledge/**    | Compiled knowledge (index, concepts, connections, qa) |
 
 ---
 
@@ -23,37 +53,6 @@ The agent will:
 2. Process sources from `raw/` into the `wiki/` folder
 3. Update `wiki/index.md` and `wiki/log.md`
 4. Create entity, concept, and summary pages
-
----
-
-## How It Works
-
-### External Knowledge Base (Karpathy's Pattern)
-
-```
-Raw sources (articles, papers, repos) -> [large files] -> processed/ (segmented markdown)
-                                         -> [small files]  -> wiki/
-AI-discovered sources (ai-research/) -> [small files]  -> wiki/
-    -> index.md, entities/, concepts/, summaries/, qanda/
-        -> Query against index (no RAG needed)
-```
-
-- **raw/**: Source documents (read-only for LLM)
-- **ai-research/**: AI-discovered web sources (LLM-writes, immutable once saved)
-- **processed/**: Segmented markdown from large raw files (PDFs, long reports) broken into LLM-sized parts
-- **wiki/**: LLM-generated markdown (index, entities, concepts, summaries, qanda, synthesis)
-- **schema/WIKI_AGENTS.md**: Defines LLM as wiki maintainer
-
-### Internal Knowledge Base (claude-memory-compiler)
-
-```
-Conversations -> Hooks -> daily/ -> compile.py -> knowledge/
-    -> SessionStart injects index -> cycle repeats
-```
-
-- **daily/**: Conversation logs (read-only for LLM)
-- **knowledge/**: Compiled knowledge (index, concepts, connections, qa)
-- **AGENTS.md**: Defines LLM as compiler
 
 ---
 
@@ -87,10 +86,10 @@ llm-wiki-llm-v1/
 │   ├── repos/
 │   ├── datasets/
 │   ├── assets/
-│   ├── document/                 # Segmented document sources
-│   ├── web/                      # Segmented web sources
-│   ├── forum-thread/             # Segmented forum discussions
-│   └── transcripts/              # Segmented conversation transcripts
+│   ├── document/
+│   ├── web/
+│   ├── forum-thread/
+│   └── transcripts/
 ├── wiki/                         # External knowledge base (LLM-owned)
 │   ├── index.md                  #   Master catalog
 │   ├── sources-manifest.md       #   Source tracking (raw/ai-research/processed → wiki status)
@@ -118,7 +117,7 @@ llm-wiki-llm-v1/
 │   ├── lint.py                   #   Health checks
 │   ├── flush.py                  #   Extract memories (background)
 │   ├── config.py                 #   Path constants
-│   ├── utils.py                  #   Shared helpers
+│   └── utils.py                  #   Shared helpers
 ├── hooks/                        # Claude Code hooks
 │   ├── session-start.py
 │   ├── session-end.py
@@ -179,27 +178,13 @@ Karpathy's insight: at personal scale (50-500 articles), the LLM reading a struc
 
 ---
 
-## Obsidian Integration
+## The Core Idea
 
-Both knowledge bases work natively in Obsidian:
+**Most people use RAG**: Upload files, LLM retrieves chunks at query time, generates answer. The LLM rediscovers knowledge from scratch on every question.
 
-- **Graph View**: Visualize connections
-- **Dataview**: Query frontmatter for dynamic tables
-- **Marp**: Generate slide decks
-- **Backlinks**: Automatically maintained via `[[wikilinks]]`
+**Your approach**: The LLM incrementally builds a persistent wiki. When you add a new source, the LLM reads it, extracts key information, and integrates it into the existing wiki. The knowledge is compiled once and kept current.
 
----
-
-## Files You Should Read
-
-| File                         | Purpose                                                 |
-| ---------------------------- | ------------------------------------------------------- |
-| **AGENTS.md**                | Internal KB schema — how the LLM compiles conversations |
-| **schema/WIKI_AGENTS.md**    | External KB schema — how the LLM maintains the wiki     |
-| **schema/WIKI_SCHEMA.md**    | File formats and conventions for the external wiki      |
-| **schema/WIKI_WORKFLOWS.md** | Ingest, Query, Lint, and Research workflows             |
-| **.claude/agents/**          | Project-specific Claude Code agents                     |
-| **CLAUDE.md**                | Project instructions for Claude Code sessions           |
+**The key difference**: The wiki is a **persistent, compounding artifact**. The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've read. The wiki keeps getting richer with every source you add and every question you ask.
 
 ---
 
@@ -216,21 +201,11 @@ Both knowledge bases work natively in Obsidian:
 
 ---
 
-## The Core Idea
-
-**Most people use RAG**: Upload files, LLM retrieves chunks at query time, generates answer. The LLM rediscoveres knowledge from scratch on every question.
-
-**Your approach**: The LLM incrementally builds a persistent wiki. When you add a new source, the LLM reads it, extracts key information, and integrates it into the existing wiki. The knowledge is compiled once and kept current.
-
-**The key difference**: The wiki is a **persistent, compounding artifact**. The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've read. The wiki keeps getting richer with every source you add and every question you ask.
-
----
-
 ## Sources & Integration
 
-This project fuses four open-source projects, each contributing a distinct layer:
+This project fuses four open-source projects, each contributing a distinct layer.
 
-### 1. Karpathy's LLM Wiki Pattern (Base)
+### Karpathy's LLM Wiki Pattern (Base)
 
 - [Karpathy's LLM Wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) / [Original tweet](https://x.com/karpathy/status/2039805659525644595)
 
@@ -238,7 +213,7 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 **Why we integrated it:** At personal scale (50-500 articles), index-guided retrieval outperforms vector similarity because the LLM understands what you're asking, not just what words look similar. This is the core thesis the entire project is built on.
 
-### 2. Cole Medin's claude-memory-compiler (Internal KB)
+### Cole Medin's claude-memory-compiler (Internal KB)
 
 - [github.com/coleam00/claude-memory-compiler](https://github.com/coleam00/claude-memory-compiler) / [YouTube walkthrough](https://www.youtube.com/watch?v=7huCP6RkcY4)
 
@@ -246,7 +221,7 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 **Why we integrated it:** Karpathy's pattern handles external sources only. Cole's system adds the missing half — automatically capturing and compiling your own AI conversations into a searchable internal KB, then injecting that context back into future sessions.
 
-### 3. Atomic Memory's llm-wiki-compiler (Schema & Quality)
+### Atomic Memory's llm-wiki-compiler (Schema & Quality)
 
 - [github.com/atomicmemory/llm-wiki-compiler](https://github.com/atomicmemory/llm-wiki-compiler)
 
@@ -254,7 +229,7 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 **Why we integrated it:** Karpathy's pattern has no quality gates. Atomic Memory adds provenance tracking (where a claim came from, how confident it is, whether it's been contradicted) and a linter that catches stale, orphaned, or contradictory content — essential when the wiki compounds over time.
 
-### 4. Josh Pocock's karpathy-obsidian-vault (Visualization)
+### Josh Pocock's karpathy-obsidian-vault (Visualization)
 
 - [github.com/joshpocock/karpathy-obsidian-vault](https://github.com/joshpocock/karpathy-obsidian-vault)
 
@@ -264,109 +239,81 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 ---
 
-## How to Get Started
+## Obsidian Integration
 
-### Github Repo
+Both knowledge bases work natively in Obsidian:
 
-#### Why
+- **Graph View**: Visualize connections
+- **Dataview**: Query frontmatter for dynamic tables
+- **Marp**: Generate slide decks
+- **Backlinks**: Automatically maintained via `[[wikilinks]]`
 
-- We want to create a remote repository of our wiki LLM vault in the event that we lose it.
+---
 
-#### Steps
+## Setup Guide
 
-- Create a new Github repo
-    - Include a **README.md** and **.gitignore**
+### GitHub Repository
 
-- Clone github repo to locally (create local git repository)
+**Why:** Create a remote repository to back up your wiki vault in case of data loss.
 
-- Open project folder in VS Code
+1. Create a new GitHub repo — include a **README.md** and **.gitignore**
+2. Clone the GitHub repo locally
+3. Open the project folder in VS Code
 
 ### Karpathy LLM Wiki / Vault Template
 
-#### Why
+**Why:** This is the basis of the project folder. It contains markdown files that an LLM harness uses to build the project infrastructure. A template ensures consistency throughout the project.
 
-- This is the basis of our Karpathy LLM Project Folder. This folder contains markdown files that an LLM harness can use to build up the project infrastructure
-
-- We use a template to ensure that it is consistent throughout the project
-
-#### Steps
-
-- In the project folder create a directory called "init_source"
-
-- Download these files into the directory:
-    - [Karpathy's Wiki LLM markdown](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
-    - [Karpathy's Original Tweet on Wiki LLM](https://x.com/i/flow/login?redirect_after_login=%2Fkarpathy%2Fthread%2F20398056595256445950)
+1. In the project folder, create a directory called `init_source`
+2. Download these files into the directory:
+   - [Karpathy's Wiki LLM markdown](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+   - [Karpathy's Original Tweet on Wiki LLM](https://x.com/i/flow/login?redirect_after_login=%2Fkarpathy%2Fthread%2F20398056595256445950)
 
 ### Cole Medin Extension (claude-memory-compiler)
 
-#### Why
+**Why:** Expands Karpathy's Wiki LLM to extrapolate, log, and summarize daily work activities. Includes tools and hooks for linting the wiki and maintaining link integrity.
 
-- Expands Karpathy's Wiki LLM to extrapolate, log, and summarize daily work activites. It also has tools and hooks for linting the wiki and maintaining the integrity of the links.
+1. Download files from [Cole Medin's Claude Memory Compiler Repo](https://github.com/coleam00/claude-memory-compiler)
+2. Tell your AI coding agent:
 
-#### Steps
+   > "Clone https://github.com/coleam00/claude-memory-compiler into this project. Set up the Claude Code hooks so my conversations automatically get captured into daily logs, compiled into a knowledge base, and injected back into future sessions. Read the AGENTS.md for the full technical reference on how everything works."
 
-- Download files from [Cole Medin's Claude Memory Compiler Repo](https://github.com/coleam00/claude-memory-compiler)
-
-* Tell your AI coding agent / harness:
-
-    > "Clone https://github.com/coleam00/claude-memory-compiler into this project. Set up the Claude Code hooks so my conversations automatically get captured into daily logs, compiled into a knowledge base, and injected back into future sessions. Read the AGENTS.md for the full technical reference on how everything works."
-
-- Youtube video - https://www.youtube.com/watch?v=7huCP6RkcY4
+3. YouTube walkthrough: <https://www.youtube.com/watch?v=7huCP6RkcY4>
 
 ### Atomic Memory Extension (llm-wiki-compiler)
 
-#### Why
+**Why:** Enhances linting and review with structured page metadata (confidence, provenance, contradiction tracking), claim-level citations, and 4 additional lint checks. No CLI or MCP integration — pure schema and agent enhancements.
 
-- Enhances linting and review with structured page metadata (confidence, provenance, contradiction tracking), claim-level citations, and 4 additional lint checks (missing summary, duplicate concept, malformed citation, broken citation). No CLI or MCP integration — pure schema and agent enhancements.
+1. Download ideas from [Atomic Memory's LLM Wiki Compiler Repo](https://github.com/atomicmemory/llm-wiki-compiler)
+2. Integrated features (no code installation required):
 
-#### Steps
-
-- Download ideas from [Atomic Memory's LLM Wiki Compiler Repo](https://github.com/atomicmemory/llm-wiki-compiler)
-
-* Integrated features (no code installation required):
-
-    > Enhanced frontmatter with `summary`, `created`/`updated` ISO 8601 timestamps, `confidence` (0-1), `provenance` (extracted|merged|inferred|ambiguous), `contradictedBy` (page slugs), and `orphaned` (boolean). Added claim-level citations (`^[raw/articles/source.md]`, `^[raw/articles/source.md:42-58]`). Expanded linter from 8 to 12 checks.
+   > Enhanced frontmatter with `summary`, `created`/`updated` ISO 8601 timestamps, `confidence` (0-1), `provenance` (extracted\|merged\|inferred\|ambiguous), `contradictedBy` (page slugs), and `orphaned` (boolean). Added claim-level citations (`^[raw/articles/source.md]`, `^[raw/articles/source.md:42-58]`). Expanded linter from 8 to 12 checks.
 
 ### Josh Pocock Extension (karpathy-obsidian-vault)
 
-#### Why
+**Why:** Provides the `ai-research/` directory convention for separating human-curated sources from AI-discovered ones, and Obsidian vault integration for visual exploration.
 
-- Provides the `ai-research/` directory convention for separating human-curated sources from AI-discovered ones, and Obsidian vault integration for visual exploration.
-
-#### Steps
-
-- Download files from [Josh Pocock's karpathy-obsidian-vault Repo](https://github.com/joshpocock/karpathy-obsidian-vault)
+1. Download files from [Josh Pocock's karpathy-obsidian-vault Repo](https://github.com/joshpocock/karpathy-obsidian-vault)
 
 ### Obsidian
 
-#### Why
+**Why:** Graphically maps all sources together and provides infrastructure to read documents.
 
-- Graphically maps all of your source together and provide infrastructure to read documents
-
-#### Steps
-
-- Download and install the latest Obisdian program onto your computer
-    - https://obsidian.md/
-
-- Go to Obisidian Manager
-
-- Open the project folder as vault
-
-    > "Open folder as vault"
-
-- This will create an .obsidian folder that will track all of your documents
-
-### Tools to Install
-
-#### ccstatusline
+1. Download and install [Obsidian](https://obsidian.md/)
+2. Open Obsidian and select **Open folder as vault**
+3. Choose the project folder — Obsidian will create an `.obsidian` folder to track all documents
 
 ---
+
+## Tools
+
+### ccstatusline
 
 Real-time session context window monitoring in the Claude Code status bar. Helps manage hallucination risk and output integrity by keeping context utilization visible.
 
 Example output: `Model: glm-5.1:cloud | Ctx: 103.0k | Ctx Used: 52.0% | Cost: $55.31 | Session: 2hr 22m | ⎇ main | 𖠰 main`
 
-#### Steps
+**Setup:**
 
 1. Add to your global Claude Code settings (`~/.claude/settings.json`):
 
@@ -412,15 +359,13 @@ npx -y ccstatusline@latest
 
 6. Settings are saved to `~/.config/ccstatusline/settings.json`. You can also edit this file directly or specify a custom path with `--config /path/to/settings.json`.
 
-#### Superpowers
-
----
+### Superpowers
 
 Structured brainstorming, planning, and execution skills for Claude Code. Enforces discipline: brainstorm before building, write plans before coding, verify before claiming done. Skills include brainstorming, writing-plans, executing-plans, test-driven-development, systematic-debugging, verification-before-completion, and more.
 
-#### Steps
+**Setup:**
 
-- Enable in your global Claude Code settings (`~/.claude/settings.json`):
+1. Enable in your global Claude Code settings (`~/.claude/settings.json`):
 
 ```json
 "enabledPlugins": {
@@ -428,22 +373,21 @@ Structured brainstorming, planning, and execution skills for Claude Code. Enforc
 }
 ```
 
-- Skills are invoked automatically by Claude Code when relevant, or manually via `/brainstorming`, `/writing-plans`, `/executing-plans`, etc.
-
-### Optional Tools
-
-#### Ollama
+2. Skills are invoked automatically by Claude Code when relevant, or manually via `/brainstorming`, `/writing-plans`, `/executing-plans`, etc.
 
 ---
+
+## Optional Tools
+
+### Ollama
 
 Run LLM models locally for background tasks, testing, or cost savings. Ollama serves local models through an OpenAI-compatible API that Claude Code Router can route to.
 
 **Why:** Offload background tasks (linting, summarization, simple queries) to a local model instead of paying per-token for a cloud model. Also useful for air-gapped or offline work.
 
-##### Steps
+**Setup:**
 
 1. Download and install [Ollama](https://ollama.com/)
-
 2. Pull a model:
 
 ```bash
@@ -458,15 +402,13 @@ ollama run qwen2.5-coder
 
 4. Ollama exposes an OpenAI-compatible endpoint at `http://localhost:11434/v1/chat/completions` — configure it as a provider in Claude Code Router (see below).
 
-#### Claude Code Router (ccr)
-
----
+### Claude Code Router (ccr)
 
 Route Claude Code requests to any model — local (Ollama), subscription (OpenRouter, Gemini, DeepSeek), or direct API (Anthropic). Run non-Claude models from within Claude Code with model-aware routing.
 
 **Why:** Use cheaper models for background tasks, reasoning models for plan mode, long-context models for large files, and your primary model for everything else — all from a single `ccr code` command.
 
-##### Steps
+**Setup:**
 
 1. Install [Claude Code](https://docs.anthropic.com/en/docs/claude-code/quickstart) and [Claude Code Router](https://github.com/musistudio/claude-code-router):
 
@@ -542,44 +484,30 @@ eval "$(ccr activate)"
 
 For full documentation, see [github.com/musistudio/claude-code-router](https://github.com/musistudio/claude-code-router).
 
-#### OpenRouter
-
----
+### OpenRouter
 
 Unified API gateway to 200+ models from Anthropic, Google, Meta, Mistral, and more. Pay per token across all providers through a single API key.
 
 **Why:** Access any model without managing separate API keys and billing for each provider. Works directly with Claude Code Router as a provider.
 
-##### Steps
+**Setup:**
 
 1. Create an account at [openrouter.ai](https://openrouter.ai/)
-
 2. Generate an API key from your [OpenRouter keys page](https://openrouter.ai/settings/keys)
-
 3. Add as a provider in `~/.claude-code-router/config.json` (see Claude Code Router config above)
-
 4. OpenRouter models support online search by appending `:online` to the model name:
 
 ```json
 "models": ["anthropic/claude-sonnet-4:online"]
 ```
 
-#### Crawl4AI
+### Crawl4AI
 
-**Why:**
+Web crawling service for the LLM, exposed via MCP and a REST API. The preferred method is the Docker version, which can be shared across multiple projects.
 
----
+**Setup (Docker):**
 
-#### Steps (Easy Docker Version)
-
-- **Preferred method**
-
-- This docker instance can be spun and used across multiple project
-
-- Download and install Install docker desktop for Windows
-    - [Download Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
-
-1. Create
+1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 2. Create a `.llm.env` file in your project root:
 
@@ -596,7 +524,8 @@ LLM_TEMPERATURE=0.7
 > ⚠️ Never commit `.llm.env` to version control. Add it to `.gitignore`.
 
 3. Run the container with the env file attached:
-   **macOS / Linux (bash):**
+
+**macOS / Linux (bash):**
 
 ```bash
 docker run -d \
@@ -618,9 +547,7 @@ docker run -d `
   unclecode/crawl4ai:latest
 ```
 
-4. Connect Claude Code via MCP
-
-Run this inside your project directory:
+4. Connect Claude Code via MCP. Run this inside your project directory:
 
 ```bash
 claude mcp add crawl4ai --url http://localhost:11235/mcp
@@ -638,7 +565,7 @@ You should see `crawl4ai` listed. Claude Code will now be able to call crawl4ai 
 
 5. Use Crawl4AI via prompt
 
-All of these would trigger the `crawl` tool:
+All of these trigger the `crawl` tool:
 
 ```
 Crawl https://example.com
@@ -647,7 +574,7 @@ Fetch all content from https://example.com
 Pull the page at https://example.com
 ```
 
-All of these would trigger a deep/recursive crawl:
+All of these trigger a deep/recursive crawl:
 
 ```
 Deep crawl https://docs.example.com
@@ -656,19 +583,23 @@ Index all pages under https://docs.example.com
 Crawl https://docs.example.com up to 3 levels deep
 ```
 
-6. Start and stop docker
-
-### Stop & Start
-
-**CLI:**
+**Stop & Start:**
 
 ```bash
-# Stop the container (keeps it, just pauses it)
-docker stop crawl4ai
-
-# Start it again
-docker start crawl4ai
-
-# Restart (stop + start in one command)
-docker restart crawl4ai
+docker stop crawl4ai       # Stop the container (keeps it, just pauses it)
+docker start crawl4ai      # Start it again
+docker restart crawl4ai    # Restart (stop + start in one command)
 ```
+
+---
+
+## Files You Should Read
+
+| File                         | Purpose                                                 |
+| ---------------------------- | ------------------------------------------------------- |
+| **AGENTS.md**                | Internal KB schema — how the LLM compiles conversations |
+| **schema/WIKI_AGENTS.md**    | External KB schema — how the LLM maintains the wiki     |
+| **schema/WIKI_SCHEMA.md**    | File formats and conventions for the external wiki      |
+| **schema/WIKI_WORKFLOWS.md** | Ingest, Query, Lint, and Research workflows             |
+| **.claude/agents/**          | Project-specific Claude Code agents                     |
+| **CLAUDE.md**                | Project instructions for Claude Code sessions           |
