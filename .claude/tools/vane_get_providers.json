@@ -1,0 +1,6 @@
+{
+	"name": "vane_get_providers",
+	"type": "shell",
+	"description": "Calls the Vane API providers endpoint to obtain provider IDs and model keys required for vane web search.",
+	"command": "uv run python .claude/scripts/vane_get_providers.py"
+}

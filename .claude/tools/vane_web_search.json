@@ -1,0 +1,6 @@
+{
+	"name": "vane_web_search",
+	"type": "shell",
+	"description": "Calls the Vane API web search endpoint with provider IDs, model keys, and a query. Must get avaliable providers first. Use the appropiate and best chat and embedding models possible",
+	"command": "uv run python .claude/scripts/vane_web_search.py {{chat_model_provider_id}} {{chat_model_key}} {{embedding_model_provider_id}} {{embedding_model_key}} {{web_search_query}}"
+}
