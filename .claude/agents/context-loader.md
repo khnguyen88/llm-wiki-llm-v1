@@ -26,6 +26,8 @@ When a task needs specific domain knowledge, load the relevant source and presen
 | Lint check definitions | `.claude/agents/wiki-linter.md` |
 | Query/retrieval process | `.claude/agents/wiki-query.md` |
 | Directory sync validation | `.claude/agents/sync-check.md` |
+| Quick web search | `.claude/agents/web-search.md` |
+| Deep web research + save | `.claude/agents/ai-research.md` |
 | Full directory tree with subfolders | `schema/WIKI_SCHEMA.md` → Directory Structure |
 | Script flags and CLI usage | `AGENTS.md` → Script Details |
 | Hook configuration | `.claude/settings.json` |
