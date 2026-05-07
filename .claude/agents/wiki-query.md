@@ -25,6 +25,20 @@ Choose the best format for the question:
 - **Slide deck (Marp)** — For presentation-ready output
 - **Chart/diagram** — For visualizing relationships
 
+## Gap Filling
+
+When the KB cannot answer a question from existing sources and the gap could be filled by web research:
+
+1. **Detect the gap** — After reading all relevant pages, if the answer is incomplete or missing, explicitly state: "The knowledge base doesn't have enough information to fully answer this question about [topic]."
+
+2. **Ask the user** — Present the option: "I could search the web for this. Which would you like?"
+   - **Quick search** — Invoke the `web-search` agent for ephemeral results (no saving)
+   - **Deep research** — Invoke the `ai-research` agent for persistent results (saves to ai-research/, then can be ingested into wiki/)
+
+3. **Wait for approval** — Do NOT invoke either agent without explicit user approval.
+
+4. **After research** — If ai-research was used, the saved source can then be ingested into `wiki/` via the `wiki-maintainer` agent using the standard Ingest workflow.
+
 ## Filing Back (Compounding Knowledge)
 
 When an answer is valuable and non-trivial:
@@ -48,7 +62,7 @@ uv run python scripts/query.py "question" --file-back  # save answer back to KB
 ## Guidelines
 
 - Always start from the index — never scan directories blindly
-- If the KB doesn't have enough to answer, say so and suggest sources to ingest from `raw/` or `ai-research/` (subfolders: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) or `processed/`
+- If the KB doesn't have enough to answer, say so and offer to invoke the `web-search` agent (quick, ephemeral) or `ai-research` agent (deep, saves to KB), or suggest ingesting from existing `raw/` or `ai-research/` sources (subfolders: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) or `processed/`
 - Distinguish between what the KB says vs. your general knowledge
 - Never invent claims — flag gaps in `## Open Questions` rather than speculating
 - Don't invent operations — ask for clarification when outside defined rules
