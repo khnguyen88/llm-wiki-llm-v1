@@ -34,6 +34,8 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 | `wiki-linter`        | "Lint the wiki", "Run health check"                          |
 | `wiki-repair`        | "Fix broken links", "Resolve orphans", "Repair lint errors"  |
 | `wiki-query`         | Questions about compiled knowledge                           |
+| `web-search`        | "Search the web for X", "Quick fact-check on X"               |
+| `ai-research`       | "Research X and save it", "Deep research on X"                 |
 | `sync-check`         | After structural changes to dirs/schemas/agents              |
 | `context-loader`     | "Load rules for X", "Audit CLAUDE.md", "Guard prompt health" |
 
