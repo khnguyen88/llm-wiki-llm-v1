@@ -73,6 +73,7 @@ When re-researching an existing topic, the old file is deleted and replaced enti
 ## Key Principles
 
 - **Always deep** — crawl4ai follow-up is mandatory, not optional
+- **Prioritize recency** — include the current year (and month if topical) in search queries (e.g., "DeepSeek V4 2026" not just "DeepSeek"). When the user asks for "latest" or "current" info, the query must contain date hints. If results clearly reference outdated versions or stale data, flag the staleness and re-search with a more specific query including version numbers or dates.
 - **Always include all sources** — do not filter, truncate, or cherry-pick the Sources list; every source returned by the vane tool must be preserved
 - **Always save to `ai-research/web/`** — this agent exists to persist research
 - **Always lint after saving** — validate the file passes lint checks

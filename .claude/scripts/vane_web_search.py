@@ -22,7 +22,7 @@ def call_api(chat_model_provider_id, chat_model_key, embedding_model_provider_id
         "sources": ["web", "academic"],
         "query": web_search_query,
         "history": [],
-        "systemInstructions": "Include the original message and source contents just cleaned up, but be sure to include inline citations using [n] notation referencing numbered sources. After the main response, add a References section listing each source with its number, title, published date of sources (if possible), and URL. Provide metadata such as search/fetch date, api/tool used.",
+        "systemInstructions": "Prioritize recently published sources. When multiple sources cover the same topic, prefer the one with the most recent publication date. Always include published dates in citations. If a source is more than 90 days old and a newer source exists, prefer the newer source. Include the original message and source contents just cleaned up, but be sure to include inline citations using [n] notation referencing numbered sources. After the main response, add a References section listing each source with its number, title, published date of sources (if possible), and URL. Provide metadata such as search/fetch date, api/tool used.",
         "stream": False
     }
 

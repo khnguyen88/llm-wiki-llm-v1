@@ -54,6 +54,7 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 - Naming: snake_case for entities/concepts, kebab-case for summaries/qanda
 - Dates: ISO 8601 with timestamps (`"2026-04-05T12:00:00Z"`)
 - Style: encyclopedia-style, factual, concise
+- Git commits: never include AI attribution (Co-Authored-By, Generated with, etc.) — commit messages must be AI-free
 
 ## On-Demand Details
 

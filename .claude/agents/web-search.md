@@ -54,6 +54,7 @@ If Vane is unavailable (script errors, missing dependencies, API down, or provid
 ## Key Principles
 
 - **Prefer Vane** — use `vane_web_search` as the primary search tool; fall back to built-in `WebSearch` only when Vane is unavailable
+- **Prioritize recency** — include the current year (and month if topical) in search queries (e.g., "DeepSeek V4 2026" not just "DeepSeek"). When the user asks for "latest" or "current" info, the query must contain date hints. If results clearly reference outdated versions or stale data, flag the staleness and re-search with a more specific query including version numbers or dates.
 - **Never save files** — this agent is ephemeral, it returns results to the caller
 - **Always present vane output verbatim** per the tool description — schema header, message body, and all Sources (do not filter or truncate the Sources list)
 - **Every factual claim must have an inline citation** `[N]` tying it to a specific source — a bare Sources section at the end is not enough
