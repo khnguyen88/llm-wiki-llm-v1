@@ -67,6 +67,8 @@ See `schema/WIKI_WORKFLOWS.md` → Lint Workflow for the full 12-check specifica
 
 ### 4. Research Workflow
 
+Use `web-search` for quick ephemeral lookups, or `ai-research` for persistent deep research that saves to the KB.
+
 See `schema/WIKI_WORKFLOWS.md` → Research Workflow.
 
 ## Key Principles
@@ -123,6 +125,43 @@ The wiki is designed to be viewed in Obsidian:
 **Key boundary:** Wiki-repair does NOT create new content from sources (that is wiki-maintainer's job). It only fixes structural defects in existing content.
 
 Full definition: `.claude/agents/wiki-repair.md`
+
+---
+
+## Web Search Agent
+
+**File**: `.claude/agents/web-search.md`
+
+**Role**: Ephemeral web search using the Vane API. Returns results to the caller without saving files.
+
+**When to invoke**: "Search the web for X", "Quick fact-check on X"
+
+**Operations**:
+1. **Get providers** — Run `vane_get_providers` to fetch available provider IDs and model keys
+2. **Search** (shallow, default) — Run `vane_web_search` with the query, present full output verbatim
+3. **Deep search** (optional) — After vane results, crawl top 3-5 source URLs via crawl4ai for full content
+
+**Key principle**: Never save files. Returns results to the caller. The caller decides what to do with them.
+
+---
+
+## AI Research Agent
+
+**File**: `.claude/agents/ai-research.md`
+
+**Role**: Persistent deep research that saves results to `ai-research/web/`, lints, and runs sync-check.
+
+**When to invoke**: "Research X and save it", "Deep research on X"
+
+**Operations**:
+1. **Check existing** — Check `ai-research/web/` for existing files on the same topic (match by slug). If found, delete the old file (prune-and-replace)
+2. **Get providers** — Run `vane_get_providers` to fetch available provider IDs and model keys
+3. **Deep search** — Run `vane_web_search` with `--save` flag, then crawl top 3-5 source URLs via crawl4ai and append deep-dive content
+4. **Add frontmatter** — Add YAML frontmatter at the top of the saved file (before the HTML comment header)
+5. **Lint** — Run `uv run python scripts/lint.py` to validate
+6. **Sync-check** — Invoke sync-check agent for cross-file consistency
+
+**Key principles**: Always deep (crawl4ai is mandatory), always save, always lint, always sync-check. Prune-then-replace on re-research.
 
 ---
 
