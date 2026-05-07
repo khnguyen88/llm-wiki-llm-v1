@@ -57,7 +57,11 @@ Also update **wiki-query** to suggest web-search or ai-research when the KB has 
 
 2. **Deep search** — Execute the deep search: get providers → run `vane_web_search` → crawl top 3-5 source URLs via crawl4ai. Always deep, never shallow.
 
-3. **Save to ai-research** — Write the result to `ai-research/web/{slug}-{YYYY-MM-DD}.md` using the `--save` flag on `vane_web_search`, then append the deep-dive crawled content. Include proper YAML frontmatter:
+3. **Save to ai-research** — Write the result to `ai-research/web/{slug}-{YYYY-MM-DD}.md` using the `--save` flag on `vane_web_search` (which creates the file with HTML comment metadata header + message body + Sources section). Then:
+   - **Add YAML frontmatter** at the very top of the file (before the HTML comment header). The file will have both: YAML frontmatter (wiki page metadata) and HTML comment metadata header (provenance metadata per WIKI_SCHEMA.md).
+   - **Append deep-dive content** from crawl4ai after the Sources section.
+
+   The YAML frontmatter should be:
 
    ```yaml
    ---
