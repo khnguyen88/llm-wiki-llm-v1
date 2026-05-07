@@ -1,6 +1,7 @@
 {
 	"name": "vane_web_search",
 	"type": "shell",
-	"description": "Calls the Vane API web search endpoint with provider IDs, model keys, and a query. Must get avaliable providers first. Use the appropiate and best chat and embedding models possible",
-	"command": "uv run python .claude/scripts/vane_web_search.py {{chat_model_provider_id}} {{chat_model_key}} {{embedding_model_provider_id}} {{embedding_model_key}} {{web_search_query}}"
+	"description": "Calls the Vane API web search endpoint with provider IDs, model keys, and a query. Must get available providers from http://localhost:3000/api/providers first. Use the appropriate and best chat and embedding models possible. Chat models like gemma, deepseek, and gpt are preferred if available. Output follows the wiki's ai-research-multi source schema (WIKI_SCHEMA.md) — includes an HTML comment metadata header with type, search_date (ISO 8601 with timestamp), query, tool_used, tool_model, embedding_model, and sources list (each with url, title, website, published_date). IMPORTANT: Always present the FULL output verbatim — the schema header, the message body, and the Sources section. Do NOT summarize, reformat, truncate, or abstract away any part of the output. The message body contains inline citations [n] that reference the numbered sources — preserve these exactly. To save the result as a wiki source file, use --save flag which writes to ai-research/web/{slug}-{date}.md. File naming follows the schema convention: {topic-slug}-{YYYY-MM-DD}.md in ai-research/web/.",
+	"command": "uv run python .claude/scripts/vane_web_search.py {{chat_model_provider_id}} {{chat_model_key}} {{embedding_model_provider_id}} {{embedding_model_key}} {{web_search_query}}",
+	"timeout": 600
 }

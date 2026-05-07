@@ -450,8 +450,10 @@ published_date: 2026-03-15
 <!--
 type: web-search
 url: https://example.com/article
-search_date: 2026-05-03
+search_date: 2026-05-03T14:22:00Z
 query: LLM quantization techniques
+tool_used: vane_web_search
+tool_model: gemma4:31b-cloud
 website: example.com
 published_date: 2026-01-15
 snippet: Summary of key findings from the page
@@ -462,9 +464,11 @@ snippet: Summary of key findings from the page
 |-------|------|-------------|
 | `type` | Required | Always `web-search` |
 | `url` | Required | Full URL of the source page |
-| `search_date` | Required | ISO 8601 date when the search was performed |
+| `search_date` | Required | ISO 8601 timestamp when the search was performed |
 | `query` | Recommended | The search query that found this result |
-| `website` | Optional | Domain or site identifier |
+| `tool_used` | Recommended | Name of the tool used to perform the search (e.g., `vane_web_search`) |
+| `tool_model` | Recommended | Chat model used for synthesis (e.g., `gemma4:31b-cloud`) |
+| `website` | Recommended | Domain or site identifier (e.g., `example.com`) |
 | `published_date` | Optional | Original publication date |
 | `snippet` | Optional | Brief summary of page content |
 
@@ -497,25 +501,34 @@ The file body includes a YAML frontmatter `summary` field (separate from the HTM
 ```html
 <!--
 type: ai-research-multi
-search_date: 2026-05-03
+search_date: 2026-05-03T19:30:00Z
 query: LLM quantization techniques
+tool_used: vane_web_search
+tool_model: gemma4:31b-cloud
+embedding_model: mixedbread-ai/mxbai-embed-large-v1
 sources:
   - url: https://example.com/article
     title: "Quantization Techniques for LLMs"
+    website: example.com
     published_date: 2026-01-15
   - url: https://other.com/guide
     title: "A Guide to Model Compression"
+    website: other.com
 -->
 ```
 
 | Field | Tier | Description |
 |-------|------|-------------|
 | `type` | Required | Always `ai-research-multi` |
-| `search_date` | Required | ISO 8601 date when the research was performed |
+| `search_date` | Required | ISO 8601 timestamp when the research was performed |
 | `sources` | Required | List of source objects, each with at least `url` |
 | `query` | Recommended | Search query that drove the research |
+| `tool_used` | Recommended | Name of the tool used to perform the search (e.g., `vane_web_search`) |
+| `tool_model` | Recommended | Chat model used for synthesis (e.g., `gemma4:31b-cloud`) |
+| `embedding_model` | Optional | Embedding model used for retrieval (e.g., `mixedbread-ai/mxbai-embed-large-v1`) |
 | `sources[].url` | Required | Full URL of each source |
-| `sources[].title` | Optional | Title of each source |
+| `sources[].title` | Recommended | Title of each source |
+| `sources[].website` | Recommended | Domain identifier extracted from the URL (e.g., `example.com`) |
 | `sources[].published_date` | Optional | Original publication date of each source |
 
 The body must include inline citations referencing which source each claim comes from: `[1]`, `[2]`, etc. corresponding to the `sources` list order.

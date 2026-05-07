@@ -62,6 +62,14 @@ Operations, file formats, scripts, hooks, and Obsidian integration live in:
 - **Scripts**: `scripts/*.py` (run via `uv run python scripts/<name>.py`)
 - **Hooks**: `.claude/settings.json`
 
+## Web Search Output Convention
+
+When using the Vane web search tool (`vane_web_search`), the output follows the
+`ai-research-multi` schema from `schema/WIKI_SCHEMA.md`. Always present the
+full output verbatim — schema header, message body, and Sources section. Do not
+summarize, reformat, or abstract away any part. To save results as wiki source
+files, use `--save` which writes to `ai-research/web/{slug}-{date}.md`.
+
 ## Crawling Rules
 
 Always use the crawl4ai MCP tool for any web crawling or scraping tasks.
