@@ -284,6 +284,12 @@ Output: a markdown report with severity levels (error, warning, suggestion).
 
 When a query reveals gaps the wiki cannot answer from existing sources, or the human asks to research a topic:
 
+**Quick search (ephemeral)**: Invoke the `web-search` agent — returns results without saving.
+
+**Deep research (persistent)**: Invoke the `ai-research` agent — saves results to `ai-research/web/`, lints, and runs sync-check.
+
+For manual research without agents:
+
 1. Search the web for relevant, high-quality sources on the topic
 2. **One source, one file.** For each URL found, save it as its OWN markdown file in `ai-research/`. Do NOT combine multiple sources into one file. Use this format for each:
 
@@ -334,6 +340,8 @@ llm-wiki-llm-v1/
 |       |-- wiki-query.md
 |       |-- sync-check.md
 |       |-- context-loader.md
+|       |-- web-search.md
+|       |-- ai-research.md
 |-- .gitignore                       # Excludes runtime state, temp files, caches
 |-- AGENTS.md                        # This file - schema + full technical reference
 |-- CLAUDE.md                        # Project instructions for Claude Code sessions
