@@ -6,6 +6,14 @@ sources: []
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-02T16:00:00Z"
+---
+
+# Sources Manifest
+
+Tracks which source files have been ingested into the wiki.
+
+| Source Path | Status | Wiki Page | Ingested |
+|-------------|--------|-----------|----------|
 | raw/articles/farzapedia.md | ingested | [[summaries/farzapedia]] | 2026-05-02 |
 | raw/articles/karpathy-github-llm-wiki.md | ingested | [[summaries/karpathy-github-llm-wiki]] | 2026-05-02 |
 | raw/articles/karpathy-tweet-llm-wiki.md | ingested | [[summaries/karpathy-tweet-llm-wiki]] | 2026-05-02 |
@@ -148,14 +156,6 @@ updated: "2026-05-02T16:00:00Z"
 | raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-latency-and-performance]] | 2026-05-02 |
 | raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-prompt-caching]] | 2026-05-02 |
 | raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-uptime-optimization]] | 2026-05-02 |
----
-
-# Sources Manifest
-
-Tracks which source files have been ingested into the wiki.
-
-| Source Path | Status | Wiki Page | Ingested |
-|-------------|--------|-----------|----------|
 
 ---
 *Last updated: 2026-05-02 (ingested raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md)*

@@ -140,7 +140,9 @@ llm-wiki-llm-v1/
 │       ├── wiki-query.md
 │       ├── wiki-repair.md
 │       ├── sync-check.md
-│       └── context-loader.md
+│       ├── context-loader.md
+│       ├── web-search.md
+│       └── ai-research.md
 └── README.md                     # This file
 ```
 
@@ -615,3 +617,23 @@ Browser extension (Firefox) for extracting single-page articles or threads direc
 | **schema/WIKI_WORKFLOWS.md** | Ingest, Query, Lint, and Research workflows             |
 | **.claude/agents/**          | Project-specific Claude Code agents                     |
 | **CLAUDE.md**                | Project instructions for Claude Code sessions           |
+
+### Vane w/ SearNg(previously Perplexity)
+
+Web crawling service for the LLM, exposed via REST API. The preferred method is the Docker version, which can be shared across multiple projects.
+
+**Setup (Docker):**
+
+1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+2. Create a `.llm.env` file in your project root:
+
+```env
+# .llm.env
+OPENAI_API_KEY=sk-or-your-openrouter-key
+OPENAI_BASE_URL=https://openrouter.ai/api/v1
+
+# Default model (use any OpenRouter model string)
+LLM_PROVIDER=openai/gpt-4o
+LLM_TEMPERATURE=0.7
+```
