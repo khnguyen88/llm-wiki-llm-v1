@@ -138,10 +138,10 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **Operations**:
 1. **Get providers** — Run `vane_get_providers` to fetch available provider IDs and model keys
-2. **Search** (shallow, default) — Run `vane_web_search` with the query, present full output verbatim
+2. **Search** (shallow, default) — Run `vane_web_search` with the query, present full output verbatim with inline citations `[N]` per claim and all sources included (no filtering)
 3. **Deep search** (optional) — After vane results, crawl top 3-5 source URLs via crawl4ai for full content
 
-**Key principle**: Never save files. Returns results to the caller. The caller decides what to do with them.
+**Key principle**: Never save files. Returns results to the caller. The caller decides what to do with them. Every factual claim must cite its source `[N]`; all sources from the vane tool must be included.
 
 ---
 
@@ -156,12 +156,12 @@ Full definition: `.claude/agents/wiki-repair.md`
 **Operations**:
 1. **Check existing** — Check `ai-research/web/` for existing files on the same topic (match by slug). If found, delete the old file (prune-and-replace)
 2. **Get providers** — Run `vane_get_providers` to fetch available provider IDs and model keys
-3. **Deep search** — Run `vane_web_search` with `--save` flag, then crawl top 3-5 source URLs via crawl4ai and append deep-dive content
+3. **Deep search** — Run `vane_web_search` with `--save` flag (include all sources, inline citations `[N]` per claim), then crawl top 3-5 source URLs via crawl4ai and append deep-dive content
 4. **Add frontmatter** — Add YAML frontmatter at the top of the saved file (before the HTML comment header)
 5. **Lint** — Run `uv run python scripts/lint.py` to validate
 6. **Sync-check** — Invoke sync-check agent for cross-file consistency
 
-**Key principles**: Always deep (crawl4ai is mandatory), always save, always lint, always sync-check. Prune-then-replace on re-research.
+**Key principles**: Always deep (crawl4ai is mandatory), always save, always lint, always sync-check. Always include all sources (no filtering/truncating), every claim must cite its source. Prune-then-replace on re-research.
 
 ---
 

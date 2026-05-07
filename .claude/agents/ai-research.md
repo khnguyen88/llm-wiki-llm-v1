@@ -26,8 +26,8 @@ Always deep, never shallow:
 
 1. Run `vane_web_search` with the research query and `--save` flag. This creates the file in `ai-research/web/{slug}-{YYYY-MM-DD}.md` with:
    - HTML comment metadata header (type, search_date, query, tool_used, tool_model, embedding_model, sources)
-   - Message body with inline citations `[1]`, `[2]`, etc.
-   - Sources section with numbered references
+   - Message body with inline citations `[1]`, `[2]`, etc. — **every factual claim must cite its source**
+   - Sources section with **all** numbered references — include every source returned by the vane tool, do not filter or truncate
 2. Identify the top 3-5 source URLs from the vane output with the most relevant content
 3. Use the crawl4ai MCP tool to fetch full page content from each URL
 4. Append `## Deep Dive` sections to the saved file after the Sources section, one per crawled URL, with the crawled content
@@ -73,6 +73,7 @@ When re-researching an existing topic, the old file is deleted and replaced enti
 ## Key Principles
 
 - **Always deep** — crawl4ai follow-up is mandatory, not optional
+- **Always include all sources** — do not filter, truncate, or cherry-pick the Sources list; every source returned by the vane tool must be preserved
 - **Always save to `ai-research/web/`** — this agent exists to persist research
 - **Always lint after saving** — validate the file passes lint checks
 - **Always run sync-check after changes** — verify cross-file consistency

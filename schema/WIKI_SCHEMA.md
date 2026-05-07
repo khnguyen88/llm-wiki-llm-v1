@@ -472,6 +472,8 @@ snippet: Summary of key findings from the page
 | `published_date` | Optional | Original publication date |
 | `snippet` | Optional | Brief summary of page content |
 
+The body of web-search results must include inline citations `[N]` referencing the numbered Sources list, so every factual claim is traceable to its specific source. All sources returned by the search tool must be included in the Sources list — do not filter or truncate.
+
 **3. `ai-research`** — Single-source AI discovery saved to `ai-research/`.
 
 ```html
@@ -531,7 +533,7 @@ sources:
 | `sources[].website` | Recommended | Domain identifier extracted from the URL (e.g., `example.com`) |
 | `sources[].published_date` | Optional | Original publication date of each source |
 
-The body must include inline citations referencing which source each claim comes from: `[1]`, `[2]`, etc. corresponding to the `sources` list order.
+The body must include inline citations referencing which source each claim comes from: `[1]`, `[2]`, etc. corresponding to the `sources` list order. All sources returned by the search tool must be included in the `sources` list — do not filter or truncate.
 
 **5. `video-transcript`** — Video transcript obtained directly.
 

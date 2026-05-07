@@ -34,10 +34,12 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 | `wiki-linter`        | "Lint the wiki", "Run health check"                          |
 | `wiki-repair`        | "Fix broken links", "Resolve orphans", "Repair lint errors"  |
 | `wiki-query`         | Questions about compiled knowledge                           |
-| `web-search`        | "Search the web for X", "Quick fact-check on X"               |
-| `ai-research`       | "Research X and save it", "Deep research on X"                 |
+| `web-search`         | "Search the web for X", "Quick fact-check on X" — **ephemeral**: uses `vane_web_search` shell tool, returns results to caller, never saves files |
+| `ai-research`        | "Research X and save it", "Deep research on X" — **persistent**: deep Vane search + crawl4ai follow-up, saves to `ai-research/web/`, always lints and sync-checks |
 | `sync-check`         | After structural changes to dirs/schemas/agents              |
 | `context-loader`     | "Load rules for X", "Audit CLAUDE.md", "Guard prompt health" |
+
+**`web-search` vs `ai-research`**: When the user says "web-search agent" they mean the project's `web-search` agent (Vane-first, ephemeral). Do **not** substitute the built-in `WebSearch` tool. The `ai-research` agent is for when the user wants results persisted as wiki source files — it always does deep search (Vane + crawl4ai) and saves to `ai-research/web/`.
 
 ## Core Conventions
 
@@ -66,11 +68,22 @@ Operations, file formats, scripts, hooks, and Obsidian integration live in:
 
 ## Web Search Output Convention
 
-When using the Vane web search tool (`vane_web_search`), the output follows the
+### Vane (`vane_web_search`)
+When using the Vane web search tool, the output follows the
 `ai-research-multi` schema from `schema/WIKI_SCHEMA.md`. Always present the
-full output verbatim — schema header, message body, and Sources section. Do not
-summarize, reformat, or abstract away any part. To save results as wiki source
-files, use `--save` which writes to `ai-research/web/{slug}-{date}.md`.
+full output verbatim — schema header, message body, and **all** Sources (do not
+filter or truncate the Sources list). Do not summarize, reformat, or abstract
+away any part. **Every factual claim must include an inline citation `[N]`
+referencing the numbered source it came from** — a bare Sources section at the
+end is insufficient. To save results as wiki source files, use `--save` which
+writes to `ai-research/web/{slug}-{date}.md`.
+
+### Built-in WebSearch
+When using the built-in `WebSearch` tool, always include a **Sources** section
+at the end with all result URLs as markdown hyperlinks. Every factual claim in
+the response must include an inline citation `[N]` referencing the numbered
+source it came from — a bare Sources section at the end is insufficient. Do not
+omit or truncate any source from the search results.
 
 ## Crawling Rules
 

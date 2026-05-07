@@ -204,7 +204,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 1. **Get providers** — Run `vane_get_providers` to fetch available provider IDs and model keys. Select best chat model (prefer `gemma4:31b-cloud`) and embedding model (prefer `mixedbread-ai/mxbai-embed-large-v1`)
 2. **Run vane search** — Execute `vane_web_search` with the user's query and selected provider/model configuration
-3. **Present results verbatim** — Output the full schema header, message body, and Sources section without modification
+3. **Present results verbatim with inline citations** — Output the full schema header, message body, and Sources section without modification. Every factual claim must include an inline citation `[N]` tying it to a specific numbered source — a bare Sources section at the end is insufficient
 4. **(Optional) Deep dive** — If requested, crawl top 3-5 source URLs via crawl4ai and append `## Deep Dive` sections
 
 **Output**: Search results returned to the caller. No files saved.
@@ -222,7 +222,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 **Steps**:
 
 1. **Check existing** — Search `ai-research/web/` for files matching the topic slug. If found, delete the old file (prune-and-replace)
-2. **Deep search** — Get providers via `vane_get_providers`, then run `vane_web_search` with `--save` flag to create the file in `ai-research/web/{slug}-{YYYY-MM-DD}.md`
+2. **Deep search** — Get providers via `vane_get_providers`, then run `vane_web_search` with `--save` flag to create the file in `ai-research/web/{slug}-{YYYY-MM-DD}.md` — include all sources (no filtering/truncating) and inline citations `[N]` per claim
 3. **Append deep-dive content** — Crawl top 3-5 source URLs via crawl4ai and append `## Deep Dive` sections to the saved file after the Sources section
 4. **Add frontmatter** — Insert YAML frontmatter at the top of the file (before the HTML comment header) with title, summary, type, sources, tags, created, updated fields
 5. **Lint** — Run `uv run python scripts/lint.py` to validate the saved file
@@ -246,7 +246,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 2. **Save each source as a separate file** in `ai-research/` (one source, one file)
    - Include an HTML comment metadata header at the top with `type: ai-research`, `url`, `search_date`, and other fields per the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
    - Include YAML frontmatter with `summary` (one-line description of the source content)
-   - For multi-source synthesis: use `type: ai-research-multi` with a `sources` list, and include inline citations (`[1]`, `[2]`, etc.) in the body referencing the sources list order
+   - For multi-source synthesis: use `type: ai-research-multi` with a `sources` list, include all sources (no filtering/truncating), and include inline citations (`[1]`, `[2]`, etc.) in the body referencing the sources list order
    - Save the FULL cleaned content, not a summary
    - Use lowercase hyphenated file names (e.g., `ai-research/web/topic-source-name.md`)
    - Do NOT overwrite existing files — always create new files
