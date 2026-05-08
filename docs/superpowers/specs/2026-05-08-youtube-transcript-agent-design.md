@@ -21,7 +21,11 @@ The sole operation. Given a YouTube URL:
 2. **Fetch paragraph view**: `curl -s "https://ytscribe.io/api/transcript?v={id}"` — extract `<section id="transcript-paragraphs">` HTML, parse into paragraphs
 3. **Fetch timestamped view**: `curl -s "https://ytscribe.io/api/transcript?v={id}&view=timestamped"` — extract `<section id="transcript-timestamped">` HTML, parse `[MM:SS]` timestamps and their associated text phrases
 4. **Merge timestamps**: The timestamped view returns short phrases each prefixed with `[MM:SS]`. Walk through the timestamped phrases sequentially and assign them to paragraphs: a phrase belongs to paragraph N if the cumulative text of phrases assigned so far matches the start of paragraph N. The paragraph's timestamp is the timestamp of its first assigned phrase. If a phrase cannot be matched, continue to the next phrase (phrases may be split across paragraph boundaries).
-5. **Fetch metadata**: Curl `https://www.youtube.com/oembed?url=https://youtube.com/watch?v={id}&format=json` for channel name and title. If any recommended fields (channel, duration, published_date) are missing, prompt the user
+5. **Fetch metadata** (cascading fallback):
+   - **Primary**: Curl `https://www.youtube.com/oembed?url=https://youtube.com/watch?v={id}&format=json` for channel name and title
+   - **Secondary**: If oEmbed fails or lacks fields, use the built-in `WebSearch` tool to search for the video (e.g., `"youtube {id}"` or `"youtube.com/watch?v={id}"`) and extract channel, duration, published_date from search results
+   - **Tertiary**: If search results are insufficient, use crawl4ai (REST API at `localhost:11235`) to crawl the YouTube video page and extract metadata from the page content
+   - **Final fallback**: Prompt the user for any still-missing recommended fields
 6. **Detect sections**: If the transcript has clear topic-transition words (e.g., "let's switch gears", "now I want to talk about"), optionally flag `sections: true` and add `## Section Title` headers. Default: `sections: false` unless auto-detected or user-specified
 7. **Write output file**: Save to `raw/transcripts/{channel-or-topic}-{YYYY-MM-DD}.md` with `video-transcript-llm` metadata header
 8. **Confirm**: Print the output file path and a 3-line summary (title, channel, paragraph count)
@@ -64,9 +68,9 @@ Each paragraph starts with a `[MM:SS]` timestamp. Paragraph text preserves origi
 | `url` | Constructed from video ID | — |
 | `fetched_date` | Current date (`date +%Y-%m-%d`) | — |
 | `extraction_tool` | Hardcoded `ytscribe-api` | — |
-| `channel` | YouTube oEmbed `author_name` | Prompt user |
-| `duration` | Parse from YouTube page metadata | Prompt user |
-| `published_date` | Parse from YouTube page metadata | Omit (optional) |
+| `channel` | YouTube oEmbed `author_name` | WebSearch → crawl4ai → Prompt user |
+| `duration` | Parse from YouTube page metadata | WebSearch → crawl4ai → Prompt user |
+| `published_date` | Parse from YouTube page metadata | WebSearch → crawl4ai → Omit (optional) |
 | `sections` | Auto-detect or default `false` | — |
 
 ## Filename Convention
@@ -89,7 +93,8 @@ Merge: walk through timestamped phrases sequentially, assigning each to a paragr
 - **ytscribe API returns error**: Report the error to the user, suggest checking the video ID or trying again
 - **Video ID not parseable**: Ask user to provide a valid YouTube URL
 - **Transcript empty**: Report that no transcript was found (video may not have captions)
-- **Metadata missing**: Prompt user for missing recommended fields before writing the file
+- **oEmbed fails**: Fall back to WebSearch for the video URL, then crawl4ai if search results lack needed fields
+- **Metadata missing after all fallbacks**: Prompt user for missing recommended fields before writing the file
 
 ## Scope
 
