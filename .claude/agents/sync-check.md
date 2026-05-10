@@ -37,6 +37,7 @@ Every agent must reference the correct:
 - `.claude/agents/wiki-repair.md`
 - `.claude/agents/web-search.md`
 - `.claude/agents/ai-research.md`
+- `.claude/agents/youtube-transcript.md`
 
 ### 3. Script names
 
@@ -137,7 +138,8 @@ When running a sync check, read these files in order:
 13. `.claude/agents/wiki-repair.md`
 14. `.claude/agents/web-search.md`
 15. `.claude/agents/ai-research.md`
-16. `wiki/index.md`
+16. `.claude/agents/youtube-transcript.md`
+17. `wiki/index.md`
 17. `wiki/sources-manifest.md`
 
 Then verify against actual directory structure (`ls` or `glob` for `raw/`, `processed/`, `wiki/`, `knowledge/`, `scripts/`, `hooks/`, `.claude/agents/`).
