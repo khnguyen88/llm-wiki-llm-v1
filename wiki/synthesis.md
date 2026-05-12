@@ -145,9 +145,10 @@ sources: []
   - raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md
   - raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md
   - raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md
+  - raw/articles/baidu-ernie-5.1-0508-release.md
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-02T12:00:00Z"
+updated: "2026-05-12T12:00:00Z"
 ---
 
 # Synthesis
@@ -179,4 +180,20 @@ Unlike RAG, which re-derives knowledge from scratch on every query, the wiki com
 
 ---
 
-*Last updated: "2026-05-02T12:00:00Z"
+## Chinese LLM Innovation: ERNIE 5.1
+
+The Baidu ERNIE 5.1 release (May 2026) represents a significant data point in 2026 LLM trends: achieving frontier-class performance at dramatically reduced cost through architectural innovation rather than raw scale. ERNIE 5.1's three key techniques — elastic pre-training (Once-For-All framework), disaggregated RL infrastructure, and multi-teacher on-policy distillation (MOPD) — demonstrate that efficiency gains from training methodology can match or exceed gains from parameter scaling alone. The model's #1 ranking among Chinese models on Arena Search, combined with competitive agentic and creative capabilities, positions it as a leading example of the "better, not bigger" trend in LLM development. ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+
+### Key Connections to Existing Themes
+
+- **Mixture of Experts**: ERNIE extends MoE with elastic training, enabling extraction of optimal sub-networks from a single pre-training run ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+- **Distillation**: MOPD is a novel multi-teacher distillation approach that addresses the "seesaw" problem in sequential post-training ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+- **LLM Wiki Pattern**: The ERNIE 5.1 release article is a concrete example of how LLM model announcements contain rich technical knowledge worth capturing ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+
+### Provenance
+
+- [[summaries/baidu-ernie-5.1-0508-release]] -- Full technical breakdown
+
+---
+
+*Last updated: "2026-05-12T12:00:00Z"

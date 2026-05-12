@@ -5,7 +5,7 @@ type: index
 sources: []
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-02T12:00:00Z"
+updated: "2026-05-12T12:00:00Z"
 ---
 
 # Wiki Index
@@ -13,6 +13,7 @@ updated: "2026-05-02T12:00:00Z"
 A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ## Entities
+- [[entities/ernie|Ernie]]
 - [[entities/grok|Grok]]
 - [[entities/groq|Groq]]
 - [[entities/moonshot_ai|Moonshot Ai]]
@@ -35,6 +36,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[entities/arize_ai|Arize Ai]]
 - [[entities/openinference|Openinference]]
 - [[entities/openai|Openai]]
+- [[entities/paddlepaddle|Paddlepaddle]]
 - [[entities/exa|Exa]]
 - [[entities/firecrawl|Firecrawl]]
 - [[entities/parallel|Parallel]]
@@ -65,6 +67,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[entities/open_telemetry|Open Telemetry]]
 - [[entities/agent_sdk|Agent Sdk]]
 - [[entities/claude_code|Claude Code]]
+- [[entities/baidu|Baidu]]
 - [[entities/deepseek|Deepseek]]
 - [[entities/gemma|Gemma]]
 - [[entities/hugging_face|Hugging Face]]
@@ -87,6 +90,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concepts/app_attribution|App Attribution]]
 - [[concepts/zero_completion_insurance|Zero Completion Insurance]]
 - [[concepts/context_compression|Context Compression]]
+- [[concepts/disaggregated_rl|Disaggregated Rl]]
 - [[concepts/response_healing|Response Healing]]
 - [[concepts/server_tools_datetime|Server Tools Datetime]]
 - [[concepts/web_fetch|Web Fetch]]
@@ -196,12 +200,14 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concepts/managed_settings|Managed Settings]]
 - [[concepts/model_naming|Model Naming]]
 - [[concepts/distillation|Distillation]]
+- [[concepts/elastic_training|Elastic Training]]
 - [[concepts/gguf|Gguf]]
 - [[concepts/instruction_tuning|Instruction Tuning]]
 - [[concepts/mixture_of_experts|Mixture Of Experts]]
 - [[concepts/quantization|Quantization]]
 - [[concepts/safetensors|Safetensors]]
 - [[concepts/memex|Memex]]
+- [[concepts/on_policy_distillation|On Policy Distillation]]
 - [[concepts/rag|Rag]]
 - [[concepts/byoai|Byoai]]
 - [[concepts/file_over_app|File Over App]]
@@ -347,6 +353,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[summaries/llm-naming-explained-what-do-the-options-mean|LLM Naming Explained (What Do The Options Mean?)]]
 - [[summaries/llm-model-naming-conventions-how-to-read-names-and-why-they-matter|LLM Model Naming Conventions: How to Read Names and Why They Matter]]
 - [[summaries/llm-model-names-decoded-a-developers-guide-to-parameters-quantization-formats|LLM Model Names Decoded: A Developer's Guide to Parameters, Quantization & Formats]]
+- [[summaries/baidu-ernie-5.1-0508-release|Baidu Ernie 5.1 0508 Release]]
 - [[summaries/karpathy-tweet-llm-wiki|Karpathy Tweet Llm Wiki]]
 - [[summaries/karpathy-github-llm-wiki|Karpathy Github Llm Wiki]]
 - [[summaries/farzapedia|Farzapedia]]
@@ -363,4 +370,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-05-02 (batch ingest: 2 pages)*
+*Last updated: 2026-05-12 (ingest: baidu-ernie-5.1-0508-release)*

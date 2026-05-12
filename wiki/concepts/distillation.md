@@ -6,6 +6,7 @@ sources:
   - raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md
   - raw/articles/How to navigate LLM model names.md
   - raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md
+  - raw/articles/baidu-ernie-5.1-0508-release.md
 tags:
   - llm
   - training
@@ -14,7 +15,7 @@ tags:
   - openrouter
   - provider-routing
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-02T12:00:00Z"
+updated: "2026-05-12T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -41,11 +42,17 @@ DeepSeek-R1 demonstrated that frontier reasoning capabilities can be compressed 
 
 On OpenRouter, the `enforce_distillable_text` parameter in the `provider` object restricts routing to only models where the author has explicitly enabled text distillation. When set to `true`, requests are only routed to models that allow text distillation for training purposes, such as building datasets for model fine-tuning or distillation workflows. When `false` or not provided, it has no effect on routing. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
 
+## On-Policy Distillation (MOPD)
+
+Multi-Teacher On-Policy Distillation is a variant where the student model samples from its own policy distribution and concurrently learns from multiple domain expert teachers via token-level reverse KL divergence. Used by ERNIE 5.1, it solves the multi-objective "seesaw" problem by training domain experts independently before fusing their capabilities. However, tasks with high-entropy output distributions (open-ended chat, creative writing) are not amenable to token-level KL distillation and require a separate online RL stage. ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+
 ## Related
 
 - [[concepts/instruction_tuning]]
 - [[concepts/model_naming]]
+- [[concepts/on_policy_distillation]]
 - [[entities/deepseek]]
+- [[entities/ernie]]
 - [[entities/qwen]]
 - [[entities/openrouter]]
 - [[concepts/data_collection_policy]]

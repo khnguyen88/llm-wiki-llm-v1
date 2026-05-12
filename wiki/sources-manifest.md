@@ -5,7 +5,7 @@ type: manifest
 sources: []
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-02T16:00:00Z"
+updated: "2026-05-12T12:00:00Z"
 ---
 
 # Sources Manifest
@@ -156,6 +156,7 @@ Tracks which source files have been ingested into the wiki.
 | raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-latency-and-performance]] | 2026-05-02 |
 | raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-prompt-caching]] | 2026-05-02 |
 | raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-uptime-optimization]] | 2026-05-02 |
+| raw/articles/baidu-ernie-5.1-0508-release.md | ingested | [[summaries/baidu-ernie-5.1-0508-release]] | 2026-05-12 |
 
 ---
-*Last updated: 2026-05-02 (ingested raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md)*
+*Last updated: 2026-05-12 (ingested raw/articles/baidu-ernie-5.1-0508-release.md)*

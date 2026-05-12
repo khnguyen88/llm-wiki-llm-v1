@@ -1029,4 +1029,12 @@ A chronological record of operations on the external knowledge base.
 - Source: raw/articles/karpathy-tweet-llm-wiki.md
 - Regenerated summary: summaries/karpathy-tweet-llm-wiki.md (added six-step workflow table, tools table, enriched Key Quotes)
 - Updated concepts: concepts/llm_wiki.md, concepts/rag.md
+
+## [2026-05-12] ingest | ERNIE 5.1 Officially Released
+- Source: raw/articles/baidu-ernie-5.1-0508-release.md
+- Created summary: summaries/baidu-ernie-5.1-0508-release.md
+- Created entities: entities/baidu.md, entities/ernie.md, entities/paddlepaddle.md
+- Created concepts: concepts/elastic_training.md, concepts/disaggregated_rl.md, concepts/on_policy_distillation.md
+- Updated concepts: concepts/mixture_of_experts.md (added ERNIE row, elastic MoE section), concepts/distillation.md (added MOPD section)
+- Updated index.md, sources-manifest.md, synthesis.md
 - Updated index.md, sources-manifest.md, synthesis.md
