@@ -157,6 +157,7 @@ Tracks which source files have been ingested into the wiki.
 | raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-prompt-caching]] | 2026-05-02 |
 | raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md | ingested | [[summaries/openrouter-guides-best-practices-uptime-optimization]] | 2026-05-02 |
 | raw/articles/baidu-ernie-5.1-0508-release.md | ingested | [[summaries/baidu-ernie-5.1-0508-release]] | 2026-05-12 |
+| raw/transcripts/adam-rosler-2026-05-12.md | ingested | [[summaries/adam-rosler-kv-cache-2026-05-12]] | 2026-05-12 |
 
 ---
-*Last updated: 2026-05-12 (ingested raw/articles/baidu-ernie-5.1-0508-release.md)*
+*Last updated: 2026-05-12 (ingested raw/transcripts/adam-rosler-2026-05-12.md)*

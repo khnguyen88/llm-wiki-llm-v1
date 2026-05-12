@@ -146,6 +146,7 @@ sources: []
   - raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md
   - raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md
   - raw/articles/baidu-ernie-5.1-0508-release.md
+  - raw/transcripts/adam-rosler-2026-05-12.md
 tags: [structural]
 created: "2026-05-01T12:00:00Z"
 updated: "2026-05-12T12:00:00Z"
@@ -196,4 +197,38 @@ The Baidu ERNIE 5.1 release (May 2026) represents a significant data point in 20
 
 ---
 
-*Last updated: "2026-05-12T12:00:00Z"
+## LLM Inference: The Memory Wall and KV Cache
+
+A central theme emerging across multiple wiki sources is that LLM inference is governed not by compute but by memory bandwidth. Adam Rosler's video "KV Cache: The Invisible Trick Behind Every LLM" traces this from first principles through to practical cost optimization.^[raw/transcripts/adam-rosler-2026-05-12.md]
+
+### The Fundamental Tension
+
+Transformers gain their training advantage from parallel attention -- every token attending to every other simultaneously. But inference is sequential: each new token depends on all prior tokens. The naive approach recomputes K and V for the entire prefix on every step, wasting billions of identical operations. [[concepts/memoization|Memoization]] (Donald Michie, 1968) provides the solution: cache the expensive intermediate results (K and V) rather than recompute them. The [[concepts/kv_cache|KV cache]] stores these vectors in GPU memory, reducing generation cost by roughly 1,000x.
+
+### The Memory Wall
+
+The KV cache creates a new constraint: memory size and bandwidth. Wulf and McKee's 1995 "memory wall" analysis shows that compute performance improves exponentially while memory bandwidth improves only incrementally. For LLM serving, this means each concurrent user's KV cache (0.5 MB per token for a 70B model, or 50 GB at 100K context) competes for scarce GPU memory. The inference provider is selling memory bandwidth, not compute.
+
+### Optimization Landscape
+
+Multiple techniques target this memory bottleneck:
+
+| Technique | Strategy | Trade-off |
+|-----------|----------|-----------|
+| [[concepts/grouped_query_attention\|GQA]] | Share K/V heads across query head groups | Near-MHA quality, near-MQA speed |
+| [[concepts/multi_query_attention\|MQA]] | Single K/V head for all query heads | Maximum speed, quality degradation |
+| [[concepts/paged_attention|PagedAttention]] | OS-style paging for KV cache blocks | Near-zero fragmentation, copy-on-write sharing |
+| [[concepts/prompt_caching\|Prompt caching]] | Reuse KV cache across API calls | 90% cost reduction on repeated prefixes |
+| Quantization | Store K/V in INT8/FP8 | 2x memory reduction |
+
+### Prompt Caching: From Theory to Product
+
+Anthropic's prompt caching (2024) productizes the KV cache insight: the first API call builds the cache, subsequent calls rent it at 90% lower cost. This is why prompt ordering matters -- stable content (system prompts, tools, documents) must precede dynamic content (user questions), because any change in the prefix invalidates all cache entries from that point onward.
+
+### Provenance
+
+- [[summaries/adam-rosler-kv-cache-2026-05-12]] -- Video transcript covering KV cache fundamentals through prompt caching
+
+---
+
+*Last updated: "2026-05-12T12:00:00Z"*

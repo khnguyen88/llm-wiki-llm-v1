@@ -76,6 +76,9 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[entities/qwen|Qwen]]
 - [[entities/obsidian|Obsidian]]
 - [[entities/qmd|Qmd]]
+- [[entities/adam_rosler|Adam Rosler]]
+- [[entities/donald_michie|Donald Michie]]
+- [[entities/wulf_and_mckee|Wulf And Mckee]]
 
 ## Concepts
 - [[concepts/uptime_optimization|Uptime Optimization]]
@@ -212,6 +215,14 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[concepts/byoai|Byoai]]
 - [[concepts/file_over_app|File Over App]]
 - [[concepts/llm_wiki|Llm Wiki]]
+- [[concepts/kv_cache|Kv Cache]]
+- [[concepts/attention_mechanism|Attention Mechanism]]
+- [[concepts/memory_wall|Memory Wall]]
+- [[concepts/token_embedding|Token Embedding]]
+- [[concepts/grouped_query_attention|Grouped Query Attention]]
+- [[concepts/multi_query_attention|Multi Query Attention]]
+- [[concepts/paged_attention|Paged Attention]]
+- [[concepts/memoization|Memoization]]
 
 ## Summaries
 - [[summaries/openrouter-guides-best-practices-uptime-optimization|Openrouter Guides Best Practices Uptime Optimization]]
@@ -357,6 +368,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[summaries/karpathy-tweet-llm-wiki|Karpathy Tweet Llm Wiki]]
 - [[summaries/karpathy-github-llm-wiki|Karpathy Github Llm Wiki]]
 - [[summaries/farzapedia|Farzapedia]]
+- [[summaries/adam-rosler-kv-cache-2026-05-12|Adam Rosler KV Cache 2026 05 12]]
 
 ## Source Manifest
 
@@ -370,4 +382,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-05-12 (ingest: baidu-ernie-5.1-0508-release)*
+*Last updated: 2026-05-12 (ingest: adam-rosler-kv-cache-2026-05-12)*

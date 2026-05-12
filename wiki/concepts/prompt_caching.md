@@ -9,6 +9,7 @@ sources:
   - raw/document/openrouter/openrouter-031-guides-features-response-caching-2026-04-29.md
   - raw/document/openrouter/openrouter-044-guides-features-zdr-2026-04-29.md
   - raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md
+  - raw/transcripts/adam-rosler-2026-05-12.md
 tags:
   - prompt-caching
   - agent-sdk
@@ -16,8 +17,9 @@ tags:
   - token-usage
   - provider-sticky-routing
   - openrouter
+  - kv-cache
 created: "2026-05-01T12:00:00Z"
-updated: "2026-05-02T12:00:00Z"
+updated: "2026-05-12T12:00:00Z"
 confidence: 0.9
 provenance: merged
 ---
@@ -77,6 +79,14 @@ Anthropic's automatic caching (top-level `cache_control`) is only supported when
 
 For Google Gemini, OpenRouter simplifies cache management — no manual creation, updating, or deletion of caches is needed. Only the last `cache_control` breakpoint is used for Gemini caching, but multiple breakpoints are safe and help maintain compatibility with Anthropic. Gemini's `systemInstruction` field is treated as immutable when cached; dynamic content should be placed in a later `user` message rather than after a cached block in the first system message. ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
+## KV Cache Foundation
+
+Prompt caching extends the [[concepts/kv_cache|KV cache]] -- a stack of saved key and value vectors from prior tokens -- across API calls. In naive transformer inference, every generation step recomputes K and V for the entire prefix, a massive waste that [[concepts/memoization|memoization]] (Donald Michie, 1968) was designed to eliminate. The KV cache stores these computed vectors in GPU memory so subsequent tokens only compute the new pair.^[raw/transcripts/adam-rosler-2026-05-12.md]
+
+Anthropic's prompt caching (introduced 2024) makes this reuse explicit across API calls: if a subsequent request shares the same prefix as a recent one, the provider keeps the cached KV state in GPU memory and runs attention against it without recomputing. The first call pays to build the cache; subsequent calls rent it. This is why prompt ordering matters -- stable content (system prompt, tools, documents) should go first, and the user's dynamic question should go last, because any change in the prefix invalidates every cache entry from that point onward.^[raw/transcripts/adam-rosler-2026-05-12.md]
+
+The cost structure reflects the underlying [[concepts/memory_wall|memory wall]]: inference providers are selling GPU memory bandwidth, not compute. Cache reads at 0.1x base input price are cheap because they avoid the expensive matrix multiplications and memory transfers; cache writes at 1.25x or 2x base input price pay for storing the KV state.^[raw/transcripts/adam-rosler-2026-05-12.md]
+
 ## Related
 
 - [[entities/agent_sdk]]
@@ -93,4 +103,8 @@ For Google Gemini, OpenRouter simplifies cache management — no manual creation
 - [[concepts/response_caching]]
 - [[concepts/zero_data_retention]]
 - [[concepts/provider_sticky_routing]]
+- [[concepts/kv_cache]]
+- [[concepts/memory_wall]]
+- [[concepts/memoization]]
 - [[summaries/openrouter-guides-best-practices-prompt-caching]]
+- [[summaries/adam-rosler-kv-cache-2026-05-12]]

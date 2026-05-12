@@ -1038,3 +1038,11 @@ A chronological record of operations on the external knowledge base.
 - Updated concepts: concepts/mixture_of_experts.md (added ERNIE row, elastic MoE section), concepts/distillation.md (added MOPD section)
 - Updated index.md, sources-manifest.md, synthesis.md
 - Updated index.md, sources-manifest.md, synthesis.md
+
+## [2026-05-12] ingest | KV Cache: The Invisible Trick Behind Every LLM
+- Source: raw/transcripts/adam-rosler-2026-05-12.md
+- Created summary: summaries/adam-rosler-kv-cache-2026-05-12.md
+- Created entities: entities/adam_rosler.md, entities/donald_michie.md, entities/wulf_and_mckee.md
+- Created concepts: concepts/kv_cache.md, concepts/attention_mechanism.md, concepts/memory_wall.md, concepts/token_embedding.md, concepts/grouped_query_attention.md, concepts/multi_query_attention.md, concepts/paged_attention.md, concepts/memoization.md
+- Updated concepts: concepts/prompt_caching.md (added KV cache foundation section)
+- Updated index.md, sources-manifest.md
