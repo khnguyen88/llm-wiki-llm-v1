@@ -186,6 +186,27 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 ---
 
+## Transcript Reviewer Agent
+
+**File**: `.claude/agents/transcript-reviewer.md`
+
+**Role**: Ephemeral review agent that reads a `raw/transcripts/` file, identifies mistranscribed/mispelled terms using context + web verification, applies corrections, and writes a revision summary.
+
+**When to invoke**: "Review transcript `<path-or-url>`", "Review this transcript for errors"
+
+**Operations**:
+1. **Resolve input** — Accept a file path or YouTube URL; if URL, search `raw/transcripts/` for matching file by URL in metadata header
+2. **Check for prior review** — If `reviewed_date` exists in metadata, warn user and ask whether to re-review
+3. **Extract context clues** — Read metadata header for channel name, video title, topic keywords for disambiguation
+4. **Paragraph-by-paragraph review** — For each paragraph, identify suspicious terms, web-verify each via Vane (fall back to built-in WebSearch), record verified corrections
+5. **Apply corrections** — Replace all verified terms consistently across the entire file, preserving timestamps and formatting
+6. **Update metadata** — Add/replace `reviewed_date` and `revisions` fields in the HTML comment metadata header
+7. **Print summary** — Report unique corrections, total replacements, uncertain terms, and revert instructions
+
+**Key principles**: Verify don't guess (web-search confirmation required). Context-aware disambiguation. Preserve original formatting. Consistent corrections across the file. Case-sensitive casing from web results. Only writes to `raw/transcripts/`. Idempotent on re-review.
+
+---
+
 ## Ingestion Pattern
 
 All source ingestion uses **subagent-driven dispatch** — one fresh subagent per source, using the wiki-maintainer agent. The operator reviews between tasks and iterates fast. This produces higher-quality, more descriptive wiki pages than batch script-based ingestion because each source gets full interactive attention with cross-referencing, reconciliation, and provenance tracking.
