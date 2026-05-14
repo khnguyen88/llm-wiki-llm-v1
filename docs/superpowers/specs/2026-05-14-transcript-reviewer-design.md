@@ -57,7 +57,7 @@ For each paragraph in the transcript:
    - Example: `"canband board project" Hermes Agent Kanban`
    - Fall back to built-in `WebSearch` if Vane is unavailable
    - If search confirms the correct term, record the correction
-   - If search is inconclusive, skip the term (don't guess)
+   - If search is inconclusive (no result clearly matches the suspected correction), skip the term (don't guess). Report skipped terms separately in the summary as "uncertain, not corrected".
 
 3. **Record corrections** — Build a list of `original → corrected` pairs for the paragraph
 
@@ -92,11 +92,12 @@ Report to the user:
 - Number of unique corrections made
 - Total number of word replacements
 - List of all corrections with counts
+- List of uncertain terms that were not corrected (with context)
 - Note that the user can revert any change using the revisions list
 
 ## Key Principles
 
-1. **Verify, don't guess** — Only correct terms that web search confirms. If search is inconclusive, leave the original text and note it as uncertain.
+1. **Verify, don't guess** — Only correct terms that web search confirms. If search is inconclusive (no result clearly matches the suspected correction), leave the original text and report the term as uncertain in the summary.
 2. **Context-aware disambiguation** — Always include surrounding context in web search queries. "canband" alone is ambiguous; "canband board project" makes "Kanban" clear.
 3. **Preserve original formatting** — Maintain per-paragraph timestamps, line breaks, and the metadata header. Only change the text of identified corrections.
 4. **Consistent corrections across the file** — If "canband" is corrected to "Kanban" once, apply the same correction to every occurrence (and variants like "canban") throughout the file.
