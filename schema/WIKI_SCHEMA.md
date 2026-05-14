@@ -546,6 +546,8 @@ channel: Channel Name
 duration: 45:30
 published_date: 2026-04-01
 sections: true
+reviewed_date: 2026-05-04
+revisions: canband→Kanban(3), Quinn→Qwen(4)
 -->
 ```
 
@@ -558,6 +560,8 @@ sections: true
 | `duration` | Recommended | Video duration (`MM:SS` or `HH:MM:SS`) |
 | `published_date` | Optional | Original video publication date |
 | `sections` | Optional | `true` if transcript includes section headers |
+| `reviewed_date` | Optional | ISO 8601 date when transcript was last reviewed by the transcript-reviewer agent |
+| `revisions` | Optional | Comma-separated list of `original→corrected(count)` pairs documenting speech-to-text corrections |
 
 Transcript body must include timestamps (`[HH:MM:SS]` or `[MM:SS]`). If `sections: true`, section headers use `## Section Title` format.
 
@@ -573,6 +577,8 @@ duration: 45:30
 extraction_tool: crawl4ai
 published_date: 2026-04-01
 sections: true
+reviewed_date: 2026-05-04
+revisions: canband→Kanban(3), Quinn→Qwen(4)
 -->
 ```
 
@@ -586,6 +592,8 @@ sections: true
 | `duration` | Recommended | Video duration |
 | `published_date` | Optional | Original video publication date |
 | `sections` | Optional | `true` if transcript includes section headers |
+| `reviewed_date` | Optional | ISO 8601 date when transcript was last reviewed by the transcript-reviewer agent |
+| `revisions` | Optional | Comma-separated list of `original→corrected(count)` pairs documenting speech-to-text corrections |
 
 **7. `manual`** — Human-curated source with minimal metadata.
 
