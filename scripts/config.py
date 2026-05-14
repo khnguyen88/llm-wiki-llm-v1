@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from datetime import datetime, timezone
+import os
 
 # ── Paths ──────────────────────────────────────────────────────────────
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,32 @@ WIKI_LOG_FILE = WIKI_DIR / "log.md"
 RAW_DIR = ROOT_DIR / "raw"
 AI_RESEARCH_DIR = ROOT_DIR / "ai-research"
 PROCESSED_DIR = ROOT_DIR / "processed"
+
+# ── Document processing pipeline ────────────────────────────────────────
+
+# Tool endpoints (from .env or defaults)
+DOCLING_URL = os.getenv("DOCLING_SERVE_URL", "http://localhost:8000")
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", None)
+
+# Pre-processing
+PDF_SPLIT_PAGE_SIZE = int(os.getenv("PDF_SPLIT_PAGE_SIZE", "25"))
+
+# Chunking thresholds
+CHUNK_MAX_WORDS = int(os.getenv("CHUNK_MAX_WORDS", "3000"))
+CHUNK_TARGET_WORDS = int(os.getenv("CHUNK_TARGET_WORDS", "1500"))
+
+# OCR cascade thresholds
+DOCLING_CONFIDENCE_THRESHOLD = float(os.getenv("DOCLING_CONFIDENCE_THRESHOLD", "0.8"))
+ARRASE_CONFIDENCE_FLOOR = float(os.getenv("ARRASE_CONFIDENCE_FLOOR", "0.7"))
+LLM_OCR_CONFIDENCE_FLOOR = float(os.getenv("LLM_OCR_CONFIDENCE_FLOOR", "0.5"))
+
+# Auto-remediation
+MAX_AUTO_ATTEMPTS = int(os.getenv("MAX_AUTO_ATTEMPTS", "3"))
+WEBSEARCH_CONFIDENCE_FLOOR = float(os.getenv("WEBSEARCH_CONFIDENCE_FLOOR", "0.6"))
+
+# New directory
+RAW_MARKDOWN_DIR = ROOT_DIR / "raw-markdown"
 
 # ── Timezone ───────────────────────────────────────────────────────────
 TIMEZONE = "America/Chicago"
