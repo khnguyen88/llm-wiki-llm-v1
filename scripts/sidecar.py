@@ -31,7 +31,6 @@ VALID_RESOLVED_BY = {"docling_high_confidence", "llm_knowledge", "websearch", "h
 def create_sidecar(
     document_path: str,
     total_pages: int,
-    output_dir: str | None = None,
 ) -> dict[str, Any]:
     """Create a new empty sidecar for a document."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -97,6 +96,8 @@ def add_element(
         raise ValueError(f"Invalid element type: {type_}. Must be one of {VALID_ELEMENT_TYPES}")
     if ocr_method not in VALID_OCR_METHODS:
         raise ValueError(f"Invalid OCR method: {ocr_method}. Must be one of {VALID_OCR_METHODS}")
+    if not 0.0 <= ocr_confidence <= 1.0:
+        raise ValueError(f"ocr_confidence must be between 0.0 and 1.0, got {ocr_confidence}")
 
     elem_id = f"elem-{len(sidecar['elements']) + 1:03d}"
 
@@ -220,7 +221,7 @@ def get_review_elements(sidecar: dict[str, Any]) -> list[dict[str, Any]]:
 
 def get_unresolved_blockers(sidecar: dict[str, Any]) -> int:
     """Count elements preventing pipeline completion."""
-    return sum(1 for e in sidecar["elements"] if e["status"] in ("pending", "needs_review"))
+    return sum(1 for e in sidecar["elements"] if e["status"] in ("pending", "needs_review", "error"))
 
 
 # ── Internal helpers ─────────────────────────────────────────────────────
