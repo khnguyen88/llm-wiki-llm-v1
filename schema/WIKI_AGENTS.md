@@ -207,6 +207,126 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 ---
 
+## Document Processor Agent
+
+**File**: `.claude/agents/document-processor.md`
+
+**Role**: Breaks large raw files (PDFs, long reports, files >3,000 words) into segmented markdown in `processed/` so they can be ingested into the wiki within LLM context limits.
+
+**When to invoke**: "Process this PDF", "Segment this document", files >3,000 words
+
+**Operations**:
+1. **Read** — Read the document (page-by-page for PDFs, full file for markdown)
+2. **Identify structure** — Parse TOC, headers, chapter breaks, logical section boundaries
+3. **Plan segments** — Target ~500–1,500 words per segment; group thin sections, split oversized ones
+4. **Convert to markdown** — Preserve heading hierarchy, convert tables, save complex images to `raw/assets/`
+5. **Write metadata headers** — Each segment gets a `processed-segment` HTML comment header per `schema/WIKI_SCHEMA.md`; raw source metadata header goes on the first segment only
+6. **Write segments** — Save to `processed/{subfolder}/` with naming convention `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md`
+7. **Delete original** — Remove from `raw/` after all segments confirmed (optional — keep if reprocessing may be needed)
+
+**Key principles**: Preserve heading hierarchy. Navigation links between sibling segments. Segment map in first segment. Only writes to `processed/` and `raw/assets/`.
+
+---
+
+## Wiki Linter Agent
+
+**File**: `.claude/agents/wiki-linter.md`
+
+**Role**: Runs health checks across both the external (`wiki/`) and internal (`knowledge/`) knowledge bases.
+
+**When to invoke**: "Lint the wiki", "Run health check"
+
+**Operations**: 14 checks across three severity levels:
+- **Errors**: broken links, duplicate concepts, malformed citations, broken citations, raw source metadata validation
+- **Warnings**: orphan pages, stale articles, sparse articles (<50 chars body), missing recommended metadata fields
+- **Suggestions**: orphan sources (unprocessed), missing backlinks, sparse articles (<200 words), missing summary, filename conventions
+
+**CLI**: `uv run python scripts/lint.py` (all checks), `--structural-only` (skip contradiction check), `--kb internal|external`
+
+Reports save to `reports/lint-YYYY-MM-DD.md`.
+
+**Key principles**: Actionable findings, not style nits. Prioritize errors > warnings > suggestions. Never invent claims.
+
+---
+
+## Wiki Query Agent
+
+**File**: `.claude/agents/wiki-query.md`
+
+**Role**: Answers questions against both the external (`wiki/`) and internal (`knowledge/`) knowledge bases.
+
+**When to invoke**: Questions about compiled knowledge
+
+**Operations**:
+1. **Read index** — Start with `wiki/index.md` and/or `knowledge/index.md`
+2. **Select relevant pages** — Identify 3–10 relevant articles
+3. **Read in full** — Drill into summaries first, then entities/concepts for detail
+4. **Follow links** — Read referenced articles if relevant
+5. **Synthesize** — Combine information from multiple pages into a coherent answer with `[[wikilinks]]`
+6. **Identify gaps** — Note what the KB doesn't cover; offer `web-search` or `ai-research` to fill gaps
+
+**CLI**: `uv run python scripts/query.py "question"`, `--file-back` to save answer back to KB
+
+**Key principles**: Always start from the index. Distinguish KB knowledge from general knowledge. Never invent claims. Offer to invoke `web-search` or `ai-research` when gaps are detected.
+
+---
+
+## Knowledge Compiler Agent
+
+**File**: `.claude/agents/knowledge-compiler.md`
+
+**Role**: Compiles daily conversation logs into the internal knowledge base at `knowledge/`.
+
+**When to invoke**: "Compile daily logs"
+
+**Operations**:
+1. **Compile** — Read daily log, read `knowledge/index.md`, update existing concepts or create new ones, write connections articles, update index and log
+2. **Query** — Read index, identify relevant articles, synthesize answer with citations
+3. **Lint** — 12 health checks for the internal KB (broken links, orphans, stale articles, etc.)
+
+**Key principles**: Owns `knowledge/` directory. Prefers updating existing articles over creating near-duplicates. Never invent claims.
+
+---
+
+## Sync Check Agent
+
+**File**: `.claude/agents/sync-check.md`
+
+**Role**: Verifies cross-file consistency across project configuration files (directories, agents, schemas, scripts, conventions).
+
+**When to invoke**: After structural changes to dirs/schemas/agents
+
+**Operations**: Checks 8 categories of consistency:
+1. Directory references — all files defining project structure agree on dirs/subdirs
+2. Agent cross-references — every agent references correct dirs, schemas, scripts
+3. Script names — CLI commands match actual scripts in `scripts/`
+4. Conventions — naming, frontmatter, citations consistent across all files
+5. Processed/ pipeline — `processed/` referenced alongside `raw/` and `ai-research/`
+6. Source manifest — listed in all relevant files
+7. Wiki directory naming — `summaries/` not `sources/`
+8. Raw source metadata — 8 source types and field tiers match across schema, linter, maintainer, workflows
+
+**Output**: Markdown checklist of inconsistencies found and items verified.
+
+---
+
+## Context Loader Agent
+
+**File**: `.claude/agents/context-loader.md`
+
+**Role**: Loads domain-specific rules on demand and enforces that `CLAUDE.md` stays lean (under 60 lines).
+
+**When to invoke**: "Load rules for X", "Audit CLAUDE.md", "Guard prompt health"
+
+**Operations**:
+1. **Load** — Inject domain rules on demand by reading the relevant source file and presenting exact rules (no summarizing)
+2. **Guard** — Enforce CLAUDE.md leanness: under 60 lines, no domain rules in root, no duplication, pointers over inlining
+3. **Audit** — Check rule distribution across the project for duplication, orphaned rules, missing rules, stale pointers
+
+**Key principles**: Never load rules proactively — only on demand. Loading speculatively bloats context. No duplication — rules live in ONE place.
+
+---
+
 ## Ingestion Pattern
 
 All source ingestion uses **subagent-driven dispatch** — one fresh subagent per source, using the wiki-maintainer agent. The operator reviews between tasks and iterates fast. This produces higher-quality, more descriptive wiki pages than batch script-based ingestion because each source gets full interactive attention with cross-referencing, reconciliation, and provenance tracking.
