@@ -29,7 +29,9 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 | Agent                | When to invoke                                               |
 | -------------------- | ------------------------------------------------------------ |
 | `wiki-maintainer`    | "Process this source", "Ingest X"                            |
-| `document-processor` | Files >3,000 words or PDFs                                   |
+| `pdf-processor`       | "Convert this PDF to markdown"                              |
+| `markdown-chunker`    | "Chunk this markdown into chapters"                         |
+| `document-processor` | "Process this source", "Run the full pipeline on X", "Approve document for wiki" |
 | `knowledge-compiler` | "Compile daily logs"                                         |
 | `wiki-linter`        | "Lint the wiki", "Run health check"                          |
 | `wiki-repair`        | "Fix broken links", "Resolve orphans", "Repair lint errors"  |
