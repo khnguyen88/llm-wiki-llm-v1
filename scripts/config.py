@@ -38,7 +38,7 @@ PROCESSED_DIR = ROOT_DIR / "processed"
 # ── Document processing pipeline ────────────────────────────────────────
 
 # Tool endpoints (from .env or defaults)
-DOCLING_URL = os.getenv("DOCLING_SERVE_URL", "http://localhost:8000")
+DOCLING_URL = os.getenv("DOCLING_SERVE_URL", "http://localhost:5001")
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", None)
 
