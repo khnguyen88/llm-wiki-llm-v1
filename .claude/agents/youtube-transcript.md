@@ -130,6 +130,8 @@ Print a summary:
 - Paragraph count
 - Whether sections were detected
 
+Transcript saved. Consider running `transcript-reviewer` on this file to check for and correct speech-to-text errors (mistranscribed proper nouns, merged words, phonetic approximations).
+
 ## Key Principles
 
 - **Preserve original spacing** — use the paragraph view from ytscribe as the canonical text, not the timestamped view
