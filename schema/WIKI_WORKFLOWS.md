@@ -12,8 +12,9 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 **Steps**:
 
-0. **Check source size** (pre-processing)
-   - If the file is a PDF, binary document, or exceeds ~3,000 words: invoke the document-processor agent to segment it into `processed/` using the naming convention in `schema/WIKI_SCHEMA.md` → Processed File Naming
+0. **Check source size and approval** (pre-processing)
+   - If the file is a PDF, binary document, or exceeds ~3,000 words: invoke the document-processor agent to run the full pipeline (pdf-processor → markdown-chunker → auto-remediation)
+   - For files that went through the pipeline: check the sidecar JSON for `pipeline_state.stage`. If the stage is not `"approved"`, reject ingestion with the message: "Document not approved for ingestion. Current state: {stage}. Unresolved elements: {count}. Run document-processor to complete the pipeline."
    - Small markdown files go directly to step 1
 
 1. **Read source document**

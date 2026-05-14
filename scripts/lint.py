@@ -1,9 +1,10 @@
 """
 Lint the knowledge base for structural and semantic health.
 
-Runs 12 checks: broken links, orphan pages, orphan sources, stale articles,
+Runs 14 checks: broken links, orphan pages, orphan sources, stale articles,
 contradictions (LLM), missing backlinks, sparse articles, unsourced claims,
-missing summaries, duplicate concepts, malformed citations, and broken citations.
+missing summaries, duplicate concepts, malformed citations, broken citations,
+unapproved processed, and dangling elements.
 
 Supports both Internal KB (knowledge/) and External KB (wiki/).
 
@@ -18,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import json
 import re
 from pathlib import Path
 
@@ -27,6 +29,7 @@ from config import (
     KNOWLEDGE_DIR,
     PROCESSED_DIR,
     RAW_DIR,
+    RAW_MARKDOWN_DIR,
     REPORTS_DIR,
     WIKI_DIR,
     now_iso,
@@ -695,6 +698,55 @@ def check_broken_citation_external() -> list[dict]:
     return issues
 
 
+def check_unapproved_processed() -> list[dict]:
+    """Check for processed/ files whose sidecar has not been approved."""
+    issues = []
+    import re
+    for proc_file in list_processed_files():
+        stem = proc_file.stem
+        # Strip the part-NNN suffix to get the base name
+        # e.g., "my-paper-part-003-2026-05-14" → "my-paper"
+        base = re.sub(r"-part-\d{3,}.*$", "", stem)
+        sidecar_path = RAW_MARKDOWN_DIR / f"{base}.elements.json"
+        if not sidecar_path.exists():
+            continue  # not pipeline-processed, skip
+        sidecar = json.loads(sidecar_path.read_text(encoding="utf-8"))
+        stage = sidecar.get("pipeline_state", {}).get("stage", "unknown")
+        if stage != "approved":
+            rel = proc_file.relative_to(PROCESSED_DIR)
+            issues.append({
+                "severity": "warning",
+                "check": "unapproved_processed",
+                "kb": "external",
+                "file": f"processed/{rel}",
+                "detail": f"Document not approved for ingestion (stage: {stage}). Unresolved elements: {sidecar['pipeline_state'].get('unresolved_blockers', '?')}",
+            })
+    return issues
+
+
+def check_dangling_elements() -> list[dict]:
+    """Check for sidecar elements whose owning_chunk points to a non-existent file."""
+    issues = []
+    if not RAW_MARKDOWN_DIR.exists():
+        return issues
+    for sidecar_file in RAW_MARKDOWN_DIR.glob("*.elements.json"):
+        sidecar = json.loads(sidecar_file.read_text(encoding="utf-8"))
+        for elem in sidecar.get("elements", []):
+            chunk = elem.get("owning_chunk")
+            if chunk is None:
+                continue  # not yet assigned, not an error
+            chunk_path = ROOT_DIR / chunk
+            if not chunk_path.exists():
+                issues.append({
+                    "severity": "error",
+                    "check": "dangling_elements",
+                    "kb": "external",
+                    "file": str(sidecar_file.relative_to(ROOT_DIR)),
+                    "detail": f"Element {elem['id']} (type: {elem['type']}) references non-existent chunk: {chunk}",
+                })
+    return issues
+
+
 async def check_contradictions_external() -> list[dict]:
     """Use LLM to detect contradictions across external wiki pages."""
     from claude_agent_sdk import (
@@ -872,6 +924,8 @@ def main():
                 ("Duplicate concepts", check_duplicate_concept_external),
                 ("Malformed citations", check_malformed_citation_external),
                 ("Broken citations", check_broken_citation_external),
+                ("Unapproved processed", check_unapproved_processed),
+                ("Dangling elements", check_dangling_elements),
             ]
 
             for name, check_fn in external_checks:

@@ -207,6 +207,43 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 ---
 
+## PDF Processor Agent
+
+**File**: `.claude/agents/pdf-processor.md`
+
+**Role**: Converts documents (PDF, DOCX, PPTX) to raw markdown via docling-serve with cascading OCR.
+
+**When to invoke**: "Convert this PDF to markdown", first stage of document processing pipeline
+
+**Operations**:
+1. **Pre-process** — DOCX → PDF via docx2pdf; PDFs > 25 pages split via pypdf
+2. **Convert** — docling-serve Docker API, parallel conversion for split PDFs, concatenate output
+3. **OCR cascade** — Elements below confidence threshold → arrase (Ollama + deepseek-ocr) on specific pages → OpenRouter vision model as final fallback
+4. **Write output** — `raw-markdown/{name}-{date}.md` + `{name}-{date}.elements.json` sidecar
+
+**Key principles**: Only OCR low-confidence elements. Sidecar is the contract — always write it. Never segment (that's markdown-chunker's job).
+
+---
+
+## Markdown Chunker Agent
+
+**File**: `.claude/agents/markdown-chunker.md`
+
+**Role**: Partitions raw markdown into chapter/section-based chunks in `processed/`, using TOC as the structure guide.
+
+**When to invoke**: "Chunk this markdown into chapters", second stage of document processing pipeline
+
+**Operations**:
+1. **Detect structure** — Parse TOC, H1/H2/H3 hierarchy; identify copyright/boilerplate pages
+2. **Extract TOC** — Standalone chunk-000 with segment map
+3. **Partition** — Chunk by H1-H2 sections; word count is safety check, not driver
+4. **Assign elements** — Map each sidecar element to its owning chunk by page number
+5. **Write chunks** — `processed/{subfolder}/{name}-part-NNN-{date}.md` with full metadata headers and navigation links
+
+**Key principles**: TOC is the chunking map. Never orphan an element. Navigation links on every chunk.
+
+---
+
 ## Document Processor Agent
 
 **File**: `.claude/agents/document-processor.md`

@@ -27,6 +27,8 @@ ai-research/      # AI-discovered web sources (LLM-writes, immutable once saved)
   forum-thread/
   transcripts/
 
+raw-markdown/      # Raw markdown output from pdf-processor (pre-chunking)
+
 processed/        # Segmented markdown from large raw files
   articles/       # Segmented articles
   papers/         # Segmented papers
