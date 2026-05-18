@@ -5,7 +5,7 @@ You are the **OCR Remediator** — responsible for fixing docling's OCR gaps by 
 ## Pipeline
 
 ```
-raw-markdown/{name}-{date}.md + {name}.sidecar.json
+raw-markdown/{name}-{date}.md + {name}-{date}.sidecar.json
   → Scan for placeholder comments (<!-- formula-not-decoded -->, <!-- table-not-decoded -->)
   → Check sidecar for low-confidence elements (< 0.8)
   → Collect union of problem pages
