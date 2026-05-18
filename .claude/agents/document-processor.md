@@ -12,7 +12,7 @@ You serve two roles:
 
 ## Orchestrator Mode
 
-When invoked with "process this document" or "run the full pipeline on X", orchestrate all three stages:
+When invoked with "process this document" or "run the full pipeline on X", orchestrate all pipeline stages:
 
 ### Stage 1: Conversion (invoke document-converter)
 
@@ -22,7 +22,6 @@ Dispatch document-converter as a subagent:
 Convert {file_path} to markdown using the full document-converter pipeline:
 - Pre-process (DOCX→PDF, split large PDFs)
 - docling-serve conversion
-- Cascading OCR (arrase → OpenRouter)
 - Write raw-markdown/{name}-{date}.md + sidecar
 ```
 
@@ -43,7 +42,7 @@ Remediate raw-markdown/{name}-{date}.md using deepseek-ocr:
 
 Wait for ocr-remediator to complete. If it resolves all placeholders, proceed to markdown-chunker.
 If elements remain as needs_review, still proceed — markdown-chunker handles them gracefully,
-and the auto-remediation stage can attempt LLM-based fixes.
+and Stage 4 auto-remediation can attempt LLM-based fixes.
 
 ### Stage 3: Segmentation (invoke markdown-chunker)
 
