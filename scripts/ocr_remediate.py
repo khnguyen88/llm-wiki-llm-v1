@@ -7,19 +7,17 @@ runs deepseek-ocr (arrase/OCR) on specific pages, and splices fixes back in.
 
 from __future__ import annotations
 
-import os
 import re
 import subprocess
 import sys
 from pathlib import Path
 
-from sidecar import load_sidecar, save_sidecar, update_element_status
+from sidecar import add_element, load_sidecar, save_sidecar, update_element_status
 
 
 # ── Constants ──────────────────────────────────────────────────────────────
 
 PLACEHOLDER_PATTERN = re.compile(r"<!--\s*(formula|table|diagram)-not-decoded\s*-->")
-DOCX2PDF_SCRIPT = "python -c \"from docx2pdf import convert; convert('{src}', '{dst}')\""
 OCR_THRESHOLD = 0.8
 
 
@@ -75,21 +73,21 @@ def collect_problem_pages(placeholders: list[dict], low_conf: list[dict]) -> lis
     """Deduplicated, sorted list of pages that need OCR remediation."""
     pages = set()
     for p in placeholders:
-        pages.add(p["page"])
+        if p["page"] > 0:
+            pages.add(p["page"])
     for e in low_conf:
-        pages.add(e["page"])
-    return sorted(pages)
+        if e["page"] > 0:
+            pages.add(e["page"])
+    return sorted(pages) if pages else []
 
 
 def _infer_page(lines: list[str], line_idx: int) -> int:
     """Infer page number from surrounding content markers.
 
     Looks for page break markers (e.g., '--- page 3 ---') or image references
-    with page info near the placeholder. Falls back to sequential distribution
-    based on total page count from sidecar.
+    with page info near the placeholder.
     """
     page_marker = re.compile(r"---\s*page\s*(\d+)\s*---|\[page\s*(\d+)\]", re.IGNORECASE)
-    image_ref = re.compile(r"!\[.*?\]\(.*?[_-](\d+)\.[a-z]{3,4}\)")
 
     for offset in range(-10, 10):
         idx = line_idx + offset
@@ -97,11 +95,8 @@ def _infer_page(lines: list[str], line_idx: int) -> int:
             m = page_marker.search(lines[idx])
             if m:
                 return int(m.group(1) or m.group(2))
-            m = image_ref.search(lines[idx])
-            if m:
-                return int(m.group(1))
 
-    return 0  # unknown — will need sidecar page count for sequential fallback
+    return 0  # unknown — caller filters out page 0
 
 
 # ── Format conversion ──────────────────────────────────────────────────────
@@ -122,8 +117,11 @@ def convert_to_pdf(source_path: str | Path) -> Path:
 
     if ext == ".docx":
         pdf_path = source.with_suffix(".pdf")
-        cmd = DOCX2PDF_SCRIPT.format(src=source, dst=pdf_path)
-        subprocess.run(cmd, shell=True, check=True, capture_output=True)
+        subprocess.run(
+            [sys.executable, "-c", f"from docx2pdf import convert; convert({str(source)!r}, {str(pdf_path)!r})"],
+            check=True,
+            capture_output=True,
+        )
         return pdf_path
 
     if ext == ".pptx":
@@ -163,11 +161,10 @@ def parse_ocr_output(ocr_md_path: str | Path) -> dict[int, dict[str, list[str]]]
     """Parse deepseek-ocr output into page-keyed content.
 
     Returns:
-        {page_number: {"formula": ["$$...$$", ...], "table": ["|...|", ...], ...}}
+        {page_number: {"text": ["line1", "line2", ...]}}
     """
     text = Path(ocr_md_path).read_text(encoding="utf-8")
 
-    # Split by page markers that deepseek-ocr may emit
     pages: dict[int, dict[str, list[str]]] = {}
     current_page = 1
     current_text: list[str] = []
@@ -190,7 +187,7 @@ def parse_ocr_output(ocr_md_path: str | Path) -> dict[int, dict[str, list[str]]]
 
 # ── Splicing ───────────────────────────────────────────────────────────────
 
-def splice_into_markdown(md_path: str | Path, ocr_content: dict, placeholders: list[dict]) -> Path:
+def splice_into_markdown(md_path: str | Path, ocr_content: dict, placeholders: list[dict]) -> dict[str, str]:
     """Replace placeholders in raw markdown with deepseek-OCR output.
 
     Args:
@@ -199,54 +196,45 @@ def splice_into_markdown(md_path: str | Path, ocr_content: dict, placeholders: l
         placeholders: Results from scan_placeholders().
 
     Returns:
-        Path to the updated markdown file.
+        Mapping of placeholder line_number -> markdown_representation for fixes applied.
     """
     md_path = Path(md_path)
-    text = md_path.read_text(encoding="utf-8")
-    lines = text.split("\n")
+    lines = md_path.read_text(encoding="utf-8").split("\n")
 
     # Build page → OCR text lookup
     page_text: dict[int, str] = {}
     for page, content in ocr_content.items():
         page_text[page] = "\n".join(content.get("text", []))
 
-    # Replace placeholders
+    fixes = {}
     for ph in placeholders:
         page = ph["page"]
         line_idx = ph["line_number"]
-        if page in page_text:
-            replacement = _extract_element_from_page_text(page_text[page], ph["type"], lines, line_idx)
+        if page in page_text and page > 0:
+            replacement = _extract_element_from_page_text(page_text[page], ph["type"])
             if replacement:
                 lines[line_idx] = replacement
+                fixes[str(line_idx)] = replacement
 
     md_path.write_text("\n".join(lines), encoding="utf-8")
-    return md_path
+    return fixes
 
 
-def _extract_element_from_page_text(
-    page_text: str, element_type: str, context_lines: list[str], line_idx: int
-) -> str | None:
-    """Extract a specific element (formula, table) from page OCR text using context matching.
+def _extract_element_from_page_text(page_text: str, element_type: str) -> str | None:
+    """Extract an element (formula, table) from deepseek-OCR page text.
 
-    Uses the surrounding context lines to locate the corresponding content in the
-    deepseek-OCR output for that page.
+    Returns the first matching element found on the page.
     """
-    # Get surrounding text context (skip the placeholder line itself)
-    before = [l for l in context_lines[:2] if "not-decoded" not in l]
-    after = [l for l in context_lines[2:] if "not-decoded" not in l]
-
-    page_lines = page_text.split("\n")
-
     if element_type == "formula":
-        # Look for LaTeX math patterns near the context
-        math_patterns = re.findall(r"\$\$[^$]+\$\$|\$[^$]+\$|\\\[.*?\\\]", page_text, re.DOTALL)
+        # Match LaTeX display/inline math and \[ \] environments
+        math_patterns = re.findall(r"\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]", page_text)
         if math_patterns:
-            return math_patterns[0]  # Return the first formula found — close enough for a first pass
+            return math_patterns[0]
         return None
 
     if element_type == "table":
-        # Look for markdown table patterns
-        table_pattern = re.findall(r"(\|.*\|[\s\S]*?\n\s*\n)", page_text)
+        # Match markdown table blocks (lines starting and ending with |)
+        table_pattern = re.findall(r"(\|[^\n]+\|[\s\S]*?\n\s*\n)", page_text)
         if table_pattern:
             return table_pattern[0].strip()
         return None
@@ -259,6 +247,9 @@ def _extract_element_from_page_text(
 def sync_sidecar(sidecar_path: str | Path, placeholders: list[dict], fixes_applied: dict[str, str]) -> None:
     """Update sidecar with OCR remediation results.
 
+    For each placeholder: if fixed, create or update a sidecar element.
+    If not fixed, record as needs_review if an element exists for it.
+
     Args:
         sidecar_path: Path to the sidecar JSON file.
         placeholders: All placeholders that were found.
@@ -268,23 +259,45 @@ def sync_sidecar(sidecar_path: str | Path, placeholders: list[dict], fixes_appli
 
     for ph in placeholders:
         key = str(ph["line_number"])
+        existing = _find_matching_element(sidecar, ph)
+
         if key in fixes_applied:
+            if existing:
+                update_element_status(
+                    sidecar,
+                    existing["id"],
+                    status="auto_resolved",
+                    resolved_by="arrase_deepseek",
+                    markdown_representation=fixes_applied[key],
+                )
+            else:
+                add_element(
+                    sidecar,
+                    type_=ph["type"],
+                    page=ph["page"],
+                    ocr_method="arrase-deepseek",
+                    ocr_confidence=0.9,
+                    markdown_representation=fixes_applied[key],
+                )
+        elif existing:
+            # Placeholder wasn't fixed but element exists — flag for review
             update_element_status(
                 sidecar,
-                ph.get("element_id", f"ph-{ph['page']}-{ph['line_number']}"),
-                status="auto_resolved",
-                resolved_by="arrase_deepseek",
-                markdown_representation=fixes_applied[key],
-            )
-        else:
-            update_element_status(
-                sidecar,
-                ph.get("element_id", f"ph-{ph['page']}-{ph['line_number']}"),
+                existing["id"],
                 status="needs_review",
                 review_reason="ocr_unavailable",
             )
+        # else: no element and no fix — nothing to record in sidecar
 
     save_sidecar(sidecar)
+
+
+def _find_matching_element(sidecar: dict, placeholder: dict) -> dict | None:
+    """Find a sidecar element matching a placeholder by page and type."""
+    for elem in sidecar.get("elements", []):
+        if elem.get("page") == placeholder["page"] and elem.get("type") == placeholder["type"]:
+            return elem
+    return None
 
 
 # ── Main entry ─────────────────────────────────────────────────────────────
@@ -308,6 +321,10 @@ def remediate(raw_md_path: str | Path, sidecar_path: str | Path, source_path: st
         return False
 
     problem_pages = collect_problem_pages(placeholders, low_conf)
+    if not problem_pages:
+        print("No valid problem pages identified — skipping OCR remediation.")
+        return False
+
     print(f"Problem pages: {problem_pages}")
     print(f"  Placeholders: {len(placeholders)}, Low-confidence: {len(low_conf)}")
 
@@ -320,26 +337,11 @@ def remediate(raw_md_path: str | Path, sidecar_path: str | Path, source_path: st
     try:
         ocr_md_path = run_deepseek_ocr(pdf_path, problem_pages)
     except (RuntimeError, FileNotFoundError) as e:
-        print(f"Warning: deepseek-ocr unavailable ({e}) — trying OpenRouter fallback")
-        # OpenRouter fallback would go here
+        print(f"Warning: deepseek-ocr unavailable ({e})")
         return False
 
     ocr_content = parse_ocr_output(ocr_md_path)
-
-    fixes = {}
-    for ph in placeholders:
-        page = ph["page"]
-        if page in ocr_content:
-            page_text = "\n".join(ocr_content[page].get("text", []))
-            # Read context from raw markdown
-            md_lines = Path(raw_md_path).read_text(encoding="utf-8").split("\n")
-            context = md_lines[max(0, ph["line_number"] - 2): ph["line_number"] + 3]
-            replacement = _extract_element_from_page_text(page_text, ph["type"], context, ph["line_number"])
-            if replacement:
-                fixes[str(ph["line_number"])] = replacement
-
-    splice_into_markdown(raw_md_path, ocr_content, placeholders)
-
+    fixes = splice_into_markdown(raw_md_path, ocr_content, placeholders)
     sync_sidecar(sidecar_path, placeholders, fixes)
 
     print(f"OCR Remediation complete:")
@@ -357,4 +359,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     ok = remediate(sys.argv[1], sys.argv[2], sys.argv[3])
-    sys.exit(0 if ok else 0)  # Always exit 0 — best-effort, never blocks pipeline
+    sys.exit(0)  # Always exit 0 — best-effort, never blocks pipeline
