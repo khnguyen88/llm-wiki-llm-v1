@@ -248,7 +248,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **Role**: Partitions raw markdown into chapter/section-based chunks in `processed/`, using TOC as the structure guide.
 
-**When to invoke**: "Chunk this markdown into chapters", second stage of document processing pipeline
+**When to invoke**: "Chunk this markdown into chapters", third stage of document processing pipeline
 
 **Operations**:
 1. **Detect structure** — Parse TOC, H1/H2/H3 hierarchy; identify copyright/boilerplate pages
