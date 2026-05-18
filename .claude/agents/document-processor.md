@@ -8,27 +8,44 @@ You serve two roles:
 
 1. **Legacy processor** (standalone): Break large raw files into segments as before — reading page-by-page, converting to markdown, saving to `processed/`. Use this when docling-serve or OCR tools are unavailable.
 
-2. **Pipeline orchestrator** (recommended): Drive the full tool-backed pipeline by invoking pdf-processor and markdown-chunker subagents, then run auto-remediation and enforce the approval gate.
+2. **Pipeline orchestrator** (recommended): Drive the full tool-backed pipeline by invoking document-converter, ocr-remediator, and markdown-chunker subagents, then run auto-remediation and enforce the approval gate.
 
 ## Orchestrator Mode
 
 When invoked with "process this document" or "run the full pipeline on X", orchestrate all three stages:
 
-### Stage 1: Conversion (invoke pdf-processor)
+### Stage 1: Conversion (invoke document-converter)
 
-Dispatch pdf-processor as a subagent:
+Dispatch document-converter as a subagent:
 
 ```
-Convert {file_path} to markdown using the full pdf-processor pipeline:
+Convert {file_path} to markdown using the full document-converter pipeline:
 - Pre-process (DOCX→PDF, split large PDFs)
 - docling-serve conversion
 - Cascading OCR (arrase → OpenRouter)
 - Write raw-markdown/{name}-{date}.md + sidecar
 ```
 
-Wait for pdf-processor to complete. Verify output files exist. If pdf-processor fails, report the error and stop — do not proceed to chunking.
+Wait for document-converter to complete. Verify output files exist. If document-converter fails, report the error and stop — do not proceed to chunking.
 
-### Stage 2: Segmentation (invoke markdown-chunker)
+### Stage 2: OCR Remediation (invoke ocr-remediator)
+
+Dispatch ocr-remediator as a subagent:
+
+```
+Remediate raw-markdown/{name}-{date}.md using deepseek-ocr:
+- Scan for placeholders and low-confidence elements in sidecar
+- Convert source to PDF if needed
+- Run ocr --include on problem pages
+- Splice fixes back into raw-markdown
+- Update sidecar with resolved elements
+```
+
+Wait for ocr-remediator to complete. If it resolves all placeholders, proceed to markdown-chunker.
+If elements remain as needs_review, still proceed — markdown-chunker handles them gracefully,
+and the auto-remediation stage can attempt LLM-based fixes.
+
+### Stage 3: Segmentation (invoke markdown-chunker)
 
 Dispatch markdown-chunker as a subagent:
 
@@ -43,7 +60,7 @@ Chunk raw-markdown/{name}-{date}.md using the markdown-chunker pipeline:
 
 Wait for markdown-chunker to complete. Verify all chunks are written and sidecar is updated.
 
-### Stage 3: Auto-Remediation
+### Stage 4: Auto-Remediation
 
 For each element in the sidecar with status `pending`:
 
@@ -79,7 +96,7 @@ Auto-remediation complete:
 Run "approve {document}" to review and approve remaining elements.
 ```
 
-### Stage 4: Human Review
+### Stage 5: Human Review
 
 When user provides corrections for `needs_review` elements, update each element:
 ```python
@@ -109,7 +126,8 @@ Only `approved` documents may be ingested into the wiki.
 Users can bypass the orchestrator and chain agents manually:
 
 ```
-User → pdf-processor (convert)
+User → document-converter (convert)
+User → ocr-remediator (fix OCR gaps)
 User → markdown-chunker (segment)
 User → document-processor (remediate + approve)
 ```
