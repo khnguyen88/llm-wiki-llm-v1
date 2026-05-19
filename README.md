@@ -709,26 +709,60 @@ Browser extension (Firefox) for extracting single-page articles or threads direc
 
 ### Vane (Web Search API)
 
-Local AI-synthesized web search API at `localhost:3000`. Uses an LLM chat model for reasoning and an embedding model for semantic retrieval — producing narrative responses with inline references instead of a raw list of URLs. Invoked via shell tools in `.claude/tools/` and `.claude/scripts/` (not MCP, not Docker).
+AI-synthesized web search engine (formerly Perplexica) that runs locally via Docker. Combines a SearxNG metasearch backend with an LLM chat model for reasoning and an embedding model for semantic retrieval — producing narrative responses with inline references instead of a raw list of URLs.
 
 **Why:** Deeper synthesis than built-in WebSearch. In testing, Vane caught architectural details (Engram, mHC, OPD for DeepSeek V4) and correct pricing that built-in WebSearch missed entirely.
 
-**Setup:**
+**Setup (Docker):**
 
-Vane tools are pre-configured in the project — no additional installation needed:
+1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+2. Run the Vane container (bundled with SearxNG):
+
+**macOS / Linux (bash):**
+
+```bash
+docker run -d \
+  -p 3000:3000 \
+  -v vane-data:/home/vane/data \
+  --name vane \
+  itzcrazykns1337/vane:latest
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker run -d `
+  -p 3000:3000 `
+  -v vane-data:/home/vane/data `
+  --name vane `
+  itzcrazykns1337/vane:latest
+```
+
+3. Open `http://localhost:3000` in your browser and complete the setup wizard — configure your LLM providers (Ollama, OpenRouter, etc.) and search settings.
+
+4. The project's Vane tools are pre-configured in `.claude/tools/` and `.claude/scripts/`:
 
 | Tool | Definition | Script |
 |------|-----------|--------|
 | `vane_get_providers` | `.claude/tools/vane_get_providers.json` | `.claude/scripts/vane_get_providers.py` |
 | `vane_web_search` | `.claude/tools/vane_web_search.json` | `.claude/scripts/vane_web_search.py` |
 
-Verify Vane is reachable:
+5. Verify Vane is reachable:
 
 ```bash
 uv run python .claude/scripts/vane_get_providers.py
 ```
 
-> ⚠️ Vane must be running as a separate local service on `localhost:3000`. See Vane's documentation for installation.
+> ⚠️ Always start the Docker container before opening a Claude Code session.
+
+**Stop & Start:**
+
+```bash
+docker stop vane       # Stop the container
+docker start vane      # Start it again
+docker restart vane    # Restart (stop + start in one command)
+```
 
 **Usage:**
 
@@ -742,6 +776,8 @@ Two project agents use Vane — one ephemeral, one persistent:
 Both agents enforce the same citation convention: every factual claim must include an inline citation `[N]` referencing a numbered source, and all sources must be included verbatim (no filtering or truncation).
 
 If Vane is unavailable, the web-search agent falls back to built-in WebSearch (with a notice that results may be shallower).
+
+For full documentation, see [github.com/ItzCrazyKns/Vane](https://github.com/ItzCrazyKns/Vane).
 
 ---
 
