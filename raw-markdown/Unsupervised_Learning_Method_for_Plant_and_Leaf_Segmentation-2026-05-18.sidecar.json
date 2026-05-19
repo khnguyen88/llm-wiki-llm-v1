@@ -1,0 +1,222 @@
+{
+  "document_name": "Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation",
+  "source_path": "raw/papers/Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation.pdf",
+  "output_path": "raw-markdown/Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation-2026-05-18.md",
+  "pipeline_state": {
+    "stage": "approved",
+    "unresolved_blockers": 0,
+    "total_elements": 6,
+    "resolved": 6,
+    "needs_review": 0
+  },
+  "conversion_metadata": {
+    "engine": "docling-serve",
+    "status": "success",
+    "processing_time_seconds": 10.813677332999987,
+    "output_size_bytes": 694109,
+    "output_lines": 154,
+    "pages": 4,
+    "text_items": 111,
+    "tables": 2,
+    "pictures": 5
+  },
+  "chunking_metadata": {
+    "date": "2026-05-18T00:00:00Z",
+    "total_chunks": 4,
+    "chunk_strategy": "logical-sections",
+    "target_word_range": "500-1500",
+    "chunks": [
+      {
+        "part": 1,
+        "total_parts": 4,
+        "section": "Abstract & Introduction",
+        "file": "processed/papers/unsupervised-learning-method-plant-leaf-segmentation-part-001-2026-05-18.md",
+        "word_count": 350,
+        "has_images": true,
+        "has_tables": false,
+        "line_range": "1-27",
+        "headings": [
+          "Title",
+          "I. INTRODUCTION"
+        ]
+      },
+      {
+        "part": 2,
+        "total_parts": 4,
+        "section": "Proposed Method",
+        "file": "processed/papers/unsupervised-learning-method-plant-leaf-segmentation-part-002-2026-05-18.md",
+        "word_count": 500,
+        "has_images": true,
+        "has_tables": false,
+        "line_range": "28-61",
+        "headings": [
+          "II. OUR PROPOSED METHOD",
+          "A. Step1: Foreground background (FB) segmentation",
+          "B. Step2: Leaf segmentation"
+        ]
+      },
+      {
+        "part": 3,
+        "total_parts": 4,
+        "section": "Evaluation Measures & Experimental Results",
+        "file": "processed/papers/unsupervised-learning-method-plant-leaf-segmentation-part-003-2026-05-18.md",
+        "word_count": 350,
+        "has_images": true,
+        "has_tables": true,
+        "line_range": "62-120",
+        "headings": [
+          "III. EVALUATION MEASURES",
+          "IV. EXPERIMENTAL RESULTS"
+        ]
+      },
+      {
+        "part": 4,
+        "total_parts": 4,
+        "section": "Conclusions & References",
+        "file": "processed/papers/unsupervised-learning-method-plant-leaf-segmentation-part-004-2026-05-18.md",
+        "word_count": 150,
+        "has_images": true,
+        "has_tables": false,
+        "line_range": "121-155",
+        "headings": [
+          "V. CONCLUSIONS",
+          "REFERENCES"
+        ]
+      }
+    ]
+  },
+  "elements": [
+    {
+      "id": "elem-001",
+      "type": "equation",
+      "page": 0,
+      "ocr_method": "arrase-deepseek",
+      "ocr_confidence": 0.9,
+      "status": "auto_resolved",
+      "review_reason": null,
+      "resolved_by": "docling_high_confidence",
+      "owning_chunk": null,
+      "markdown_representation": "\\[\np(x_i | \\Theta) = \\sum_{j=1}^{K} w_j p_j(x_i | \\theta_j)\n\\]",
+      "source_coordinates": {
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "page": 0
+      },
+      "attempts": []
+    },
+    {
+      "id": "elem-002",
+      "type": "equation",
+      "page": 0,
+      "ocr_method": "arrase-deepseek",
+      "ocr_confidence": 0.9,
+      "status": "auto_resolved",
+      "review_reason": null,
+      "resolved_by": "docling_high_confidence",
+      "owning_chunk": null,
+      "markdown_representation": "| \\Theta) = \\sum_{j=1}^{K} w_j p_j(x_i | \\theta_j)\n\\]",
+      "source_coordinates": {
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "page": 0
+      },
+      "attempts": []
+    },
+    {
+      "id": "elem-003",
+      "type": "equation",
+      "page": 0,
+      "ocr_method": "arrase-deepseek",
+      "ocr_confidence": 0.9,
+      "status": "auto_resolved",
+      "review_reason": null,
+      "resolved_by": "docling_high_confidence",
+      "owning_chunk": null,
+      "markdown_representation": "\\[\nlog(P(X | \\Theta)) = log(\\prod_{i=1}^{N} p(x_i | \\Theta)) = \\sum_{i=1}^{N} \\log(\\sum_{j=1}^{K} w_j p_j(x_i | \\theta_j))\n\\]",
+      "source_coordinates": {
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "page": 0
+      },
+      "attempts": []
+    },
+    {
+      "id": "elem-004",
+      "type": "equation",
+      "page": 0,
+      "ocr_method": "arrase-deepseek",
+      "ocr_confidence": 0.9,
+      "status": "auto_resolved",
+      "review_reason": null,
+      "resolved_by": "docling_high_confidence",
+      "owning_chunk": null,
+      "markdown_representation": "| \\Theta)) = log(\\prod_{i=1}^{N} p(x_i | \\Theta)) = \\sum_{i=1}^{N} \\log(\\sum_{j=1}^{K} w_j p_j(x_i | \\theta_j))\n\\]",
+      "source_coordinates": {
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "page": 0
+      },
+      "attempts": []
+    },
+    {
+      "id": "elem-005",
+      "type": "equation",
+      "page": 0,
+      "ocr_method": "arrase-deepseek",
+      "ocr_confidence": 0.9,
+      "status": "auto_resolved",
+      "review_reason": null,
+      "resolved_by": "docling_high_confidence",
+      "owning_chunk": null,
+      "markdown_representation": "\\[\nJ = \\sum_{j=1}^{k} \\sum_{i=1}^{x} \\| x_i^{(j)} - c_j \\|^2\n\\]",
+      "source_coordinates": {
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "page": 0
+      },
+      "attempts": []
+    },
+    {
+      "id": "elem-006",
+      "type": "equation",
+      "page": 0,
+      "ocr_method": "arrase-deepseek",
+      "ocr_confidence": 0.9,
+      "status": "auto_resolved",
+      "review_reason": null,
+      "resolved_by": "docling_high_confidence",
+      "owning_chunk": null,
+      "markdown_representation": "| x_i^{(j)} - c_j \\|^2\n\\]",
+      "source_coordinates": {
+        "bbox": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "page": 0
+      },
+      "attempts": []
+    }
+  ]
+}

@@ -207,21 +207,38 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 ---
 
-## PDF Processor Agent
+## Document Converter Agent
 
-**File**: `.claude/agents/pdf-processor.md`
+**File**: `.claude/agents/document-converter.md`
 
-**Role**: Converts documents (PDF, DOCX, PPTX) to raw markdown via docling-serve with cascading OCR.
+**Role**: Converts documents (PDF, DOCX, PPTX) to raw markdown via docling-serve.
 
-**When to invoke**: "Convert this PDF to markdown", first stage of document processing pipeline
+**When to invoke**: "Convert this document to markdown", first stage of document processing pipeline
 
 **Operations**:
 1. **Pre-process** — DOCX → PDF via docx2pdf; PDFs > 25 pages split via pypdf
 2. **Convert** — docling-serve Docker API, parallel conversion for split PDFs, concatenate output
-3. **OCR cascade** — Elements below confidence threshold → arrase (Ollama + deepseek-ocr) on specific pages → OpenRouter vision model as final fallback
-4. **Write output** — `raw-markdown/{name}-{date}.md` + `{name}-{date}.elements.json` sidecar
+3. **Write output** — `raw-markdown/{name}-{date}.md` + `{name}-{date}.sidecar.json`
 
-**Key principles**: Only OCR low-confidence elements. Sidecar is the contract — always write it. Never segment (that's markdown-chunker's job).
+**Key principles**: Sidecar is the contract — always write it. Never segment (that's markdown-chunker's job). OCR remediation is handled by the separate ocr-remediator stage.
+
+## OCR Remediator Agent
+
+**File**: `.claude/agents/ocr-remediator.md`
+
+**Role**: Fixes docling OCR gaps by running deepseek-ocr on pages with placeholder comments or low-confidence elements.
+
+**When to invoke**: "Fix OCR issues in raw-markdown", second stage of document processing pipeline
+
+**Operations**:
+1. **Scan** — Find `<!-- formula-not-decoded -->` and similar placeholders + low-confidence sidecar elements
+2. **Convert source** — If not already PDF, convert to PDF (DOCX via docx2pdf, PPTX via LibreOffice)
+3. **Run deepseek-ocr** — `ocr --include <problem-pages>` on the PDF
+4. **Splice fixes** — Replace placeholders with actual formulas, upgrade low-confidence sections
+5. **Update sidecar** — Mark resolved elements with `ocr_method: "arrase-deepseek"`
+6. **Optional OpenRouter** — If `OPENROUTER_API_KEY` is set and deepseek-ocr fails, attempt OpenRouter vision
+
+**Key principles**: Best-effort — never blocks the pipeline. Only runs on pages that need it. Produces same format it received.
 
 ---
 
@@ -231,7 +248,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **Role**: Partitions raw markdown into chapter/section-based chunks in `processed/`, using TOC as the structure guide.
 
-**When to invoke**: "Chunk this markdown into chapters", second stage of document processing pipeline
+**When to invoke**: "Chunk this markdown into chapters", third stage of document processing pipeline
 
 **Operations**:
 1. **Detect structure** — Parse TOC, H1/H2/H3 hierarchy; identify copyright/boilerplate pages

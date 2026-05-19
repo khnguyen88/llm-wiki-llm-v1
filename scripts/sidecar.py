@@ -1,9 +1,9 @@
 """
 Element-level sidecar JSON for the document processing pipeline.
 
-The sidecar is the contract between pdf-processor, markdown-chunker, and
-document-processor agents. Each agent reads what the previous wrote, adds its
-layer, and writes back.
+The sidecar is the contract between document-converter, ocr-remediator,
+markdown-chunker, and document-processor agents. Each agent reads what the
+previous wrote, adds its layer, and writes back.
 """
 
 from __future__ import annotations
@@ -23,7 +23,7 @@ VALID_ELEMENT_STATUSES = {"pending", "auto_resolved", "needs_review", "resolved_
 VALID_PIPELINE_STAGES = {"converting", "chunking", "remediating", "review", "approved"}
 VALID_OCR_METHODS = {"docling", "arrase-deepseek", "openrouter-claude", "openrouter-gemini"}
 VALID_REVIEW_REASONS = {"low_confidence", "ocr_unavailable", "ambiguous", "complex_layout", "conversion_failed"}
-VALID_RESOLVED_BY = {"docling_high_confidence", "llm_knowledge", "websearch", "human"}
+VALID_RESOLVED_BY = {"docling_high_confidence", "arrase_deepseek", "llm_knowledge", "websearch", "human"}
 
 
 # ── Create sidecar ───────────────────────────────────────────────────────
