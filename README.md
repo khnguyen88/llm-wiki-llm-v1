@@ -707,6 +707,42 @@ Browser extension (Firefox) for extracting single-page articles or threads direc
 2. Point it to your vault folder
 3. Click the Obsidian icon in your browser toolbar to clip any page as Markdown
 
+### Vane (Web Search API)
+
+Local AI-synthesized web search API at `localhost:3000`. Uses an LLM chat model for reasoning and an embedding model for semantic retrieval — producing narrative responses with inline references instead of a raw list of URLs. Invoked via shell tools in `.claude/tools/` and `.claude/scripts/` (not MCP, not Docker).
+
+**Why:** Deeper synthesis than built-in WebSearch. In testing, Vane caught architectural details (Engram, mHC, OPD for DeepSeek V4) and correct pricing that built-in WebSearch missed entirely.
+
+**Setup:**
+
+Vane tools are pre-configured in the project — no additional installation needed:
+
+| Tool | Definition | Script |
+|------|-----------|--------|
+| `vane_get_providers` | `.claude/tools/vane_get_providers.json` | `.claude/scripts/vane_get_providers.py` |
+| `vane_web_search` | `.claude/tools/vane_web_search.json` | `.claude/scripts/vane_web_search.py` |
+
+Verify Vane is reachable:
+
+```bash
+uv run python .claude/scripts/vane_get_providers.py
+```
+
+> ⚠️ Vane must be running as a separate local service on `localhost:3000`. See Vane's documentation for installation.
+
+**Usage:**
+
+Two project agents use Vane — one ephemeral, one persistent:
+
+| Agent | Command | Behavior | Output |
+|-------|---------|----------|--------|
+| **web-search** | "Search the web for X" | Ephemeral — returns results, never saves | stdout only |
+| **ai-research** | "Research X and save it" | Persistent — deep search + crawl4ai follow-up | saves to `ai-research/web/` |
+
+Both agents enforce the same citation convention: every factual claim must include an inline citation `[N]` referencing a numbered source, and all sources must be included verbatim (no filtering or truncation).
+
+If Vane is unavailable, the web-search agent falls back to built-in WebSearch (with a notice that results may be shallower).
+
 ---
 
 ## Files You Should Read
@@ -719,23 +755,3 @@ Browser extension (Firefox) for extracting single-page articles or threads direc
 | **schema/WIKI_WORKFLOWS.md** | Ingest, Query, Lint, and Research workflows             |
 | **.claude/agents/**          | Project-specific Claude Code agents                     |
 | **CLAUDE.md**                | Project instructions for Claude Code sessions           |
-
-### Vane w/ SearNg(previously Perplexity)
-
-Web crawling service for the LLM, exposed via REST API. The preferred method is the Docker version, which can be shared across multiple projects.
-
-**Setup (Docker):**
-
-1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
-
-2. Create a `.llm.env` file in your project root:
-
-```env
-# .llm.env
-OPENAI_API_KEY=sk-or-your-openrouter-key
-OPENAI_BASE_URL=https://openrouter.ai/api/v1
-
-# Default model (use any OpenRouter model string)
-LLM_PROVIDER=openai/gpt-4o
-LLM_TEMPERATURE=0.7
-```
