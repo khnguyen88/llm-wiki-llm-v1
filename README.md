@@ -593,6 +593,108 @@ docker start crawl4ai      # Start it again
 docker restart crawl4ai    # Restart (stop + start in one command)
 ```
 
+### Document Processing Pipeline
+
+Converts documents (PDF, DOCX, PPTX) to markdown via docling-serve, with OCR remediation powered by deepseek-ocr. Used by the `document-converter` → `ocr-remediator` → `markdown-chunker` pipeline. The pipeline produces segmented markdown in `processed/` for wiki ingestion.
+
+**Why:** PDFs and binary documents can't be ingested directly into the wiki. This pipeline converts them to markdown, fixes OCR gaps in formulas/tables/diagrams, and segments large documents into LLM-sized chunks — all before wiki ingestion touches them.
+
+**Setup:**
+
+1. Prerequisites:
+   - [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
+   - [Ollama](#ollama) (installed and running)
+   - Python 3.11+ with `pipx` (for arrase/OCR CLI)
+
+2. Create a `.docling.env` file in your project root:
+
+```env
+# Document Processing Pipeline — Required Environment Variables
+
+# docling-serve Docker container URL
+DOCLING_SERVE_URL=http://localhost:5001
+
+# Ollama URL for arrase/deepseek-ocr
+OLLAMA_URL=http://localhost:11434
+
+# OpenRouter API key (for vision model OCR fallback)
+# Get yours at: https://openrouter.ai/keys
+OPENROUTER_API_KEY=sk-or-v1-your-key-here
+
+# ── Optional: Override thresholds ──────────────────────────────────────
+# PDF_SPLIT_PAGE_SIZE=25
+# DOCLING_CONFIDENCE_THRESHOLD=0.8
+# ARRASE_CONFIDENCE_FLOOR=0.7
+# LLM_OCR_CONFIDENCE_FLOOR=0.5
+# CHUNK_MAX_WORDS=3000
+# CHUNK_TARGET_WORDS=1500
+# MAX_AUTO_ATTEMPTS=3
+# WEBSEARCH_CONFIDENCE_FLOOR=0.6
+```
+
+> ⚠️ Never commit `.docling.env` to version control. It's already listed in `.gitignore`.
+
+3. Pull and run the docling-serve Docker container:
+
+**macOS / Linux (bash):**
+
+```bash
+docker run -d \
+  -p 5001:5001 \
+  --name docling-serve \
+  quay.io/docling-project/docling-serve
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker run -d `
+  -p 5001:5001 `
+  --name docling-serve `
+  quay.io/docling-project/docling-serve
+```
+
+> ⚠️ First run downloads ML models — the API won't respond until downloads complete (can take several minutes). Subsequent starts use cached models and initialize quickly.
+
+4. Install the arrase/OCR CLI:
+
+```bash
+pipx install git+https://github.com/arrase/OCR.git
+```
+
+5. Pull the deepseek-ocr model in Ollama:
+
+```bash
+ollama pull deepseek-ocr:latest
+```
+
+**Verify:**
+
+```bash
+docker ps | grep docling-serve     # Container running on port 5001
+ocr --version                       # arrase/OCR CLI installed
+ollama list | grep deepseek-ocr     # deepseek-ocr model pulled
+```
+
+**Stop & Start:**
+
+```bash
+docker stop docling-serve       # Stop the container
+docker start docling-serve      # Start it again
+docker restart docling-serve    # Restart (stop + start in one command)
+```
+
+**Usage:**
+
+Tell your AI coding agent:
+
+```
+Convert this document to markdown        → invokes document-converter agent
+Fix OCR issues in raw-markdown           → invokes ocr-remediator agent
+Chunk this markdown into chapters        → invokes markdown-chunker agent
+Process this PDF                         → invokes document-processor (full pipeline)
+```
+
 ### Obsidian Clipper
 
 Browser extension (Firefox) for extracting single-page articles or threads directly into your Obsidian vault.
