@@ -18,8 +18,8 @@ Before processing, verify these are running:
 
 1. **docling-serve Docker container**: `docker ps | grep docling-serve` — if not running, instruct user to run:
    ```bash
-   docker pull docling-serve
-   docker run -p 8000:8000 docling-serve
+   docker pull quay.io/docling-project/docling-serve
+   docker run -p 5001:5001 quay.io/docling-project/docling-serve
    ```
 
 OCR remediation is handled by the downstream **ocr-remediator** agent — no OCR tools needed here.
