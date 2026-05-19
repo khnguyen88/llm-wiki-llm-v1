@@ -1,0 +1,31 @@
+<!--
+URL: https://openrouter.ai/docs/guides/routing/model-variants/extended.mdx
+Download Date: 2026-04-29
+Website: openrouter
+Webpage: guides-routing-model-variants-extended
+Index: 21
+-->
+
+```
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://openrouter.ai/docs/llms.txt.
+> For full documentation content, see https://openrouter.ai/docs/llms-full.txt.
+
+# Extended Variant
+
+The `:extended` variant provides access to model versions with extended context windows.
+
+## Usage
+
+Append `:extended` to any model ID:
+
+```json
+{
+  "model": "anthropic/claude-sonnet-4.5:extended"
+}
+```
+
+## Details
+
+Extended variants offer larger context windows than the standard model versions, allowing you to process longer inputs and maintain more conversation history.
+```

@@ -1,0 +1,125 @@
+<!--
+url: https://code.claude.com/docs/en/whats-new/2026-w15
+download_date: 2026-04-29
+website: claude-code
+webpage: whats-new-2026-w15
+-->
+
+# Whats New 2026 W15
+
+[Skip to main content](https://code.claude.com/docs/en/whats-new/2026-w15#content-area)
+[Claude Code Docs home page![light logo](https://mintcdn.com/claude-code/c5r9_6tjPMzFdDDT/logo/light.svg?fit=max&auto=format&n=c5r9_6tjPMzFdDDT&q=85&s=78fd01ff4f4340295a4f66e2ea54903c)![dark logo](https://mintcdn.com/claude-code/c5r9_6tjPMzFdDDT/logo/dark.svg?fit=max&auto=format&n=c5r9_6tjPMzFdDDT&q=85&s=1298a0c3b3a1da603b190d0de0e31712)](https://code.claude.com/docs/en/overview)
+![US](https://d3gk2c5xim1je2.cloudfront.net/flags/US.svg)
+English
+Search...
+⌘KAsk AI
+  * [Claude Developer Platform](https://platform.claude.com/)
+  * [Claude Code on the Web](https://claude.ai/code)
+  * [Claude Code on the Web](https://claude.ai/code)
+
+
+Search...
+Navigation
+What's New
+Week 15 · April 6–10, 2026
+[Getting started](https://code.claude.com/docs/en/overview)[Build with Claude Code](https://code.claude.com/docs/en/sub-agents)[Administration](https://code.claude.com/docs/en/admin-setup)[Configuration](https://code.claude.com/docs/en/settings)[Reference](https://code.claude.com/docs/en/cli-reference)[Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview)[What's New](https://code.claude.com/docs/en/whats-new)[Resources](https://code.claude.com/docs/en/legal-and-compliance)
+##### What's New
+  * [What's new](https://code.claude.com/docs/en/whats-new)
+  * [Week 17 · Apr 20–24](https://code.claude.com/docs/en/whats-new/2026-w17)
+  * [Week 16 · Apr 13–17](https://code.claude.com/docs/en/whats-new/2026-w16)
+  * [Week 15 · Apr 6–10](https://code.claude.com/docs/en/whats-new/2026-w15)
+  * [Week 14 · Mar 30 – Apr 3](https://code.claude.com/docs/en/whats-new/2026-w14)
+  * [Week 13 · Mar 23–27](https://code.claude.com/docs/en/whats-new/2026-w13)
+
+
+What's New
+# Week 15 · April 6–10, 2026
+Copy page
+Ultraplan cloud planning, the Monitor tool with self-pacing /loop, /team-onboarding for packaging your setup, and /autofix-pr from your terminal.
+Copy page
+> ## Documentation Index
+> Fetch the complete documentation index at: <https://code.claude.com/docs/llms.txt>
+> Use this file to discover all available pages before exploring further.
+Releases [v2.1.92 → v2.1.101](https://code.claude.com/docs/en/changelog#2-1-92)4 features · April 6–10
+Ultraplanresearch preview
+Kick off plan mode in the cloud from your terminal, then review the result in your browser. Claude drafts the plan in a Claude Code on the web session while your terminal stays free; when it’s ready you comment on individual sections, ask for revisions, and choose to execute remotely or send it back to your CLI. As of v2.1.101 the first run auto-creates a default cloud environment, so there’s no web setup step before you can try it.
+Run the command, or just include the keyword in any prompt:
+Claude Code
+
+```
+> /ultraplan migrate the auth service from sessions to JWTs
+
+```
+
+[Ultraplan guide](https://code.claude.com/docs/en/ultraplan)
+Monitor toolv2.1.98
+A new built-in tool that spawns a background watcher and streams its events into the conversation: each event lands as a new transcript message that Claude reacts to immediately. Tail a training run, babysit a PR’s CI, or auto-fix a dev server crash the moment it happens, all without a Bash sleep loop holding the turn open.
+Ask Claude to watch something while you keep working:
+Claude Code
+
+```
+> Tail server.log in the background and tell me the moment a 5xx shows up
+
+```
+
+This pairs with `/loop`, which now self-paces: omit the interval and Claude schedules the next tick based on the task, or reaches for the Monitor tool to skip polling altogether.
+Claude Code
+
+```
+> /loop check CI on my PR
+
+```
+
+[Monitor tool reference](https://code.claude.com/docs/en/tools-reference#monitor-tool)
+/autofix-prCLI
+PR auto-fix landed on the web in Week 13. Now you can turn it on without leaving your terminal: `/autofix-pr` infers the open PR for your current branch and enables auto-fix for it on Claude Code on the web in one step. Push your branch, run the command, walk away; Claude watches CI and review comments and pushes fixes until it’s green.
+Run it from the PR’s branch:
+Claude Code
+
+```
+> /autofix-pr
+
+```
+
+[Auto-fix pull requests](https://code.claude.com/docs/en/claude-code-on-the-web#auto-fix-pull-requests)
+/team-onboardingv2.1.101
+Generates a teammate ramp-up guide from your local Claude Code usage. Run it in a project you know well and hand the output to a new teammate so they can replay your setup instead of starting from defaults.
+Run it from a project you’ve spent real time in:
+Claude Code
+
+```
+> /team-onboarding
+
+```
+
+[Commands reference](https://code.claude.com/docs/en/commands)
+Other wins
+Focus view: press `Ctrl+O` in flicker-free mode to collapse the view to your last prompt, a one-line tool summary with diffstats, and Claude’s final response
+Guided [Bedrock](https://code.claude.com/docs/en/amazon-bedrock) and [Vertex AI](https://code.claude.com/docs/en/google-vertex-ai) setup wizards on the login screen: pick “3rd-party platform” for step-by-step auth, region, credential check, and model pinning
+`/agents` gets a tabbed layout: a Running tab shows live subagents with a `● N running` count, plus Run agent and View running instance actions in the Library tab
+Default effort level is now `high` for API-key, Bedrock, Vertex, Foundry, Team, and Enterprise users (control with `/effort`)
+`/cost` shows a per-model and cache-hit breakdown for subscription users
+`/release-notes` is now an interactive version picker
+Status line: new `refreshInterval` setting re-runs the command every N seconds, and `workspace.git_worktree` in the JSON input
+`CLAUDE_CODE_PERFORCE_MODE`: Edit/Write fail on read-only files with a `p4 edit` hint instead of silently overwriting
+OS CA certificate store is now trusted by default, so enterprise TLS proxies work without extra setup (`CLAUDE_CODE_CERT_STORE=bundled` to opt out)
+Amazon Bedrock powered by Mantle: set `CLAUDE_CODE_USE_MANTLE=1`
+Hardened Bash tool permissions: backslash-escaped flags, env-var prefixes, `/dev/tcp` redirects, and compound commands now prompt correctly
+`UserPromptSubmit` hooks can set the session title via `hookSpecificOutput.sessionTitle`
+[Full changelog for v2.1.92–v2.1.101 →](https://code.claude.com/docs/en/changelog#2-1-92)
+Was this page helpful?
+YesNo
+[Week 16 · Apr 13–17](https://code.claude.com/docs/en/whats-new/2026-w16)[Week 14 · Mar 30 – Apr 3](https://code.claude.com/docs/en/whats-new/2026-w14)
+⌘I
+[Claude Code Docs home page![light logo](https://mintcdn.com/claude-code/c5r9_6tjPMzFdDDT/logo/light.svg?fit=max&auto=format&n=c5r9_6tjPMzFdDDT&q=85&s=78fd01ff4f4340295a4f66e2ea54903c)![dark logo](https://mintcdn.com/claude-code/c5r9_6tjPMzFdDDT/logo/dark.svg?fit=max&auto=format&n=c5r9_6tjPMzFdDDT&q=85&s=1298a0c3b3a1da603b190d0de0e31712)](https://code.claude.com/docs/en/overview)
+[x](https://x.com/AnthropicAI)[linkedin](https://www.linkedin.com/company/anthropicresearch)
+Company
+[Anthropic](https://www.anthropic.com/company)[Careers](https://www.anthropic.com/careers)[Economic Futures](https://www.anthropic.com/economic-futures)[Research](https://www.anthropic.com/research)[News](https://www.anthropic.com/news)[Trust center](https://trust.anthropic.com/)[Transparency](https://www.anthropic.com/transparency)
+Help and security
+[Availability](https://www.anthropic.com/supported-countries)[Status](https://status.anthropic.com/)[Support center](https://support.claude.com/)
+Learn
+[Courses](https://www.anthropic.com/learn)[MCP connectors](https://claude.com/partners/mcp)[Customer stories](https://www.claude.com/customers)[Engineering blog](https://www.anthropic.com/engineering)[Events](https://www.anthropic.com/events)[Powered by Claude](https://claude.com/partners/powered-by-claude)[Service partners](https://claude.com/partners/services)[Startups program](https://claude.com/programs/startups)
+Terms and policies
+[Privacy choices](https://code.claude.com/docs/en/whats-new/2026-w15)[Privacy policy](https://www.anthropic.com/legal/privacy)[Disclosure policy](https://www.anthropic.com/responsible-disclosure-policy)[Usage policy](https://www.anthropic.com/legal/aup)[Commercial terms](https://www.anthropic.com/legal/commercial-terms)[Consumer terms](https://www.anthropic.com/legal/consumer-terms)
+Assistant
+Responses are generated using AI and may contain mistakes.
