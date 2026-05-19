@@ -12,7 +12,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-from sidecar import add_element, load_sidecar, save_sidecar, update_element_status
+import json
+
+from sidecar import add_element, update_element_status
 
 
 # ── Constants ──────────────────────────────────────────────────────────────
@@ -56,7 +58,7 @@ def find_low_confidence(sidecar_path: str | Path, threshold: float = OCR_THRESHO
     Returns:
         List of dicts: [{element_id, page, type, confidence}, ...]
     """
-    sidecar = load_sidecar(sidecar_path)
+    sidecar = _load_json(sidecar_path)
     low_conf = []
     for elem in sidecar.get("elements", []):
         if elem.get("ocr_confidence", 1.0) < threshold:
@@ -69,8 +71,11 @@ def find_low_confidence(sidecar_path: str | Path, threshold: float = OCR_THRESHO
     return low_conf
 
 
-def collect_problem_pages(placeholders: list[dict], low_conf: list[dict]) -> list[int]:
-    """Deduplicated, sorted list of pages that need OCR remediation."""
+def collect_problem_pages(placeholders: list[dict], low_conf: list[dict], total_pages: int = 0) -> list[int]:
+    """Deduplicated, sorted list of pages that need OCR remediation.
+
+    If no specific pages can be inferred, falls back to all pages (1..total_pages).
+    """
     pages = set()
     for p in placeholders:
         if p["page"] > 0:
@@ -78,7 +83,14 @@ def collect_problem_pages(placeholders: list[dict], low_conf: list[dict]) -> lis
     for e in low_conf:
         if e["page"] > 0:
             pages.add(e["page"])
-    return sorted(pages) if pages else []
+
+    if pages:
+        return sorted(pages)
+
+    if total_pages > 0:
+        return list(range(1, total_pages + 1))
+
+    return []
 
 
 def _infer_page(lines: list[str], line_idx: int) -> int:
@@ -87,14 +99,14 @@ def _infer_page(lines: list[str], line_idx: int) -> int:
     Looks for page break markers (e.g., '--- page 3 ---') or image references
     with page info near the placeholder.
     """
-    page_marker = re.compile(r"---\s*page\s*(\d+)\s*---|\[page\s*(\d+)\]", re.IGNORECASE)
+    page_marker = re.compile(r"---\s*page\s*(\d+)\s*---|\[page\s*(\d+)\]|<!--\s*Page\s*(\d+)\s*-->", re.IGNORECASE)
 
     for offset in range(-10, 10):
         idx = line_idx + offset
         if 0 <= idx < len(lines):
             m = page_marker.search(lines[idx])
             if m:
-                return int(m.group(1) or m.group(2))
+                return int(m.group(1) or m.group(2) or m.group(3))
 
     return 0  # unknown — caller filters out page 0
 
@@ -171,6 +183,8 @@ def parse_ocr_output(ocr_md_path: str | Path) -> dict[int, dict[str, list[str]]]
 
     for line in text.split("\n"):
         page_break = re.match(r"^-{3,}\s*[Pp]age\s*(\d+)\s*-{3,}$", line)
+        if not page_break:
+            page_break = re.match(r"<!--\s*Page\s*(\d+)\s*-->", line)
         if page_break:
             if current_text:
                 pages.setdefault(current_page, {}).setdefault("text", []).extend(current_text)
@@ -206,40 +220,72 @@ def splice_into_markdown(md_path: str | Path, ocr_content: dict, placeholders: l
     for page, content in ocr_content.items():
         page_text[page] = "\n".join(content.get("text", []))
 
+    # Build element queue from all pages (in page order) to assign sequentially
+    # to placeholders with unknown pages
+    element_queue: list[str] = []
+    for pg in sorted(page_text.keys()):
+        element_queue.extend(_extract_all_elements(page_text[pg]))
+
     fixes = {}
+    queue_idx = 0
     for ph in placeholders:
         page = ph["page"]
         line_idx = ph["line_number"]
+        replacement = None
+
+        # Try specific page first
         if page in page_text and page > 0:
-            replacement = _extract_element_from_page_text(page_text[page], ph["type"])
+            replacement = _extract_first_element(page_text[page], ph["type"])
             if replacement:
-                lines[line_idx] = replacement
-                fixes[str(line_idx)] = replacement
+                # Remove it from queue so we don't double-assign
+                try:
+                    element_queue.remove(replacement)
+                except ValueError:
+                    pass
+
+        # Fall back to element queue
+        if replacement is None and queue_idx < len(element_queue):
+            replacement = element_queue[queue_idx]
+            queue_idx += 1
+
+        if replacement:
+            lines[line_idx] = replacement
+            fixes[str(line_idx)] = replacement
 
     md_path.write_text("\n".join(lines), encoding="utf-8")
     return fixes
 
 
-def _extract_element_from_page_text(page_text: str, element_type: str) -> str | None:
-    """Extract an element (formula, table) from deepseek-OCR page text.
-
-    Returns the first matching element found on the page.
-    """
+def _extract_first_element(page_text: str, element_type: str) -> str | None:
+    """Extract the first matching element of given type from page text."""
     if element_type == "formula":
-        # Match LaTeX display/inline math and \[ \] environments
-        math_patterns = re.findall(r"\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]", page_text)
-        if math_patterns:
-            return math_patterns[0]
-        return None
+        math_patterns = re.findall(
+            r"\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\[[\s\S]+?\\\]", page_text
+        )
+        return math_patterns[0] if math_patterns else None
 
     if element_type == "table":
-        # Match markdown table blocks (lines starting and ending with |)
         table_pattern = re.findall(r"(\|[^\n]+\|[\s\S]*?\n\s*\n)", page_text)
-        if table_pattern:
-            return table_pattern[0].strip()
-        return None
+        return table_pattern[0].strip() if table_pattern else None
 
     return None
+
+
+def _extract_all_elements(page_text: str) -> list[str]:
+    """Extract all formulas and tables from page text in document order.
+
+    Returns a list of element markdown strings.
+    """
+    all_elements: list[tuple[int, str]] = []
+
+    for m in re.finditer(r"\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\$[^$\n]+?\$", page_text):
+        all_elements.append((m.start(), m.group()))
+
+    for m in re.finditer(r"(\|[^\n]+\|[\s\S]*?\n\s*\n)", page_text):
+        all_elements.append((m.start(), m.group().strip()))
+
+    all_elements.sort(key=lambda x: x[0])
+    return [e for _, e in all_elements]
 
 
 # ── Sidecar sync ───────────────────────────────────────────────────────────
@@ -255,11 +301,12 @@ def sync_sidecar(sidecar_path: str | Path, placeholders: list[dict], fixes_appli
         placeholders: All placeholders that were found.
         fixes_applied: Mapping of placeholder line_number -> markdown_representation that was spliced.
     """
-    sidecar = load_sidecar(sidecar_path)
+    sidecar = _load_json(sidecar_path)
 
     for ph in placeholders:
         key = str(ph["line_number"])
-        existing = _find_matching_element(sidecar, ph)
+        # page=0 means unknown — there is never a genuine docling element to match
+        existing = None if ph["page"] == 0 else _find_matching_element(sidecar, ph)
 
         if key in fixes_applied:
             if existing:
@@ -273,7 +320,7 @@ def sync_sidecar(sidecar_path: str | Path, placeholders: list[dict], fixes_appli
             else:
                 add_element(
                     sidecar,
-                    type_=ph["type"],
+                    type_=_to_sidecar_type(ph["type"]),
                     page=ph["page"],
                     ocr_method="arrase-deepseek",
                     ocr_confidence=0.9,
@@ -289,15 +336,33 @@ def sync_sidecar(sidecar_path: str | Path, placeholders: list[dict], fixes_appli
             )
         # else: no element and no fix — nothing to record in sidecar
 
-    save_sidecar(sidecar)
+    _save_json(sidecar_path, sidecar)
+
+
+def _load_json(path: str | Path) -> dict:
+    """Load a JSON file by direct path."""
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def _save_json(path: str | Path, data: dict) -> None:
+    """Save a dict to a JSON file by direct path."""
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 def _find_matching_element(sidecar: dict, placeholder: dict) -> dict | None:
     """Find a sidecar element matching a placeholder by page and type."""
+    sidecar_type = _to_sidecar_type(placeholder["type"])
     for elem in sidecar.get("elements", []):
-        if elem.get("page") == placeholder["page"] and elem.get("type") == placeholder["type"]:
+        if elem.get("page") == placeholder["page"] and elem.get("type") == sidecar_type:
             return elem
     return None
+
+
+_PLACEHOLDER_TO_SIDECAR = {"formula": "equation", "table": "table", "diagram": "diagram"}
+
+
+def _to_sidecar_type(placeholder_type: str) -> str:
+    return _PLACEHOLDER_TO_SIDECAR.get(placeholder_type, placeholder_type)
 
 
 # ── Main entry ─────────────────────────────────────────────────────────────
@@ -320,7 +385,8 @@ def remediate(raw_md_path: str | Path, sidecar_path: str | Path, source_path: st
         print("No OCR issues found — raw-markdown is clean.")
         return False
 
-    problem_pages = collect_problem_pages(placeholders, low_conf)
+    total_pages = _load_json(sidecar_path).get("conversion_metadata", {}).get("pages", 0)
+    problem_pages = collect_problem_pages(placeholders, low_conf, total_pages)
     if not problem_pages:
         print("No valid problem pages identified — skipping OCR remediation.")
         return False
