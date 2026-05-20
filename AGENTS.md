@@ -379,7 +379,7 @@ llm-wiki-llm-v1/
 |   |-- transcripts/                #   Segmented conversation transcripts
 |-- 004-wiki/                            # External knowledge base (LLM-owned)
 |   |-- index.md                     #   Master catalog
-|   |-- sources-manifest.md          #   Source tracking (001a-raw/001b-ai-research/processed → wiki status)
+|   |-- sources-manifest.md          #   Source tracking (001a-raw/001b-ai-research/003-processed → wiki status)
 |   |-- log.md                       #   Operation log
 |   |-- synthesis.md                 #   Overarching thesis
 |   |-- concepts/
