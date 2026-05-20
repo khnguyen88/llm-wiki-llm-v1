@@ -18,10 +18,10 @@ Most people use RAG: upload files, LLM retrieves chunks at query time, generates
 
 | Layer | Purpose | Who Owns |
 |-------|---------|----------|
-| **raw/** | Source documents (articles, papers, images, data) | Human (read-only for LLM) |
-| **ai-research/** | AI-discovered web sources (immutable once saved) | LLM-writes, then immutable |
-| **processed/** | Segmented markdown from large raw files | LLM |
-| **wiki/** | LLM-generated markdown files | LLM |
+| **001a-raw/** | Source documents (articles, papers, images, data) | Human (read-only for LLM) |
+| **001b-ai-research/** | AI-discovered web sources (immutable once saved) | LLM-writes, then immutable |
+| **003-processed/** | Segmented markdown from large raw files | LLM |
+| **004-wiki/** | LLM-generated markdown files | LLM |
 | **schema/** | Configuration for LLM operations | Human |
 
 Full directory tree: see `schema/WIKI_SCHEMA.md` → Directory Structure.
@@ -46,7 +46,7 @@ Optional: `confidence`, `provenance`, `contradictedBy`, `orphaned`.
 
 - **Internal**: `[[path/to/article]]` or `[[entities/transformer_model|Transformer Model]]`
 - **External**: `[Text](https://example.com)`
-- **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` — see `schema/WIKI_SCHEMA.md` → Claim-Level Citations
+- **Claim citations**: `^[001a-raw/articles/source.md]` or `^[001a-raw/articles/source.md:42-58]` — see `schema/WIKI_SCHEMA.md` → Claim-Level Citations
 - **Summary style**: Use rich section headings and tables — see `schema/WIKI_SCHEMA.md` → Style Guide for Summaries
 
 ## Operations
@@ -73,7 +73,7 @@ See `schema/WIKI_WORKFLOWS.md` → Research Workflow.
 
 ## Key Principles
 
-1. **LLM owns the wiki, processed/, and ai-research/** - Human curates raw/ sources; LLM maintains wiki, segmented files, and AI-discovered sources
+1. **LLM owns the wiki, 003-processed/, and 001b-ai-research/** - Human curates 001a-raw/ sources; LLM maintains wiki, segmented files, and AI-discovered sources
 2. **Compounding knowledge** - Everything adds up over time
 3. **Explicit over implicit** - You see exactly what the LLM knows
 4. **File over app** - Simple markdown files, universal format
@@ -91,7 +91,7 @@ The wiki is designed to be viewed in Obsidian:
 
 ## Tips for Images
 
-- Download images locally to `raw/assets/` using Obsidian's attachment folder
+- Download images locally to `001a-raw/assets/` using Obsidian's attachment folder
 - LLMs can't natively read markdown with inline images in one pass
 - Workaround: Read text first, then view referenced images separately for additional context
 
@@ -106,7 +106,7 @@ The wiki is designed to be viewed in Obsidian:
 
 **Role:** Act on lint findings to fix structural issues in existing wiki pages. The linter detects; the repairer resolves.
 
-**Scope:** External KB (`wiki/`) only.
+**Scope:** External KB (`004-wiki/`) only.
 
 **When to invoke:** "Fix broken links", "Resolve orphans", "Repair lint errors", "Add backlinks", "Prune stubs"
 
@@ -149,12 +149,12 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **File**: `.claude/agents/ai-research.md`
 
-**Role**: Persistent deep research that saves results to `ai-research/web/`, lints, and runs sync-check.
+**Role**: Persistent deep research that saves results to `001b-ai-research/web/`, lints, and runs sync-check.
 
 **When to invoke**: "Research X and save it", "Deep research on X"
 
 **Operations**:
-1. **Check existing** — Check `ai-research/web/` for existing files on the same topic (match by slug). If found, delete the old file (prune-and-replace)
+1. **Check existing** — Check `001b-ai-research/web/` for existing files on the same topic (match by slug). If found, delete the old file (prune-and-replace)
 2. **Get providers** — Run `vane_get_providers` to fetch available provider IDs and model keys
 3. **Deep search** — Run `vane_web_search` with `--save` flag (include all sources, inline citations `[N]` per claim), then crawl top 3-5 source URLs via crawl4ai and append deep-dive content
 4. **Add frontmatter** — Add YAML frontmatter at the top of the saved file (before the HTML comment header)
@@ -169,7 +169,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **File**: `.claude/agents/youtube-transcript.md`
 
-**Role**: Ephemeral extraction agent that fetches YouTube transcripts via ytscribe.io API, merges paragraph and timestamped views for per-paragraph timestamps, resolves metadata through cascading fallbacks (oEmbed, WebSearch, crawl4ai, user prompt), and saves to `raw/transcripts/`.
+**Role**: Ephemeral extraction agent that fetches YouTube transcripts via ytscribe.io API, merges paragraph and timestamped views for per-paragraph timestamps, resolves metadata through cascading fallbacks (oEmbed, WebSearch, crawl4ai, user prompt), and saves to `001a-raw/transcripts/`.
 
 **When to invoke**: "Get transcript for `<url>`", "Extract transcript from `<url>`"
 
@@ -179,10 +179,10 @@ Full definition: `.claude/agents/wiki-repair.md`
 3. **Fetch timestamped view** — `curl https://ytscribe.io/api/transcript?v={id}&view=timestamped` → extract `[MM:SS] text` phrases
 4. **Merge timestamps** — Walk phrases sequentially, assign each to paragraphs by matching text, prepend each paragraph with its first phrase's timestamp
 5. **Fetch metadata** — Cascading fallback: oEmbed → WebSearch → crawl4ai → prompt user
-6. **Determine filename** — `raw/transcripts/{channel-or-topic}-{YYYY-MM-DD}.md`, increment suffix if exists
+6. **Determine filename** — `001a-raw/transcripts/{channel-or-topic}-{YYYY-MM-DD}.md`, increment suffix if exists
 7. **Write output** — Save with `video-transcript-llm` HTML comment metadata header and per-paragraph timestamps
 
-**Key principles**: Preserve original paragraph spacing from ytscribe. Use timestamped view only for timestamps, not text. Cascading metadata fallback. Schema-compliant output. No wiki modification — only writes to `raw/transcripts/`. Idempotent filenames (increment suffix, never overwrite).
+**Key principles**: Preserve original paragraph spacing from ytscribe. Use timestamped view only for timestamps, not text. Cascading metadata fallback. Schema-compliant output. No wiki modification — only writes to `001a-raw/transcripts/`. Idempotent filenames (increment suffix, never overwrite).
 
 ---
 
@@ -190,12 +190,12 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **File**: `.claude/agents/transcript-reviewer.md`
 
-**Role**: Ephemeral review agent that reads a `raw/transcripts/` file, identifies mistranscribed/mispelled terms using context + web verification, applies corrections, and writes a revision summary.
+**Role**: Ephemeral review agent that reads a `001a-raw/transcripts/` file, identifies mistranscribed/mispelled terms using context + web verification, applies corrections, and writes a revision summary.
 
 **When to invoke**: "Review transcript `<path-or-url>`", "Review this transcript for errors"
 
 **Operations**:
-1. **Resolve input** — Accept a file path or YouTube URL; if URL, search `raw/transcripts/` for matching file by URL in metadata header
+1. **Resolve input** — Accept a file path or YouTube URL; if URL, search `001a-raw/transcripts/` for matching file by URL in metadata header
 2. **Check for prior review** — If `reviewed_date` exists in metadata, warn user and ask whether to re-review
 3. **Extract context clues** — Read metadata header for channel name, video title, topic keywords for disambiguation
 4. **Paragraph-by-paragraph review** — For each paragraph, identify suspicious terms, web-verify each via Vane (fall back to built-in WebSearch), record verified corrections
@@ -203,7 +203,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 6. **Update metadata** — Add/replace `reviewed_date` and `revisions` fields in the HTML comment metadata header
 7. **Print summary** — Report unique corrections, total replacements, uncertain terms, and revert instructions
 
-**Key principles**: Verify don't guess (web-search confirmation required). Context-aware disambiguation. Preserve original formatting. Consistent corrections across the file. Case-sensitive casing from web results. Only writes to `raw/transcripts/`. Idempotent on re-review.
+**Key principles**: Verify don't guess (web-search confirmation required). Context-aware disambiguation. Preserve original formatting. Consistent corrections across the file. Case-sensitive casing from web results. Only writes to `001a-raw/transcripts/`. Idempotent on re-review.
 
 ---
 
@@ -218,7 +218,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 **Operations**:
 1. **Pre-process** — DOCX → PDF via docx2pdf; PDFs > 25 pages split via pypdf
 2. **Convert** — docling-serve Docker API, parallel conversion for split PDFs, concatenate output
-3. **Write output** — `raw-markdown/{name}-{date}.md` + `{name}-{date}.sidecar.json`
+3. **Write output** — `002-raw-preprocessed/{name}-{date}.md` + `{name}-{date}.sidecar.json`
 
 **Key principles**: Sidecar is the contract — always write it. Never segment (that's markdown-chunker's job). OCR remediation is handled by the separate ocr-remediator stage.
 
@@ -246,7 +246,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **File**: `.claude/agents/markdown-chunker.md`
 
-**Role**: Partitions raw markdown into chapter/section-based chunks in `processed/`, using TOC as the structure guide.
+**Role**: Partitions raw markdown into chapter/section-based chunks in `003-processed/`, using TOC as the structure guide.
 
 **When to invoke**: "Chunk this markdown into chapters", third stage of document processing pipeline
 
@@ -255,7 +255,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 2. **Extract TOC** — Standalone chunk-000 with segment map
 3. **Partition** — Chunk by H1-H2 sections; word count is safety check, not driver
 4. **Assign elements** — Map each sidecar element to its owning chunk by page number
-5. **Write chunks** — `processed/{subfolder}/{name}-part-NNN-{date}.md` with full metadata headers and navigation links
+5. **Write chunks** — `003-processed/{subfolder}/{name}-part-NNN-{date}.md` with full metadata headers and navigation links
 
 **Key principles**: TOC is the chunking map. Never orphan an element. Navigation links on every chunk.
 
@@ -265,7 +265,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **File**: `.claude/agents/document-processor.md`
 
-**Role**: Breaks large raw files (PDFs, long reports, files >3,000 words) into segmented markdown in `processed/` so they can be ingested into the wiki within LLM context limits.
+**Role**: Breaks large raw files (PDFs, long reports, files >3,000 words) into segmented markdown in `003-processed/` so they can be ingested into the wiki within LLM context limits.
 
 **When to invoke**: "Process this PDF", "Segment this document", files >3,000 words
 
@@ -273,12 +273,12 @@ Full definition: `.claude/agents/wiki-repair.md`
 1. **Read** — Read the document (page-by-page for PDFs, full file for markdown)
 2. **Identify structure** — Parse TOC, headers, chapter breaks, logical section boundaries
 3. **Plan segments** — Target ~500–1,500 words per segment; group thin sections, split oversized ones
-4. **Convert to markdown** — Preserve heading hierarchy, convert tables, save complex images to `raw/assets/`
+4. **Convert to markdown** — Preserve heading hierarchy, convert tables, save complex images to `001a-raw/assets/`
 5. **Write metadata headers** — Each segment gets a `processed-segment` HTML comment header per `schema/WIKI_SCHEMA.md`; raw source metadata header goes on the first segment only
-6. **Write segments** — Save to `processed/{subfolder}/` with naming convention `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md`
-7. **Delete original** — Remove from `raw/` after all segments confirmed (optional — keep if reprocessing may be needed)
+6. **Write segments** — Save to `003-processed/{subfolder}/` with naming convention `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md`
+7. **Delete original** — Remove from `001a-raw/` after all segments confirmed (optional — keep if reprocessing may be needed)
 
-**Key principles**: Preserve heading hierarchy. Navigation links between sibling segments. Segment map in first segment. Only writes to `processed/` and `raw/assets/`.
+**Key principles**: Preserve heading hierarchy. Navigation links between sibling segments. Segment map in first segment. Only writes to `003-processed/` and `001a-raw/assets/`.
 
 ---
 
@@ -286,7 +286,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **File**: `.claude/agents/wiki-linter.md`
 
-**Role**: Runs health checks across both the external (`wiki/`) and internal (`knowledge/`) knowledge bases.
+**Role**: Runs health checks across both the external (`004-wiki/`) and internal (`knowledge/`) knowledge bases.
 
 **When to invoke**: "Lint the wiki", "Run health check"
 
@@ -307,12 +307,12 @@ Reports save to `reports/lint-YYYY-MM-DD.md`.
 
 **File**: `.claude/agents/wiki-query.md`
 
-**Role**: Answers questions against both the external (`wiki/`) and internal (`knowledge/`) knowledge bases.
+**Role**: Answers questions against both the external (`004-wiki/`) and internal (`knowledge/`) knowledge bases.
 
 **When to invoke**: Questions about compiled knowledge
 
 **Operations**:
-1. **Read index** — Start with `wiki/index.md` and/or `knowledge/index.md`
+1. **Read index** — Start with `004-wiki/index.md` and/or `knowledge/index.md`
 2. **Select relevant pages** — Identify 3–10 relevant articles
 3. **Read in full** — Drill into summaries first, then entities/concepts for detail
 4. **Follow links** — Read referenced articles if relevant
@@ -355,7 +355,7 @@ Reports save to `reports/lint-YYYY-MM-DD.md`.
 2. Agent cross-references — every agent references correct dirs, schemas, scripts
 3. Script names — CLI commands match actual scripts in `scripts/`
 4. Conventions — naming, frontmatter, citations consistent across all files
-5. Processed/ pipeline — `processed/` referenced alongside `raw/` and `ai-research/`
+5. Processed/ pipeline — `003-processed/` referenced alongside `001a-raw/` and `001b-ai-research/`
 6. Source manifest — listed in all relevant files
 7. Wiki directory naming — `summaries/` not `sources/`
 8. Raw source metadata — 8 source types and field tiers match across schema, linter, maintainer, workflows
@@ -390,6 +390,6 @@ The pattern:
 1. **Dispatch**: For each source, dispatch a fresh subagent using the wiki-maintainer agent
 2. **Review**: After each source completes, review the output before moving to the next
 3. **Iterate**: Fast iteration — if quality is insufficient, re-dispatch with adjustments
-4. **Track**: `wiki/sources-manifest.md` and `wiki/log.md` continue to track ingestion state
+4. **Track**: `004-wiki/sources-manifest.md` and `004-wiki/log.md` continue to track ingestion state
 
 This replaces the former batch-ingester agent and `scripts/ingest_external.py`.

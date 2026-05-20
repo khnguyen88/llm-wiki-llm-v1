@@ -8,7 +8,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 **Purpose**: Process a new source document into the wiki.
 
-**Trigger**: Human adds file to `raw/` or `ai-research/` (any subfolder: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) and prompts "Process this source"
+**Trigger**: Human adds file to `001a-raw/` or `001b-ai-research/` (any subfolder: `articles/`, `papers/`, `repos/`, `datasets/`, `assets/`, `document/`, `web/`, `forum-thread/`, `transcripts/`) and prompts "Process this source"
 
 **Steps**:
 
@@ -18,7 +18,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Small markdown files go directly to step 1
 
 1. **Read source document**
-   - Load the file from `raw/` or `ai-research/` (small files) or `processed/` (segmented documents)
+   - Load the file from `001a-raw/` or `001b-ai-research/` (small files) or `003-processed/` (segmented documents)
    - If the file has an HTML comment metadata header (starting with `<!--`), parse it to extract source provenance: `type`, `url`, `fetched_date`/`search_date`, `published_date`, and any other fields. Carry `url` and `published_date` into the wiki page frontmatter where applicable. Note the `type` for provenance tracking.
 
 2. **Extract key information**
@@ -29,7 +29,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Assign `confidence` (0.0–1.0) and `provenance` (extracted|merged|inferred|ambiguous) to extracted content
 
 3. **Write summary page**
-   - Create `wiki/summaries/[source-title].md`
+   - Create `004-wiki/summaries/[source-title].md`
    - Use rich section headings drawn from the source's structure (not generic "Key Points")
    - Use tables for structured or comparative data identified in step 2
    - Include a narrative `## Summary` section (2-4 sentences) as the opening body section
@@ -38,11 +38,11 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Cite at section level — place `^[source.md]` at end of section or on first claim, not on every bullet
    - Include a `## Key Quotes` section for the most important direct quotes (2-5 maximum)
    - Include a `## Related` section with `[[wikilinks]]` to concepts and entities
-   - Link to `processed/` segments if the source was segmented
+   - Link to `003-processed/` segments if the source was segmented
    - See `schema/WIKI_SCHEMA.md` → Style Guide for Summaries for full guidance
 
 4. **Create/update entity pages**
-   - For each identified entity, create or update `wiki/entities/[entity].md`
+   - For each identified entity, create or update `004-wiki/entities/[entity].md`
    - Add facts, relations to other entities
    - Include `summary` in frontmatter (one-line description)
    - Set `created`/`updated` timestamps (ISO 8601)
@@ -50,7 +50,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Update existing entity if topic expands
 
 5. **Create/update concept pages**
-   - For each identified concept, create or update `wiki/concepts/[concept].md`
+   - For each identified concept, create or update `004-wiki/concepts/[concept].md`
    - Explain the concept, link to related entities
    - Include `summary` in frontmatter (one-line description)
    - Set `created`/`updated` timestamps (ISO 8601)
@@ -59,15 +59,15 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Update existing concept if new information emerges
 
 6. **Update index**
-   - Add entries for new pages in `wiki/index.md`
+   - Add entries for new pages in `004-wiki/index.md`
    - Organize by category (entities, concepts, summaries, qanda)
 
 7. **Update sources manifest**
-   - Add row to `wiki/sources-manifest.md` table
+   - Add row to `004-wiki/sources-manifest.md` table
    - Columns: source path, status (`ingested`), wiki page link, date
 
 8. **Update log**
-   - Append entry to `wiki/log.md`
+   - Append entry to `004-wiki/log.md`
    - Format: `## [YYYY-MM-DD] ingest | Source Title`
 
 9. **Update cross-references**
@@ -92,7 +92,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 **Steps**:
 
 1. **Read index**
-   - Load `wiki/index.md` to find relevant pages
+   - Load `004-wiki/index.md` to find relevant pages
 
 2. **Drill into relevant pages**
    - Read summary pages first for context
@@ -138,8 +138,8 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Pages with `orphaned: true` in frontmatter are flagged automatically
 
 3. **Orphan sources** (suggestion)
-   - Find source documents in `raw/` or `ai-research/` (any subfolder) not yet processed, or `processed/` segments not yet ingested into wiki
-   - Cross-check against `wiki/sources-manifest.md` for tracking
+   - Find source documents in `001a-raw/` or `001b-ai-research/` (any subfolder) not yet processed, or `003-processed/` segments not yet ingested into wiki
+   - Cross-check against `004-wiki/sources-manifest.md` for tracking
 
 4. **Stale articles** (warning)
    - Find articles whose source has changed since compilation (compare hashes/timestamps)
@@ -152,7 +152,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Flag body under 50 characters as a stronger warning (essentially empty)
 
 7. **Unsourced claims** (warning)
-   - Find statements in wiki articles not traceable to a `raw/` or `ai-research/` source file
+   - Find statements in wiki articles not traceable to a `001a-raw/` or `001b-ai-research/` source file
 
 8. **Missing summary** (suggestion)
    - Find pages with empty or missing `summary` in frontmatter
@@ -161,7 +161,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Find multiple pages with the same title (case-insensitive comparison)
 
 10. **Malformed citation** (error)
-    - Find `^[...]` claim citation markers with invalid syntax: non-numeric line ranges, reversed ranges, line 0, or paths not starting with `raw/`, `ai-research/`, or `processed/`
+    - Find `^[...]` claim citation markers with invalid syntax: non-numeric line ranges, reversed ranges, line 0, or paths not starting with `001a-raw/`, `001b-ai-research/`, or `003-processed/`
 
 11. **Broken citation** (error)
     - Find `^[source.md]` references pointing to nonexistent source files
@@ -189,7 +189,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 **Boundary**: The repair agent fixes structural defects in existing pages. It does NOT create new content from sources (that is wiki-maintainer's job during ingest). It does NOT run lint checks (that is wiki-linter's job).
 
-**Output**: Changes to wiki files, updated lint score, log entry in `wiki/log.md`
+**Output**: Changes to wiki files, updated lint score, log entry in `004-wiki/log.md`
 
 ---
 
@@ -222,14 +222,14 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 **Steps**:
 
-1. **Check existing** — Search `ai-research/web/` for files matching the topic slug. If found, delete the old file (prune-and-replace)
-2. **Deep search** — Get providers via `vane_get_providers`, then run `vane_web_search` with `--save` flag to create the file in `ai-research/web/{slug}-{YYYY-MM-DD}.md` — include all sources (no filtering/truncating) and inline citations `[N]` per claim. Include year (and month if topical) in the query to prioritize recent results — e.g., "DeepSeek V4 2026" not just "DeepSeek". If results clearly reference outdated versions, re-search with a more specific query
+1. **Check existing** — Search `001b-ai-research/web/` for files matching the topic slug. If found, delete the old file (prune-and-replace)
+2. **Deep search** — Get providers via `vane_get_providers`, then run `vane_web_search` with `--save` flag to create the file in `001b-ai-research/web/{slug}-{YYYY-MM-DD}.md` — include all sources (no filtering/truncating) and inline citations `[N]` per claim. Include year (and month if topical) in the query to prioritize recent results — e.g., "DeepSeek V4 2026" not just "DeepSeek". If results clearly reference outdated versions, re-search with a more specific query
 3. **Append deep-dive content** — Crawl top 3-5 source URLs via crawl4ai and append `## Deep Dive` sections to the saved file after the Sources section
 4. **Add frontmatter** — Insert YAML frontmatter at the top of the file (before the HTML comment header) with title, summary, type, sources, tags, created, updated fields
 5. **Lint** — Run `uv run python scripts/lint.py` to validate the saved file
 6. **Sync-check** — Invoke the sync-check agent to verify cross-file consistency
 
-**Output**: New file in `ai-research/web/`, validated by lint, verified by sync-check. Ready for ingestion via the Ingest workflow.
+**Output**: New file in `001b-ai-research/web/`, validated by lint, verified by sync-check. Ready for ingestion via the Ingest workflow.
 
 ---
 
@@ -244,20 +244,20 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 **Steps**:
 
 1. **Search the web** for relevant, high-quality sources on the topic — invoke the `web-search` agent for shallow results or `ai-research` agent for deep research
-2. **Save each source as a separate file** in `ai-research/` (one source, one file)
+2. **Save each source as a separate file** in `001b-ai-research/` (one source, one file)
    - Include an HTML comment metadata header at the top with `type: ai-research`, `url`, `search_date`, and other fields per the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
    - Include YAML frontmatter with `summary` (one-line description of the source content)
    - For multi-source synthesis: use `type: ai-research-multi` with a `sources` list, include all sources (no filtering/truncating), and include inline citations (`[1]`, `[2]`, etc.) in the body referencing the sources list order
    - Save the FULL cleaned content, not a summary
-   - Use lowercase hyphenated file names (e.g., `ai-research/web/topic-source-name.md`)
+   - Use lowercase hyphenated file names (e.g., `001b-ai-research/web/topic-source-name.md`)
    - Do NOT overwrite existing files — always create new files
-3. **Ingest saved sources** into `wiki/` using the standard Ingest workflow
-   - A single wiki article can cite multiple `ai-research/` files in its frontmatter `sources:` field
-   - The wiki article is where summarization happens, not `ai-research/`
-4. **Log the operation** in `wiki/log.md`:
-   - Format: `## [YYYY-MM-DD] research | Topic Name | ai-research/path/to/source.md`
+3. **Ingest saved sources** into `004-wiki/` using the standard Ingest workflow
+   - A single wiki article can cite multiple `001b-ai-research/` files in its frontmatter `sources:` field
+   - The wiki article is where summarization happens, not `001b-ai-research/`
+4. **Log the operation** in `004-wiki/log.md`:
+   - Format: `## [YYYY-MM-DD] research | Topic Name | 001b-ai-research/path/to/source.md`
 
-**Output**: New source files in `ai-research/`, new/updated wiki pages, updated index and manifest
+**Output**: New source files in `001b-ai-research/`, new/updated wiki pages, updated index and manifest
 
 ---
 
@@ -266,10 +266,10 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 **Automatic Trigger**: If it's past 6 PM local time and today's log has changed
 
 **What happens**:
-1. Read all new entries in `wiki/log.md` since last compilation
+1. Read all new entries in `004-wiki/log.md` since last compilation
 2. Process each entry through the Ingest workflow
 3. Update `synthesis.md` with new understanding
 4. Run structural lint checks
-5. Report compilation results to `wiki/log.md`
+5. Report compilation results to `004-wiki/log.md`
 
 This means the wiki auto-compiles without needing cron jobs or manual triggers.

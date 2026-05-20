@@ -5,7 +5,7 @@ This file defines the structure and conventions for the external knowledge base 
 ## Directory Structure
 
 ```
-raw/              # Source documents (immutable)
+001a-raw/              # Source documents (immutable)
   articles/       # Article sources (web articles, blog posts)
   papers/         # Paper sources (PDFs, academic papers)
   repos/          # Repository sources (GitHub repos)
@@ -16,7 +16,7 @@ raw/              # Source documents (immutable)
   forum-thread/   # Forum discussions
   transcripts/    # Conversation transcripts
 
-ai-research/      # AI-discovered web sources (LLM-writes, immutable once saved)
+001b-ai-research/      # AI-discovered web sources (LLM-writes, immutable once saved)
   articles/
   papers/
   repos/
@@ -27,9 +27,9 @@ ai-research/      # AI-discovered web sources (LLM-writes, immutable once saved)
   forum-thread/
   transcripts/
 
-raw-markdown/      # Raw markdown output from document-converter (pre-chunking)
+002-raw-preprocessed/  # Document conversion + OCR output (pre-chunking)
 
-processed/        # Segmented markdown from large raw files
+003-processed/        # Segmented markdown from large raw files
   articles/       # Segmented articles
   papers/         # Segmented papers
   repos/          # Segmented repos
@@ -40,10 +40,10 @@ processed/        # Segmented markdown from large raw files
   forum-thread/   # Segmented forum discussions
   transcripts/    # Segmented conversation transcripts
 
-wiki/             # LLM-generated content
+004-wiki/             # LLM-generated content
   index.md        # Catalog of all wiki pages
   log.md          # Chronological operation log
-  sources-manifest.md # Source tracking: raw/processed paths → ingest status
+  sources-manifest.md # Source tracking: 001a-raw/003-processed paths → ingest status
   synthesis.md    # Overarching thesis/summary
   concepts/       # Concept pages
   entities/       # Entity pages
@@ -62,10 +62,10 @@ wiki/             # LLM-generated content
 
 ### Processed File Naming
 
-Files in `processed/` follow this convention:
+Files in `003-processed/` follow this convention:
 
 ```
-processed/{subfolder}/{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md
+003-processed/{subfolder}/{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md
 ```
 
 | Component | Format | Required | Example |
@@ -77,9 +77,9 @@ processed/{subfolder}/{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-M
 | `YYYY-MM-DD` | Process date (always at end) | Yes | `2026-05-03` |
 
 Examples:
-- `processed/document/design-report-part-001-2026-05-03.md`
-- `processed/document/design-report-part-001-chapter-01-2026-05-03.md`
-- `processed/document/design-report-part-003-chapter-02-thermal-analysis-2026-05-03.md`
+- `003-processed/document/design-report-part-001-2026-05-03.md`
+- `003-processed/document/design-report-part-001-chapter-01-2026-05-03.md`
+- `003-processed/document/design-report-part-003-chapter-02-thermal-analysis-2026-05-03.md`
 
 Page range is captured in the metadata header only, not in filenames.
 
@@ -88,7 +88,7 @@ Page range is captured in the metadata header only, not in filenames.
 Web crawl files extracted from an index (e.g., `llms.txt`, sitemap) follow:
 
 ```
-raw/{subfolder}/{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md
+001a-raw/{subfolder}/{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md
 ```
 
 | Component | Format | Required | Example |
@@ -99,12 +99,12 @@ raw/{subfolder}/{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md
 | `YYYY-MM-DD` | Date crawled (always at end) | Yes | `2026-05-03` |
 
 Examples:
-- `raw/document/openrouter-115-api-reference-overview-2026-04-29.md`
-- `raw/document/claude-code-001-admin-setup-2026-04-29.md`
+- `001a-raw/document/openrouter-115-api-reference-overview-2026-04-29.md`
+- `001a-raw/document/claude-code-001-admin-setup-2026-04-29.md`
 
 ### LLM-Generated File Naming
 
-All LLM-generated files in `raw/` and `ai-research/` must end with the curation date in `YYYY-MM-DD` format:
+All LLM-generated files in `001a-raw/` and `001b-ai-research/` must end with the curation date in `YYYY-MM-DD` format:
 
 ```
 {subfolder}/{slug}-{YYYY-MM-DD}.md
@@ -112,12 +112,12 @@ All LLM-generated files in `raw/` and `ai-research/` must end with the curation 
 
 | Source Type | Naming Pattern | Example |
 |-------------|---------------|---------|
-| `web-search` | `{topic-slug}-{YYYY-MM-DD}.md` | `raw/web/llm-quantization-2026-05-03.md` |
-| `video-transcript` | `{channel-or-topic}-{YYYY-MM-DD}.md` | `raw/transcripts/karpathy-llm-wiki-2026-05-03.md` |
-| `video-transcript-llm` | `{channel-or-topic}-{YYYY-MM-DD}.md` | `raw/transcripts/3b1b-attention-2026-05-03.md` |
-| `ai-research` | `{website}-{slug}-{YYYY-MM-DD}.md` | `ai-research/web/openrouter-pricing-2026-05-03.md` |
-| `ai-research-multi` | `{topic-slug}-{YYYY-MM-DD}.md` | `ai-research/web/quantization-techniques-2026-05-03.md` |
-| `manual` | `{descriptive-slug}-{YYYY-MM-DD}.md` | `raw/articles/llm-wiki-pattern-2026-05-03.md` |
+| `web-search` | `{topic-slug}-{YYYY-MM-DD}.md` | `001a-raw/web/llm-quantization-2026-05-03.md` |
+| `video-transcript` | `{channel-or-topic}-{YYYY-MM-DD}.md` | `001a-raw/transcripts/karpathy-llm-wiki-2026-05-03.md` |
+| `video-transcript-llm` | `{channel-or-topic}-{YYYY-MM-DD}.md` | `001a-raw/transcripts/3b1b-attention-2026-05-03.md` |
+| `ai-research` | `{website}-{slug}-{YYYY-MM-DD}.md` | `001b-ai-research/web/openrouter-pricing-2026-05-03.md` |
+| `ai-research-multi` | `{topic-slug}-{YYYY-MM-DD}.md` | `001b-ai-research/web/quantization-techniques-2026-05-03.md` |
+| `manual` | `{descriptive-slug}-{YYYY-MM-DD}.md` | `001a-raw/articles/llm-wiki-pattern-2026-05-03.md` |
 
 Exception: `web-crawl` files use the Crawl File Naming convention above.
 
@@ -133,7 +133,7 @@ title: Page Title
 summary: One-line description of what this page covers
 type: entity | concept | summary | qanda | index | manifest | synthesis | other
 sources:
-  - raw/document/path/to/source.md or raw/web/path/to/source.md or ai-research/web/path/to/source.md
+  - 001a-raw/document/path/to/source.md or 001a-raw/web/path/to/source.md or 001b-ai-research/web/path/to/source.md
 tags:
   - topic1
   - topic2
@@ -169,27 +169,27 @@ orphaned: false                    # true when source was deleted and no other s
 
 In addition to page-level `sources:` in frontmatter, pages can use **inline claim citations** for paragraph-level provenance:
 
-- `^[raw/articles/source.md]` — cite an entire source file (use project-root-relative path)
-- `^[raw/articles/source.md:42-58]` — cite specific line range
-- `^[raw/articles/source.md:45]` — cite a single line
+- `^[001a-raw/articles/source.md]` — cite an entire source file (use project-root-relative path)
+- `^[001a-raw/articles/source.md:42-58]` — cite specific line range
+- `^[001a-raw/articles/source.md:45]` — cite a single line
 
 For multiple sources, use separate citation markers rather than combining them in one bracket.
 
 Example in body:
 
 ```markdown
-The transformer architecture uses self-attention to process sequences in parallel.^[raw/articles/attention-is-all-you-need.md]
+The transformer architecture uses self-attention to process sequences in parallel.^[001a-raw/articles/attention-is-all-you-need.md]
 
-Key innovations include scaled dot-product attention^[raw/articles/attention-is-all-you-need.md:3-12] and multi-head attention^[raw/articles/attention-is-all-you-need.md].
+Key innovations include scaled dot-product attention^[001a-raw/articles/attention-is-all-you-need.md:3-12] and multi-head attention^[001a-raw/articles/attention-is-all-you-need.md].
 ```
 
-Claim citations are validated by the linter (broken-citation and malformed-citation checks). Citations must use project-root-relative paths (e.g., `^[raw/articles/source.md]`) for unambiguous file resolution.
+Claim citations are validated by the linter (broken-citation and malformed-citation checks). Citations must use project-root-relative paths (e.g., `^[001a-raw/articles/source.md]`) for unambiguous file resolution.
 
 ## Linking Conventions
 
 - **Internal links**: `[[path/to/article]]` or `[[entities/transformer_model|Transformer Model]]`
 - **External links**: `[Text](https://example.com)`
-- **Claim citations**: `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]`
+- **Claim citations**: `^[001a-raw/articles/source.md]` or `^[001a-raw/articles/source.md:42-58]`
 - **Backlinks**: Automatically maintained by Obsidian
 
 ## File Formats
@@ -202,7 +202,7 @@ title: Entity Name
 summary: One-line description of this entity
 type: entity
 sources:
-  - raw/document/path/to/source.md or raw/web/path/to/source.md
+  - 001a-raw/document/path/to/source.md or 001a-raw/web/path/to/source.md
 tags:
   - topic1
 created: "2026-04-05T12:00:00Z"
@@ -216,7 +216,7 @@ provenance: extracted
 Brief definition/description.
 
 ## Key Facts
-- Fact 1^[raw/articles/source.md]
+- Fact 1^[001a-raw/articles/source.md]
 - Fact 2
 
 ## Related
@@ -232,7 +232,7 @@ title: Concept Name
 summary: One-line explanation of this concept
 type: concept
 sources:
-  - raw/document/path/to/source.md or ai-research/web/path/to/source.md
+  - 001a-raw/document/path/to/source.md or 001b-ai-research/web/path/to/source.md
 tags:
   - topic1
 created: "2026-04-05T12:00:00Z"
@@ -246,7 +246,7 @@ provenance: merged
 Explanation of the concept.
 
 ## Origins
-- When/where it was introduced^[raw/articles/source.md:10-25]
+- When/where it was introduced^[001a-raw/articles/source.md:10-25]
 - Key contributors
 
 ## Applications
@@ -266,7 +266,7 @@ title: Source Title
 summary: One-line summary of this source document
 type: summary
 sources:
-  - raw/document/path/to/source.md or raw/web/path/to/source.md or ai-research/web/path/to/source.md
+  - 001a-raw/document/path/to/source.md or 001a-raw/web/path/to/source.md or 001b-ai-research/web/path/to/source.md
 tags:
   - topic1
 created: "2026-04-05T12:00:00Z"
@@ -276,7 +276,7 @@ updated: "2026-04-05T12:00:00Z"
 # Source Title
 
 ## Summary
-2-4 sentence narrative overview of the source's argument and significance.^[raw/articles/source.md]
+2-4 sentence narrative overview of the source's argument and significance.^[001a-raw/articles/source.md]
 
 ## [Custom Section Headings]
 Use section headings drawn from the source's structure. When the source
@@ -286,7 +286,7 @@ Cite sources at the section level (end of section) rather than per-bullet.
 Use tables whenever the source contains structured or comparative data.
 
 ## Key Quotes
-> "Important quote"^[raw/articles/source.md:45]
+> "Important quote"^[001a-raw/articles/source.md:45]
 
 ## Related
 - [[concepts/topic]]
@@ -315,7 +315,7 @@ title: Q: Original Question
 summary: One-line summary of the answer
 type: qanda
 sources:
-  - raw/document/path/to/source.md or ai-research/web/path/to/source.md
+  - 001a-raw/document/path/to/source.md or 001b-ai-research/web/path/to/source.md
 tags:
   - topic1
 created: "2026-04-05T12:00:00Z"
@@ -341,7 +341,7 @@ title: Synthesis
 summary: Overarching thesis or summary of all knowledge
 type: synthesis
 sources:
-  - raw/document/path/to/source.md
+  - 001a-raw/document/path/to/source.md
 tags:
   - topic1
 created: "2026-04-05T12:00:00Z"
@@ -367,7 +367,7 @@ provenance: inferred
 - Question 2
 ```
 
-### AI-Research Source Files (`ai-research/`)
+### AI-Research Source Files (`001b-ai-research/`)
 
 When the LLM conducts autonomous web research, save full cleaned source content here. Source metadata uses the HTML comment envelope format defined in [Raw Source Metadata](#raw-source-metadata) — use `type: ai-research` for single sources or `type: ai-research-multi` for multi-source synthesis.
 
@@ -381,7 +381,7 @@ summary: One-line description of what this source covers
 
 - One source, one file — never combine multiple URLs into one file (use `type: ai-research` per URL)
 - For multi-source synthesis, use `type: ai-research-multi` and list all source URLs in the metadata header
-- File names: lowercase hyphenated (e.g., `ai-research/web/qmd-github-readme.md`)
+- File names: lowercase hyphenated (e.g., `001b-ai-research/web/qmd-github-readme.md`)
 - Immutable once saved — do not overwrite, create new files
 - These are the source of truth for citation verification
 
@@ -476,7 +476,7 @@ snippet: Summary of key findings from the page
 
 The body of web-search results must include inline citations `[N]` referencing the numbered Sources list, so every factual claim is traceable to its specific source. All sources returned by the search tool must be included in the Sources list — do not filter or truncate.
 
-**3. `ai-research`** — Single-source AI discovery saved to `ai-research/`.
+**3. `ai-research`** — Single-source AI discovery saved to `001b-ai-research/`.
 
 ```html
 <!--
@@ -500,7 +500,7 @@ published_date: 2026-01-15
 
 The file body includes a YAML frontmatter `summary` field (separate from the HTML comment metadata).
 
-**4. `ai-research-multi`** — Multi-source AI synthesis saved to `ai-research/`.
+**4. `ai-research-multi`** — Multi-source AI synthesis saved to `001b-ai-research/`.
 
 ```html
 <!--
@@ -613,12 +613,12 @@ fetched_date: 2026-04-29
 
 Any additional fields are accepted. Human curators can add `url`, `author`, `published_date`, etc. as they see fit.
 
-**8. `processed-segment`** — Segmented chunk of a large document in `processed/`.
+**8. `processed-segment`** — Segmented chunk of a large document in `003-processed/`.
 
 ```html
 <!--
 type: processed-segment
-source: raw/document/design-report.pdf
+source: 001a-raw/document/design-report.pdf
 document_name: Design Report
 part: 1
 total_parts: 7
@@ -628,8 +628,8 @@ section: Introduction
 subsections:
   - "1.1 Background"
   - "1.2 Scope"
-prev_section: processed/document/design-report-part-000-2026-05-03.md
-next_section: processed/document/design-report-part-002-2026-05-03.md
+prev_section: 003-processed/document/design-report-part-000-2026-05-03.md
+next_section: 003-processed/document/design-report-part-002-2026-05-03.md
 prev_subsection:
 next_subsection: "1.1 Background"
 process_date: 2026-05-03
@@ -655,7 +655,7 @@ process_date: 2026-05-03
 
 ## Index Format
 
-`wiki/index.md` should organize pages by category:
+`004-wiki/index.md` should organize pages by category:
 
 ```markdown
 # Wiki Index
@@ -681,7 +681,7 @@ process_date: 2026-05-03
 
 ## Log Format
 
-`wiki/log.md` entries:
+`004-wiki/log.md` entries:
 
 ```markdown
 # Wiki Log
