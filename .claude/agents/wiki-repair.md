@@ -30,7 +30,7 @@ Invoke by name; for example: "Run fix-broken-links on the wiki" or "Resolve orph
 Fix `[[wikilinks]]` pointing to non-existent targets.
 
 **Common patterns:**
-- Kebab-case link to snake_case file: `[[compound-knowledge]]` → `[[concepts/compound_knowledge]]`
+- Kebab-case link to snake_case file: `[[my-article]]` → `[[concepts/my_article]]`
 - Bare link resolving to wrong type: `[[claude-code-router]]` resolves to summary instead of entity → `[[entities/claude_code_router]]`
 - Missing path prefix: `[[file-over-app]]` → `[[concepts/file_over_app]]`
 - Pipe syntax is valid: `[[entities/trevor_royer|Trevor Royer]]` — never strip the display text portion
