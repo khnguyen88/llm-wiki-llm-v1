@@ -267,11 +267,11 @@ Twelve checks, run periodically. See the lint checks table in the Script Details
 
 1. **Broken links** - `[[wikilinks]]` pointing to non-existent articles (error)
 2. **Orphan pages** - Articles with zero inbound links from other articles (warning). `orphaned: true` in frontmatter flags automatically.
-3. **Orphan sources** - Daily logs not yet compiled, or raw/ai-research sources not yet ingested (suggestion)
+3. **Orphan sources** - Daily logs not yet compiled, or 001a-raw/001b-ai-research sources not yet ingested (suggestion)
 4. **Stale articles** - Source daily log changed since article was last compiled (warning)
 5. **Missing backlinks** - A links to B but B doesn't link back to A (suggestion)
 6. **Sparse articles** - Below 200 words (suggestion), below 50 chars body (warning)
-7. **Unsourced claims** - Statements not traceable to a source file (daily logs for internal KB, raw/ or ai-research/ for external wiki) (warning)
+7. **Unsourced claims** - Statements not traceable to a source file (daily logs for internal KB, 001a-raw/ or 001b-ai-research/ for external wiki) (warning)
 8. **Missing summary** - Pages with empty or missing `summary` in frontmatter (suggestion)
 9. **Duplicate concept** - Multiple pages with the same title (case-insensitive) (error)
 10. **Malformed citation** - `^[...]` citation markers with invalid syntax (error, external only)
@@ -286,12 +286,12 @@ When a query reveals gaps the wiki cannot answer from existing sources, or the h
 
 **Quick search (ephemeral)**: Invoke the `web-search` agent — returns results without saving.
 
-**Deep research (persistent)**: Invoke the `ai-research` agent — saves results to `ai-research/web/`, lints, and runs sync-check.
+**Deep research (persistent)**: Invoke the `ai-research` agent — saves results to `001b-ai-research/web/`, lints, and runs sync-check.
 
 For manual research without agents:
 
 1. Search the web for relevant, high-quality sources on the topic
-2. **One source, one file.** For each URL found, save it as its OWN markdown file in `ai-research/`. Do NOT combine multiple sources into one file. Use this format for each:
+2. **One source, one file.** For each URL found, save it as its OWN markdown file in `001b-ai-research/`. Do NOT combine multiple sources into one file. Use this format for each:
 
    ```
    ---
@@ -303,11 +303,11 @@ For manual research without agents:
    [Full article content in markdown, cleaned, not summarized]
    ```
 
-3. File names: lowercase hyphenated, e.g., `ai-research/web/qmd-github-readme.md`
+3. File names: lowercase hyphenated, e.g., `001b-ai-research/web/qmd-github-readme.md`
 4. Save the FULL cleaned content from each source, not a summary. The wiki article is where summarization happens, not here. These files are the source of truth for citation verification.
-5. Do NOT overwrite existing files in `ai-research/`. Always create new files.
-6. After saving ALL sources, run the standard Ingest procedure to compile them into `wiki/`. A single wiki article can cite multiple `ai-research/` files in its frontmatter `sources:` field.
-7. In the wiki article's sources, list every `ai-research/` file used so lint can verify each claim back to its original source.
+5. Do NOT overwrite existing files in `001b-ai-research/`. Always create new files.
+6. After saving ALL sources, run the standard Ingest procedure to compile them into `004-wiki/`. A single wiki article can cite multiple `001b-ai-research/` files in its frontmatter `sources:` field.
+7. In the wiki article's sources, list every `001b-ai-research/` file used so lint can verify each claim back to its original source.
 
 ---
 
@@ -347,7 +347,7 @@ llm-wiki-llm-v1/
 |-- CLAUDE.md                        # Project instructions for Claude Code sessions
 |-- README.md                        # Concise overview + quick start
 |-- pyproject.toml                   # Dependencies (at root so hooks can find it)
-|-- raw/                             # External source documents (human-curated)
+|-- 001a-raw/                             # External source documents (human-curated)
 |   |-- articles/
 |   |-- papers/
 |   |-- repos/
@@ -357,7 +357,7 @@ llm-wiki-llm-v1/
 |   |-- web/                         #   Web sources (articles, repos, tweets)
 |   |-- forum-thread/               #   Forum discussions
 |   |-- transcripts/                #   Conversation transcripts
-|-- ai-research/                     # AI-discovered web sources (LLM-writes, immutable once saved)
+|-- 001b-ai-research/                     # AI-discovered web sources (LLM-writes, immutable once saved)
 |   |-- articles/
 |   |-- papers/
 |   |-- repos/
@@ -367,7 +367,7 @@ llm-wiki-llm-v1/
 |   |-- web/
 |   |-- forum-thread/
 |   |-- transcripts/
-|-- processed/                       # Segmented markdown from large raw files (LLM-owned)
+|-- 003-processed/                       # Segmented markdown from large raw files (LLM-owned)
 |   |-- articles/
 |   |-- papers/
 |   |-- repos/
@@ -377,9 +377,9 @@ llm-wiki-llm-v1/
 |   |-- web/                         #   Segmented web sources
 |   |-- forum-thread/               #   Segmented forum discussions
 |   |-- transcripts/                #   Segmented conversation transcripts
-|-- wiki/                            # External knowledge base (LLM-owned)
+|-- 004-wiki/                            # External knowledge base (LLM-owned)
 |   |-- index.md                     #   Master catalog
-|   |-- sources-manifest.md          #   Source tracking (raw/ai-research/processed → wiki status)
+|   |-- sources-manifest.md          #   Source tracking (001a-raw/001b-ai-research/processed → wiki status)
 |   |-- log.md                       #   Operation log
 |   |-- synthesis.md                 #   Overarching thesis
 |   |-- concepts/

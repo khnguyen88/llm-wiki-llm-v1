@@ -6,24 +6,24 @@ This project implements **two parallel systems** based on Karpathy's LLM Knowled
 
 ---
 
-## External Knowledge Base (`wiki/`)
+## External Knowledge Base (`004-wiki/`)
 
 Web articles, papers, repos, and datasets compiled by the LLM into a structured wiki. The LLM reads a structured `index.md` to find relevant articles — no vector search needed.
 
 ```
-Raw sources (articles, papers, repos) -> [large files] -> processed/ (segmented markdown)
-                                         -> [small files]  -> wiki/
-AI-discovered sources (ai-research/) -> [small files]  -> wiki/
+Raw sources (articles, papers, repos) -> [large files] -> 003-processed/ (segmented markdown)
+                                         -> [small files]  -> 004-wiki/
+AI-discovered sources (001b-ai-research/) -> [small files]  -> 004-wiki/
     -> index.md, entities/, concepts/, summaries/, qanda/
         -> Query against index (no RAG needed)
 ```
 
-| Directory             | Purpose                                                    |
-| --------------------- | ---------------------------------------------------------- |
-| **raw/**              | Source documents (read-only for LLM)                       |
-| **ai-research/**      | AI-discovered web sources (LLM-writes, immutable once saved) |
-| **processed/**        | Segmented markdown from large raw files (PDFs, long reports) broken into LLM-sized parts |
-| **wiki/**             | LLM-generated markdown (index, entities, concepts, summaries, qanda, synthesis) |
+| Directory        | Purpose                                                                                  |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| **001a-raw/**         | Source documents (read-only for LLM)                                                     |
+| **001b-ai-research/** | AI-discovered web sources (LLM-writes, immutable once saved)                             |
+| **003-processed/**   | Segmented markdown from large raw files (PDFs, long reports) broken into LLM-sized parts |
+| **004-wiki/**        | LLM-generated markdown (index, entities, concepts, summaries, qanda, synthesis)          |
 
 ## Internal Knowledge Base (`knowledge/`)
 
@@ -34,10 +34,10 @@ Conversations -> Hooks -> daily/ -> compile.py -> knowledge/
     -> SessionStart injects index -> cycle repeats
 ```
 
-| Directory         | Purpose                                           |
-| ----------------- | ------------------------------------------------- |
-| **daily/**        | Conversation logs (read-only for LLM)             |
-| **knowledge/**    | Compiled knowledge (index, concepts, connections, qa) |
+| Directory      | Purpose                                               |
+| -------------- | ----------------------------------------------------- |
+| **daily/**     | Conversation logs (read-only for LLM)                 |
+| **knowledge/** | Compiled knowledge (index, concepts, connections, qa) |
 
 ---
 
@@ -45,13 +45,13 @@ Conversations -> Hooks -> daily/ -> compile.py -> knowledge/
 
 Tell your AI coding agent:
 
-> "Read AGENTS.md and schema/WIKI_AGENTS.md. Set up the external knowledge base from sources in raw/ and ai-research/. Large files will be segmented into processed/ first. Process the karpathy-llm-wiki.md source first."
+> "Read AGENTS.md and schema/WIKI_AGENTS.md. Set up the external knowledge base from sources in 001a-raw/ and 001b-ai-research/. Large files will be segmented into 003-processed/ first. Process the karpathy-llm-wiki.md source first."
 
 The agent will:
 
 1. Read the schema files to understand the wiki structure
-2. Process sources from `raw/` into the `wiki/` folder
-3. Update `wiki/index.md` and `wiki/log.md`
+2. Process sources from `001a-raw/` into the `004-wiki/` folder
+3. Update `004-wiki/index.md` and `004-wiki/log.md`
 4. Create entity, concept, and summary pages
 
 ---
@@ -60,7 +60,7 @@ The agent will:
 
 ```
 llm-wiki-llm-v1/
-├── raw/                          # External sources (articles, papers, repos, datasets)
+├── 001a-raw/                          # External sources (articles, papers, repos, datasets)
 │   ├── articles/
 │   ├── papers/
 │   ├── repos/
@@ -70,7 +70,7 @@ llm-wiki-llm-v1/
 │   ├── web/                      # Web sources (articles, repos, tweets)
 │   ├── forum-thread/             # Forum discussions
 │   └── transcripts/              # Conversation transcripts
-├── ai-research/                  # AI-discovered web sources (immutable once saved)
+├── 001b-ai-research/                  # AI-discovered web sources (immutable once saved)
 │   ├── articles/
 │   ├── papers/
 │   ├── repos/
@@ -80,7 +80,7 @@ llm-wiki-llm-v1/
 │   ├── web/
 │   ├── forum-thread/
 │   └── transcripts/
-├── processed/                    # Segmented markdown from large raw files
+├── 003-processed/                    # Segmented markdown from large raw files
 │   ├── articles/
 │   ├── papers/
 │   ├── repos/
@@ -90,9 +90,9 @@ llm-wiki-llm-v1/
 │   ├── web/
 │   ├── forum-thread/
 │   └── transcripts/
-├── wiki/                         # External knowledge base (LLM-owned)
+├── 004-wiki/                         # External knowledge base (LLM-owned)
 │   ├── index.md                  #   Master catalog
-│   ├── sources-manifest.md       #   Source tracking (raw/ai-research/processed → wiki status)
+│   ├── sources-manifest.md       #   Source tracking (001a-raw/001b-ai-research/processed → wiki status)
 │   ├── log.md                    #   Operation log
 │   ├── synthesis.md              #   Overarching thesis
 │   ├── concepts/                 #   Concept pages
@@ -153,7 +153,7 @@ llm-wiki-llm-v1/
 ### External Knowledge Base
 
 ```bash
-# Process a source from raw/ (large files are segmented into processed/ first)
+# Process a source from 001a-raw/ (large files are segmented into 003-processed/ first)
 # (Done by LLM when you say "Process this source")
 
 # Query the wiki
@@ -194,9 +194,9 @@ Karpathy's insight: at personal scale (50-500 articles), the LLM reading a struc
 
 | Aspect      | External KB                               | Internal KB                  |
 | ----------- | ----------------------------------------- | ---------------------------- |
-| Raw data    | Articles, papers, repos, ai-research/     | Claude Code conversations    |
-| Staging     | `processed/` (segmented from large files) | N/A                          |
-| Compiled to | `wiki/`                                   | `knowledge/`                 |
+| Raw data    | Articles, papers, repos, 001b-ai-research/     | Claude Code conversations    |
+| Staging     | `003-processed/` (segmented from large files) | N/A                          |
+| Compiled to | `004-wiki/`                                   | `knowledge/`                 |
 | Schema      | `schema/WIKI_*.md`                        | `AGENTS.md`                  |
 | Trigger     | Manual "Process this source"              | Automatic hooks (SessionEnd) |
 | Main use    | Research, learning                        | Coding patterns, decisions   |
@@ -211,7 +211,7 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 - [Karpathy's LLM Wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) / [Original tweet](https://x.com/karpathy/status/2039805659525644595)
 
-**What it added:** The foundational insight and folder structure. No RAG — the LLM reads a structured index to find relevant articles. The `raw/` → `wiki/` pipeline, wiki page types (entities, concepts, summaries, qanda), `index.md` as the retrieval hub, and `log.md` for audit trail all come from this pattern. The wiki-maintainer agent role and the principle that the LLM owns `wiki/` while humans own `raw/` are also Karpathy's.
+**What it added:** The foundational insight and folder structure. No RAG — the LLM reads a structured index to find relevant articles. The `001a-raw/` → `004-wiki/` pipeline, wiki page types (entities, concepts, summaries, qanda), `index.md` as the retrieval hub, and `log.md` for audit trail all come from this pattern. The wiki-maintainer agent role and the principle that the LLM owns `004-wiki/` while humans own `001a-raw/` are also Karpathy's.
 
 **Why we integrated it:** At personal scale (50-500 articles), index-guided retrieval outperforms vector similarity because the LLM understands what you're asking, not just what words look similar. This is the core thesis the entire project is built on.
 
@@ -227,7 +227,7 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 - [github.com/atomicmemory/llm-wiki-compiler](https://github.com/atomicmemory/llm-wiki-compiler)
 
-**What it added:** Enhanced frontmatter with `summary`, `created`/`updated` timestamps, `confidence` (0-1), `provenance` (extracted|merged|inferred|ambiguous), `contradictedBy`, and `orphaned` fields. Claim-level citations (`^[raw/articles/source.md]`, `^[raw/articles/source.md:42-58]`). Expanded the linter from 8 to 12 checks (added: missing summary, duplicate concept, malformed citation, broken citation). The `wiki-linter`, `sync-check`, and `context-loader` agents. The `sources-manifest.md` tracking file and the `document-processor` agent for segmenting large files.
+**What it added:** Enhanced frontmatter with `summary`, `created`/`updated` timestamps, `confidence` (0-1), `provenance` (extracted|merged|inferred|ambiguous), `contradictedBy`, and `orphaned` fields. Claim-level citations (`^[001a-raw/articles/source.md]`, `^[001a-raw/articles/source.md:42-58]`). Expanded the linter from 8 to 12 checks (added: missing summary, duplicate concept, malformed citation, broken citation). The `wiki-linter`, `sync-check`, and `context-loader` agents. The `sources-manifest.md` tracking file and the `document-processor` agent for segmenting large files.
 
 **Why we integrated it:** Karpathy's pattern has no quality gates. Atomic Memory adds provenance tracking (where a claim came from, how confident it is, whether it's been contradicted) and a linter that catches stale, orphaned, or contradictory content — essential when the wiki compounds over time.
 
@@ -235,7 +235,7 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 - [github.com/joshpocock/karpathy-obsidian-vault](https://github.com/joshpocock/karpathy-obsidian-vault)
 
-**What it added:** The `ai-research/` directory — a separate namespace for AI-discovered web sources, distinct from user-curated `raw/` files. This separation makes it clear what the human added vs. what the LLM found autonomously. Also added Obsidian-specific conventions — wikilink format `[[path/to/article]]`, Dataview frontmatter queries, Marp slide generation, graph view integration, and backlink navigation. The directory naming and frontmatter structure are designed to work natively inside Obsidian as a vault.
+**What it added:** The `001b-ai-research/` directory — a separate namespace for AI-discovered web sources, distinct from user-curated `001a-raw/` files. This separation makes it clear what the human added vs. what the LLM found autonomously. Also added Obsidian-specific conventions — wikilink format `[[path/to/article]]`, Dataview frontmatter queries, Marp slide generation, graph view integration, and backlink navigation. The directory naming and frontmatter structure are designed to work natively inside Obsidian as a vault.
 
 **Why we integrated it:** Distinguishing human-curated sources from AI-discovered ones prevents trust confusion — you always know which claims came from your own research vs. LLM web searches. Obsidian turns the compiled knowledge into something you can explore visually via graph view, backlinks, and Dataview.
 
@@ -268,8 +268,8 @@ Both knowledge bases work natively in Obsidian:
 
 1. In the project folder, create a directory called `init_source`
 2. Download these files into the directory:
-   - [Karpathy's Wiki LLM markdown](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
-   - [Karpathy's Original Tweet on Wiki LLM](https://x.com/i/flow/login?redirect_after_login=%2Fkarpathy%2Fthread%2F20398056595256445950)
+    - [Karpathy's Wiki LLM markdown](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+    - [Karpathy's Original Tweet on Wiki LLM](https://x.com/i/flow/login?redirect_after_login=%2Fkarpathy%2Fthread%2F20398056595256445950)
 
 ### Cole Medin Extension (claude-memory-compiler)
 
@@ -278,7 +278,7 @@ Both knowledge bases work natively in Obsidian:
 1. Download files from [Cole Medin's Claude Memory Compiler Repo](https://github.com/coleam00/claude-memory-compiler)
 2. Tell your AI coding agent:
 
-   > "Clone https://github.com/coleam00/claude-memory-compiler into this project. Set up the Claude Code hooks so my conversations automatically get captured into daily logs, compiled into a knowledge base, and injected back into future sessions. Read the AGENTS.md for the full technical reference on how everything works."
+    > "Clone https://github.com/coleam00/claude-memory-compiler into this project. Set up the Claude Code hooks so my conversations automatically get captured into daily logs, compiled into a knowledge base, and injected back into future sessions. Read the AGENTS.md for the full technical reference on how everything works."
 
 3. YouTube walkthrough: <https://www.youtube.com/watch?v=7huCP6RkcY4>
 
@@ -289,11 +289,11 @@ Both knowledge bases work natively in Obsidian:
 1. Download ideas from [Atomic Memory's LLM Wiki Compiler Repo](https://github.com/atomicmemory/llm-wiki-compiler)
 2. Integrated features (no code installation required):
 
-   > Enhanced frontmatter with `summary`, `created`/`updated` ISO 8601 timestamps, `confidence` (0-1), `provenance` (extracted\|merged\|inferred\|ambiguous), `contradictedBy` (page slugs), and `orphaned` (boolean). Added claim-level citations (`^[raw/articles/source.md]`, `^[raw/articles/source.md:42-58]`). Expanded linter from 8 to 12 checks.
+    > Enhanced frontmatter with `summary`, `created`/`updated` ISO 8601 timestamps, `confidence` (0-1), `provenance` (extracted\|merged\|inferred\|ambiguous), `contradictedBy` (page slugs), and `orphaned` (boolean). Added claim-level citations (`^[001a-raw/articles/source.md]`, `^[001a-raw/articles/source.md:42-58]`). Expanded linter from 8 to 12 checks.
 
 ### Josh Pocock Extension (karpathy-obsidian-vault)
 
-**Why:** Provides the `ai-research/` directory convention for separating human-curated sources from AI-discovered ones, and Obsidian vault integration for visual exploration.
+**Why:** Provides the `001b-ai-research/` directory convention for separating human-curated sources from AI-discovered ones, and Obsidian vault integration for visual exploration.
 
 1. Download files from [Josh Pocock's karpathy-obsidian-vault Repo](https://github.com/joshpocock/karpathy-obsidian-vault)
 
@@ -511,10 +511,10 @@ Web crawling service for the LLM, exposed via MCP and a REST API. The preferred 
 
 1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-2. Create a `.llm.env` file in your project root:
+2. Create a `.crawl4ai.env` file in your project root:
 
 ```env
-# .llm.env
+# .crawl4ai.env
 OPENAI_API_KEY=sk-or-your-openrouter-key
 OPENAI_BASE_URL=https://openrouter.ai/api/v1
 
@@ -523,7 +523,7 @@ LLM_PROVIDER=openai/gpt-4o
 LLM_TEMPERATURE=0.7
 ```
 
-> ⚠️ Never commit `.llm.env` to version control. Add it to `.gitignore`.
+> ⚠️ Never commit `.crawl4ai.env` to version control. Add it to `.gitignore`.
 
 3. Run the container with the env file attached:
 
@@ -533,7 +533,7 @@ LLM_TEMPERATURE=0.7
 docker run -d \
   -p 11235:11235 \
   --name crawl4ai \
-  --env-file .llm.env \
+  --env-file .crawl4ai.env \
   --shm-size=1g \
   unclecode/crawl4ai:latest
 ```
@@ -544,7 +544,7 @@ docker run -d \
 docker run -d `
   -p 11235:11235 `
   --name crawl4ai `
-  --env-file .llm.env `
+  --env-file .crawl4ai.env `
   --shm-size=1g `
   unclecode/crawl4ai:latest
 ```
@@ -593,18 +593,93 @@ docker start crawl4ai      # Start it again
 docker restart crawl4ai    # Restart (stop + start in one command)
 ```
 
+### Vane (Web Search API)
+
+AI-synthesized web search engine (formerly Perplexica) that runs locally via Docker. Combines a SearxNG metasearch backend with an LLM chat model for reasoning and an embedding model for semantic retrieval — producing narrative responses with inline references instead of a raw list of URLs.
+
+**Why:** Deeper synthesis than built-in WebSearch. In testing, Vane caught architectural details (Engram, mHC, OPD for DeepSeek V4) and correct pricing that built-in WebSearch missed entirely.
+
+**Setup (Docker):**
+
+1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+2. Run the Vane container (bundled with SearxNG):
+
+**macOS / Linux (bash):**
+
+```bash
+docker run -d \
+  -p 3000:3000 \
+  -v vane-data:/home/vane/data \
+  --name vane \
+  itzcrazykns1337/vane:latest
+```
+
+**Windows (PowerShell):**
+
+```powershell
+docker run -d `
+  -p 3000:3000 `
+  -v vane-data:/home/vane/data `
+  --name vane `
+  itzcrazykns1337/vane:latest
+```
+
+3. Open `http://localhost:3000` in your browser and complete the setup wizard — configure your LLM providers (Ollama, OpenRouter, etc.) and search settings.
+
+4. The project's Vane tools are pre-configured in `.claude/tools/` and `.claude/scripts/`:
+
+| Tool                 | Definition                              | Script                                  |
+| -------------------- | --------------------------------------- | --------------------------------------- |
+| `vane_get_providers` | `.claude/tools/vane_get_providers.json` | `.claude/scripts/vane_get_providers.py` |
+| `vane_web_search`    | `.claude/tools/vane_web_search.json`    | `.claude/scripts/vane_web_search.py`    |
+
+5. Verify Vane is reachable:
+
+```bash
+uv run python .claude/scripts/vane_get_providers.py
+```
+
+> ⚠️ Always start the Docker container before opening a Claude Code session.
+
+**Stop & Start:**
+
+```bash
+docker stop vane       # Stop the container
+docker start vane      # Start it again
+docker restart vane    # Restart (stop + start in one command)
+```
+
+**Usage:**
+
+Two project agents use Vane — one ephemeral, one persistent:
+
+| Agent           | Command                     | Behavior                                      | Output                      |
+| --------------- | --------------------------- | --------------------------------------------- | --------------------------- |
+| **web-search**  | "Search the web for X"      | Ephemeral — returns results, never saves      | stdout only (uses built-in) |
+| **vane-search** | "Vane Search the web for X" | Ephemeral — returns results, never saves      | stdout only (uses vane)     |
+| **ai-research** | "Research X and save it"    | Persistent — deep search + crawl4ai follow-up | saves to `001b-ai-research/web/` |
+
+Both agents enforce the same citation convention: every factual claim must include an inline citation `[N]` referencing a numbered source, and all sources must be included verbatim (no filtering or truncation).
+
+If Vane is unavailable, the web-search agent falls back to built-in WebSearch (with a notice that results may be shallower).
+
+For full documentation, see [github.com/ItzCrazyKns/Vane](https://github.com/ItzCrazyKns/Vane).
+
+---
+
 ### Document Processing Pipeline
 
-Converts documents (PDF, DOCX, PPTX) to markdown via docling-serve, with OCR remediation powered by deepseek-ocr. Used by the `document-converter` → `ocr-remediator` → `markdown-chunker` pipeline. The pipeline produces segmented markdown in `processed/` for wiki ingestion.
+Converts documents (PDF, DOCX, PPTX) to markdown via docling-serve, with OCR remediation powered by deepseek-ocr. Used by the `document-converter` → `ocr-remediator` → `markdown-chunker` pipeline. The pipeline produces segmented markdown in `003-processed/` for wiki ingestion.
 
 **Why:** PDFs and binary documents can't be ingested directly into the wiki. This pipeline converts them to markdown, fixes OCR gaps in formulas/tables/diagrams, and segments large documents into LLM-sized chunks — all before wiki ingestion touches them.
 
 **Setup:**
 
 1. Prerequisites:
-   - [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
-   - [Ollama](#ollama) (installed and running)
-   - Python 3.11+ with `pipx` (for arrase/OCR CLI)
+    - [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
+    - [Ollama](#ollama) (installed and running)
+    - Python 3.11+ with `pipx` (for arrase/OCR CLI)
 
 2. Create a `.docling.env` file in your project root:
 
@@ -690,7 +765,7 @@ Tell your AI coding agent:
 
 ```
 Convert this document to markdown        → invokes document-converter agent
-Fix OCR issues in raw-markdown           → invokes ocr-remediator agent
+Fix OCR issues in 002-raw-preprocessed           → invokes ocr-remediator agent
 Chunk this markdown into chapters        → invokes markdown-chunker agent
 Process this PDF                         → invokes document-processor (full pipeline)
 ```
@@ -706,78 +781,6 @@ Browser extension (Firefox) for extracting single-page articles or threads direc
 1. Install [Obsidian Clipper](https://obsidian.md/clipper) for Firefox
 2. Point it to your vault folder
 3. Click the Obsidian icon in your browser toolbar to clip any page as Markdown
-
-### Vane (Web Search API)
-
-AI-synthesized web search engine (formerly Perplexica) that runs locally via Docker. Combines a SearxNG metasearch backend with an LLM chat model for reasoning and an embedding model for semantic retrieval — producing narrative responses with inline references instead of a raw list of URLs.
-
-**Why:** Deeper synthesis than built-in WebSearch. In testing, Vane caught architectural details (Engram, mHC, OPD for DeepSeek V4) and correct pricing that built-in WebSearch missed entirely.
-
-**Setup (Docker):**
-
-1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
-
-2. Run the Vane container (bundled with SearxNG):
-
-**macOS / Linux (bash):**
-
-```bash
-docker run -d \
-  -p 3000:3000 \
-  -v vane-data:/home/vane/data \
-  --name vane \
-  itzcrazykns1337/vane:latest
-```
-
-**Windows (PowerShell):**
-
-```powershell
-docker run -d `
-  -p 3000:3000 `
-  -v vane-data:/home/vane/data `
-  --name vane `
-  itzcrazykns1337/vane:latest
-```
-
-3. Open `http://localhost:3000` in your browser and complete the setup wizard — configure your LLM providers (Ollama, OpenRouter, etc.) and search settings.
-
-4. The project's Vane tools are pre-configured in `.claude/tools/` and `.claude/scripts/`:
-
-| Tool | Definition | Script |
-|------|-----------|--------|
-| `vane_get_providers` | `.claude/tools/vane_get_providers.json` | `.claude/scripts/vane_get_providers.py` |
-| `vane_web_search` | `.claude/tools/vane_web_search.json` | `.claude/scripts/vane_web_search.py` |
-
-5. Verify Vane is reachable:
-
-```bash
-uv run python .claude/scripts/vane_get_providers.py
-```
-
-> ⚠️ Always start the Docker container before opening a Claude Code session.
-
-**Stop & Start:**
-
-```bash
-docker stop vane       # Stop the container
-docker start vane      # Start it again
-docker restart vane    # Restart (stop + start in one command)
-```
-
-**Usage:**
-
-Two project agents use Vane — one ephemeral, one persistent:
-
-| Agent | Command | Behavior | Output |
-|-------|---------|----------|--------|
-| **web-search** | "Search the web for X" | Ephemeral — returns results, never saves | stdout only |
-| **ai-research** | "Research X and save it" | Persistent — deep search + crawl4ai follow-up | saves to `ai-research/web/` |
-
-Both agents enforce the same citation convention: every factual claim must include an inline citation `[N]` referencing a numbered source, and all sources must be included verbatim (no filtering or truncation).
-
-If Vane is unavailable, the web-search agent falls back to built-in WebSearch (with a notice that results may be shallower).
-
-For full documentation, see [github.com/ItzCrazyKns/Vane](https://github.com/ItzCrazyKns/Vane).
 
 ---
 

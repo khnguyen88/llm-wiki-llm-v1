@@ -25,24 +25,24 @@ uv sync
 ### First Ingestion
 
 ```bash
-# Add source documents to raw/ (any subfolder)
-cp ~/my-article.md raw/articles/
+# Add source documents to 001a-raw/ (any subfolder)
+cp ~/my-article.md 001a-raw/articles/
 
 # Ingest into the wiki using subagent-driven dispatch
-# Tell Claude Code: "Ingest raw/articles/my-article.md using wiki-maintainer"
+# Tell Claude Code: "Ingest 001a-raw/articles/my-article.md using wiki-maintainer"
 ```
 
 ## The Two Knowledge Bases
 
-### External Knowledge Base (wiki/)
+### External Knowledge Base (004-wiki/)
 
 Web articles, papers, repos, and datasets compiled into a structured wiki.
 
 ```
-raw/           -> Human-curated sources (you add files here)
-ai-research/   -> LLM-discovered web sources (immutable once saved)
-processed/     -> Staging area for large files (LLM segments them)
-wiki/          -> Compiled knowledge (LLM owns this)
+001a-raw/           -> Human-curated sources (you add files here)
+001b-ai-research/   -> LLM-discovered web sources (immutable once saved)
+003-processed/     -> Staging area for large files (LLM segments them)
+004-wiki/          -> Compiled knowledge (LLM owns this)
 ```
 
 ### Internal Knowledge Base (knowledge/)
@@ -58,10 +58,10 @@ knowledge/     -> Compiled knowledge (LLM owns this)
 
 | Directory | Who writes | Who curates | Can you edit? |
 |-----------|-----------|-------------|--------------|
-| `raw/` | You | You | Yes — add source files |
-| `ai-research/` | LLM | You approve | No — immutable once saved |
-| `processed/` | LLM | LLM | No — staging area |
-| `wiki/` | LLM | LLM | No — let the LLM maintain it |
+| `001a-raw/` | You | You | Yes — add source files |
+| `001b-ai-research/` | LLM | You approve | No — immutable once saved |
+| `003-processed/` | LLM | LLM | No — staging area |
+| `004-wiki/` | LLM | LLM | No — let the LLM maintain it |
 | `daily/` | LLM (via hooks) | LLM | No — immutable logs |
 | `knowledge/` | LLM | LLM | No — let the LLM maintain it |
 
@@ -70,7 +70,7 @@ knowledge/     -> Compiled knowledge (LLM owns this)
 ### Wiki Content (what gets compiled)
 
 ```
-raw/
+001a-raw/
   articles/          # Web articles, blog posts
   papers/            # Academic papers, PDFs
   repos/             # Cloned Git repositories
@@ -81,13 +81,13 @@ raw/
   forum-thread/      # Forum discussions
   transcripts/       # Conversation transcripts
 
-ai-research/         # Same subfolder structure as raw/
+001b-ai-research/         # Same subfolder structure as 001a-raw/
                      # LLM discovers and saves web sources here
 
-processed/           # Same subfolder structure as raw/
+003-processed/           # Same subfolder structure as 001a-raw/
                      # Large raw files get segmented here before ingestion
 
-wiki/
+004-wiki/
   index.md           # Master catalog (THE retrieval mechanism)
   sources-manifest.md # Which sources have been ingested
   log.md             # Chronological operation log
@@ -200,7 +200,7 @@ The project uses crawl4ai for web crawling (configured via MCP in `.claude/mcp.j
 - **Primary**: Use the crawl4ai MCP tool (runs on `localhost:11235`)
 - **Fallback**: If MCP is unavailable, use `WebFetch` or the scripts in `tools_scripts/`
 
-Tell Claude Code: "Crawl [URL] and save it to ai-research/"
+Tell Claude Code: "Crawl [URL] and save it to 001b-ai-research/"
 
 ## Why No RAG?
 

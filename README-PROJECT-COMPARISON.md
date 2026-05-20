@@ -20,12 +20,12 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | Feature | Karpathy Gist | Cole Medin | Atomic Memory | Josh Pocock | This Project |
 |---------|:---:|:---:|:---:|:---:|:---:|
 | **Directory Structure** | | | | | |
-| `raw/` (human-curated sources) | A | — | A | A | A |
-| `wiki/` (LLM-owned KB) | A | — | A | A | A |
+| `001a-raw/` (human-curated sources) | A | — | A | A | A |
+| `004-wiki/` (LLM-owned KB) | A | — | A | A | A |
 | `daily/` (conversation logs) | — | A | — | — | A |
 | `knowledge/` (compiled internal KB) | — | A | — | — | A |
-| `ai-research/` (AI-discovered sources) | — | — | — | A | A |
-| `processed/` (segmented large files) | — | — | — | — | N |
+| `001b-ai-research/` (AI-discovered sources) | — | — | — | A | A |
+| `003-processed/` (segmented large files) | — | — | — | — | N |
 | `output/` (ephemeral artifacts) | — | — | — | A | O |
 | `.llmwiki/` (internal state) | — | — | A | — | O (use `scripts/state.json`) |
 | **Schema & Configuration** | | | | | |
@@ -133,7 +133,7 @@ The foundational concept document. Karpathy described the pattern abstractly —
 
 **What was modified:**
 - Karpathy's schema is intentionally abstract ("this document describes the idea, not a specific implementation"). This project instantiated it with concrete file formats, naming conventions, and agent roles.
-- The three layers became five (added `daily/` + `knowledge/` from Cole Medin, and `ai-research/` from Josh Pocock).
+- The three layers became five (added `daily/` + `knowledge/` from Cole Medin, and `001b-ai-research/` from Josh Pocock).
 - Lint expanded from Karpathy's informal list to 13+1 formalized checks.
 - Query expanded to search both KBs (external wiki + internal knowledge), not just the wiki.
 
@@ -227,9 +227,9 @@ The most engineering-heavy source. A full TypeScript/Node.js compiler with 4 LLM
 The most minimal implementation. A pure prompt-driven architecture where the entire system is a single CLAUDE.md file with no scripts, no hooks, no MCP servers, and no automation. The LLM does everything by following the prompt.
 
 **Core concepts adopted:**
-- `ai-research/` directory for AI-discovered web sources (separate from human `raw/`)
-- The `raw/` vs `ai-research/` ownership split: human curates raw/, LLM discovers ai-research/, both immutable once saved
-- "One source, one file" in ai-research/ with frontmatter (url, fetched, summary) — expanded to HTML comment metadata headers with 8 source types and field tiers
+- `001b-ai-research/` directory for AI-discovered web sources (separate from human `001a-raw/`)
+- The `001a-raw/` vs `001b-ai-research/` ownership split: human curates 001a-raw/, LLM discovers 001b-ai-research/, both immutable once saved
+- "One source, one file" in 001b-ai-research/ with frontmatter (url, fetched, summary) — expanded to HTML comment metadata headers with 8 source types and field tiers
 - Obsidian as the read-only IDE with bundled plugins (Dataview, Local Images Plus)
 - Graph view configured to show orphans
 - 3-level index navigation (master-index → topic _index → articles)
@@ -241,10 +241,10 @@ The most minimal implementation. A pure prompt-driven architecture where the ent
 
 **What was modified:**
 - Josh Pocock's CLAUDE.md is the sole governing document (~8.8KB, everything in one file). This project split it into a lean CLAUDE.md (~70 lines), AGENTS.md (~640 lines), and three schema/ files. The context-loader agent enforces CLAUDE.md stays under 60 lines.
-- The 3-level index (master → topic → article) was simplified to a flat `wiki/index.md` with categories. Topic subfolders were not adopted.
+- The 3-level index (master → topic → article) was simplified to a flat `004-wiki/index.md` with categories. Topic subfolders were not adopted.
 - `output/` directory for ephemeral artifacts was not adopted — lint reports go to `reports/` (gitignored), query results go to `qanda/` (permanent).
 - The pure prompt-driven approach (no scripts, no hooks) was replaced with programmatic automation (hooks + Agent SDK scripts).
-- Example templates in `wiki/_examples/` were not adopted — conventions are documented in `schema/WIKI_SCHEMA.md` instead.
+- Example templates in `004-wiki/_examples/` were not adopted — conventions are documented in `schema/WIKI_SCHEMA.md` instead.
 - Lint is automated and scriptable (scripts/lint.py) rather than purely manual.
 
 **What was omitted:**
@@ -266,8 +266,8 @@ Features that none of the four sources had — purely this project's own additio
 | Feature | Description |
 |---------|-------------|
 | **Dual KB architecture** | Two parallel knowledge bases (external wiki for web sources, internal knowledge for conversations) that share the same tooling conventions but serve different data flows. No source had both pipelines in one project. |
-| **5-layer directory model** | `raw/` + `ai-research/` + `processed/` + `wiki/` + `knowledge/` — more granular than any single source's 2-3 layer model. |
-| **`processed/` directory** | Intermediate segmentation layer for large files (PDFs, long articles). Files >3,000 words get split into processed/ before wiki ingestion. No source had this. |
+| **5-layer directory model** | `001a-raw/` + `001b-ai-research/` + `003-processed/` + `004-wiki/` + `knowledge/` — more granular than any single source's 2-3 layer model. |
+| **`003-processed/` directory** | Intermediate segmentation layer for large files (PDFs, long articles). Files >3,000 words get split into 003-processed/ before wiki ingestion. No source had this. |
 
 ### Agents
 
@@ -278,13 +278,13 @@ Features that none of the four sources had — purely this project's own additio
 | **sync-check agent** | Verifies consistency across config files, schemas, and agents. No source had cross-file consistency checking. |
 | **context-loader agent** | On-demand rule loading with Guard (enforce CLAUDE.md < 60 lines) and Audit (find duplicated/orphaned/missing rules). No source had prompt health management. |
 | **Subagent-driven ingestion** | One fresh wiki-maintainer subagent per source, with review between tasks. Replaces the former batch-ingester agent and `scripts/ingest_external.py`. Higher quality than batch processing — each source gets full interactive attention. |
-| **document-processor agent** | Dedicated agent for segmenting large files into processed/. No source had this. |
+| **document-processor agent** | Dedicated agent for segmenting large files into 003-processed/. No source had this. |
 
 ### Lint System
 
 | Feature | Description |
 |---------|-------------|
-| **13+1 merged lint checks** | Combined the best of Cole Medin's 7 checks, Atomic Memory's 11 checks, and Josh Pocock's 7-point lint report into 13 structural checks + 1 LLM contradiction check. Added: raw-source-metadata (validate HTML comment headers against 8 source types), filename convention (validate processed/crawl/LLM-generated naming patterns). |
+| **13+1 merged lint checks** | Combined the best of Cole Medin's 7 checks, Atomic Memory's 11 checks, and Josh Pocock's 7-point lint report into 13 structural checks + 1 LLM contradiction check. Added: raw-source-metadata (validate HTML comment headers against 8 source types), filename convention (validate 003-processed/crawl/LLM-generated naming patterns). |
 | **Lint severity levels with auto-fixable flag** | Errors (broken links, duplicate concepts, citations), warnings (orphans, stale, contradictions), suggestions (sparse, missing backlinks). Wiki-repair agent handles auto-fixable items. |
 
 ### Metadata & Naming
@@ -299,8 +299,8 @@ Features that none of the four sources had — purely this project's own additio
 
 | Feature | Description |
 |---------|-------------|
-| **~~ingest_external.py~~** (removed) | Was bulk ingestion of raw/ and ai-research/ sources into wiki/. Replaced by subagent-driven dispatch. |
-| **Dual-KB query** | query.py searches both `wiki/` and `knowledge/` in a single operation. No source had a unified query across two KBs. |
+| **~~ingest_external.py~~** (removed) | Was bulk ingestion of 001a-raw/ and 001b-ai-research/ sources into 004-wiki/. Replaced by subagent-driven dispatch. |
+| **Dual-KB query** | query.py searches both `004-wiki/` and `knowledge/` in a single operation. No source had a unified query across two KBs. |
 
 ### Documentation
 
@@ -326,8 +326,8 @@ Where this project significantly diverged from any source's approach:
 | **Ingestion** | Josh Pocock: manual (human says "compile"); Atomic Memory: CLI command | Subagent-driven dispatch (one wiki-maintainer per source, review between tasks) | Higher quality than batch — each source gets full interactive attention with cross-referencing and provenance tracking |
 | **Query** | All sources: single-KB query | Dual-KB query (wiki + knowledge) | Both KBs may contain relevant information; unified query avoids the user deciding which KB to search |
 | **Context injection** | Cole Medin: knowledge/index.md only | Knowledge index + daily log + sync-check reminder | More context at session start; sync-check catches drift early |
-| **Citations** | Josh Pocock: `**Source:**` inline; Atomic Memory: `^[file.md]` footnote | `^[raw/articles/source.md]` or `^[raw/articles/source.md:42-58]` in footnote style with full path | Full path enables lint to verify source existence; line ranges enable paragraph-level provenance |
-| **Index navigation** | Josh Pocock: 3-level (master → topic → article); Atomic Memory: auto-generated TOC + MOC | Flat `wiki/index.md` with categories + `wiki/sources-manifest.md` for source tracking | Simpler structure; sources-manifest tracks what's been ingested (no source had this) |
+| **Citations** | Josh Pocock: `**Source:**` inline; Atomic Memory: `^[file.md]` footnote | `^[001a-raw/articles/source.md]` or `^[001a-raw/articles/source.md:42-58]` in footnote style with full path | Full path enables lint to verify source existence; line ranges enable paragraph-level provenance |
+| **Index navigation** | Josh Pocock: 3-level (master → topic → article); Atomic Memory: auto-generated TOC + MOC | Flat `004-wiki/index.md` with categories + `004-wiki/sources-manifest.md` for source tracking | Simpler structure; sources-manifest tracks what's been ingested (no source had this) |
 
 ---
 
@@ -356,7 +356,7 @@ Where this project significantly diverged from any source's approach:
 
 ```
 Karpathy Gist (concept)
-  ├── raw/ → wiki/ pipeline
+  ├── 001a-raw/ → 004-wiki/ pipeline
   ├── index.md + log.md navigation
   ├── Ingest / Query / Lint operations
   ├── "No RAG" index-guided retrieval
@@ -381,8 +381,8 @@ Karpathy Gist (concept)
         │     └── Incremental compilation
         │
         └── Josh Pocock (AI research + Obsidian)
-              ├── ai-research/ directory convention
-              ├── raw/ vs ai-research/ ownership split
+              ├── 001b-ai-research/ directory convention
+              ├── 001a-raw/ vs 001b-ai-research/ ownership split
               ├── Obsidian plugin integration (Dataview, Local Images)
               ├── Example templates (entity, concept, source-summary)
               ├── 7-point lint report
@@ -397,7 +397,7 @@ Karpathy Gist (concept)
               ├── Raw Source Metadata schema with 8 types (unique)
               ├── File naming conventions (unique)
               ├── Split documentation model (unique)
-              ├── processed/ directory (unique)
+              ├── 003-processed/ directory (unique)
               ├── sync-check + context-loader agents (unique)
               └── Python implementation (choice)
 ```
