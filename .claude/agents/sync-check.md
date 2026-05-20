@@ -15,6 +15,9 @@ Every file that lists the project structure must agree on:
 **Files that define directory structure:**
 - `CLAUDE.md` — Directory Layout section
 - `README.md` — Project Structure tree
+- `README-OWNER-GUIDE.md` — Architecture diagram, data flow, ownership map
+- `README-USER-GUIDE.md` — Directory map, project infrastructure listing
+- `README-PROJECT-COMPARISON.md` — Feature matrix, original contributions
 - `AGENTS.md` — Full Project Structure section
 - `schema/WIKI_SCHEMA.md` — Directory Structure section
 - `schema/WIKI_AGENTS.md` — Wiki Structure section
@@ -47,7 +50,7 @@ Every agent must reference the correct:
 
 ### 3. Script names
 
-CLI commands referenced in any file must match actual scripts in `scripts/`. Check:
+CLI commands referenced in any file must match actual scripts in `scripts/`. This includes script references in `README.md`, `README-OWNER-GUIDE.md`, and `README-USER-GUIDE.md`. Check:
 - `scripts/compile.py` — flags: `--all`, `--file`, `--dry-run`
 - `scripts/query.py` — flags: `--file-back`
 - `scripts/lint.py` — flags: `--structural-only`, `--kb internal`, `--kb external`
@@ -131,26 +134,30 @@ When running a sync check, read these files in order:
 
 1. `CLAUDE.md`
 2. `README.md`
-3. `AGENTS.md`
-4. `schema/WIKI_AGENTS.md`
-5. `schema/WIKI_SCHEMA.md`
-6. `schema/WIKI_WORKFLOWS.md`
-7. `.claude/agents/wiki-maintainer.md`
-8. `.claude/agents/document-converter.md`
-9. `.claude/agents/ocr-remediator.md`
-10. `.claude/agents/markdown-chunker.md`
-11. `.claude/agents/document-processor.md`
-12. `.claude/agents/knowledge-compiler.md`
-13. `.claude/agents/wiki-linter.md`
-14. `.claude/agents/wiki-query.md`
-15. `.claude/agents/wiki-repair.md`
-16. `.claude/agents/web-search.md`
-17. `.claude/agents/ai-research.md`
-18. `.claude/agents/youtube-transcript.md`
-19. `.claude/agents/transcript-reviewer.md`
-20. `.claude/agents/context-loader.md`
-21. `.claude/agents/sync-check.md`
-22. `004-wiki/index.md`
-23. `004-wiki/sources-manifest.md`
+3. `README-OWNER-GUIDE.md`
+4. `README-USER-GUIDE.md`
+5. `README-PROJECT-COMPARISON.md`
+6. `README-PIPELINES.md`
+7. `AGENTS.md`
+8. `schema/WIKI_AGENTS.md`
+9. `schema/WIKI_SCHEMA.md`
+10. `schema/WIKI_WORKFLOWS.md`
+11. `.claude/agents/wiki-maintainer.md`
+12. `.claude/agents/document-converter.md`
+13. `.claude/agents/ocr-remediator.md`
+14. `.claude/agents/markdown-chunker.md`
+15. `.claude/agents/document-processor.md`
+16. `.claude/agents/knowledge-compiler.md`
+17. `.claude/agents/wiki-linter.md`
+18. `.claude/agents/wiki-query.md`
+19. `.claude/agents/wiki-repair.md`
+20. `.claude/agents/web-search.md`
+21. `.claude/agents/ai-research.md`
+22. `.claude/agents/youtube-transcript.md`
+23. `.claude/agents/transcript-reviewer.md`
+24. `.claude/agents/context-loader.md`
+25. `.claude/agents/sync-check.md`
+26. `004-wiki/index.md`
+27. `004-wiki/sources-manifest.md`
 
 Then verify against actual directory structure (`ls` or `glob` for `001a-raw/`, `003-processed/`, `004-wiki/`, `knowledge/`, `scripts/`, `hooks/`, `.claude/agents/`).

@@ -799,3 +799,7 @@ Browser extension (Firefox) for extracting single-page articles or threads direc
 | **schema/WIKI_WORKFLOWS.md** | Ingest, Query, Lint, and Research workflows             |
 | **.claude/agents/**          | Project-specific Claude Code agents                     |
 | **CLAUDE.md**                | Project instructions for Claude Code sessions           |
+| **README-OWNER-GUIDE.md**    | Internal maintenance reference (architecture, scripts, hooks) |
+| **README-USER-GUIDE.md**     | User-facing guide (setup, commands, agents)             |
+| **README-PROJECT-COMPARISON.md** | Origin tracing — what came from which source        |
+| **README-PIPELINES.md**      | Pipeline overview — all data flows and tool dependencies |
