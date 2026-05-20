@@ -534,7 +534,7 @@ def check_duplicate_concept_external() -> list[dict]:
 
 # Citation regex: ^[path] or ^[path:line] or ^[path:start-end]
 _CITATION_RE = re.compile(r"\^\[([^\]]+)\]")
-_VALID_PATH_PREFIXES = ("raw/", "ai-research/", "processed/")
+_VALID_PATH_PREFIXES = ("001a-raw/", "001b-ai-research/", "003-processed/")
 
 
 def check_malformed_citation_external() -> list[dict]:
