@@ -57,7 +57,7 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 - Claim citations: `^[001a-raw/articles/source.md]` or `^[001a-raw/articles/source.md:42-58]` for paragraph-level provenance
 - Frontmatter required on all wiki pages (title, summary, type, sources, tags, created, updated)
 - Optional provenance fields: confidence, provenance, contradictedBy, orphaned
-- Naming: snake_case for entities/concepts, kebab-case for summaries/qanda
+- Naming: snake_case for entities/concepts, kebab-case for summaries
 - Dates: ISO 8601 with timestamps (`"2026-04-05T12:00:00Z"`)
 - Style: encyclopedia-style, factual, concise
 - Git commits: never include AI attribution (Co-Authored-By, Generated with, etc.) — commit messages must be AI-free

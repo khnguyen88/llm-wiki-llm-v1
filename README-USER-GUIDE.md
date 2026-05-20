@@ -96,7 +96,6 @@ knowledge/     -> Compiled knowledge (LLM owns this)
   concepts/          # Concept pages (snake_case)
   entities/          # Entity pages (snake_case)
   summaries/         # Source summaries (kebab-case)
-  qanda/             # Q&A articles (kebab-case)
 ```
 
 ### Project Infrastructure (how the system works)

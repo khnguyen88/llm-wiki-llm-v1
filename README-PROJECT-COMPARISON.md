@@ -34,7 +34,7 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | AGENTS.md as compiler specification | — | A | — | — | M (dual-purpose: schema + reference) |
 | YAML frontmatter on wiki pages | — | A | M | — | M (merged both systems) |
 | Provenance fields (confidence, provenance) | — | — | A | — | A |
-| Page kinds (concept, entity, comparison, overview) | — | — | A | — | M (added summary, qanda, synthesis) |
+| Page kinds (concept, entity, comparison, overview) | — | — | A | — | M (added summary, synthesis) |
 | Schema JSON for page-kind rules | — | — | A | — | O (convention-based instead) |
 | **Citation System** | | | | | |
 | Source traceability (every claim → source) | A | — | A | A | A |
@@ -113,7 +113,7 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | Batch ingest | A | — | A | — | M (Agent SDK-based) |
 | **Naming Conventions** | | | | | |
 | snake_case for entities/concepts | — | — | — | — | N (from Atomic Memory's slug logic) |
-| kebab-case for summaries/qanda | — | — | — | — | N |
+| kebab-case for summaries | — | — | — | — | N |
 | Lowercase hyphenated (Josh Pocock) | — | — | — | A | M (split by page type) |
 | ISO 8601 dates with timestamps | — | A | — | — | A |
 | Wikilinks `[[path/to/article]]` | A | A | A | A | A |
@@ -179,7 +179,7 @@ The "internal KB" system. Cole Medin adapted Karpathy's pattern to compile Claud
 - Cole Medin's AGENTS.md serves as the sole schema. This project split the schema into AGENTS.md (internal KB) + CLAUDE.md (project-level lean config) + schema/ files (external KB). The intent: CLAUDE.md stays under 60 lines for fast context loading.
 - Frontmatter was expanded from Cole Medin's minimal set (title, sources, created, updated) to include Atomic Memory's provenance fields (confidence, provenance, contradictedBy, orphaned).
 - Lint checks expanded from 7 (6 structural + 1 LLM) to 13+1 by merging Atomic Memory's checks and adding raw-source-metadata and filename convention checks.
-- The `connections/` article type was kept but `qa/` was aligned with the external wiki's `qanda/` naming convention.
+- The `connections/` article type was kept. The `qa/` directory is Cole Medin's internal KB convention and is not linked to an external wiki equivalent.
 - Scripts were extended: added `ingest_external.py` for the raw→wiki pipeline that Cole Medin doesn't have.
 - Hook timeouts were tuned for the dual-KB context.
 
@@ -209,7 +209,7 @@ The most engineering-heavy source. A full TypeScript/Node.js compiler with 4 LLM
 
 **What was modified:**
 - TypeScript → Python. The entire codebase was reimplemented in Python to match Cole Medin's script ecosystem and avoid a Node.js dependency.
-- Page kinds expanded: added `summary`, `qanda`, `synthesis` types. Removed `overview` (replaced by `synthesis`).
+- Page kinds expanded: added `summary`, `synthesis` types. Removed `overview` (replaced by `synthesis`).
 - MCP server was not adopted (crawl4ai MCP used instead for web research).
 - Review queue (candidate approval flow) was not adopted — this project ingests directly, trusting the schema and lint to catch issues.
 - Frozen slug protection and cross-source dependency tracking were not implemented — the wiki is small enough that full re-ingestion is feasible.
@@ -252,7 +252,7 @@ The most minimal implementation. A pure prompt-driven architecture where the ent
 **What was modified:**
 - Josh Pocock's CLAUDE.md is the sole governing document (~8.8KB, everything in one file). This project split it into a lean CLAUDE.md (~70 lines), AGENTS.md (~640 lines), and three schema/ files. The context-loader agent enforces CLAUDE.md stays under 60 lines.
 - The 3-level index (master → topic → article) was simplified to a flat `004-wiki/index.md` with categories. Topic subfolders were not adopted.
-- `output/` directory for ephemeral artifacts was not adopted — lint reports go to `reports/` (gitignored), query results go to `qanda/` (permanent).
+- `output/` directory for ephemeral artifacts was not adopted — lint reports go to `reports/` (gitignored), query results go to `qa/` (permanent, internal KB only).
 - The pure prompt-driven approach (no scripts, no hooks) was replaced with programmatic automation (hooks + Agent SDK scripts).
 - Example templates in `004-wiki/_examples/` were not adopted — conventions are documented in `schema/WIKI_SCHEMA.md` instead.
 - Lint is automated and scriptable (scripts/lint.py) rather than purely manual.
@@ -331,7 +331,7 @@ Where this project significantly diverged from any source's approach:
 | **Automation** | Josh Pocock: pure prompt (no scripts/hooks) | Hooks + Agent SDK scripts | Mechanical enforcement is more reliable than prompt-only instructions; flush system needs background processes |
 | **Lint** | Cole Medin: 7 checks; Atomic Memory: 11 checks; Josh Pocock: 7-point manual report | Merged 13+1 checks | Take the strongest structural checks from each source; add raw-source-metadata validation, filename convention check, and one LLM contradiction check |
 | **Schema storage** | Atomic Memory: `.llmwiki/schema.json`; Josh Pocock: single CLAUDE.md | Convention-based (AGENTS.md + schema/*.md) | Markdown is easier for the LLM to read and edit than JSON; matches the wiki's own format |
-| **Page kinds** | Atomic Memory: concept, entity, comparison, overview | concept, entity, summary, qanda, synthesis | Different page taxonomy: `summary` for source-level summaries (from Josh Pocock), `qanda` for filed queries (from Cole Medin), `synthesis` for the evolving thesis (unique) |
+| **Page kinds** | Atomic Memory: concept, entity, comparison, overview | concept, entity, summary, synthesis | Different page taxonomy: `summary` for source-level summaries (from Josh Pocock), `qanda` for filed queries (from Cole Medin), `synthesis` for the evolving thesis (unique) |
 | **Frontmatter** | Cole Medin: minimal (title, sources, created, updated); Atomic Memory: full provenance | Merged: required (title, summary, type, sources, tags, created, updated) + optional provenance (confidence, provenance, contradictedBy, orphaned) | Best of both: required fields ensure minimum quality, optional provenance enables epistemic tracking |
 | **Ingestion** | Josh Pocock: manual (human says "compile"); Atomic Memory: CLI command | Subagent-driven dispatch (one wiki-maintainer per source, review between tasks) | Higher quality than batch — each source gets full interactive attention with cross-referencing and provenance tracking |
 | **Document processing** | All sources: manual or non-existent | document-converter → ocr-remediator → markdown-chunker pipeline | PDFs and Office docs need conversion before wiki ingestion; OCR fixes formulas/tables/diagrams that docling misses |

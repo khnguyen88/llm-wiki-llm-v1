@@ -393,7 +393,6 @@ llm-wiki-llm-v1/
 |   |-- concepts/
 |   |-- entities/
 |   |-- summaries/
-|   |-- qanda/
 |-- daily/                           # "Source code" - conversation logs (immutable)
 |-- knowledge/                       # "Executable" - compiled knowledge (LLM-owned)
 |   |-- index.md                     #   Master catalog - THE retrieval mechanism

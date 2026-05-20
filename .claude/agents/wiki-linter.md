@@ -67,7 +67,7 @@ Generate a markdown report with severity levels:
 - [sparse] `004-wiki/entities/y.md` body is only 23 characters (essentially empty)
 
 ## Suggestions
-- [sparse] `004-wiki/qanda/q.md` is only 50 words
+- [sparse] `004-wiki/summaries/too-short.md` is only 50 words
 - [missing-summary] `004-wiki/concepts/x.md` has no summary in frontmatter
 - [missing-backlink] `004-wiki/a.md` -> `004-wiki/b.md` but no return link
 - [orphan-source] `001a-raw/articles/unprocessed.pdf` not yet processed

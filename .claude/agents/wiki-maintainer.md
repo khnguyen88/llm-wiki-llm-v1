@@ -31,7 +31,6 @@ The wiki is a **persistent, compounding artifact**. Cross-references are already
 1. Read `004-wiki/index.md` to find relevant pages
 2. Read 3-10 relevant pages in full
 3. Synthesize answer with `[[wikilink]]` citations
-4. Optionally file answer back as `004-wiki/qanda/[question].md`
 
 ### Lint (health check the wiki)
 
@@ -55,7 +54,7 @@ When a query reveals gaps or the human asks to research a topic:
 ## Conventions
 
 - **Frontmatter**: All pages require YAML with title, summary, type, sources, tags, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
-- **Naming**: snake_case for entities/concepts, kebab-case for summaries and qanda
+- **Naming**: snake_case for entities/concepts, kebab-case for summaries
 - **File naming** (001a-raw/ or 001b-ai-research): All LLM-generated files must end with `-{YYYY-MM-DD}.md`. Crawl files: `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md`. Other types: `{slug}-{YYYY-MM-DD}.md`. See `schema/WIKI_SCHEMA.md` → LLM-Generated File Naming and Crawl File Naming.
 - **File naming** (003-processed/): `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md`. See `schema/WIKI_SCHEMA.md` → Processed File Naming.
 - **Internal**: `[[path/to/article]]` or `[[path/to/article|Display Name]]`

@@ -60,7 +60,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 6. **Update index**
    - Add entries for new pages in `004-wiki/index.md`
-   - Organize by category (entities, concepts, summaries, qanda)
+   - Organize by category (entities, concepts, summaries)
 
 7. **Update sources manifest**
    - Add row to `004-wiki/sources-manifest.md` table

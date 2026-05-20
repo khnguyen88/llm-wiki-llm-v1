@@ -48,7 +48,6 @@ This file defines the structure and conventions for the external knowledge base 
   concepts/       # Concept pages
   entities/       # Entity pages
   summaries/      # Source document summaries
-  qanda/          # Q&A articles
 ```
 
 ## Page Naming Conventions
@@ -58,7 +57,6 @@ This file defines the structure and conventions for the external knowledge base 
 | Entity | snake_case | `entities/transformer_model.md` |
 | Concept | snake_case | `concepts/attention_mechanism.md` |
 | Summary | kebab-case | `summaries/attention-is-all-you-need.md` |
-| Q&A | kebab-case | `qanda/what-is-attention.md` |
 
 ### Processed File Naming
 
@@ -131,7 +129,7 @@ All wiki pages must include YAML frontmatter. Fields are split into **required**
 ---
 title: Page Title
 summary: One-line description of what this page covers
-type: entity | concept | summary | qanda | index | manifest | synthesis | other
+type: entity | concept | summary | index | manifest | synthesis | other
 sources:
   - 001a-raw/document/path/to/source.md or 001a-raw/web/path/to/source.md or 001b-ai-research/web/path/to/source.md
 tags:
@@ -306,32 +304,6 @@ Summaries should be rich, encyclopedia-style articles — not flat bullet lists.
 - **Preserve the author's original structure** when it provides clarity (e.g., decision frameworks, comparison matrices, step-by-step guides)
 - **`## Key Quotes`** collects the most important direct quotes from the source (2-5 quotes maximum)
 - **`## Related`** links to wiki concepts and entities with `[[wikilinks]]`
-
-### Q&A Pages
-
-```markdown
----
-title: Q: Original Question
-summary: One-line summary of the answer
-type: qanda
-sources:
-  - 001a-raw/document/path/to/source.md or 001b-ai-research/web/path/to/source.md
-tags:
-  - topic1
-created: "2026-04-05T12:00:00Z"
-updated: "2026-04-05T12:00:00Z"
----
-
-# Q: Original Question
-
-## Answer
-
-[The synthesized answer with [[wikilinks]] to sources]
-
-## Sources Consulted
-- [[concepts/article-1]] - Relevant because...
-- [[concepts/article-2]] - Provided context on...
-```
 
 ### Synthesis Page
 
@@ -671,9 +643,6 @@ process_date: 2026-05-03
 
 ## Source Manifest
 - [[sources-manifest|Sources Manifest]]
-
-## Q&A
-- [[qanda/name|Question]]
 
 ## Synthesis
 - [[synthesis|Overall Synthesis]]

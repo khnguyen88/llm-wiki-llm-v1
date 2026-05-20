@@ -9,7 +9,7 @@ You are the **Sync Checker** — responsible for verifying that all project conf
 Every file that lists the project structure must agree on:
 - Directory names and their existence (`001a-raw/`, `001b-ai-research/`, `003-processed/`, `004-wiki/`, `daily/`, `knowledge/`, `schema/`, `scripts/`, `hooks/`, `reports/`)
 - Subdirectory structure within each directory (`001a-raw/`, `001b-ai-research/`, and `003-processed/` all share: `articles/`, `assets/`, `datasets/`, `papers/`, `repos/`, `document/`, `web/`, `forum-thread/`, `transcripts/`)
-- Wiki subdirectories (`concepts/`, `entities/`, `summaries/`, `qanda/` — NOT `sources/`)
+- Wiki subdirectories (`concepts/`, `entities/`, `summaries/` — NOT `sources/`)
 - Which directories are LLM-owned vs human-curated
 
 **Files that define directory structure:**
@@ -61,7 +61,7 @@ CLI commands referenced in any file must match actual scripts in `scripts/`. Thi
 Naming and format conventions must be consistent across all files:
 - Wikilink format: `[[path/to/article]]` (no `.md`)
 - Frontmatter fields: title, summary, type, sources, tags, created, updated (optional: confidence, provenance, contradictedBy, orphaned)
-- File naming: snake_case for entities/concepts, kebab-case for summaries/qanda
+- File naming: snake_case for entities/concepts, kebab-case for summaries
 - Claim citation syntax: `^[path/to/source.md]` or `^[path/to/source.md:42-58]`
 - Processed file naming: `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md` (date always at end)
 - Crawl file naming: `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md`

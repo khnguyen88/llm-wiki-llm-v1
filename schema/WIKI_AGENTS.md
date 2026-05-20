@@ -40,7 +40,7 @@ Optional: `confidence`, `provenance`, `contradictedBy`, `orphaned`.
 - **Entities**: snake_case (e.g., `entities/transformer_model.md`)
 - **Concepts**: snake_case (e.g., `concepts/attention_mechanism.md`)
 - **Summaries**: kebab-case (e.g., `summaries/attention-is-all-you-need.md`)
-- **Q&A**: kebab-case with question (e.g., `qanda/what-is-attention.md`)
+- **Summaries**: kebab-case (e.g., `summaries/attention-is-all-you-need.md`)
 
 ### Linking
 
@@ -120,7 +120,7 @@ The wiki is designed to be viewed in Obsidian:
 | `prune-stubs` | Mark or flag entity pages with <30 words and no source material for expansion or deletion |
 | `merge-duplicates` | Consolidate pages covering the same topic from the same sources with >70% overlap |
 | `validate-sources` | Fix frontmatter source paths that reference non-existent files or use wrong formats |
-| `fix-naming` | Rename files violating the naming convention (snake_case for entities/concepts, kebab-case for summaries/qanda) |
+| `fix-naming` | Rename files violating the naming convention (snake_case for entities/concepts, kebab-case for summaries) |
 
 **Key boundary:** Wiki-repair does NOT create new content from sources (that is wiki-maintainer's job). It only fixes structural defects in existing content.
 

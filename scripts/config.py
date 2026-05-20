@@ -26,7 +26,7 @@ WIKI_DIR = ROOT_DIR / "004-wiki"
 WIKI_CONCEPTS_DIR = WIKI_DIR / "concepts"
 WIKI_ENTITIES_DIR = WIKI_DIR / "entities"
 WIKI_SUMMARIES_DIR = WIKI_DIR / "summaries"
-WIKI_QANDA_DIR = WIKI_DIR / "qanda"
+
 WIKI_INDEX_FILE = WIKI_DIR / "index.md"
 WIKI_SOURCES_MANIFEST_FILE = WIKI_DIR / "sources-manifest.md"
 WIKI_LOG_FILE = WIKI_DIR / "log.md"

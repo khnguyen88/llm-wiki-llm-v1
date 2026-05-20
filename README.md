@@ -14,7 +14,7 @@ Web articles, papers, repos, and datasets compiled by the LLM into a structured 
 Raw sources (articles, papers, repos) -> [large files] -> 003-processed/ (segmented markdown)
                                          -> [small files]  -> 004-wiki/
 AI-discovered sources (001b-ai-research/) -> [small files]  -> 004-wiki/
-    -> index.md, entities/, concepts/, summaries/, qanda/
+    -> index.md, entities/, concepts/, summaries/
         -> Query against index (no RAG needed)
 ```
 
@@ -23,7 +23,7 @@ AI-discovered sources (001b-ai-research/) -> [small files]  -> 004-wiki/
 | **001a-raw/**         | Source documents (read-only for LLM)                                                     |
 | **001b-ai-research/** | AI-discovered web sources (LLM-writes, immutable once saved)                             |
 | **003-processed/**   | Segmented markdown from large raw files (PDFs, long reports) broken into LLM-sized parts |
-| **004-wiki/**        | LLM-generated markdown (index, entities, concepts, summaries, qanda, synthesis)          |
+| **004-wiki/**        | LLM-generated markdown (index, entities, concepts, summaries, synthesis)          |
 
 ## Internal Knowledge Base (`knowledge/`)
 
@@ -98,8 +98,7 @@ llm-wiki-llm-v1/
 │   ├── synthesis.md              #   Overarching thesis
 │   ├── concepts/                 #   Concept pages
 │   ├── entities/                 #   Entity pages
-│   ├── summaries/                #   Source summaries
-│   └── qanda/                    #   Q&A articles
+│   └── summaries/                #   Source summaries
 ├── daily/                        # Internal conversation logs
 ├── knowledge/                    # Internal compiled knowledge
 │   ├── index.md
@@ -217,7 +216,7 @@ This project fuses four open-source projects, each contributing a distinct layer
 
 - [Karpathy's LLM Wiki gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) / [Original tweet](https://x.com/karpathy/status/2039805659525644595)
 
-**What it added:** The foundational insight and folder structure. No RAG — the LLM reads a structured index to find relevant articles. The `001a-raw/` → `004-wiki/` pipeline, wiki page types (entities, concepts, summaries, qanda), `index.md` as the retrieval hub, and `log.md` for audit trail all come from this pattern. The wiki-maintainer agent role and the principle that the LLM owns `004-wiki/` while humans own `001a-raw/` are also Karpathy's.
+**What it added:** The foundational insight and folder structure. No RAG — the LLM reads a structured index to find relevant articles. The `001a-raw/` → `004-wiki/` pipeline, wiki page types (entities, concepts, summaries), `index.md` as the retrieval hub, and `log.md` for audit trail all come from this pattern. The wiki-maintainer agent role and the principle that the LLM owns `004-wiki/` while humans own `001a-raw/` are also Karpathy's.
 
 **Why we integrated it:** At personal scale (50-500 articles), index-guided retrieval outperforms vector similarity because the LLM understands what you're asking, not just what words look similar. This is the core thesis the entire project is built on.
 

@@ -205,7 +205,7 @@ User question
   → Read 004-wiki/index.md (identify relevant pages)
   → Read 3-10 relevant pages in full
   → Synthesize answer with [[wikilink]] citations
-  → Optional: file answer to 004-wiki/qanda/{question}.md
+  → Optional: file answer to knowledge/qa/{question}.md
 ```
 
 **Agent:** `wiki-query` — index-guided retrieval, no RAG needed.
