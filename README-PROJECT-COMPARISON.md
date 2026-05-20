@@ -25,6 +25,7 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | `daily/` (conversation logs) | — | A | — | — | A |
 | `knowledge/` (compiled internal KB) | — | A | — | — | A |
 | `001b-ai-research/` (AI-discovered sources) | — | — | — | A | A |
+| `002-raw-preprocessed/` (document conversion + OCR) | — | — | — | — | N |
 | `003-processed/` (segmented large files) | — | — | — | — | N |
 | `output/` (ephemeral artifacts) | — | — | — | A | O |
 | `.llmwiki/` (internal state) | — | — | A | — | O (use `scripts/state.json`) |
@@ -52,6 +53,8 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | flush.py (memory extraction) | — | A | — | — | A |
 | ~~ingest_external.py~~ (removed) | — | — | — | — | R |
 | config.py / utils.py (shared helpers) | — | A | — | — | A |
+| ocr_remediate.py (OCR remediation) | — | — | — | — | N |
+| sidecar.py (sidecar management) | — | — | — | — | N |
 | Full TypeScript compiler pipeline | — | — | A | — | O (Python chosen instead) |
 | MCP server | — | — | A | — | O (crawl4ai MCP instead) |
 | **Lint System** | | | | | |
@@ -81,6 +84,13 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | sync-check | — | — | — | — | N |
 | context-loader | — | — | — | — | N |
 | ~~batch-ingester~~ (removed) | — | — | — | — | R |
+| document-converter | — | — | — | — | N (docling-serve PDF→markdown) |
+| ocr-remediator | — | — | — | — | N (deepseek-ocr formulas/tables/diagrams) |
+| markdown-chunker | — | — | — | — | N (segment large markdown into chapters) |
+| web-search | — | — | — | — | N (ephemeral, Vane-first web search) |
+| ai-research | — | — | — | — | N (persistent deep research + crawl4ai) |
+| youtube-transcript | — | — | — | — | N (ytscribe.io transcript extraction) |
+| transcript-reviewer | — | — | — | — | N (speech-to-text verification) |
 | Subagent-driven ingestion | — | — | — | — | N (replaced batch-ingester) |
 | **Tools & Integrations** | | | | | |
 | Obsidian as read-only IDE | A | — | — | A | A |
@@ -273,7 +283,7 @@ Features that none of the four sources had — purely this project's own additio
 
 | Feature | Description |
 |---------|-------------|
-| **8 specialized agents** | Formalized agent files in `.claude/agents/` with distinct roles, boundaries, and operations. Cole Medin had no agents (prompt-only). Josh Pocock had operations in CLAUDE.md. Atomic Memory had a CLI, not agents. Batch-ingester was removed in favor of subagent-driven dispatch. |
+| **15 specialized agents** | Formalized agent files in `.claude/agents/` with distinct roles, boundaries, and operations. Cole Medin had no agents (prompt-only). Josh Pocock had operations in CLAUDE.md. Atomic Memory had a CLI, not agents. Batch-ingester was removed in favor of subagent-driven dispatch. Seven new agents added: document-converter, ocr-remediator, markdown-chunker, web-search, ai-research, youtube-transcript, transcript-reviewer. |
 | **wiki-repair agent** | 7 structural repair operations (fix-broken-links, add-backlinks, resolve-orphans, prune-stubs, merge-duplicates, validate-sources, fix-naming). No source had a dedicated repair subsystem. |
 | **sync-check agent** | Verifies consistency across config files, schemas, and agents. No source had cross-file consistency checking. |
 | **context-loader agent** | On-demand rule loading with Guard (enforce CLAUDE.md < 60 lines) and Audit (find duplicated/orphaned/missing rules). No source had prompt health management. |
@@ -324,6 +334,7 @@ Where this project significantly diverged from any source's approach:
 | **Page kinds** | Atomic Memory: concept, entity, comparison, overview | concept, entity, summary, qanda, synthesis | Different page taxonomy: `summary` for source-level summaries (from Josh Pocock), `qanda` for filed queries (from Cole Medin), `synthesis` for the evolving thesis (unique) |
 | **Frontmatter** | Cole Medin: minimal (title, sources, created, updated); Atomic Memory: full provenance | Merged: required (title, summary, type, sources, tags, created, updated) + optional provenance (confidence, provenance, contradictedBy, orphaned) | Best of both: required fields ensure minimum quality, optional provenance enables epistemic tracking |
 | **Ingestion** | Josh Pocock: manual (human says "compile"); Atomic Memory: CLI command | Subagent-driven dispatch (one wiki-maintainer per source, review between tasks) | Higher quality than batch — each source gets full interactive attention with cross-referencing and provenance tracking |
+| **Document processing** | All sources: manual or non-existent | document-converter → ocr-remediator → markdown-chunker pipeline | PDFs and Office docs need conversion before wiki ingestion; OCR fixes formulas/tables/diagrams that docling misses |
 | **Query** | All sources: single-KB query | Dual-KB query (wiki + knowledge) | Both KBs may contain relevant information; unified query avoids the user deciding which KB to search |
 | **Context injection** | Cole Medin: knowledge/index.md only | Knowledge index + daily log + sync-check reminder | More context at session start; sync-check catches drift early |
 | **Citations** | Josh Pocock: `**Source:**` inline; Atomic Memory: `^[file.md]` footnote | `^[001a-raw/articles/source.md]` or `^[001a-raw/articles/source.md:42-58]` in footnote style with full path | Full path enables lint to verify source existence; line ranges enable paragraph-level provenance |
@@ -391,12 +402,15 @@ Karpathy Gist (concept)
                     ▼
               THIS PROJECT
               ├── Dual KB architecture (unique)
-              ├── 8 specialized agents (unique)
+              ├── 15 specialized agents (unique)
+              ├── document-converter + ocr-remediator + markdown-chunker pipeline (unique)
+              ├── web-search + ai-research + youtube-transcript + transcript-reviewer agents (unique)
               ├── 13+1 merged lint checks (merged from all)
               ├── Subagent-driven ingestion (unique, replaces batch-ingester)
               ├── Raw Source Metadata schema with 8 types (unique)
               ├── File naming conventions (unique)
               ├── Split documentation model (unique)
+              ├── 002-raw-preprocessed/ directory (unique)
               ├── 003-processed/ directory (unique)
               ├── sync-check + context-loader agents (unique)
               └── Python implementation (choice)

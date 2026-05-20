@@ -85,6 +85,7 @@ knowledge/     -> Compiled knowledge (LLM owns this)
                      # LLM discovers and saves web sources here
 
 003-processed/           # Same subfolder structure as 001a-raw/
+  document/          # Pre-processed documents (papers, PDFs)
                      # Large raw files get segmented here before ingestion
 
 004-wiki/
@@ -121,6 +122,8 @@ scripts/             # CLI tools (run via uv run python scripts/<name>.py)
   flush.py           # Extract memories from conversations (background)
   config.py          # Path constants and time helpers
   utils.py           # Shared helpers
+  ocr_remediate.py   # OCR remediation for problem pages in 002-raw-preprocessed/
+  sidecar.py         # Sidecar file management for document processing pipeline
 
 hooks/               # Claude Code hooks (auto-activate in sessions)
   session-start.py   # Injects knowledge base context into every session
@@ -130,15 +133,22 @@ hooks/               # Claude Code hooks (auto-activate in sessions)
 .claude/
   settings.json      # Hook configuration
   mcp.json           # MCP server configuration (crawl4ai)
-  agents/            # 8 project-specific Claude Code agents
-    wiki-maintainer.md
+  agents/            # 15 project-specific Claude Code agents
+    ai-research.md
+    context-loader.md
+    document-converter.md
     document-processor.md
     knowledge-compiler.md
-    wiki-linter.md
-    wiki-repair.md
-    wiki-query.md
+    markdown-chunker.md
+    ocr-remediator.md
     sync-check.md
-    context-loader.md
+    transcript-reviewer.md
+    web-search.md
+    wiki-linter.md
+    wiki-maintainer.md
+    wiki-query.md
+    wiki-repair.md
+    youtube-transcript.md
 
 tools_scripts/       # Crawling and utility scripts
   claude_en_urls.txt
@@ -175,13 +185,20 @@ Tell Claude Code:
 | Agent | When to invoke |
 |-------|---------------|
 | `wiki-maintainer` | "Process this source", "Ingest X" |
-| `document-processor` | Files >3,000 words or PDFs |
+| `document-converter` | "Convert this document to markdown" |
+| `ocr-remediator` | "Fix OCR issues in 002-raw-preprocessed", "Run deepseek-ocr on problem pages" |
+| `markdown-chunker` | "Chunk this markdown into chapters" |
+| `document-processor` | "Process this source", "Run the full pipeline on X", "Approve document for wiki" |
 | `knowledge-compiler` | "Compile daily logs" |
 | `wiki-linter` | "Lint the wiki", "Run health check" |
 | `wiki-repair` | "Fix broken links", "Resolve orphans", "Repair lint errors" |
 | `wiki-query` | Questions about compiled knowledge |
+| `web-search` | "Search the web for X", "Quick fact-check on X" — ephemeral, Vane-first |
+| `ai-research` | "Research X and save it", "Deep research on X" — persistent, saves to 001b-ai-research/web/ |
+| `youtube-transcript` | "Get transcript for `<url>`", "Extract transcript from `<url>`" — saves to 001a-raw/transcripts/ |
+| `transcript-reviewer` | "Review transcript `<path-or-url>`", "Review this transcript for errors" — verifies speech-to-text errors |
 | `sync-check` | After structural changes to dirs/schemas/agents |
-| `context-loader` | "Load rules for X", "Audit CLAUDE.md" |
+| `context-loader` | "Load rules for X", "Audit CLAUDE.md", "Guard prompt health" |
 
 ## Obsidian Integration
 
@@ -193,14 +210,27 @@ The wiki works natively in Obsidian:
 
 The `[[wikilinks]]` format, YAML frontmatter, and directory structure are designed for Obsidian compatibility.
 
-## Crawling Docs
+## Web Search & Research
 
-The project uses crawl4ai for web crawling (configured via MCP in `.claude/mcp.json`):
+The project has two dedicated agents for web search and research, plus a document processing pipeline for PDFs and binary documents. All three have setup instructions in README.md.
+
+### Web Search Agents
+
+- **web-search**: Ephemeral — uses Vane (local Docker search engine) for AI-synthesized results, falls back to built-in WebSearch if Vane is down
+- **ai-research**: Persistent — Vane deep search + crawl4ai follow-up, saves results to `001b-ai-research/web/`
+
+Tell Claude Code: "Search the web for X" or "Research X and save it"
+
+### Crawling
 
 - **Primary**: Use the crawl4ai MCP tool (runs on `localhost:11235`)
 - **Fallback**: If MCP is unavailable, use `WebFetch` or the scripts in `tools_scripts/`
 
-Tell Claude Code: "Crawl [URL] and save it to 001b-ai-research/"
+### Document Processing Pipeline
+
+Converts documents (PDF, DOCX, PPTX) to markdown via docling-serve, with OCR remediation powered by deepseek-ocr. Used by `document-converter` → `ocr-remediator` → `markdown-chunker`. Produces segmented markdown in `003-processed/` for wiki ingestion.
+
+Tell Claude Code: "Convert this document to markdown", "Fix OCR issues in 002-raw-preprocessed", "Chunk this markdown into chapters", or "Process this PDF"
 
 ## Why No RAG?
 
