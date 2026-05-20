@@ -320,7 +320,7 @@ def check_broken_links_external() -> list[dict]:
         content = page.read_text(encoding="utf-8")
         rel = page.relative_to(WIKI_DIR)
         for link in extract_wikilinks(content):
-            if link.startswith("raw/") or link.startswith("ai-research/") or link.startswith("processed/"):
+            if link.startswith("001a-raw/") or link.startswith("001b-ai-research/") or link.startswith("003-processed/"):
                 continue  # source file references, not wiki links
             if link in ("index", "sources-manifest", "log", "synthesis"):
                 continue  # structural pages
@@ -344,7 +344,7 @@ def check_orphan_pages_external() -> list[dict]:
     for page in all_pages:
         content = page.read_text(encoding="utf-8")
         for link in extract_wikilinks(content):
-            if link.startswith("raw/") or link.startswith("ai-research/") or link.startswith("processed/"):
+            if link.startswith("001a-raw/") or link.startswith("001b-ai-research/") or link.startswith("003-processed/"):
                 continue
             inbound[link] = inbound.get(link, 0) + 1
 
@@ -410,7 +410,7 @@ def check_missing_backlinks_external() -> list[dict]:
         content = page.read_text(encoding="utf-8")
         links = set()
         for link in extract_wikilinks(content):
-            if link.startswith("raw/") or link.startswith("ai-research/") or link.startswith("processed/"):
+            if link.startswith("001a-raw/") or link.startswith("001b-ai-research/") or link.startswith("003-processed/"):
                 continue
             links.add(link)
         outbound[rel] = links
