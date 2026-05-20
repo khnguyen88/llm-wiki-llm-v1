@@ -40,9 +40,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/data_privacy]]
-- [[concepts/data_collection_policy]]
-- [[concepts/input_output_logging]]
-- [[concepts/observability]]
-- [[concepts/zero_data_retention]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data_collection_policy]]
+- [[004-wiki/concepts/input_output_logging]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/zero_data_retention]]

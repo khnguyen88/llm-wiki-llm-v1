@@ -93,11 +93,11 @@ On OpenRouter, the `quantizations` field in the `provider` request object filter
 
 ## Related
 
-- [[concepts/gguf]]
-- [[concepts/safetensors]]
-- [[concepts/model_naming]]
-- [[concepts/provider_routing]]
-- [[entities/openrouter]]
-- [[entities/ollama]]
-- [[entities/hugging_face]]
-- [[summaries/openrouter-guides-routing-provider-selection]]
+- [[004-wiki/concepts/gguf]]
+- [[004-wiki/concepts/safetensors]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/ollama]]
+- [[004-wiki/entities/hugging_face]]
+- [[004-wiki/summaries/openrouter-guides-routing-provider-selection]]

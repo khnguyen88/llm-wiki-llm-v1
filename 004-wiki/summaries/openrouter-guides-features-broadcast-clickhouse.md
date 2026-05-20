@@ -22,13 +22,13 @@ provenance: extracted
 
 ## Key Points
 
-- [[entities/openrouter|OpenRouter]] can stream traces directly to a [[entities/clickhouse|ClickHouse]] database for high-performance analytics and custom dashboards ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- [[004-wiki/entities/openrouter|OpenRouter]] can stream traces directly to a [[004-wiki/entities/clickhouse|ClickHouse]] database for high-performance analytics and custom dashboards ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - Setup requires creating an `OPENROUTER_TRACES` table (SQL provided in the OpenRouter dashboard), granting `CREATE TABLE` permissions, enabling Broadcast in Settings > Observability, and configuring the ClickHouse connection (host, database, table, username, password) ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - The schema uses typed columns (identifiers, timestamps, model info, metrics) for efficient filtering and aggregation, with JSON string columns (ATTRIBUTES, INPUT/OUTPUT, METADATA, MODEL_PARAMETERS) for variable-structure data ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - ClickHouse `JSONExtract*` functions are used to query nested fields in JSON columns, including custom metadata from the `trace` field ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - Custom metadata from the `trace` field is stored in the `METADATA` column as a JSON string, with standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`) mapping to typed columns or JSON fields ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - The `user` and `session_id` request fields map to the `USER_ID` and `SESSION_ID` typed columns respectively ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
-- When [[concepts/data_privacy|Privacy Mode]] is enabled for a ClickHouse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is sent normally ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for a ClickHouse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is sent normally ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 
 ## Quotes
 
@@ -44,9 +44,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/clickhouse]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
-- [[concepts/observability]]
-- [[concepts/cost_tracking]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/clickhouse]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/cost_tracking]]

@@ -22,16 +22,16 @@ An open semantic convention for AI and LLM tracing, maintained at [github.com/Ar
 
 ## Key Facts
 
-- Developed under the [[entities/arize_ai|Arize AI]] organization as an open specification ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
-- Used by [[entities/arize_ai|Arize]] to structure trace data received from [[entities/openrouter|OpenRouter]] Broadcast via OTLP payloads ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
+- Developed under the [[004-wiki/entities/arize_ai|Arize AI]] organization as an open specification ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
+- Used by [[004-wiki/entities/arize_ai|Arize]] to structure trace data received from [[004-wiki/entities/openrouter|OpenRouter]] Broadcast via OTLP payloads ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Defines standard trace metadata keys: `trace_id`, `trace_name`, `span_name`, `generation_name`, `parent_span_id` ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Token usage, costs, and model parameters are automatically included as OpenInference-compatible attributes in Broadcast traces ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 
 ## Related
 
-- [[entities/arize_ai]]
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[entities/open_telemetry]]
-- [[summaries/openrouter-guides-features-broadcast-arize]]
+- [[004-wiki/entities/arize_ai]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-arize]]

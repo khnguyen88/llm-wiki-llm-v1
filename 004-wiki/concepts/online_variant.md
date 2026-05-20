@@ -41,10 +41,10 @@ The key differences when migrating: the server tool uses `tools: [{ type: "openr
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/model_variants]]
-- [[concepts/plugins]]
-- [[concepts/web_search]]
-- [[summaries/openrouter-guides-routing-model-variants-online]]
-- [[summaries/openrouter-guides-features-server-tools-web-search]]
-- [[summaries/openrouter-guides-features-plugins-web-search]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/web_search]]
+- [[004-wiki/summaries/openrouter-guides-routing-model-variants-online]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-web-search]]
+- [[004-wiki/summaries/openrouter-guides-features-plugins-web-search]]

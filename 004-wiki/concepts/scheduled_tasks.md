@@ -50,9 +50,9 @@ Scheduled task prompts should define success criteria explicitly and specify wha
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/non_interactive_mode]]
-- [[concepts/auto_mode]]
-- [[entities/github]]
-- [[concepts/cloud_environment]]
-- [[summaries/claude-code-common-workflows]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/concepts/auto_mode]]
+- [[004-wiki/entities/github]]
+- [[004-wiki/concepts/cloud_environment]]
+- [[004-wiki/summaries/claude-code-common-workflows]]

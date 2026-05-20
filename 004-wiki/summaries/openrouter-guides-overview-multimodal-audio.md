@@ -40,7 +40,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/multimodal]]
-- [[concepts/streaming_output]]
-- [[concepts/models_api]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/models_api]]

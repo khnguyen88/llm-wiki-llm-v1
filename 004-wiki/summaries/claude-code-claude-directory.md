@@ -30,19 +30,19 @@ provenance: extracted
 
 ## Notes
 
-- The source document is primarily a file reference table; the substantive conceptual content is extracted into [[concepts/claude_directory]] and [[concepts/application_data]].
+- The source document is primarily a file reference table; the substantive conceptual content is extracted into [[004-wiki/concepts/claude_directory]] and [[004-wiki/concepts/application_data]].
 
 ## Related
 
-- [[concepts/claude_directory]]
-- [[concepts/application_data]]
-- [[concepts/setting_sources]]
-- [[concepts/managed_settings]]
-- [[concepts/sessions]]
-- [[concepts/skills]]
-- [[concepts/subagents]]
-- [[concepts/hooks]]
-- [[concepts/permissions]]
-- [[concepts/output_styles]]
-- [[concepts/file_checkpointing]]
-- [[entities/claude_code]]
+- [[004-wiki/concepts/claude_directory]]
+- [[004-wiki/concepts/application_data]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/output_styles]]
+- [[004-wiki/concepts/file_checkpointing]]
+- [[004-wiki/entities/claude_code]]

@@ -116,11 +116,11 @@ Consistent internal naming practices reduce debugging time: use a consistent nam
 
 ## Related
 
-- [[concepts/quantization]]
-- [[concepts/instruction_tuning]]
-- [[concepts/gguf]]
-- [[concepts/safetensors]]
-- [[concepts/mixture_of_experts]]
-- [[concepts/distillation]]
-- [[entities/hugging_face]]
-- [[entities/ollama]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/concepts/instruction_tuning]]
+- [[004-wiki/concepts/gguf]]
+- [[004-wiki/concepts/safetensors]]
+- [[004-wiki/concepts/mixture_of_experts]]
+- [[004-wiki/concepts/distillation]]
+- [[004-wiki/entities/hugging_face]]
+- [[004-wiki/entities/ollama]]

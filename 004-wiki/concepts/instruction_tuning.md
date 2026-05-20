@@ -54,7 +54,7 @@ Alignment tags in model names serve as the strongest first filter for model sele
 
 ## Related
 
-- [[concepts/distillation]]
-- [[concepts/model_naming]]
-- [[concepts/quantization]]
-- [[entities/hugging_face]]
+- [[004-wiki/concepts/distillation]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/entities/hugging_face]]

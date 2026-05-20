@@ -68,11 +68,11 @@ Almost every major 2026 LLM release uses MoE. The pattern is massive total param
 
 ## Related
 
-- [[concepts/quantization]]
-- [[concepts/model_naming]]
-- [[concepts/elastic_training]]
-- [[entities/qwen]]
-- [[entities/gemma]]
-- [[entities/llama]]
-- [[entities/deepseek]]
-- [[entities/ernie]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/elastic_training]]
+- [[004-wiki/entities/qwen]]
+- [[004-wiki/entities/gemma]]
+- [[004-wiki/entities/llama]]
+- [[004-wiki/entities/deepseek]]
+- [[004-wiki/entities/ernie]]

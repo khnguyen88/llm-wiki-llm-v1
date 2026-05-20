@@ -31,7 +31,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/todo_tracking]]
-- [[concepts/agent_loop]]
-- [[concepts/streaming_output]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/todo_tracking]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/streaming_output]]

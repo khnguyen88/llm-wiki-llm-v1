@@ -36,9 +36,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/sourceful]]
-- [[concepts/image_generation]]
-- [[concepts/multimodal]]
-- [[concepts/models_api]]
-- [[concepts/streaming_output]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/sourceful]]
+- [[004-wiki/concepts/image_generation]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/streaming_output]]

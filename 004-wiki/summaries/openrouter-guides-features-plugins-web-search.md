@@ -48,12 +48,12 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/exa]]
-- [[entities/firecrawl]]
-- [[entities/parallel]]
-- [[entities/anthropic]]
-- [[concepts/web_search]]
-- [[concepts/plugins]]
-- [[concepts/online_variant]]
-- [[concepts/server_tools]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/exa]]
+- [[004-wiki/entities/firecrawl]]
+- [[004-wiki/entities/parallel]]
+- [[004-wiki/entities/anthropic]]
+- [[004-wiki/concepts/web_search]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/online_variant]]
+- [[004-wiki/concepts/server_tools]]

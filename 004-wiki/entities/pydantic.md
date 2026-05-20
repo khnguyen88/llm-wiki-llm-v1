@@ -30,6 +30,6 @@ A Python data validation library that integrates with the Agent SDK for defining
 
 ## Related
 
-- [[concepts/structured_output]]
-- [[entities/agent_sdk]]
-- [[entities/zod]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/zod]]

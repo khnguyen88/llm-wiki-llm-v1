@@ -32,7 +32,7 @@ A TypeScript-first schema validation library that integrates with the Agent SDK 
 
 ## Related
 
-- [[concepts/structured_output]]
-- [[entities/agent_sdk]]
-- [[entities/pydantic]]
-- [[concepts/channels]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/pydantic]]
+- [[004-wiki/concepts/channels]]

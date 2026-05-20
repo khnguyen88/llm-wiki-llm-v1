@@ -34,7 +34,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/image_generation]]
-- [[concepts/server_tools]]
-- [[summaries/openrouter-guides-features-server-tools-overview]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/image_generation]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-overview]]

@@ -34,7 +34,7 @@ Vim editor mode is a prompt-input feature, not a full Vim emulation. It provides
 
 ## Related
 
-- [[concepts/terminal_config]]
-- [[concepts/commands]]
-- [[entities/claude_code]]
-- [[summaries/claude-code-terminal-config]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/concepts/commands]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/summaries/claude-code-terminal-config]]

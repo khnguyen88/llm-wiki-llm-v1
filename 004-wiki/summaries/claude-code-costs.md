@@ -22,12 +22,12 @@ Claude Code charges by API token consumption. Per-developer costs vary by model 
 
 ## Key Points
 
-- The `/usage` command provides detailed token usage statistics for the current session; the dollar figure is a local estimate and may differ from actual billing — for authoritative billing, see the Usage page in the [[entities/claude_console|Claude Console]] ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- The `/usage` command provides detailed token usage statistics for the current session; the dollar figure is a local estimate and may differ from actual billing — for authoritative billing, see the Usage page in the [[004-wiki/entities/claude_console|Claude Console]] ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 - Workspace spend limits can be set on the total Claude Code workspace spend via the Claude Console; a "Claude Code" workspace is automatically created on first authentication and cannot have API keys ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- [[concepts/rate_limiting|Rate limit]] recommendations scale inversely with team size: 200k-300k TPM for 1-5 users down to 10k-15k TPM for 500+ users, because fewer users tend to use Claude Code concurrently in larger organizations ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- [[concepts/agent_teams|Agent teams]] use approximately 7x more tokens than standard sessions when teammates run in plan mode, because each teammate maintains its own context window ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- Key token reduction strategies: manage context proactively (`/clear` between tasks, `/compact` instructions), choose the right model (Sonnet for most tasks), reduce MCP overhead, offload processing to [[concepts/hooks|hooks]] and [[concepts/skills|skills]], adjust [[concepts/extended_thinking|extended thinking]] effort, and delegate verbose operations to [[concepts/subagents|subagents]] ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- On Bedrock, Vertex, and Foundry, Claude Code does not send metrics from the cloud; [[entities/litellm|LiteLLM]] can be used to track spend by key on those platforms ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- [[004-wiki/concepts/rate_limiting|Rate limit]] recommendations scale inversely with team size: 200k-300k TPM for 1-5 users down to 10k-15k TPM for 500+ users, because fewer users tend to use Claude Code concurrently in larger organizations ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- [[004-wiki/concepts/agent_teams|Agent teams]] use approximately 7x more tokens than standard sessions when teammates run in plan mode, because each teammate maintains its own context window ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- Key token reduction strategies: manage context proactively (`/clear` between tasks, `/compact` instructions), choose the right model (Sonnet for most tasks), reduce MCP overhead, offload processing to [[004-wiki/concepts/hooks|hooks]] and [[004-wiki/concepts/skills|skills]], adjust [[004-wiki/concepts/extended_thinking|extended thinking]] effort, and delegate verbose operations to [[004-wiki/concepts/subagents|subagents]] ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- On Bedrock, Vertex, and Foundry, Claude Code does not send metrics from the cloud; [[004-wiki/entities/litellm|LiteLLM]] can be used to track spend by key on those platforms ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 - Background token usage includes conversation summarization for `--resume` and command processing (e.g., `/usage`), typically under $0.04 per session ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 
 ## Quotes
@@ -43,15 +43,15 @@ Claude Code charges by API token consumption. Per-developer costs vary by model 
 
 ## Related
 
-- [[concepts/cost_tracking]]
-- [[concepts/rate_limiting]]
-- [[concepts/token_optimization]]
-- [[concepts/extended_thinking]]
-- [[concepts/agent_teams]]
-- [[concepts/subagents]]
-- [[concepts/hooks]]
-- [[concepts/skills]]
-- [[concepts/context_window]]
-- [[concepts/mcp]]
-- [[entities/claude_console]]
-- [[entities/litellm]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/token_optimization]]
+- [[004-wiki/concepts/extended_thinking]]
+- [[004-wiki/concepts/agent_teams]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/entities/claude_console]]
+- [[004-wiki/entities/litellm]]

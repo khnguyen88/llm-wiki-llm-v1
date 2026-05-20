@@ -32,6 +32,6 @@ Transcript search addresses the difficulty of finding specific content in long s
 
 ## Related
 
-- [[concepts/sessions]]
-- [[entities/claude_code]]
-- [[summaries/claude-code-whats-new-2026-w13]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/summaries/claude-code-whats-new-2026-w13]]

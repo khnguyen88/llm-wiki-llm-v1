@@ -46,10 +46,10 @@ Explicit user intent overrides both `soft_deny` and `allow` rules, but general r
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/permissions]]
-- [[concepts/managed_settings]]
-- [[concepts/setting_sources]]
-- [[concepts/hooks]]
-- [[concepts/non_interactive_mode]]
-- [[summaries/claude-code-best-practices]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/summaries/claude-code-best-practices]]

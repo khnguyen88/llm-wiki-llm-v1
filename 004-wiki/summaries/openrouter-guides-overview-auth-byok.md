@@ -40,11 +40,11 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/byok]]
-- [[entities/openrouter]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[entities/azure_ai_services]]
-- [[concepts/provider_fallback]]
-- [[concepts/authentication]]
-- [[concepts/rate_limiting]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/entities/azure_ai_services]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/rate_limiting]]

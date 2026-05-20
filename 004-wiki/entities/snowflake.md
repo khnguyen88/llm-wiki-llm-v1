@@ -18,7 +18,7 @@ provenance: extracted
 
 # Snowflake
 
-A cloud data warehouse platform available as an [[concepts/broadcast|OpenRouter Broadcast]] destination for streaming LLM traces for custom analytics, long-term storage, and business intelligence. ^[raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md]
+A cloud data warehouse platform available as an [[004-wiki/concepts/broadcast|OpenRouter Broadcast]] destination for streaming LLM traces for custom analytics, long-term storage, and business intelligence. ^[raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md]
 
 ## Key Facts
 
@@ -33,6 +33,6 @@ A cloud data warehouse platform available as an [[concepts/broadcast|OpenRouter 
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]

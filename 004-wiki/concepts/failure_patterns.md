@@ -36,8 +36,8 @@ The `/clear` command is the primary recovery mechanism for most of these pattern
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/context_window]]
-- [[concepts/verification]]
-- [[concepts/subagents]]
-- [[concepts/explore_plan_code]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/verification]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/explore_plan_code]]

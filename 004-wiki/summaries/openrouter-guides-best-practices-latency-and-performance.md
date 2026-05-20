@@ -41,10 +41,10 @@ The source document focuses on OpenRouter's internal latency optimization strate
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/credit_system]]
-- [[concepts/model_fallback]]
-- [[concepts/provider_routing]]
-- [[concepts/performance_thresholds]]
-- [[concepts/rate_limiting]]
-- [[concepts/response_caching]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/credit_system]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/performance_thresholds]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/response_caching]]

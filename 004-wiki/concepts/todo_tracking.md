@@ -34,7 +34,7 @@ The source document demonstrates a `TodoTracker` class pattern: iterate over the
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/agent_loop]]
-- [[concepts/streaming_output]]
-- [[concepts/custom_tools]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/custom_tools]]

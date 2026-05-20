@@ -38,11 +38,11 @@ A web scraping and search API (firecrawl.dev) that integrates with OpenRouter's 
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/exa]]
-- [[entities/parallel]]
-- [[concepts/web_search]]
-- [[concepts/server_tools]]
-- [[concepts/byok]]
-- [[concepts/web_fetch]]
-- [[summaries/openrouter-guides-features-plugins-web-search]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/exa]]
+- [[004-wiki/entities/parallel]]
+- [[004-wiki/concepts/web_search]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/web_fetch]]
+- [[004-wiki/summaries/openrouter-guides-features-plugins-web-search]]

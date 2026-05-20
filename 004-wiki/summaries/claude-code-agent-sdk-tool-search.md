@@ -42,8 +42,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/tool_search]]
-- [[concepts/context_window]]
-- [[concepts/custom_tools]]
-- [[concepts/mcp]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/tool_search]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/mcp]]

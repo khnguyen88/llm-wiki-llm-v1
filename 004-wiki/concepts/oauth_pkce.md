@@ -36,6 +36,6 @@ The resulting API key enables end users to choose and pay for their own models t
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/authentication]]
-- [[concepts/llm_gateway]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/llm_gateway]]

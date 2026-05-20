@@ -44,10 +44,10 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/video_generation]]
-- [[concepts/video_input]]
-- [[concepts/multimodal]]
-- [[concepts/zero_data_retention]]
-- [[concepts/streaming_output]]
-- [[summaries/openrouter-guides-overview-multimodal-videos]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/video_generation]]
+- [[004-wiki/concepts/video_input]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/summaries/openrouter-guides-overview-multimodal-videos]]

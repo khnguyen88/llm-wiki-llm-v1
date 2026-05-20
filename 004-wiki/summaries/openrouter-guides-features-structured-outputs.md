@@ -26,7 +26,7 @@ provenance: extracted
 - Model support can be verified by checking `supported_parameters` on the models page and setting `require_parameters: true` in provider preferences to ensure only structured-output-capable models are used ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
 - Structured outputs work with streaming responses (`stream: true`); the model streams valid partial JSON that assembles into a complete, schema-conformant response ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
 - Two error scenarios exist: models that don't support structured outputs produce a request failure, and invalid JSON Schemas produce a schema validation error ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
-- The [[concepts/response_healing|Response Healing]] plugin can be enabled for non-streaming structured output requests to repair imperfect JSON formatting from models ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- The [[004-wiki/concepts/response_healing|Response Healing]] plugin can be enabled for non-streaming structured output requests to repair imperfect JSON formatting from models ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
 
 ## Notes
 
@@ -35,8 +35,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/structured_output]]
-- [[concepts/streaming_output]]
-- [[concepts/response_healing]]
-- [[concepts/provider_routing]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/response_healing]]
+- [[004-wiki/concepts/provider_routing]]

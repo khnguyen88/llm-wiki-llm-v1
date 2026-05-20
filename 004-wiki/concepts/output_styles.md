@@ -36,6 +36,6 @@ The filename convention is the style name lowercased with spaces replaced by hyp
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/system_prompt]]
-- [[concepts/setting_sources]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/setting_sources]]

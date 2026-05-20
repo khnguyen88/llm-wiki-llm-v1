@@ -59,12 +59,12 @@ Audit log events for settings changes are available through the compliance API o
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/managed_settings]]
-- [[concepts/setting_sources]]
-- [[concepts/authentication]]
-- [[concepts/permissions]]
-- [[concepts/hooks]]
-- [[concepts/auto_mode]]
-- [[concepts/non_interactive_mode]]
-- [[summaries/claude-code-server-managed-settings]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/auto_mode]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/summaries/claude-code-server-managed-settings]]

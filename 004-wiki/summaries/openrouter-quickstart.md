@@ -40,7 +40,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/llm_gateway]]
-- [[concepts/streaming_output]]
-- [[entities/agent_sdk]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/entities/agent_sdk]]

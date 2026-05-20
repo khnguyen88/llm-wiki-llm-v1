@@ -35,9 +35,9 @@ The `CLAUDE_CODE_SIMPLE` environment variable provides an alternative entry poin
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/non_interactive_mode]]
-- [[concepts/hooks]]
-- [[concepts/skills]]
-- [[concepts/plugins]]
-- [[concepts/mcp]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/mcp]]

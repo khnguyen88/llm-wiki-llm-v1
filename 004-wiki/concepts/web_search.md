@@ -87,12 +87,12 @@ For the deprecated plugin, native search pricing is controlled via `web_search_o
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/exa]]
-- [[entities/firecrawl]]
-- [[entities/parallel]]
-- [[concepts/server_tools]]
-- [[concepts/online_variant]]
-- [[concepts/tool_calling]]
-- [[summaries/openrouter-guides-features-server-tools-web-search]]
-- [[summaries/openrouter-guides-features-plugins-web-search]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/exa]]
+- [[004-wiki/entities/firecrawl]]
+- [[004-wiki/entities/parallel]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/online_variant]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-web-search]]
+- [[004-wiki/summaries/openrouter-guides-features-plugins-web-search]]

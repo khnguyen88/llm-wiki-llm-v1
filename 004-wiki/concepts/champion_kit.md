@@ -44,10 +44,10 @@ When responding to common concerns, the recommended approach is to acknowledge t
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/skills]]
-- [[concepts/hooks]]
-- [[concepts/permissions]]
-- [[concepts/communications_kit]]
-- [[summaries/claude-code-champion-kit]]
-- [[summaries/claude-code-communications-kit]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/communications_kit]]
+- [[004-wiki/summaries/claude-code-champion-kit]]
+- [[004-wiki/summaries/claude-code-communications-kit]]

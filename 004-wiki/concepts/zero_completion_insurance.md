@@ -35,6 +35,6 @@ Protected requests are identifiable on the OpenRouter activity page, where zero 
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/credit_system]]
-- [[concepts/model_fallback]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/credit_system]]
+- [[004-wiki/concepts/model_fallback]]

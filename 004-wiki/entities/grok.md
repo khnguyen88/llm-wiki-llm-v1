@@ -27,6 +27,6 @@ xAI's language model available on OpenRouter with automated prompt caching. Cach
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/prompt_caching]]
-- [[concepts/provider_sticky_routing]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/provider_sticky_routing]]

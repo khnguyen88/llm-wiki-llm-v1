@@ -24,7 +24,7 @@ A multi-agent coordination pattern in Claude Code where one session acts as team
 ## Key Points
 
 - Agent teams consist of a team lead, teammates, a shared task list, and a mailbox messaging system; teammates are fully independent Claude Code instances, each with their own context window ^[raw/document/claude code/claude-code-031-agent-teams-2026-04-29.md]
-- Unlike [[concepts/subagents|subagents]], teammates can message each other directly and users can interact with individual teammates without going through the lead ^[raw/document/claude code/claude-code-031-agent-teams-2026-04-29.md]
+- Unlike [[004-wiki/concepts/subagents|subagents]], teammates can message each other directly and users can interact with individual teammates without going through the lead ^[raw/document/claude code/claude-code-031-agent-teams-2026-04-29.md]
 - Experimental feature requiring `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` environment variable and Claude Code v2.1.32+ ^[raw/document/claude code/claude-code-031-agent-teams-2026-04-29.md]
 - Two display modes: in-process (single terminal, Shift+Down to cycle) and split panes (tmux or iTerm2, one pane per teammate) ^[raw/document/claude code/claude-code-031-agent-teams-2026-04-29.md]
 - Task claiming uses file locking to prevent race conditions; tasks have three states (pending, in progress, completed) and support dependencies ^[raw/document/claude code/claude-code-031-agent-teams-2026-04-29.md]
@@ -46,12 +46,12 @@ Known limitations include: no session resumption with in-process teammates, task
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/subagents]]
-- [[concepts/hooks]]
-- [[concepts/permissions]]
-- [[concepts/sessions]]
-- [[concepts/skills]]
-- [[summaries/claude-code-agent-teams]]
-- [[concepts/token_optimization]]
-- [[summaries/claude-code-costs]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/summaries/claude-code-agent-teams]]
+- [[004-wiki/concepts/token_optimization]]
+- [[004-wiki/summaries/claude-code-costs]]

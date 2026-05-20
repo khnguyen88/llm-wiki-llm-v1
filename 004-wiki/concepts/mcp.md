@@ -70,12 +70,12 @@ The SDK emits a `system` message with subtype `init` at the start of each query,
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/custom_tools]]
-- [[concepts/agent_loop]]
-- [[concepts/setting_sources]]
-- [[concepts/computer_use]]
-- [[concepts/channels]]
-- [[entities/vs_code_extension]]
-- [[concepts/ide_mcp_server]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/computer_use]]
+- [[004-wiki/concepts/channels]]
+- [[004-wiki/entities/vs_code_extension]]
+- [[004-wiki/concepts/ide_mcp_server]]

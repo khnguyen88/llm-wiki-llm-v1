@@ -39,8 +39,8 @@ The plugin handles these specific repair categories: missing closing brackets (e
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/plugins]]
-- [[concepts/structured_output]]
-- [[summaries/openrouter-guides-features-plugins-overview]]
-- [[summaries/openrouter-guides-features-plugins-response-healing]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/summaries/openrouter-guides-features-plugins-overview]]
+- [[004-wiki/summaries/openrouter-guides-features-plugins-response-healing]]

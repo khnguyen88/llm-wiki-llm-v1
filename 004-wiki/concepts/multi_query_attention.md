@@ -17,7 +17,7 @@ provenance: inferred
 
 # Multi-Query Attention (MQA)
 
-An attention variant introduced by Shazeer (2019) that uses a single key-value head shared across all query heads. This is the most aggressive reduction of [[concepts/kv_cache|KV cache]] size, eliminating all KV head redundancy. It maximizes inference speed and minimizes memory bandwidth requirements but can degrade quality and training stability, especially in larger models.^[raw/transcripts/adam-rosler-2026-05-12.md]
+An attention variant introduced by Shazeer (2019) that uses a single key-value head shared across all query heads. This is the most aggressive reduction of [[004-wiki/concepts/kv_cache|KV cache]] size, eliminating all KV head redundancy. It maximizes inference speed and minimizes memory bandwidth requirements but can degrade quality and training stability, especially in larger models.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Key Properties
 
@@ -34,11 +34,11 @@ An attention variant introduced by Shazeer (2019) that uses a single key-value h
 | GQA | G (1<G<H) | Near-MHA | Near-MQA |
 | MQA | 1 | Degraded | Fastest |
 
-For models at or above 7B parameters, [[concepts/grouped_query_attention|GQA-8]] is generally preferred over MQA as it provides near-MHA quality with most of MQA's speed benefits.
+For models at or above 7B parameters, [[004-wiki/concepts/grouped_query_attention|GQA-8]] is generally preferred over MQA as it provides near-MHA quality with most of MQA's speed benefits.
 
 ## Related
 
-- [[concepts/kv_cache]]
-- [[concepts/attention_mechanism]]
-- [[concepts/grouped_query_attention]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/concepts/attention_mechanism]]
+- [[004-wiki/concepts/grouped_query_attention]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

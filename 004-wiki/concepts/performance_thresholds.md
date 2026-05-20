@@ -46,11 +46,11 @@ Higher percentiles (p90, p99) give more confidence about worst-case performance,
 - **SLA compliance**: Use multiple percentile cutoffs to enforce performance across tiers
 - **Cost optimization**: Combine with `sort: "price"` to get the cheapest provider meeting performance requirements
 
-When combined with `partition: "none"` in the `sort` object and [[concepts/model_fallback]], performance thresholds can select the cheapest or fastest endpoint across multiple models. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+When combined with `partition: "none"` in the `sort` object and [[004-wiki/concepts/model_fallback]], performance thresholds can select the cheapest or fastest endpoint across multiple models. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/provider_routing]]
-- [[concepts/model_fallback]]
-- [[summaries/openrouter-guides-routing-provider-selection]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/summaries/openrouter-guides-routing-provider-selection]]

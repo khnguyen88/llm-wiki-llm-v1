@@ -41,9 +41,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/agent_teams]]
-- [[concepts/subagents]]
-- [[concepts/hooks]]
-- [[concepts/permissions]]
-- [[concepts/sessions]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/agent_teams]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/sessions]]

@@ -18,7 +18,7 @@ provenance: extracted
 
 # Cloudflare R2
 
-An S3-compatible object storage service from Cloudflare, supported as an [[concepts/broadcast|OpenRouter Broadcast]] destination alongside AWS S3 and other S3-compatible services. ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+An S3-compatible object storage service from Cloudflare, supported as an [[004-wiki/concepts/broadcast|OpenRouter Broadcast]] destination alongside AWS S3 and other S3-compatible services. ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
 ## Key Facts
 
@@ -28,6 +28,6 @@ An S3-compatible object storage service from Cloudflare, supported as an [[conce
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/amazon_s3]]
-- [[concepts/broadcast]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/amazon_s3]]
+- [[004-wiki/concepts/broadcast]]

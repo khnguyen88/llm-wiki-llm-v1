@@ -43,10 +43,10 @@ The Activity page provides historical usage data filterable by model, provider, 
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/byok]]
-- [[concepts/rate_limiting]]
-- [[concepts/data_privacy]]
-- [[concepts/cost_tracking]]
-- [[summaries/openrouter-faq]]
-- [[summaries/openrouter-guides-best-practices-latency-and-performance]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/summaries/openrouter-faq]]
+- [[004-wiki/summaries/openrouter-guides-best-practices-latency-and-performance]]

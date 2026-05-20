@@ -36,11 +36,11 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/claude_console]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[entities/microsoft_foundry]]
-- [[concepts/authentication]]
-- [[concepts/managed_settings]]
-- [[concepts/permissions]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_console]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/entities/microsoft_foundry]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/permissions]]

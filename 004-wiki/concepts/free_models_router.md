@@ -17,7 +17,7 @@ provenance: extracted
 
 # Free Models Router
 
-An [[entities/openrouter|OpenRouter]] router (`openrouter/free`) that automatically selects a free model at random from the pool of currently available free models, filtering for models that support the capabilities required by the request (vision, tool calling, structured outputs). ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+An [[004-wiki/entities/openrouter|OpenRouter]] router (`openrouter/free`) that automatically selects a free model at random from the pool of currently available free models, filtering for models that support the capabilities required by the request (vision, tool calling, structured outputs). ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
 
 ## Key Points
 
@@ -29,11 +29,11 @@ An [[entities/openrouter|OpenRouter]] router (`openrouter/free`) that automatica
 
 ## Details
 
-The Free Models Router is intended for learning, experimentation, prototyping, and low-volume use cases where zero-cost inference is more important than choosing a specific model. It differs from the [[concepts/auto_router]] in that it selects randomly from free models rather than optimizing model choice based on prompt analysis. ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+The Free Models Router is intended for learning, experimentation, prototyping, and low-volume use cases where zero-cost inference is more important than choosing a specific model. It differs from the [[004-wiki/concepts/auto_router]] in that it selects randomly from free models rather than optimizing model choice based on prompt analysis. ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
 
 ### Limitations
 
-Free models may have lower rate limits, variable availability, and higher latency during peak usage compared to paid models. The router does not allow control over which specific model is selected; if a specific free model is needed, the [[concepts/model_variants|`:free` variant]] suffix should be used instead. ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+Free models may have lower rate limits, variable availability, and higher latency during peak usage compared to paid models. The router does not allow control over which specific model is selected; if a specific free model is needed, the [[004-wiki/concepts/model_variants|`:free` variant]] suffix should be used instead. ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
 
 ### Available Free Models
 
@@ -41,8 +41,8 @@ Free model availability changes frequently. The current list is available on the
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/auto_router]]
-- [[concepts/model_variants]]
-- [[concepts/rate_limiting]]
-- [[summaries/openrouter-guides-routing-routers-free-models-router]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/auto_router]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/summaries/openrouter-guides-routing-routers-free-models-router]]

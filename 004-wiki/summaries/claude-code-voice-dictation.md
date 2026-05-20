@@ -42,9 +42,9 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/voice_dictation]]
-- [[entities/claude_code]]
-- [[concepts/commands]]
-- [[concepts/terminal_config]]
-- [[concepts/statusline]]
-- [[entities/claude_code_web]]
+- [[004-wiki/concepts/voice_dictation]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/commands]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/concepts/statusline]]
+- [[004-wiki/entities/claude_code_web]]

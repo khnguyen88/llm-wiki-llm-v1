@@ -35,9 +35,9 @@ The `:nitro` variant is not backed by a separate endpoint pool — it is purely 
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/model_variants]]
-- [[concepts/provider_routing]]
-- [[concepts/performance_thresholds]]
-- [[concepts/exacto]]
-- [[summaries/openrouter-guides-routing-model-variants-nitro]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/performance_thresholds]]
+- [[004-wiki/concepts/exacto]]
+- [[004-wiki/summaries/openrouter-guides-routing-model-variants-nitro]]

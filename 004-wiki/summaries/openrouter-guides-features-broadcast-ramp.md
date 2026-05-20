@@ -22,7 +22,7 @@ provenance: extracted
 
 ## Key Points
 
-- Ramp is a finance automation platform that monitors and controls LLM spending through OpenRouter's [[concepts/broadcast|Broadcast]] feature ^[raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
+- Ramp is a finance automation platform that monitors and controls LLM spending through OpenRouter's [[004-wiki/concepts/broadcast|Broadcast]] feature ^[raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 - Setup requires a Ramp API key (generated in Settings > Integrations), enabling Broadcast in OpenRouter (Settings > Observability), and configuring the Ramp destination with the API key and optional Base URL/Headers ^[raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 - Configuration only saves if the Test Connection check passes ^[raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 - Traces are sent via the OpenTelemetry Protocol (OTLP), including token usage, cost, timing, model information, and request/response content ^[raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
@@ -41,9 +41,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/ramp]]
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[entities/open_telemetry]]
-- [[concepts/cost_tracking]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/ramp]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/data_privacy]]

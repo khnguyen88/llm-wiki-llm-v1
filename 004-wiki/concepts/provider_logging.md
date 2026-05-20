@@ -40,9 +40,9 @@ Providers have their own data retention policies, often for compliance reasons. 
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/data_privacy]]
-- [[concepts/provider_routing]]
-- [[concepts/zero_data_retention]]
-- [[concepts/data_collection_policy]]
-- [[summaries/openrouter-guides-privacy-provider-logging]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/data_collection_policy]]
+- [[004-wiki/summaries/openrouter-guides-privacy-provider-logging]]

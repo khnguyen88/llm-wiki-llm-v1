@@ -48,9 +48,9 @@ Resolutions: 480p, 720p, 1080p, 1K, 2K, 4K. Aspect ratios: 16:9 (widescreen), 9:
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/video_input]]
-- [[concepts/multimodal]]
-- [[concepts/zero_data_retention]]
-- [[concepts/image_generation]]
-- [[summaries/openrouter-guides-overview-multimodal-video-generation]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/video_input]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/image_generation]]
+- [[004-wiki/summaries/openrouter-guides-overview-multimodal-video-generation]]

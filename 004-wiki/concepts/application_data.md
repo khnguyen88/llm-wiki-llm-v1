@@ -72,8 +72,8 @@ Deleting any application-data path is safe for future sessions. The impact on pa
 
 ## Related
 
-- [[concepts/claude_directory]]
-- [[concepts/sessions]]
-- [[concepts/file_checkpointing]]
-- [[concepts/permissions]]
-- [[entities/claude_code]]
+- [[004-wiki/concepts/claude_directory]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/file_checkpointing]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/entities/claude_code]]

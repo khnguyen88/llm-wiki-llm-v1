@@ -18,7 +18,7 @@ provenance: extracted
 
 # W&B Weave
 
-An observability platform by Weights & Biases for tracking and evaluating LLM applications. Available as a [[concepts/broadcast|Broadcast]] destination on [[entities/openrouter|OpenRouter]]. ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+An observability platform by Weights & Biases for tracking and evaluating LLM applications. Available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on [[004-wiki/entities/openrouter|OpenRouter]]. ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 
 ## Key Facts
 
@@ -33,7 +33,7 @@ An observability platform by Weights & Biases for tracking and evaluating LLM ap
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/data_privacy]]

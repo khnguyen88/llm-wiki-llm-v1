@@ -35,6 +35,6 @@ The Claude in Chrome extension enables visual verification for UI changes by ope
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/explore_plan_code]]
-- [[concepts/failure_patterns]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/explore_plan_code]]
+- [[004-wiki/concepts/failure_patterns]]

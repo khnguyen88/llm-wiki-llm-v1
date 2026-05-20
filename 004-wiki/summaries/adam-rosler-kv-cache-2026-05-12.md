@@ -83,10 +83,10 @@ Anthropic introduced prompt caching in 2024, making the KV cache reusable across
 
 ## Related
 
-- [[concepts/kv_cache]]
-- [[concepts/attention_mechanism]]
-- [[concepts/prompt_caching]]
-- [[concepts/memory_wall]]
-- [[concepts/token_embedding]]
-- [[entities/adam_rosler]]
-- [[entities/donald_michie]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/concepts/attention_mechanism]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/memory_wall]]
+- [[004-wiki/concepts/token_embedding]]
+- [[004-wiki/entities/adam_rosler]]
+- [[004-wiki/entities/donald_michie]]

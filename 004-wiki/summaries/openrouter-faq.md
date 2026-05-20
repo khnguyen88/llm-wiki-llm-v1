@@ -42,13 +42,13 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/model_variants]]
-- [[concepts/credit_system]]
-- [[concepts/data_privacy]]
-- [[concepts/byok]]
-- [[concepts/rate_limiting]]
-- [[concepts/provider_fallback]]
-- [[concepts/authentication]]
-- [[concepts/models_api]]
-- [[concepts/streaming_output]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/credit_system]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/streaming_output]]

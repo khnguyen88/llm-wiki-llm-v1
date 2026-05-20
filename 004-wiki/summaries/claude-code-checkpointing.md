@@ -40,7 +40,7 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/file_checkpointing]]
-- [[concepts/sessions]]
-- [[concepts/context_window]]
-- [[entities/claude_code]]
+- [[004-wiki/concepts/file_checkpointing]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/entities/claude_code]]

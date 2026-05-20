@@ -34,7 +34,7 @@ An open-source platform by Comet for evaluating, testing, and monitoring LLM app
 
 ## Related
 
-- [[concepts/broadcast]]
-- [[entities/openrouter]]
-- [[concepts/observability]]
-- [[concepts/data_privacy]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/data_privacy]]

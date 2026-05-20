@@ -54,27 +54,27 @@ For short-lived processes, the CLI's default batching intervals (60s for metrics
 
 ### Observability in OpenRouter Workspaces
 
-In OpenRouter [[concepts/workspaces|Workspaces]], observability integrations can be configured independently per workspace, allowing different teams or projects to send traces to different backends. Alternatively, traces from all workspaces can be sent to the same observability platform for centralized monitoring. ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+In OpenRouter [[004-wiki/concepts/workspaces|Workspaces]], observability integrations can be configured independently per workspace, allowing different teams or projects to send traces to different backends. Alternatively, traces from all workspaces can be sent to the same observability platform for centralized monitoring. ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
 
 ### OpenRouter Input & Output Logging and Broadcast
 
-OpenRouter provides two observability features configured in workspace Observability settings: [[concepts/input_output_logging|Input & Output Logging]] privately stores full request/response content on OpenRouter for debugging and prompt optimization, while [[concepts/broadcast|Broadcast]] sends data to external observability platforms for production monitoring and analytics. Both can be used together for comprehensive observability. ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+OpenRouter provides two observability features configured in workspace Observability settings: [[004-wiki/concepts/input_output_logging|Input & Output Logging]] privately stores full request/response content on OpenRouter for debugging and prompt optimization, while [[004-wiki/concepts/broadcast|Broadcast]] sends data to external observability platforms for production monitoring and analytics. Both can be used together for comprehensive observability. ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 
 Broadcast supports 17 stable destinations (including Langfuse, Datadog, Grafana Cloud, and an OpenTelemetry Collector), per-destination API key filtering and sampling rates, and Privacy Mode that strips prompt/completion content while preserving metrics. The `trace` field accepts arbitrary JSON metadata with standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`, `parent_span_id`) for hierarchical trace structure, enabling integration with existing tracing systems via `parent_span_id`. ^[raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md] Datadog LLM Observability is one such destination, mapping `trace` keys to Datadog trace/span fields and auto-adding `service` and `user_id` tags. ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
-Grafana Cloud is another Broadcast destination, receiving traces via the OTLP HTTP/JSON endpoint into Grafana Tempo. Traces use OpenTelemetry GenAI semantic conventions (`gen_ai.*` attributes) and can be queried with [[concepts/traceql|TraceQL]] in Grafana's Explore view. Custom metadata from the `trace` field appears under the `trace.metadata.*` namespace in span attributes. ^[raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
+Grafana Cloud is another Broadcast destination, receiving traces via the OTLP HTTP/JSON endpoint into Grafana Tempo. Traces use OpenTelemetry GenAI semantic conventions (`gen_ai.*` attributes) and can be queried with [[004-wiki/concepts/traceql|TraceQL]] in Grafana's Explore view. Custom metadata from the `trace` field appears under the `trace.metadata.*` namespace in span attributes. ^[raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 
 ## Related
 
-- [[entities/open_telemetry]]
-- [[entities/agent_sdk]]
-- [[entities/openrouter]]
-- [[concepts/workspaces]]
-- [[concepts/cost_tracking]]
-- [[concepts/hooks]]
-- [[concepts/agent_loop]]
-- [[concepts/input_output_logging]]
-- [[concepts/broadcast]]
-- [[entities/grafana_cloud]]
-- [[concepts/traceql]]
-- [[entities/wandb_weave]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/workspaces]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/input_output_logging]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/entities/grafana_cloud]]
+- [[004-wiki/concepts/traceql]]
+- [[004-wiki/entities/wandb_weave]]

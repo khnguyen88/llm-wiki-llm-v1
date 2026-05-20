@@ -42,10 +42,10 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/workspaces]]
-- [[concepts/byok]]
-- [[concepts/provider_routing]]
-- [[concepts/observability]]
-- [[concepts/management_api_keys]]
-- [[concepts/authentication]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/workspaces]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/management_api_keys]]
+- [[004-wiki/concepts/authentication]]

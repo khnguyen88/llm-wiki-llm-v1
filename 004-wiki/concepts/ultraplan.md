@@ -21,14 +21,14 @@ provenance: extracted
 
 # Ultraplan
 
-Ultraplan delegates a planning task from the local CLI to a [[entities/claude_code_web|Claude Code on the web]] session running in [[concepts/plan_mode|plan mode]]. Claude drafts the plan in the cloud while the terminal stays free for other work. When the plan is ready, the user reviews it in the browser and chooses where to execute it. Ultraplan entered early preview in Week 15 (v2.1.92-101, April 6-10, 2026). ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+Ultraplan delegates a planning task from the local CLI to a [[004-wiki/entities/claude_code_web|Claude Code on the web]] session running in [[004-wiki/concepts/plan_mode|plan mode]]. Claude drafts the plan in the cloud while the terminal stays free for other work. When the plan is ready, the user reviews it in the browser and chooses where to execute it. Ultraplan entered early preview in Week 15 (v2.1.92-101, April 6-10, 2026). ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
 
 ## Key Points
 
 - Three ways to launch from the CLI: `/ultraplan <prompt>` command, the keyword `ultraplan` in a normal prompt, or choosing "No, refine with Ultraplan" when declining a local plan approval ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 - Requires Claude Code v2.1.91+, a Claude Code on the web account, and a GitHub repository; not available with Bedrock, Vertex AI, or Microsoft Foundry authentication ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- The cloud session runs in the account's default [[concepts/cloud_environment|cloud environment]], creating one automatically if none exists ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- [[concepts/remote_control|Remote Control]] disconnects when ultraplan starts because both features use the claude.ai/code interface simultaneously ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- The cloud session runs in the account's default [[004-wiki/concepts/cloud_environment|cloud environment]], creating one automatically if none exists ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- [[004-wiki/concepts/remote_control|Remote Control]] disconnects when ultraplan starts because both features use the claude.ai/code interface simultaneously ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 - Browser review supports inline comments (highlight any passage), emoji reactions, and an outline sidebar; users can iterate on the plan before choosing execution ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 - As of v2.1.101 the first ultraplan run auto-creates a default cloud environment, removing the need for a separate web setup step before trying ultraplan ^[raw/document/claude code/claude-code-120-whats-new-2026-w15-2026-04-29.md]
 
@@ -42,10 +42,10 @@ The command and keyword launch paths show a confirmation dialog before proceedin
 
 ## Related
 
-- [[entities/claude_code_web]]
-- [[entities/claude_code]]
-- [[concepts/plan_mode]]
-- [[concepts/teleport]]
-- [[concepts/cloud_environment]]
-- [[concepts/sessions]]
-- [[summaries/claude-code-ultraplan]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/plan_mode]]
+- [[004-wiki/concepts/teleport]]
+- [[004-wiki/concepts/cloud_environment]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/summaries/claude-code-ultraplan]]

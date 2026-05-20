@@ -35,12 +35,12 @@ Baidu's family of large language models (Enhanced Representation through kNowled
 
 ## Related
 
-- [[entities/baidu]]
-- [[entities/paddlepaddle]]
-- [[entities/deepseek]]
-- [[concepts/mixture_of_experts]]
-- [[concepts/elastic_training]]
-- [[concepts/disaggregated_rl]]
-- [[concepts/on_policy_distillation]]
-- [[concepts/distillation]]
-- [[summaries/baidu-ernie-5.1-0508-release]]
+- [[004-wiki/entities/baidu]]
+- [[004-wiki/entities/paddlepaddle]]
+- [[004-wiki/entities/deepseek]]
+- [[004-wiki/concepts/mixture_of_experts]]
+- [[004-wiki/concepts/elastic_training]]
+- [[004-wiki/concepts/disaggregated_rl]]
+- [[004-wiki/concepts/on_policy_distillation]]
+- [[004-wiki/concepts/distillation]]
+- [[004-wiki/summaries/baidu-ernie-5.1-0508-release]]

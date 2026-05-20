@@ -20,7 +20,7 @@ provenance: extracted
 
 ## Key Points
 
-- [[entities/braintrust|Braintrust]] is an end-to-end platform for evaluating, monitoring, and improving LLM applications, configurable as a [[concepts/broadcast|Broadcast]] destination in OpenRouter ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- [[004-wiki/entities/braintrust|Braintrust]] is an end-to-end platform for evaluating, monitoring, and improving LLM applications, configurable as a [[004-wiki/concepts/broadcast|Broadcast]] destination in OpenRouter ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 - Setup requires a Braintrust API key (from Account Settings) and Project ID (from project settings), plus an optional Base URL defaulting to `https://api.braintrust.dev` ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 - Broadcast must be enabled in OpenRouter via Settings > Observability before configuring individual destinations ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 - Configuration only saves if the Test Connection check passes, ensuring credentials are valid before activation ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
@@ -35,9 +35,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/braintrust]]
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[summaries/openrouter-guides-features-broadcast-overview]]
-- [[summaries/openrouter-guides-features-broadcast-arize]]
+- [[004-wiki/entities/braintrust]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-overview]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-arize]]

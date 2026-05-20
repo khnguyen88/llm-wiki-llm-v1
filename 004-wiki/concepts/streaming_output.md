@@ -48,12 +48,12 @@ Without partial messages enabled, the async iterator yields only `SystemMessage`
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/agent_loop]]
-- [[concepts/sessions]]
-- [[concepts/subagents]]
-- [[concepts/structured_output]]
-- [[concepts/image_generation]]
-- [[summaries/openrouter-guides-overview-multimodal-audio]]
-- [[entities/openrouter]]
-- [[concepts/structured_output]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/concepts/image_generation]]
+- [[004-wiki/summaries/openrouter-guides-overview-multimodal-audio]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/structured_output]]

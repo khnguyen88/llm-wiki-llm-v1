@@ -41,9 +41,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/text_to_speech]]
-- [[concepts/multimodal]]
-- [[concepts/models_api]]
-- [[concepts/streaming_output]]
-- [[summaries/openrouter-guides-overview-multimodal-audio]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/text_to_speech]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/summaries/openrouter-guides-overview-multimodal-audio]]

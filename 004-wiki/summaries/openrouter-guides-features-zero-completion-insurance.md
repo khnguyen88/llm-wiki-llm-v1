@@ -32,7 +32,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/zero_completion_insurance]]
-- [[concepts/credit_system]]
-- [[concepts/model_fallback]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/zero_completion_insurance]]
+- [[004-wiki/concepts/credit_system]]
+- [[004-wiki/concepts/model_fallback]]

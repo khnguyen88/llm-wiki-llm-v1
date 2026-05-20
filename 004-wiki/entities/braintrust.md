@@ -22,7 +22,7 @@ An end-to-end platform for evaluating, monitoring, and improving LLM application
 
 ## Key Facts
 
-- Configurable as a [[concepts/broadcast|Broadcast]] destination in [[entities/openrouter|OpenRouter]], receiving LLM request/response traces for observability ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Configurable as a [[004-wiki/concepts/broadcast|Broadcast]] destination in [[004-wiki/entities/openrouter|OpenRouter]], receiving LLM request/response traces for observability ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 - API keys are created in Braintrust Account Settings; Project IDs are found in project settings ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 - Default API base URL is `https://api.braintrust.dev`; can be overridden in the OpenRouter configuration ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 - Supports four standard metadata keys for trace structure: `trace_id`, `trace_name`, `span_name`, `generation_name` ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
@@ -32,8 +32,8 @@ An end-to-end platform for evaluating, monitoring, and improving LLM application
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[entities/arize_ai]]
-- [[summaries/openrouter-guides-features-broadcast-braintrust]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/entities/arize_ai]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-braintrust]]

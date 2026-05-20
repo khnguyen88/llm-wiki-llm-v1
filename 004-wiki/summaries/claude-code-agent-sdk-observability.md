@@ -44,8 +44,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/open_telemetry]]
-- [[concepts/observability]]
-- [[concepts/cost_tracking]]
-- [[concepts/hooks]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/hooks]]

@@ -41,8 +41,8 @@ ERNIE 5.1, extracted from the ERNIE 5.0 elastic training matrix, compresses tota
 
 ## Related
 
-- [[concepts/mixture_of_experts]]
-- [[entities/ernie]]
-- [[entities/baidu]]
-- [[concepts/disaggregated_rl]]
-- [[summaries/baidu-ernie-5.1-0508-release]]
+- [[004-wiki/concepts/mixture_of_experts]]
+- [[004-wiki/entities/ernie]]
+- [[004-wiki/entities/baidu]]
+- [[004-wiki/concepts/disaggregated_rl]]
+- [[004-wiki/summaries/baidu-ernie-5.1-0508-release]]

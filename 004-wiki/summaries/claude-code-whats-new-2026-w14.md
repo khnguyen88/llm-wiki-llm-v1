@@ -45,13 +45,13 @@ Releases v2.1.86 through v2.1.91, covering March 30 -- April 3, 2026. ^[raw/docu
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/computer_use]]
-- [[concepts/commands]]
-- [[concepts/mcp]]
-- [[concepts/plugins]]
-- [[concepts/hooks]]
-- [[concepts/permissions]]
-- [[concepts/voice_dictation]]
-- [[concepts/terminal_config]]
-- [[concepts/skills]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/computer_use]]
+- [[004-wiki/concepts/commands]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/voice_dictation]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/concepts/skills]]

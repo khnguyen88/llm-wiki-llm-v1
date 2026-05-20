@@ -26,12 +26,12 @@ A lightweight microVM technology from AWS designed for secure, fast container-li
 - Strips unnecessary device emulation to reduce attack surface compared to traditional VMs ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 - Agent VMs communicate through `vsock` (virtual sockets) rather than network interfaces; all traffic routes through vsock to a proxy on the host ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 - Isolation strength rated "excellent" (with correct setup), with high performance overhead and medium/high complexity ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
-- VMs are not automatically more secure than alternatives like [[entities/gvisor]]; security depends heavily on the hypervisor and device emulation code ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+- VMs are not automatically more secure than alternatives like [[004-wiki/entities/gvisor]]; security depends heavily on the hypervisor and device emulation code ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
 ## Related
 
-- [[entities/gvisor]]
-- [[entities/docker]]
-- [[entities/sandbox_runtime]]
-- [[concepts/sandbox_hosting]]
-- [[concepts/secure_deployment]]
+- [[004-wiki/entities/gvisor]]
+- [[004-wiki/entities/docker]]
+- [[004-wiki/entities/sandbox_runtime]]
+- [[004-wiki/concepts/sandbox_hosting]]
+- [[004-wiki/concepts/secure_deployment]]

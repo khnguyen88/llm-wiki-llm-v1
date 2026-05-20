@@ -36,10 +36,10 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/zero_data_retention]]
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[concepts/analytics]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[entities/microsoft_foundry]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/analytics]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/entities/microsoft_foundry]]

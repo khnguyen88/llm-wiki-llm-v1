@@ -42,9 +42,9 @@ The V2 TypeScript Agent SDK is an unstable preview that simplifies multi-turn co
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/client_sdk]]
-- [[concepts/sessions]]
-- [[concepts/streaming_output]]
-- [[concepts/agent_loop]]
-- [[concepts/subagents]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/client_sdk]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/subagents]]

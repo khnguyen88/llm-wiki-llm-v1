@@ -41,9 +41,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/system_prompt]]
-- [[concepts/output_styles]]
-- [[concepts/setting_sources]]
-- [[concepts/prompt_caching]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/output_styles]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/prompt_caching]]

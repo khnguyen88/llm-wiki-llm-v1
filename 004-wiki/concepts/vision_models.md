@@ -33,7 +33,7 @@ Vision models are an emerging category of LLMs that accept both text and images 
 
 ## Related
 
-- [[concepts/model_naming]]
-- [[concepts/instruction_tuning]]
-- [[concepts/multimodal]]
-- [[entities/openrouter]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/instruction_tuning]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/entities/openrouter]]

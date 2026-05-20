@@ -43,8 +43,8 @@ When Claude spawns a fork through the Agent tool, it can pass `isolation: "workt
 
 ## Related
 
-- [[concepts/subagents]]
-- [[concepts/context_window]]
-- [[concepts/worktrees]]
-- [[concepts/prompt_caching]]
-- [[summaries/claude-code-sub-agents]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/worktrees]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/summaries/claude-code-sub-agents]]

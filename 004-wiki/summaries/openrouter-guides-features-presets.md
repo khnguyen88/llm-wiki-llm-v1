@@ -38,8 +38,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/presets]]
-- [[concepts/provider_routing]]
-- [[concepts/system_prompt]]
-- [[concepts/workspaces]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/presets]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/workspaces]]

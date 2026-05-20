@@ -37,14 +37,14 @@ Each Claude Code on the Web session runs in a fresh Anthropic-managed VM with th
 
 The cloud environment is configured per environment, not per session. Environments control network access, environment variables, and the setup script. Environment variables use `.env` format (one `KEY=value` pair per line, no quotes around values). Plugins declared in the repo's `.claude/settings.json` are installed at session start from the declared marketplace, requiring network access to reach the marketplace source.
 
-Setup scripts differ from [[concepts/hooks|SessionStart hooks]] in scope and timing. Setup scripts are attached to the cloud environment, configured in the cloud environment UI, and run before Claude Code launches only when no cached environment is available. SessionStart hooks are attached to the repository, configured in `.claude/settings.json`, and run after Claude Code launches on every session including resumed ones. To run cloud-only dependency installation, check the `CLAUDE_CODE_REMOTE` environment variable in a SessionStart hook script. The `CLAUDE_CODE_REMOTE` variable is set to `true` in cloud sessions.
+Setup scripts differ from [[004-wiki/concepts/hooks|SessionStart hooks]] in scope and timing. Setup scripts are attached to the cloud environment, configured in the cloud environment UI, and run before Claude Code launches only when no cached environment is available. SessionStart hooks are attached to the repository, configured in `.claude/settings.json`, and run after Claude Code launches on every session including resumed ones. To run cloud-only dependency installation, check the `CLAUDE_CODE_REMOTE` environment variable in a SessionStart hook script. The `CLAUDE_CODE_REMOTE` variable is set to `true` in cloud sessions.
 
 Mid-session package installs do not carry over to other sessions. To persist packages across sessions, add them to the setup script. To persist environment variables for subsequent Bash commands, write to the file at `$CLAUDE_ENV_FILE`.
 
 ## Related
 
-- [[entities/claude_code_web]]
-- [[concepts/network_access]]
-- [[concepts/sessions]]
-- [[concepts/hooks]]
-- [[summaries/claude-code-web-quickstart]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/network_access]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/summaries/claude-code-web-quickstart]]

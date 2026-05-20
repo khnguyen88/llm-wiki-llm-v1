@@ -37,8 +37,8 @@ Common pitfalls include saving `pcm` output with a `.mp3` extension, using incom
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/multimodal]]
-- [[concepts/models_api]]
-- [[concepts/streaming_output]]
-- [[summaries/openrouter-guides-overview-multimodal-tts]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/summaries/openrouter-guides-overview-multimodal-tts]]

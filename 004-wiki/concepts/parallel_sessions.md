@@ -38,10 +38,10 @@ Agent teams go beyond simple parallelization by providing coordination mechanism
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/sessions]]
-- [[concepts/agent_teams]]
-- [[concepts/fan_out]]
-- [[concepts/worktrees]]
-- [[concepts/non_interactive_mode]]
-- [[summaries/claude-code-common-workflows]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/agent_teams]]
+- [[004-wiki/concepts/fan_out]]
+- [[004-wiki/concepts/worktrees]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/summaries/claude-code-common-workflows]]

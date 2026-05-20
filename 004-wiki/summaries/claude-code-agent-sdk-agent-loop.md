@@ -42,8 +42,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/agent_loop]]
-- [[concepts/context_window]]
-- [[concepts/hooks]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/hooks]]

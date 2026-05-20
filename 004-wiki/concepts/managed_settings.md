@@ -54,9 +54,9 @@ Organizations that mix providers should configure server-managed settings for Cl
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/agent_sdk]]
-- [[concepts/server_managed_settings]]
-- [[concepts/setting_sources]]
-- [[concepts/auto_mode]]
-- [[concepts/claude_directory]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/server_managed_settings]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/auto_mode]]
+- [[004-wiki/concepts/claude_directory]]

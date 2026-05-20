@@ -32,7 +32,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/online_variant]]
-- [[concepts/model_variants]]
-- [[concepts/plugins]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/online_variant]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/plugins]]

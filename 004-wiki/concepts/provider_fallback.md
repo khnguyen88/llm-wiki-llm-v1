@@ -33,14 +33,14 @@ An availability pattern where requests are automatically rerouted to alternative
 
 Provider fallback is distinct from simple retry logic. Rather than retrying the same provider, fallback routing sends the request to a different provider entirely, leveraging the multi-provider architecture of gateway platforms. This provides higher availability than any single provider can offer on its own. ^[raw/document/openrouter/openrouter-002-guides-overview-principles-2026-04-29.md]
 
-Provider fallback is also distinct from [[concepts/model_fallback]], which switches to an entirely different model rather than a different provider for the same model. The two patterns can complement each other: a request may first attempt provider fallback for the primary model, then fall back to an alternative model if all providers for the primary model are unavailable. ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+Provider fallback is also distinct from [[004-wiki/concepts/model_fallback]], which switches to an entirely different model rather than a different provider for the same model. The two patterns can complement each other: a request may first attempt provider fallback for the primary model, then fall back to an alternative model if all providers for the primary model are unavailable. ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/llm_gateway]]
-- [[concepts/routing_mode]]
-- [[concepts/rate_limiting]]
-- [[summaries/openrouter-faq]]
-- [[concepts/model_fallback]]
-- [[summaries/openrouter-guides-routing-model-fallbacks]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/concepts/routing_mode]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/summaries/openrouter-faq]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/summaries/openrouter-guides-routing-model-fallbacks]]

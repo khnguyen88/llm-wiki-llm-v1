@@ -43,8 +43,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/tool_calling]]
-- [[concepts/interleaved_thinking]]
-- [[concepts/agent_loop]]
-- [[concepts/streaming_output]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/concepts/interleaved_thinking]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/streaming_output]]

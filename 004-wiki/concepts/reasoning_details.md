@@ -50,10 +50,10 @@ The `reasoning_details` functionality works identically across all supported rea
 
 ## Related
 
-- [[concepts/reasoning_tokens]]
-- [[concepts/extended_thinking]]
-- [[concepts/tool_calling]]
-- [[entities/openrouter]]
-- [[entities/openai]]
-- [[entities/google_gemini]]
-- [[summaries/openrouter-guides-best-practices-reasoning-tokens]]
+- [[004-wiki/concepts/reasoning_tokens]]
+- [[004-wiki/concepts/extended_thinking]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/openai]]
+- [[004-wiki/entities/google_gemini]]
+- [[004-wiki/summaries/openrouter-guides-best-practices-reasoning-tokens]]

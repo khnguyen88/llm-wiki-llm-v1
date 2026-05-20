@@ -44,9 +44,9 @@ The four subsystems form a pipeline that can be fully overlapped, establishing a
 
 ## Related
 
-- [[entities/ernie]]
-- [[entities/baidu]]
-- [[entities/paddlepaddle]]
-- [[concepts/on_policy_distillation]]
-- [[concepts/mixture_of_experts]]
-- [[summaries/baidu-ernie-5.1-0508-release]]
+- [[004-wiki/entities/ernie]]
+- [[004-wiki/entities/baidu]]
+- [[004-wiki/entities/paddlepaddle]]
+- [[004-wiki/concepts/on_policy_distillation]]
+- [[004-wiki/concepts/mixture_of_experts]]
+- [[004-wiki/summaries/baidu-ernie-5.1-0508-release]]

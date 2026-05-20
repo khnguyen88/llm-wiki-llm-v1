@@ -39,8 +39,8 @@ Meta's LLM family. The name Llama is derived from the acronym "Large Language Mo
 
 ## Related
 
-- [[concepts/mixture_of_experts]]
-- [[concepts/model_naming]]
-- [[entities/qwen]]
-- [[entities/gemma]]
-- [[entities/deepseek]]
+- [[004-wiki/concepts/mixture_of_experts]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/entities/qwen]]
+- [[004-wiki/entities/gemma]]
+- [[004-wiki/entities/deepseek]]

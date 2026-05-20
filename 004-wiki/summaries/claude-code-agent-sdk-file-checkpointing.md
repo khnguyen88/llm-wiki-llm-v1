@@ -41,8 +41,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/file_checkpointing]]
-- [[concepts/agent_loop]]
-- [[concepts/custom_tools]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/file_checkpointing]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/custom_tools]]

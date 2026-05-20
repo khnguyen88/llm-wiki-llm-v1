@@ -42,11 +42,11 @@ Google's multimodal AI model family available through two deployment paths — A
 
 ## Related
 
-- [[entities/google_vertex_ai]]
-- [[entities/openrouter]]
-- [[concepts/video_input]]
-- [[concepts/multimodal]]
-- [[concepts/structured_output]]
-- [[concepts/prompt_caching]]
-- [[summaries/openrouter-guides-features-structured-outputs]]
-- [[summaries/openrouter-guides-best-practices-prompt-caching]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/video_input]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/summaries/openrouter-guides-features-structured-outputs]]
+- [[004-wiki/summaries/openrouter-guides-best-practices-prompt-caching]]

@@ -35,10 +35,10 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/setting_sources]]
-- [[concepts/skills]]
-- [[concepts/hooks]]
-- [[concepts/managed_settings]]
-- [[concepts/agent_loop]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/agent_loop]]

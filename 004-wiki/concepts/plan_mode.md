@@ -40,9 +40,9 @@ The Shift+Tab cycle goes through Normal Mode → Auto-Accept Mode (`⏵⏵ accep
 
 ## Related
 
-- [[concepts/permissions]]
-- [[concepts/non_interactive_mode]]
-- [[concepts/sessions]]
-- [[concepts/ultraplan]]
-- [[entities/claude_code]]
-- [[summaries/claude-code-common-workflows]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/ultraplan]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/summaries/claude-code-common-workflows]]

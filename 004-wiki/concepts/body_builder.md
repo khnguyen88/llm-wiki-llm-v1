@@ -18,7 +18,7 @@ provenance: extracted
 
 # Body Builder
 
-An [[entities/openrouter|OpenRouter]] router that uses AI to transform natural language prompts into structured API request bodies. Invoked by setting `model` to `openrouter/bodybuilder`, it generates ready-to-execute JSON requests that enable running the same task across multiple models in parallel. ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+An [[004-wiki/entities/openrouter|OpenRouter]] router that uses AI to transform natural language prompts into structured API request bodies. Invoked by setting `model` to `openrouter/bodybuilder`, it generates ready-to-execute JSON requests that enable running the same task across multiple models in parallel. ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
 
 ## Key Points
 
@@ -30,14 +30,14 @@ An [[entities/openrouter|OpenRouter]] router that uses AI to transform natural l
 
 ## Details
 
-Body Builder addresses the model *selection* problem differently from the [[concepts/auto_router]]: instead of choosing a single optimal model, it generates request bodies for *all* requested models so they can be executed in parallel. This makes it suited for benchmarking, multi-provider verification, and A/B testing workflows.
+Body Builder addresses the model *selection* problem differently from the [[004-wiki/concepts/auto_router]]: instead of choosing a single optimal model, it generates request bodies for *all* requested models so they can be executed in parallel. This makes it suited for benchmarking, multi-provider verification, and A/B testing workflows.
 
 The typical workflow is two-phase: (1) send a natural language prompt to `openrouter/bodybuilder` and parse the returned JSON to extract the `requests` array, then (2) execute each request in parallel using `Promise.all` (TypeScript) or `asyncio.gather` (Python). Standard model pricing applies to the execution phase only. ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/auto_router]]
-- [[concepts/model_fallback]]
-- [[concepts/structured_output]]
-- [[summaries/openrouter-guides-routing-routers-body-builder]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/auto_router]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/summaries/openrouter-guides-routing-routers-body-builder]]

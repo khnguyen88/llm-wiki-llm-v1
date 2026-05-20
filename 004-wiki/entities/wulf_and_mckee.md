@@ -28,6 +28,6 @@ William A. Wulf and Sally A. McKee, the computer architects who coined the term 
 
 ## Related
 
-- [[concepts/memory_wall]]
-- [[concepts/kv_cache]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/memory_wall]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

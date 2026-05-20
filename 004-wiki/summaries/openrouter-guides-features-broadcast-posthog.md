@@ -41,9 +41,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/posthog]]
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[concepts/analytics]]
-- [[summaries/openrouter-guides-features-broadcast-overview]]
+- [[004-wiki/entities/posthog]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/analytics]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-overview]]

@@ -41,6 +41,6 @@ The `/autofix-pr` CLI command detects the open PR for the current branch using `
 
 ## Related
 
-- [[entities/claude_code_web]]
-- [[entities/github]]
-- [[concepts/sessions]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/entities/github]]
+- [[004-wiki/concepts/sessions]]

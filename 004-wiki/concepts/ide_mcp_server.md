@@ -44,8 +44,8 @@ For Jupyter execution, the security model requires explicit user confirmation ev
 
 ## Related
 
-- [[entities/vs_code_extension]]
-- [[entities/claude_code]]
-- [[concepts/mcp]]
-- [[concepts/permissions]]
-- [[concepts/hooks]]
+- [[004-wiki/entities/vs_code_extension]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/hooks]]

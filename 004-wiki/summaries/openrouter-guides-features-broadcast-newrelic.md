@@ -42,9 +42,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/new_relic]]
-- [[entities/openrouter]]
-- [[entities/open_telemetry]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
-- [[concepts/observability]]
+- [[004-wiki/entities/new_relic]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/observability]]

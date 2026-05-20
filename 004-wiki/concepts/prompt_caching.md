@@ -26,7 +26,7 @@ provenance: merged
 
 # Prompt Caching
 
-A mechanism that caches repeated prompt content to reduce input costs. In the Agent SDK, prompt caching is enabled by default with no configuration required. On OpenRouter, prompt caching varies by provider: some enable it automatically (OpenAI, DeepSeek, Grok, Moonshot AI, Groq), while others require explicit configuration (Anthropic, Google Gemini). OpenRouter uses [[concepts/provider_sticky_routing|provider sticky routing]] to maximize cache hit rates. ^[raw/document/claude code/claude-code-004-agent-sdk-cost-tracking-2026-04-29.md] ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+A mechanism that caches repeated prompt content to reduce input costs. In the Agent SDK, prompt caching is enabled by default with no configuration required. On OpenRouter, prompt caching varies by provider: some enable it automatically (OpenAI, DeepSeek, Grok, Moonshot AI, Groq), while others require explicit configuration (Anthropic, Google Gemini). OpenRouter uses [[004-wiki/concepts/provider_sticky_routing|provider sticky routing]] to maximize cache hit rates. ^[raw/document/claude code/claude-code-004-agent-sdk-cost-tracking-2026-04-29.md] ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Key Points
 
@@ -81,30 +81,30 @@ For Google Gemini, OpenRouter simplifies cache management — no manual creation
 
 ## KV Cache Foundation
 
-Prompt caching extends the [[concepts/kv_cache|KV cache]] -- a stack of saved key and value vectors from prior tokens -- across API calls. In naive transformer inference, every generation step recomputes K and V for the entire prefix, a massive waste that [[concepts/memoization|memoization]] (Donald Michie, 1968) was designed to eliminate. The KV cache stores these computed vectors in GPU memory so subsequent tokens only compute the new pair.^[raw/transcripts/adam-rosler-2026-05-12.md]
+Prompt caching extends the [[004-wiki/concepts/kv_cache|KV cache]] -- a stack of saved key and value vectors from prior tokens -- across API calls. In naive transformer inference, every generation step recomputes K and V for the entire prefix, a massive waste that [[004-wiki/concepts/memoization|memoization]] (Donald Michie, 1968) was designed to eliminate. The KV cache stores these computed vectors in GPU memory so subsequent tokens only compute the new pair.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 Anthropic's prompt caching (introduced 2024) makes this reuse explicit across API calls: if a subsequent request shares the same prefix as a recent one, the provider keeps the cached KV state in GPU memory and runs attention against it without recomputing. The first call pays to build the cache; subsequent calls rent it. This is why prompt ordering matters -- stable content (system prompt, tools, documents) should go first, and the user's dynamic question should go last, because any change in the prefix invalidates every cache entry from that point onward.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
-The cost structure reflects the underlying [[concepts/memory_wall|memory wall]]: inference providers are selling GPU memory bandwidth, not compute. Cache reads at 0.1x base input price are cheap because they avoid the expensive matrix multiplications and memory transfers; cache writes at 1.25x or 2x base input price pay for storing the KV state.^[raw/transcripts/adam-rosler-2026-05-12.md]
+The cost structure reflects the underlying [[004-wiki/concepts/memory_wall|memory wall]]: inference providers are selling GPU memory bandwidth, not compute. Cache reads at 0.1x base input price are cheap because they avoid the expensive matrix multiplications and memory transfers; cache writes at 1.25x or 2x base input price pay for storing the KV state.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/openrouter]]
-- [[entities/anthropic]]
-- [[entities/openai]]
-- [[entities/deepseek]]
-- [[entities/google_gemini]]
-- [[entities/grok]]
-- [[entities/moonshot_ai]]
-- [[entities/groq]]
-- [[concepts/cost_tracking]]
-- [[concepts/system_prompt]]
-- [[concepts/response_caching]]
-- [[concepts/zero_data_retention]]
-- [[concepts/provider_sticky_routing]]
-- [[concepts/kv_cache]]
-- [[concepts/memory_wall]]
-- [[concepts/memoization]]
-- [[summaries/openrouter-guides-best-practices-prompt-caching]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/anthropic]]
+- [[004-wiki/entities/openai]]
+- [[004-wiki/entities/deepseek]]
+- [[004-wiki/entities/google_gemini]]
+- [[004-wiki/entities/grok]]
+- [[004-wiki/entities/moonshot_ai]]
+- [[004-wiki/entities/groq]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/response_caching]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/provider_sticky_routing]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/concepts/memory_wall]]
+- [[004-wiki/concepts/memoization]]
+- [[004-wiki/summaries/openrouter-guides-best-practices-prompt-caching]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

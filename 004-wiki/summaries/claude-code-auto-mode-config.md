@@ -42,9 +42,9 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/auto_mode]]
-- [[entities/claude_code]]
-- [[concepts/permissions]]
-- [[concepts/managed_settings]]
-- [[concepts/setting_sources]]
-- [[concepts/hooks]]
+- [[004-wiki/concepts/auto_mode]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/hooks]]

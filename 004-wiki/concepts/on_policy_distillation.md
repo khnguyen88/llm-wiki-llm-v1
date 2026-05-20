@@ -41,9 +41,9 @@ Traditional sequential post-training (SFT → Mixed RL) creates multi-objective 
 
 ## Related
 
-- [[concepts/distillation]]
-- [[concepts/disaggregated_rl]]
-- [[concepts/elastic_training]]
-- [[entities/ernie]]
-- [[entities/baidu]]
-- [[summaries/baidu-ernie-5.1-0508-release]]
+- [[004-wiki/concepts/distillation]]
+- [[004-wiki/concepts/disaggregated_rl]]
+- [[004-wiki/concepts/elastic_training]]
+- [[004-wiki/entities/ernie]]
+- [[004-wiki/entities/baidu]]
+- [[004-wiki/summaries/baidu-ernie-5.1-0508-release]]

@@ -37,8 +37,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/model_fallback]]
-- [[concepts/provider_fallback]]
-- [[concepts/routing_mode]]
-- [[concepts/rate_limiting]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/routing_mode]]
+- [[004-wiki/concepts/rate_limiting]]

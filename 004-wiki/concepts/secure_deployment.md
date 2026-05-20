@@ -33,18 +33,18 @@ The practice of deploying Claude Code and Agent SDK with appropriate security co
 
 Not every deployment needs maximum security. A developer running Claude Code on a laptop has different requirements than a company processing customer data in a multi-tenant environment. The built-in security features (permissions system, command parsing, web search summarization, sandbox mode) address common concerns without additional infrastructure. ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
-For high-security deployments, isolation technologies provide increasing strength at increasing cost: sandbox-runtime (good isolation, very low overhead), [[entities/docker|Docker]] containers (setup-dependent, low overhead), [[entities/gvisor|gVisor]] (excellent, medium/high overhead), and [[entities/firecracker|Firecracker]] VMs (excellent, high overhead). In all configurations, Claude Code or the Agent SDK runs inside the isolation boundary, and security controls restrict what the agent can access from within. ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+For high-security deployments, isolation technologies provide increasing strength at increasing cost: sandbox-runtime (good isolation, very low overhead), [[004-wiki/entities/docker|Docker]] containers (setup-dependent, low overhead), [[004-wiki/entities/gvisor|gVisor]] (excellent, medium/high overhead), and [[004-wiki/entities/firecracker|Firecracker]] VMs (excellent, high overhead). In all configurations, Claude Code or the Agent SDK runs inside the isolation boundary, and security controls restrict what the agent can access from within. ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
 Cloud deployments combine isolation with cloud-native controls: private subnets with no internet gateway, cloud firewall rules blocking all egress except to the proxy, a proxy (e.g., Envoy with `credential_injector`) that validates requests and injects credentials, minimal IAM permissions, and traffic logging for audit. ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/sandbox_runtime]]
-- [[entities/gvisor]]
-- [[entities/firecracker]]
-- [[entities/docker]]
-- [[concepts/sandbox_hosting]]
-- [[concepts/deployment_patterns]]
-- [[concepts/permissions]]
-- [[concepts/proxy_pattern]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/sandbox_runtime]]
+- [[004-wiki/entities/gvisor]]
+- [[004-wiki/entities/firecracker]]
+- [[004-wiki/entities/docker]]
+- [[004-wiki/concepts/sandbox_hosting]]
+- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/proxy_pattern]]

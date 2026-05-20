@@ -25,10 +25,10 @@ During pre-training, the model nudges embeddings until related concepts point in
 
 ## Role in Attention
 
-Embeddings serve as the input to [[concepts/attention_mechanism|attention]], but they are cheap to compute (a simple lookup from a stored table). The expensive operation is the matrix multiplication that transforms each embedding into a key vector and a value vector for [[concepts/kv_cache|KV cache]]. This is why the KV cache stores the transformed K and V rather than the raw embeddings.^[raw/transcripts/adam-rosler-2026-05-12.md]
+Embeddings serve as the input to [[004-wiki/concepts/attention_mechanism|attention]], but they are cheap to compute (a simple lookup from a stored table). The expensive operation is the matrix multiplication that transforms each embedding into a key vector and a value vector for [[004-wiki/concepts/kv_cache|KV cache]]. This is why the KV cache stores the transformed K and V rather than the raw embeddings.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Related
 
-- [[concepts/attention_mechanism]]
-- [[concepts/kv_cache]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/attention_mechanism]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

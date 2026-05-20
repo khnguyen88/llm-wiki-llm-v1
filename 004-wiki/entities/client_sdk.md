@@ -28,7 +28,7 @@ Anthropic's direct API access SDK where developers send prompts and implement to
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/managed_agents]]
-- [[concepts/agent_loop]]
-- [[concepts/custom_tools]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/managed_agents]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/custom_tools]]

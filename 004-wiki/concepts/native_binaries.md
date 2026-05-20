@@ -36,8 +36,8 @@ The shift to native binaries eliminates the Node.js runtime dependency from the 
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/release_channels]]
-- [[concepts/binary_verification]]
-- [[concepts/troubleshoot_install]]
-- [[summaries/claude-code-whats-new-2026-w17]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/release_channels]]
+- [[004-wiki/concepts/binary_verification]]
+- [[004-wiki/concepts/troubleshoot_install]]
+- [[004-wiki/summaries/claude-code-whats-new-2026-w17]]

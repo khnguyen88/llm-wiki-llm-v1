@@ -47,5 +47,5 @@ However, the LLM Wiki pattern is not inherently opposed to RAG. At larger scales
 
 ## Related
 
-- [[concepts/llm_wiki]]
-- [[entities/qmd]]
+- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/entities/qmd]]

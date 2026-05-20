@@ -39,10 +39,10 @@ Tokenization varies across model families. Models like GPT, Claude, and Llama to
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/token_optimization]]
-- [[concepts/structured_output]]
-- [[concepts/prompt_caching]]
-- [[summaries/openrouter-guides-overview-models]]
-- [[concepts/image_generation]]
-- [[summaries/openrouter-guides-overview-multimodal-image-generation]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/token_optimization]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/summaries/openrouter-guides-overview-models]]
+- [[004-wiki/concepts/image_generation]]
+- [[004-wiki/summaries/openrouter-guides-overview-multimodal-image-generation]]

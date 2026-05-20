@@ -67,12 +67,12 @@ The `subagentStatusLine` setting renders a custom row body for each subagent sho
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/context_window]]
-- [[concepts/cost_tracking]]
-- [[concepts/rate_limiting]]
-- [[concepts/subagents]]
-- [[concepts/sessions]]
-- [[concepts/hooks]]
-- [[summaries/claude-code-statusline]]
-- [[concepts/voice_dictation]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/summaries/claude-code-statusline]]
+- [[004-wiki/concepts/voice_dictation]]

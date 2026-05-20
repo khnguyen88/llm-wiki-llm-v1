@@ -20,7 +20,7 @@ provenance: extracted
 
 # New Relic
 
-A full-stack observability platform for monitoring applications, infrastructure, and digital experiences. It is available as a [[concepts/broadcast|Broadcast]] destination on [[entities/openrouter|OpenRouter]], receiving LLM traces via the [[entities/open_telemetry|OpenTelemetry]] OTLP protocol. ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
+A full-stack observability platform for monitoring applications, infrastructure, and digital experiences. It is available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on [[004-wiki/entities/openrouter|OpenRouter]], receiving LLM traces via the [[004-wiki/entities/open_telemetry|OpenTelemetry]] OTLP protocol. ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 
 ## Key Facts
 
@@ -33,13 +33,13 @@ A full-stack observability platform for monitoring applications, infrastructure,
 - The `user` request field maps to `user.id` and `session_id` maps to `session.id` in span attributes ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 - GenAI semantic conventions (`gen_ai.*` attributes) are used for model, token, and cost data ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 - Distributed tracing view supports filtering traces by custom attributes using NRQL queries, viewing custom metadata in the span attributes panel, and creating alerts and dashboards based on metadata fields ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
-- When [[concepts/data_privacy|Privacy Mode]] is enabled for the New Relic destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
+- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the New Relic destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally ^[raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/open_telemetry]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
-- [[concepts/observability]]
-- [[summaries/openrouter-guides-features-broadcast-newrelic]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-newrelic]]

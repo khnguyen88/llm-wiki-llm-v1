@@ -78,7 +78,7 @@ type ContentPart =
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/multimodal]]
-- [[concepts/models_api]]
-- [[summaries/openrouter-guides-overview-multimodal-pdfs]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/models_api]]
+- [[004-wiki/summaries/openrouter-guides-overview-multimodal-pdfs]]

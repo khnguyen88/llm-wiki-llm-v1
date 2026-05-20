@@ -50,11 +50,11 @@ Metadata (prompt/completion token counts, latency, etc.) is stored for every req
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/provider_routing]]
-- [[concepts/zero_data_retention]]
-- [[concepts/distillation]]
-- [[concepts/data_privacy]]
-- [[concepts/input_output_logging]]
-- [[summaries/openrouter-guides-routing-provider-selection]]
-- [[summaries/openrouter-guides-privacy-data-collection]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/distillation]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/input_output_logging]]
+- [[004-wiki/summaries/openrouter-guides-routing-provider-selection]]
+- [[004-wiki/summaries/openrouter-guides-privacy-data-collection]]

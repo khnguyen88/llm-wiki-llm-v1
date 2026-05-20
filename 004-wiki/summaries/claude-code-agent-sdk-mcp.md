@@ -41,8 +41,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/mcp]]
-- [[concepts/custom_tools]]
-- [[concepts/agent_loop]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/agent_loop]]

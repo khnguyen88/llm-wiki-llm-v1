@@ -38,8 +38,8 @@ Alibaba's LLM family. The Qwen 3.5 generation (Apache 2.0) offers the widest siz
 
 ## Related
 
-- [[concepts/mixture_of_experts]]
-- [[concepts/model_naming]]
-- [[concepts/quantization]]
-- [[entities/ollama]]
-- [[entities/deepseek]]
+- [[004-wiki/concepts/mixture_of_experts]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/entities/ollama]]
+- [[004-wiki/entities/deepseek]]

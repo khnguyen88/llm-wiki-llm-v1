@@ -32,17 +32,17 @@ A reliability pattern where an ordered list of model IDs is specified in a reque
 
 ## Details
 
-Model fallback is distinct from [[concepts/provider_fallback]]: provider fallback reroutes to an alternative provider for the *same model*, while model fallback switches to an entirely *different model*. Model fallback gives developers explicit control over which alternative models to use, whereas provider fallback is handled automatically by the platform. ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+Model fallback is distinct from [[004-wiki/concepts/provider_fallback]]: provider fallback reroutes to an alternative provider for the *same model*, while model fallback switches to an entirely *different model*. Model fallback gives developers explicit control over which alternative models to use, whereas provider fallback is handled automatically by the platform. ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
 
 The `models` array is useful for applications that require high availability but can tolerate differences in model capability or behavior across fallback options. Developers should choose fallback models that are functionally adequate for their use case, since the fallback may handle any given request. ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/provider_fallback]]
-- [[concepts/routing_mode]]
-- [[concepts/rate_limiting]]
-- [[concepts/llm_gateway]]
-- [[summaries/openrouter-guides-routing-model-fallbacks]]
-- [[concepts/auto_router]]
-- [[summaries/openrouter-guides-best-practices-latency-and-performance]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/routing_mode]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/summaries/openrouter-guides-routing-model-fallbacks]]
+- [[004-wiki/concepts/auto_router]]
+- [[004-wiki/summaries/openrouter-guides-best-practices-latency-and-performance]]

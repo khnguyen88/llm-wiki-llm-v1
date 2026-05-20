@@ -44,9 +44,9 @@ Shell selection for PowerShell extends beyond the tool itself. Three independent
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/permissions]]
-- [[concepts/hooks]]
-- [[concepts/skills]]
-- [[concepts/terminal_config]]
-- [[summaries/claude-code-tools-reference]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/summaries/claude-code-tools-reference]]

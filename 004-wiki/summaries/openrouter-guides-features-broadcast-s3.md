@@ -43,9 +43,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/amazon_s3]]
-- [[entities/cloudflare_r2]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
-- [[concepts/observability]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/amazon_s3]]
+- [[004-wiki/entities/cloudflare_r2]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/observability]]

@@ -52,7 +52,7 @@ Plugins can also contribute themes, which appear in the `/theme` list alongside 
 
 ## Related
 
-- [[concepts/terminal_config]]
-- [[concepts/statusline]]
-- [[entities/claude_code]]
-- [[summaries/claude-code-terminal-config]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/concepts/statusline]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/summaries/claude-code-terminal-config]]

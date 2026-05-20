@@ -32,6 +32,6 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/model_variants]]
-- [[concepts/extended_thinking]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/extended_thinking]]

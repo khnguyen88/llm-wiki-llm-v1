@@ -38,7 +38,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/oauth_pkce]]
-- [[concepts/authentication]]
-- [[concepts/llm_gateway]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/oauth_pkce]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/llm_gateway]]

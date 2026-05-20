@@ -38,6 +38,6 @@ The algorithm does not consider the PR source or destination branch when perform
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/github]]
-- [[concepts/analytics]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/github]]
+- [[004-wiki/concepts/analytics]]

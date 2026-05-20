@@ -28,7 +28,7 @@ Chinese technology company and AI research organization, developer of the ERNIE 
 
 ## Related
 
-- [[entities/ernie]]
-- [[entities/paddlepaddle]]
-- [[entities/deepseek]]
-- [[summaries/baidu-ernie-5.1-0508-release]]
+- [[004-wiki/entities/ernie]]
+- [[004-wiki/entities/paddlepaddle]]
+- [[004-wiki/entities/deepseek]]
+- [[004-wiki/summaries/baidu-ernie-5.1-0508-release]]

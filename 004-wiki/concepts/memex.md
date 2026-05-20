@@ -43,4 +43,4 @@ Bush's Memex was fundamentally different from the World Wide Web in key ways:
 
 ## Related
 
-- [[concepts/llm_wiki]]
+- [[004-wiki/concepts/llm_wiki]]

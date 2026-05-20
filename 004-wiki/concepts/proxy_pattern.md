@@ -49,9 +49,9 @@ Provider-specific corporate proxy configuration:
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/sandbox_hosting]]
-- [[concepts/secure_deployment]]
-- [[concepts/deployment_patterns]]
-- [[concepts/permissions]]
-- [[concepts/llm_gateway]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/sandbox_hosting]]
+- [[004-wiki/concepts/secure_deployment]]
+- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/llm_gateway]]

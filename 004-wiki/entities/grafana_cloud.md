@@ -34,8 +34,8 @@ A fully-managed observability platform by Grafana Labs that includes Grafana Tem
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/open_telemetry]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[concepts/traceql]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/traceql]]

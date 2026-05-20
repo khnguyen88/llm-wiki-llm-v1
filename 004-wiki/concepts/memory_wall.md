@@ -27,15 +27,15 @@ In their 2004 follow-up "Reflections on the Memory Wall," McKee noted that many 
 
 ## Implications for LLM Inference
 
-For LLM serving, the memory wall means that [[concepts/kv_cache|KV cache]] size and GPU memory bandwidth dominate cost, not FLOPS. A 70B-parameter model at 100K context carries roughly 50 GB of KV cache per user. The inference provider is selling GPU memory bandwidth, not compute. This is why:
+For LLM serving, the memory wall means that [[004-wiki/concepts/kv_cache|KV cache]] size and GPU memory bandwidth dominate cost, not FLOPS. A 70B-parameter model at 100K context carries roughly 50 GB of KV cache per user. The inference provider is selling GPU memory bandwidth, not compute. This is why:
 
 - Long context is expensive not because the model "thinks harder" but because the cache is bigger
-- [[concepts/prompt_caching|prompt caching]] can reduce costs by 90% by avoiding redundant memory transfers
-- Optimizations like [[concepts/grouped_query_attention|GQA]] and PagedAttention target memory, not compute
+- [[004-wiki/concepts/prompt_caching|prompt caching]] can reduce costs by 90% by avoiding redundant memory transfers
+- Optimizations like [[004-wiki/concepts/grouped_query_attention|GQA]] and PagedAttention target memory, not compute
 
 ## Related
 
-- [[concepts/kv_cache]]
-- [[concepts/prompt_caching]]
-- [[entities/wulf_and_mckee]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/entities/wulf_and_mckee]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

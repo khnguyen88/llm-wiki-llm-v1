@@ -22,7 +22,7 @@ A stack of saved key and value vectors from prior tokens kept in GPU memory duri
 
 ## Origins
 
-The KV cache applies the principle of [[concepts/memoization|memoization]] -- coined by [[entities/donald_michie|Donald Michie]] in 1968 -- to the attention mechanism. The core idea: if the same input produces the same output through the same matrices, save the result rather than recompute it. Michie proposed that functions should have both a "rule part" (computational procedure) and a "rote part" (lookup table), with the machine deciding which to use. The KV cache is the rote part for attention.^[raw/transcripts/adam-rosler-2026-05-12.md]
+The KV cache applies the principle of [[004-wiki/concepts/memoization|memoization]] -- coined by [[004-wiki/entities/donald_michie|Donald Michie]] in 1968 -- to the attention mechanism. The core idea: if the same input produces the same output through the same matrices, save the result rather than recompute it. Michie proposed that functions should have both a "rule part" (computational procedure) and a "rote part" (lookup table), with the machine deciding which to use. The KV cache is the rote part for attention.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Why Cache K and V (Not Embeddings)?
 
@@ -30,7 +30,7 @@ Embeddings are cheap to compute -- they are simple lookups from a stored table. 
 
 ## Memory Cost
 
-For a typical 70-billion-parameter model, each token consumes about 0.5 MB of KV cache. At 100,000 tokens, that is 50 GB of cache per user. Each concurrent user has their own independent cache. This makes [[concepts/memory_wall|GPU memory bandwidth]] the binding constraint on inference cost, not compute.^[raw/transcripts/adam-rosler-2026-05-12.md]
+For a typical 70-billion-parameter model, each token consumes about 0.5 MB of KV cache. At 100,000 tokens, that is 50 GB of cache per user. Each concurrent user has their own independent cache. This makes [[004-wiki/concepts/memory_wall|GPU memory bandwidth]] the binding constraint on inference cost, not compute.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Optimization Techniques
 
@@ -38,9 +38,9 @@ Several techniques reduce KV cache memory pressure:
 
 | Technique | Approach | KV Cache Reduction |
 |-----------|----------|-------------------|
-| [[concepts/grouped_query_attention|GQA]] | Shares K/V heads across groups of query heads | 8x for Llama 3 70B |
-| [[concepts/multi_query_attention|MQA]] | Single K/V head shared across all query heads | 64x for same model |
-| [[concepts/paged_attention|PagedAttention]] | OS-style virtual memory paging for KV cache blocks | Near-zero fragmentation |
+| [[004-wiki/concepts/grouped_query_attention|GQA]] | Shares K/V heads across groups of query heads | 8x for Llama 3 70B |
+| [[004-wiki/concepts/multi_query_attention|MQA]] | Single K/V head shared across all query heads | 64x for same model |
+| [[004-wiki/concepts/paged_attention|PagedAttention]] | OS-style virtual memory paging for KV cache blocks | Near-zero fragmentation |
 | Quantization | Store K/V in INT8 or FP8 instead of FP16 | 2x reduction |
 | Sliding window | Cache only recent tokens | Bounded memory |
 
@@ -58,7 +58,7 @@ Developed for vLLM (Kwon et al., SOSP 2023), PagedAttention applies OS-style vir
 
 ## Prompt Caching
 
-[[concepts/prompt_caching|Prompt caching]] extends the KV cache across API calls. Anthropic introduced this in 2024: if a subsequent request shares the same prefix as a recent one, the provider keeps the cached KV state in GPU memory and runs attention against it without recomputing. The first call pays to build the cache; subsequent calls rent it at 90% lower cost. This requires placing stable content (system prompts, tools, documents) before dynamic content (user questions), because any change in the prefix invalidates all cache entries from that point onward.^[raw/transcripts/adam-rosler-2026-05-12.md]
+[[004-wiki/concepts/prompt_caching|Prompt caching]] extends the KV cache across API calls. Anthropic introduced this in 2024: if a subsequent request shares the same prefix as a recent one, the provider keeps the cached KV state in GPU memory and runs attention against it without recomputing. The first call pays to build the cache; subsequent calls rent it at 90% lower cost. This requires placing stable content (system prompts, tools, documents) before dynamic content (user questions), because any change in the prefix invalidates all cache entries from that point onward.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Open Questions
 
@@ -67,10 +67,10 @@ Developed for vLLM (Kwon et al., SOSP 2023), PagedAttention applies OS-style vir
 
 ## Related
 
-- [[concepts/attention_mechanism]]
-- [[concepts/memory_wall]]
-- [[concepts/memoization]]
-- [[concepts/prompt_caching]]
-- [[concepts/token_embedding]]
-- [[entities/donald_michie]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/attention_mechanism]]
+- [[004-wiki/concepts/memory_wall]]
+- [[004-wiki/concepts/memoization]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/token_embedding]]
+- [[004-wiki/entities/donald_michie]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

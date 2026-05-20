@@ -38,6 +38,6 @@ Environments with None network access cannot run setup scripts that install pack
 
 ## Related
 
-- [[entities/claude_code_web]]
-- [[concepts/cloud_environment]]
-- [[entities/github]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/cloud_environment]]
+- [[004-wiki/entities/github]]

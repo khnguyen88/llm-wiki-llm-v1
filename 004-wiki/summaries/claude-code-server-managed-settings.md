@@ -47,12 +47,12 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/managed_settings]]
-- [[concepts/server_managed_settings]]
-- [[concepts/setting_sources]]
-- [[concepts/authentication]]
-- [[concepts/permissions]]
-- [[concepts/hooks]]
-- [[concepts/auto_mode]]
-- [[concepts/non_interactive_mode]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/server_managed_settings]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/auto_mode]]
+- [[004-wiki/concepts/non_interactive_mode]]

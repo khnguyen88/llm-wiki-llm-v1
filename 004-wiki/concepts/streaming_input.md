@@ -36,8 +36,8 @@ This mode contrasts with single message input, which passes a plain string as th
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/streaming_output]]
-- [[concepts/sessions]]
-- [[concepts/hooks]]
-- [[concepts/agent_loop]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/agent_loop]]

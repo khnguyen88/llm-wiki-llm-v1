@@ -37,9 +37,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/slack]]
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[concepts/routing_mode]]
-- [[concepts/sessions]]
-- [[concepts/channels]]
+- [[004-wiki/entities/slack]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/routing_mode]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/channels]]

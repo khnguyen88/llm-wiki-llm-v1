@@ -35,9 +35,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/zero_data_retention]]
-- [[concepts/data_privacy]]
-- [[concepts/data_collection_policy]]
-- [[concepts/provider_routing]]
-- [[concepts/prompt_caching]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data_collection_policy]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/prompt_caching]]

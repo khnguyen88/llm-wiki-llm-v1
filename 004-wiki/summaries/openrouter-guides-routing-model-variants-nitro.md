@@ -35,8 +35,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/nitro_variant]]
-- [[concepts/model_variants]]
-- [[concepts/provider_routing]]
-- [[concepts/performance_thresholds]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/nitro_variant]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/performance_thresholds]]

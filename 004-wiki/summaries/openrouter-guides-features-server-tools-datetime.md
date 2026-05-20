@@ -34,7 +34,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/server_tools]]
-- [[concepts/server_tools_datetime]]
-- [[concepts/tool_calling]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/server_tools_datetime]]
+- [[004-wiki/concepts/tool_calling]]

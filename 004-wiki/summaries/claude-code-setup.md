@@ -38,9 +38,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/authentication]]
-- [[concepts/release_channels]]
-- [[concepts/binary_verification]]
-- [[concepts/managed_settings]]
-- [[concepts/setting_sources]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/release_channels]]
+- [[004-wiki/concepts/binary_verification]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/setting_sources]]

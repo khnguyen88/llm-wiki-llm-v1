@@ -47,13 +47,13 @@ Recommended per-user TPM and RPM allocations based on organization size:
 
 ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 
-For example, a 200-user organization might request 20k TPM per user, or 4 million total TPM (200 x 20,000). The workspace rate limit can be configured on the workspace's Limits page in the [[entities/claude_console|Claude Console]]. ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+For example, a 200-user organization might request 20k TPM per user, or 4 million total TPM (200 x 20,000). The workspace rate limit can be configured on the workspace's Limits page in the [[004-wiki/entities/claude_console|Claude Console]]. ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 
 ## Related
 
-- [[entities/claude_console]]
-- [[concepts/cost_tracking]]
-- [[concepts/token_optimization]]
-- [[concepts/statusline]]
-- [[entities/openrouter]]
-- [[summaries/claude-code-costs]]
+- [[004-wiki/entities/claude_console]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/token_optimization]]
+- [[004-wiki/concepts/statusline]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/summaries/claude-code-costs]]

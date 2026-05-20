@@ -54,12 +54,12 @@ AI research company that builds the Claude family of models. On OpenRouter, Anth
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[concepts/provider_routing]]
-- [[concepts/prompt_caching]]
-- [[concepts/provider_sticky_routing]]
-- [[concepts/structured_output]]
-- [[summaries/openrouter-guides-features-structured-outputs]]
-- [[summaries/openrouter-guides-best-practices-prompt-caching]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/provider_sticky_routing]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/summaries/openrouter-guides-features-structured-outputs]]
+- [[004-wiki/summaries/openrouter-guides-best-practices-prompt-caching]]

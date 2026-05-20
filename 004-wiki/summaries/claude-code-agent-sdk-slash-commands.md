@@ -40,7 +40,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/skills]]
-- [[concepts/custom_tools]]
-- [[concepts/subagents]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/subagents]]

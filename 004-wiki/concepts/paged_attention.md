@@ -17,7 +17,7 @@ provenance: inferred
 
 # PagedAttention
 
-An attention algorithm introduced by Kwon et al. (SOSP 2023) as the core of vLLM that applies operating system-style virtual memory paging to [[concepts/kv_cache|KV cache]] management. Instead of allocating contiguous memory for each request's KV cache (causing 13-57% internal fragmentation and 8-38% external fragmentation), PagedAttention divides the cache into fixed-size blocks (pages) that can be placed non-contiguously in physical memory, using block tables for indirection.^[raw/transcripts/adam-rosler-2026-05-12.md]
+An attention algorithm introduced by Kwon et al. (SOSP 2023) as the core of vLLM that applies operating system-style virtual memory paging to [[004-wiki/concepts/kv_cache|KV cache]] management. Instead of allocating contiguous memory for each request's KV cache (causing 13-57% internal fragmentation and 8-38% external fragmentation), PagedAttention divides the cache into fixed-size blocks (pages) that can be placed non-contiguously in physical memory, using block tables for indirection.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Key Benefits
 
@@ -42,6 +42,6 @@ PagedAttention achieves 96.3% useful KV storage compared to 20-38% in prior syst
 
 ## Related
 
-- [[concepts/kv_cache]]
-- [[concepts/memory_wall]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/concepts/memory_wall]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

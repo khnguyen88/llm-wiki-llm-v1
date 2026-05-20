@@ -31,7 +31,7 @@ Splitting each token's role into "advertising" (key) and "contributing" (value) 
 
 ## Parallel Training, Sequential Inference
 
-The 2017 "Attention Is All You Need" paper made training dramatically faster by enabling every token to attend to every other token in parallel. But at inference time, each new token depends on the tokens before it, forcing sequential generation. This is the fundamental tension that makes [[concepts/kv_cache|KV cache]] essential.^[raw/transcripts/adam-rosler-2026-05-12.md]
+The 2017 "Attention Is All You Need" paper made training dramatically faster by enabling every token to attend to every other token in parallel. But at inference time, each new token depends on the tokens before it, forcing sequential generation. This is the fundamental tension that makes [[004-wiki/concepts/kv_cache|KV cache]] essential.^[raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Computational Cost
 
@@ -48,6 +48,6 @@ Multiplying a 4,000-dimensional embedding by a 4,000x4,000 matrix requires 16 mi
 
 ## Related
 
-- [[concepts/kv_cache]]
-- [[concepts/token_embedding]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/concepts/token_embedding]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

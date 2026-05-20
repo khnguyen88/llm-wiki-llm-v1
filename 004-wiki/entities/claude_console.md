@@ -29,6 +29,6 @@ Anthropic's API management platform that provides API-based billing and user man
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/authentication]]
-- [[concepts/managed_settings]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/managed_settings]]

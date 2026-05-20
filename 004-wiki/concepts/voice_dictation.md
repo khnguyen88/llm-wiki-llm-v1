@@ -58,8 +58,8 @@ Run `/voice` to toggle dictation. The first enable runs a microphone check; on m
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[concepts/commands]]
-- [[concepts/terminal_config]]
-- [[concepts/statusline]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/commands]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/concepts/statusline]]

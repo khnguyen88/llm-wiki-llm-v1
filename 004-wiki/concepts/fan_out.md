@@ -35,7 +35,7 @@ The `--allowedTools` flag is critical for safety: it restricts Claude's capabili
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/non_interactive_mode]]
-- [[concepts/parallel_sessions]]
-- [[concepts/permissions]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/concepts/parallel_sessions]]
+- [[004-wiki/concepts/permissions]]

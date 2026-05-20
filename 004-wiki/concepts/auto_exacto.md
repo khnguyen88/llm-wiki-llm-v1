@@ -49,10 +49,10 @@ OpenRouter reports notable improvements in tau-bench scores and tool-calling suc
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/provider_routing]]
-- [[concepts/model_variants]]
-- [[concepts/exacto]]
-- [[concepts/performance_thresholds]]
-- [[summaries/openrouter-guides-routing-auto-exacto]]
-- [[summaries/openrouter-guides-routing-model-variants-exacto]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/exacto]]
+- [[004-wiki/concepts/performance_thresholds]]
+- [[004-wiki/summaries/openrouter-guides-routing-auto-exacto]]
+- [[004-wiki/summaries/openrouter-guides-routing-model-variants-exacto]]

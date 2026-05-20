@@ -50,11 +50,11 @@ Exa costs $1 per 1,000 fetches (free with BYOK). Firecrawl uses your Firecrawl c
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/exa]]
-- [[entities/firecrawl]]
-- [[concepts/server_tools]]
-- [[concepts/web_search]]
-- [[concepts/byok]]
-- [[concepts/tool_calling]]
-- [[summaries/openrouter-guides-features-server-tools-web-fetch]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/exa]]
+- [[004-wiki/entities/firecrawl]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/web_search]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-web-fetch]]

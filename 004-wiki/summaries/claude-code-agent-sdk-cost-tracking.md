@@ -40,7 +40,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/cost_tracking]]
-- [[concepts/prompt_caching]]
-- [[concepts/agent_loop]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/agent_loop]]

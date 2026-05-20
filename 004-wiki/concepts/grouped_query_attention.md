@@ -47,7 +47,7 @@ At 128K context, MHA would require 320 GB of KV cache alone, while GQA-8 reduces
 
 ## Related
 
-- [[concepts/kv_cache]]
-- [[concepts/attention_mechanism]]
-- [[concepts/multi_query_attention]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/concepts/attention_mechanism]]
+- [[004-wiki/concepts/multi_query_attention]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

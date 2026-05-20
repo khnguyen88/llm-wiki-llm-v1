@@ -18,7 +18,7 @@ provenance: extracted
 
 # Amazon S3
 
-A scalable object storage service from AWS, supported as an [[concepts/broadcast|OpenRouter Broadcast]] destination for storing LLM request/response trace data. ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+A scalable object storage service from AWS, supported as an [[004-wiki/concepts/broadcast|OpenRouter Broadcast]] destination for storing LLM request/response trace data. ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
 ## Key Facts
 
@@ -30,7 +30,7 @@ A scalable object storage service from AWS, supported as an [[concepts/broadcast
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/cloudflare_r2]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/cloudflare_r2]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]

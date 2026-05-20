@@ -38,9 +38,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/server_tools]]
-- [[concepts/tool_calling]]
-- [[concepts/plugins]]
-- [[concepts/image_generation]]
-- [[concepts/online_variant]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/image_generation]]
+- [[004-wiki/concepts/online_variant]]

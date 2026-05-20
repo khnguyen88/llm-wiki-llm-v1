@@ -17,7 +17,7 @@ provenance: extracted
 
 # Report Feedback
 
-A feature on [[entities/openrouter|OpenRouter]] that allows users to flag problematic AI generations with a category and description, helping the team identify and address issues with model responses, latency, billing, and more. ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+A feature on [[004-wiki/entities/openrouter|OpenRouter]] that allows users to flag problematic AI generations with a category and description, helping the team identify and address issues with model responses, latency, billing, and more. ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
 
 ## Key Points
 
@@ -35,7 +35,7 @@ Feedback categories cover the full range of generation issues: Latency (slow res
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/provider_fallback]]
-- [[concepts/llm_gateway]]
-- [[concepts/rate_limiting]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/concepts/rate_limiting]]

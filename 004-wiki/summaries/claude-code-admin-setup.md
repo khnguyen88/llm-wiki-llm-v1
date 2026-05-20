@@ -36,5 +36,5 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/managed_settings]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/managed_settings]]

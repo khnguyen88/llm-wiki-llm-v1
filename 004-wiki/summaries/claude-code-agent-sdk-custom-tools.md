@@ -56,6 +56,6 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/custom_tools]]
-- [[concepts/agent_loop]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/agent_loop]]

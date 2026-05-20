@@ -31,10 +31,10 @@ Michie connected memoization to machine learning, building on A.L. Samuel's 1959
 
 ## Connection to KV Cache
 
-The [[concepts/kv_cache|KV cache]] in transformer inference is a direct application of memoization: the expensive matrix multiplications that transform embeddings into key and value vectors are computed once and cached, rather than recomputed on every generation step. Without memoization applied to attention, generation would cost roughly 1,000 times more compute.
+The [[004-wiki/concepts/kv_cache|KV cache]] in transformer inference is a direct application of memoization: the expensive matrix multiplications that transform embeddings into key and value vectors are computed once and cached, rather than recomputed on every generation step. Without memoization applied to attention, generation would cost roughly 1,000 times more compute.
 
 ## Related
 
-- [[concepts/kv_cache]]
-- [[entities/donald_michie]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/entities/donald_michie]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

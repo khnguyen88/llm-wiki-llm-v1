@@ -36,8 +36,8 @@ A Chrome Web Store extension (also compatible with Microsoft Edge) that connects
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/browser_automation]]
-- [[concepts/permissions]]
-- [[concepts/mcp]]
-- [[entities/vs_code_extension]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/browser_automation]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/entities/vs_code_extension]]

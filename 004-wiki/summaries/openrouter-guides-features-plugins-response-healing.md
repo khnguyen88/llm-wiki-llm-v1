@@ -33,7 +33,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/response_healing]]
-- [[concepts/plugins]]
-- [[concepts/structured_output]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/response_healing]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/structured_output]]

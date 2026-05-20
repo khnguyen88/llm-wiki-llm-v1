@@ -45,8 +45,8 @@ Guardrails are created and managed at Settings > Privacy in the OpenRouter dashb
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/zero_data_retention]]
-- [[concepts/workspaces]]
-- [[concepts/data_privacy]]
-- [[concepts/budget_limit]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/workspaces]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/budget_limit]]

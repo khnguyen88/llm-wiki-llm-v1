@@ -32,7 +32,7 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/report_feedback]]
-- [[concepts/provider_fallback]]
-- [[concepts/llm_gateway]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/report_feedback]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/llm_gateway]]

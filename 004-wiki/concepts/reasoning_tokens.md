@@ -69,13 +69,13 @@ Preserving reasoning is supported by: OpenAI reasoning models (o1, o3, GPT-5+), 
 
 ## Related
 
-- [[concepts/reasoning_details]]
-- [[concepts/extended_thinking]]
-- [[concepts/tool_calling]]
-- [[entities/openrouter]]
-- [[entities/openai]]
-- [[entities/google_gemini]]
-- [[entities/deepseek]]
-- [[entities/grok]]
-- [[entities/qwen]]
-- [[summaries/openrouter-guides-best-practices-reasoning-tokens]]
+- [[004-wiki/concepts/reasoning_details]]
+- [[004-wiki/concepts/extended_thinking]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/openai]]
+- [[004-wiki/entities/google_gemini]]
+- [[004-wiki/entities/deepseek]]
+- [[004-wiki/entities/grok]]
+- [[004-wiki/entities/qwen]]
+- [[004-wiki/summaries/openrouter-guides-best-practices-reasoning-tokens]]

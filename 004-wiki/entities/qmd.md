@@ -26,5 +26,5 @@ A local search engine for markdown files, recommended by Karpathy as a search to
 
 ## Related
 
-- [[concepts/llm_wiki]]
-- [[concepts/rag]]
+- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/concepts/rag]]

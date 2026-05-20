@@ -57,11 +57,11 @@ Fullscreen rendering mode draws to a separate screen buffer that the terminal re
 
 ## Related
 
-- [[concepts/custom_themes]]
-- [[concepts/vim_editor_mode]]
-- [[concepts/hooks]]
-- [[concepts/statusline]]
-- [[entities/claude_code]]
-- [[entities/tmux]]
-- [[summaries/claude-code-terminal-config]]
-- [[concepts/voice_dictation]]
+- [[004-wiki/concepts/custom_themes]]
+- [[004-wiki/concepts/vim_editor_mode]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/statusline]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/tmux]]
+- [[004-wiki/summaries/claude-code-terminal-config]]
+- [[004-wiki/concepts/voice_dictation]]

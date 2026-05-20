@@ -45,8 +45,8 @@ GGUF is for local inference. If you want to fine-tune, start with safetensors, t
 
 ## Related
 
-- [[concepts/safetensors]]
-- [[concepts/quantization]]
-- [[concepts/model_naming]]
-- [[entities/ollama]]
-- [[entities/hugging_face]]
+- [[004-wiki/concepts/safetensors]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/entities/ollama]]
+- [[004-wiki/entities/hugging_face]]

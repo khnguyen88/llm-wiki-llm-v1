@@ -23,7 +23,7 @@ Release channels control which version track Claude Code follows for updates. Th
 ## Key Points
 
 - `"latest"` (default) receives new features as soon as they are released; `"stable"` is typically about one week behind and skips releases with major regressions ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
-- Configured via the `autoUpdatesChannel` setting in settings.json or through `/config` → Auto-update channel; for enterprise deployments, enforce a consistent channel via [[concepts/managed_settings]] ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
+- Configured via the `autoUpdatesChannel` setting in settings.json or through `/config` → Auto-update channel; for enterprise deployments, enforce a consistent channel via [[004-wiki/concepts/managed_settings]] ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
 - Native installations auto-update: Claude Code checks for updates on startup and periodically while running, downloading and installing in the background; updates take effect on the next start ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
 - Homebrew, WinGet, and Linux package manager (apt, dnf, apk) installations do not auto-update; Homebrew cask choice determines channel: `claude-code` tracks stable and `claude-code@latest` tracks latest ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
 - `DISABLE_AUTOUPDATER=1` in `env` stops the background auto-update check but still allows `claude update` and `claude install`; `DISABLE_UPDATES` blocks all update paths including manual updates ^[raw/document/claude code/claude-code-102-setup-2026-04-29.md]
@@ -45,6 +45,6 @@ A known issue exists where Claude Code may notify of updates before the new vers
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/managed_settings]]
-- [[concepts/setting_sources]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/concepts/setting_sources]]

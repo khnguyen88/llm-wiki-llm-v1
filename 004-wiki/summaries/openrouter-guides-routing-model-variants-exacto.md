@@ -24,7 +24,7 @@ provenance: extracted
 - Exacto uses three signal classes: tool-calling success/reliability from real traffic, provider performance metrics (throughput, latency), and benchmark/evaluation data ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 - Providers with strong track records are moved to the front; limited-data providers are kept behind established performers; poor-quality providers are deprioritized further ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 - Explicit sort preferences (price, throughput, latency) take precedence over Exacto sorting ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Exacto differs from [[concepts/auto_exacto]] in that it is opt-in via the `:exacto` suffix, whereas Auto Exacto runs automatically on tool-calling requests ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Exacto differs from [[004-wiki/concepts/auto_exacto]] in that it is opt-in via the `:exacto` suffix, whereas Auto Exacto runs automatically on tool-calling requests ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 - Can be used alongside the `models` fallback array — any model with `:exacto` will request Exacto sorting when selected ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 - Most useful on models that support tool calling, have multiple providers, and show meaningful variance in tool-use reliability ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 
@@ -42,9 +42,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/exacto]]
-- [[concepts/auto_exacto]]
-- [[concepts/model_variants]]
-- [[concepts/provider_routing]]
-- [[concepts/performance_thresholds]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/exacto]]
+- [[004-wiki/concepts/auto_exacto]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/performance_thresholds]]

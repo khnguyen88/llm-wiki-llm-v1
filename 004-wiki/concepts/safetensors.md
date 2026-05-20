@@ -36,6 +36,6 @@ Full-precision safetensors models require substantial VRAM since weights are sto
 
 ## Related
 
-- [[concepts/gguf]]
-- [[concepts/quantization]]
-- [[entities/hugging_face]]
+- [[004-wiki/concepts/gguf]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/entities/hugging_face]]

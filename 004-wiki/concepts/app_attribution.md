@@ -38,7 +38,7 @@ Attributed apps appear in three locations: the public rankings page at `openrout
 
 ## Related
 
-- [[entities/openrouter]]
-- [[summaries/openrouter-app-attribution]]
-- [[concepts/analytics]]
-- [[concepts/rate_limiting]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/summaries/openrouter-app-attribution]]
+- [[004-wiki/concepts/analytics]]
+- [[004-wiki/concepts/rate_limiting]]

@@ -51,11 +51,11 @@ Rewinding after a stream completes requires resuming the session with an empty p
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/agent_loop]]
-- [[concepts/custom_tools]]
-- [[concepts/cost_tracking]]
-- [[summaries/claude-code-best-practices]]
-- [[concepts/application_data]]
-- [[entities/vs_code_extension]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/summaries/claude-code-best-practices]]
+- [[004-wiki/concepts/application_data]]
+- [[004-wiki/entities/vs_code_extension]]

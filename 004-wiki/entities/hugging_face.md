@@ -33,9 +33,9 @@ The primary platform for hosting and distributing open-weight LLMs. Model reposi
 
 ## Related
 
-- [[concepts/safetensors]]
-- [[concepts/gguf]]
-- [[concepts/quantization]]
-- [[concepts/model_naming]]
-- [[entities/ollama]]
-- [[entities/bartowski]]
+- [[004-wiki/concepts/safetensors]]
+- [[004-wiki/concepts/gguf]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/entities/ollama]]
+- [[004-wiki/entities/bartowski]]

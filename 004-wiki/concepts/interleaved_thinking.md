@@ -34,7 +34,7 @@ Implementation considerations include higher response latency due to reasoning s
 
 ## Related
 
-- [[concepts/tool_calling]]
-- [[concepts/extended_thinking]]
-- [[concepts/agent_loop]]
-- [[entities/openrouter]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/concepts/extended_thinking]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/entities/openrouter]]

@@ -43,8 +43,8 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/channels]]
-- [[concepts/mcp]]
-- [[concepts/permissions]]
-- [[concepts/plugins]]
-- [[entities/claude_code]]
+- [[004-wiki/concepts/channels]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/entities/claude_code]]

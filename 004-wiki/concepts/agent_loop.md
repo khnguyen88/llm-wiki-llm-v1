@@ -47,12 +47,12 @@ OpenRouter implements an agentic loop pattern for tool calling: the loop repeate
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/claude_code]]
-- [[concepts/context_window]]
-- [[concepts/hooks]]
-- [[concepts/cost_tracking]]
-- [[concepts/file_checkpointing]]
-- [[concepts/streaming_output]]
-- [[entities/openrouter]]
-- [[concepts/tool_calling]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/file_checkpointing]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/tool_calling]]

@@ -30,6 +30,6 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/service_tier]]
-- [[entities/openrouter]]
-- [[entities/openai]]
+- [[004-wiki/concepts/service_tier]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/openai]]

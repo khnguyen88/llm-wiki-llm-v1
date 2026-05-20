@@ -43,8 +43,8 @@ The `excludeDynamicSections` flag addresses a specific caching problem: the `cla
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/output_styles]]
-- [[concepts/setting_sources]]
-- [[concepts/prompt_caching]]
-- [[summaries/claude-code-cli-reference]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/output_styles]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/summaries/claude-code-cli-reference]]

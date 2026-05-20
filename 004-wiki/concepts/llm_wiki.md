@@ -83,9 +83,9 @@ As the wiki grows, synthetic data generation and finetuning could embed knowledg
 
 ## Related
 
-- [[concepts/file_over_app]]
-- [[concepts/byoai]]
-- [[concepts/rag]]
-- [[concepts/memex]]
-- [[entities/obsidian]]
-- [[entities/qmd]]
+- [[004-wiki/concepts/file_over_app]]
+- [[004-wiki/concepts/byoai]]
+- [[004-wiki/concepts/rag]]
+- [[004-wiki/concepts/memex]]
+- [[004-wiki/entities/obsidian]]
+- [[004-wiki/entities/qmd]]

@@ -45,8 +45,8 @@ The TypeScript SDK (`@openrouter/sdk`) provides a dedicated `openRouter.apiKeys`
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/authentication]]
-- [[concepts/oauth_pkce]]
-- [[concepts/rate_limiting]]
-- [[concepts/byoai]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/oauth_pkce]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/byoai]]

@@ -18,7 +18,7 @@ provenance: extracted
 
 # ClickHouse
 
-A fast, open-source columnar database for real-time analytics. [[entities/openrouter|OpenRouter]] can stream traces directly to ClickHouse for high-performance analytics and custom dashboards. ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+A fast, open-source columnar database for real-time analytics. [[004-wiki/entities/openrouter|OpenRouter]] can stream traces directly to ClickHouse for high-performance analytics and custom dashboards. ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 
 ## Key Facts
 
@@ -29,12 +29,12 @@ A fast, open-source columnar database for real-time analytics. [[entities/openro
 - Nested JSON fields are queried using ClickHouse's `JSONExtract*` functions ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - Custom metadata from the `trace` field is stored in the `METADATA` JSON column; standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`) have dedicated mappings ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - For high-performance filtering on metadata fields, materialized columns can be created with `ALTER TABLE ... ADD COLUMN` ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
-- When [[concepts/data_privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while all other data continues to be sent ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while all other data continues to be sent ^[raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
-- [[concepts/observability]]
-- [[summaries/openrouter-guides-features-broadcast-clickhouse]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-clickhouse]]

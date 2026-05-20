@@ -44,9 +44,9 @@ On OpenRouter, user-defined tools (described above) are distinct from **server t
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/interleaved_thinking]]
-- [[concepts/agent_loop]]
-- [[concepts/streaming_output]]
-- [[concepts/structured_output]]
-- [[concepts/server_tools]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/interleaved_thinking]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/concepts/server_tools]]

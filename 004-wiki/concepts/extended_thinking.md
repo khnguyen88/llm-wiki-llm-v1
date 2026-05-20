@@ -43,9 +43,9 @@ On older models without adaptive reasoning, thinking uses a fixed token budget d
 
 ## Related
 
-- [[concepts/context_window]]
-- [[concepts/permissions]]
-- [[entities/claude_code]]
-- [[summaries/claude-code-common-workflows]]
-- [[concepts/token_optimization]]
-- [[summaries/claude-code-costs]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/summaries/claude-code-common-workflows]]
+- [[004-wiki/concepts/token_optimization]]
+- [[004-wiki/summaries/claude-code-costs]]

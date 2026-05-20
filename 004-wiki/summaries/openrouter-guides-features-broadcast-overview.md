@@ -41,8 +41,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[concepts/input_output_logging]]
-- [[entities/open_telemetry]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/input_output_logging]]
+- [[004-wiki/entities/open_telemetry]]

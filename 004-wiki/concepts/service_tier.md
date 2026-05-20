@@ -33,8 +33,8 @@ The placement of `service_tier` in the response depends on which API format is u
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/openai]]
-- [[concepts/provider_routing]]
-- [[concepts/performance_thresholds]]
-- [[summaries/openrouter-guides-features-service-tiers]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/openai]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/performance_thresholds]]
+- [[004-wiki/summaries/openrouter-guides-features-service-tiers]]

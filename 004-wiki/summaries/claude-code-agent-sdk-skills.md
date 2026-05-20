@@ -39,9 +39,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/skills]]
-- [[concepts/setting_sources]]
-- [[concepts/subagents]]
-- [[concepts/plugins]]
-- [[concepts/permissions]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/permissions]]

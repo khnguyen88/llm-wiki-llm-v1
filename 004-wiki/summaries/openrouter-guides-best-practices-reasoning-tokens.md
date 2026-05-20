@@ -44,13 +44,13 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/reasoning_tokens]]
-- [[concepts/reasoning_details]]
-- [[concepts/extended_thinking]]
-- [[concepts/tool_calling]]
-- [[entities/google_gemini]]
-- [[entities/openai]]
-- [[entities/deepseek]]
-- [[entities/grok]]
-- [[entities/qwen]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/reasoning_tokens]]
+- [[004-wiki/concepts/reasoning_details]]
+- [[004-wiki/concepts/extended_thinking]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/entities/google_gemini]]
+- [[004-wiki/entities/openai]]
+- [[004-wiki/entities/deepseek]]
+- [[004-wiki/entities/grok]]
+- [[004-wiki/entities/qwen]]

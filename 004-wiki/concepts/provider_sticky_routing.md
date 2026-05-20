@@ -17,7 +17,7 @@ provenance: extracted
 
 # Provider Sticky Routing
 
-OpenRouter's mechanism for maximizing [[concepts/prompt_caching|prompt cache]] hit rates by routing subsequent requests to the same provider endpoint after a cached request. It works automatically with both implicit caching (e.g., OpenAI, DeepSeek, Gemini 2.5) and explicit caching (e.g., Anthropic `cache_control` breakpoints). ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+OpenRouter's mechanism for maximizing [[004-wiki/concepts/prompt_caching|prompt cache]] hit rates by routing subsequent requests to the same provider endpoint after a cached request. It works automatically with both implicit caching (e.g., OpenAI, DeepSeek, Gemini 2.5) and explicit caching (e.g., Anthropic `cache_control` breakpoints). ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Key Points
 
@@ -35,6 +35,6 @@ The mechanism is transparent to the user and requires no configuration. It activ
 
 ## Related
 
-- [[concepts/prompt_caching]]
-- [[concepts/provider_routing]]
-- [[entities/openrouter]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/entities/openrouter]]

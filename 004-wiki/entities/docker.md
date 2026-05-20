@@ -36,10 +36,10 @@ A container platform providing isolation through Linux namespaces, where each co
 
 ## Related
 
-- [[entities/gvisor]]
-- [[entities/sandbox_runtime]]
-- [[entities/firecracker]]
-- [[concepts/sandbox_hosting]]
-- [[concepts/deployment_patterns]]
-- [[concepts/secure_deployment]]
-- [[concepts/cloud_environment]]
+- [[004-wiki/entities/gvisor]]
+- [[004-wiki/entities/sandbox_runtime]]
+- [[004-wiki/entities/firecracker]]
+- [[004-wiki/concepts/sandbox_hosting]]
+- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/concepts/secure_deployment]]
+- [[004-wiki/concepts/cloud_environment]]

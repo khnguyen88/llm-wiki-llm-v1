@@ -37,10 +37,10 @@ Each cloud provider has its own base URL environment variable for gateway routin
 
 ## Related
 
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[entities/microsoft_foundry]]
-- [[concepts/proxy_pattern]]
-- [[concepts/deployment_patterns]]
-- [[concepts/authentication]]
-- [[entities/openrouter]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/entities/microsoft_foundry]]
+- [[004-wiki/concepts/proxy_pattern]]
+- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/entities/openrouter]]

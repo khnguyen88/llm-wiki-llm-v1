@@ -47,8 +47,8 @@ Custom tools defined via the SDK's in-process MCP server are one of three MCP tr
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/agent_loop]]
-- [[concepts/skills]]
-- [[concepts/mcp]]
-- [[concepts/tool_search]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/concepts/tool_search]]

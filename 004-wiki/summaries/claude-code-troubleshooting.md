@@ -33,9 +33,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/troubleshooting]]
-- [[concepts/context_window]]
-- [[concepts/sessions]]
-- [[concepts/commands]]
-- [[entities/ripgrep]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/troubleshooting]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/commands]]
+- [[004-wiki/entities/ripgrep]]

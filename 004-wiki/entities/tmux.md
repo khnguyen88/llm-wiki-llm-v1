@@ -29,6 +29,6 @@ A terminal multiplexer that, by default, breaks two Claude Code features: Shift+
 
 ## Related
 
-- [[concepts/terminal_config]]
-- [[entities/claude_code]]
-- [[summaries/claude-code-terminal-config]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/summaries/claude-code-terminal-config]]

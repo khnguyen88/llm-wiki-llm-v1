@@ -31,7 +31,7 @@ Embedding models convert text into numerical token vectors for storage, querying
 
 ## Related
 
-- [[concepts/model_naming]]
-- [[concepts/rag]]
-- [[entities/openrouter]]
-- [[concepts/response_caching]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/rag]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/response_caching]]

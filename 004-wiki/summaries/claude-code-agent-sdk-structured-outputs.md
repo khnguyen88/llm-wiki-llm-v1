@@ -42,9 +42,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/structured_output]]
-- [[entities/zod]]
-- [[entities/pydantic]]
-- [[concepts/streaming_output]]
-- [[concepts/custom_tools]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/structured_output]]
+- [[004-wiki/entities/zod]]
+- [[004-wiki/entities/pydantic]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/custom_tools]]

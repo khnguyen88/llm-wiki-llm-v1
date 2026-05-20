@@ -34,8 +34,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/streaming_input]]
-- [[concepts/streaming_output]]
-- [[concepts/sessions]]
-- [[concepts/hooks]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/streaming_input]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/hooks]]

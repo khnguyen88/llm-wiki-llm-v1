@@ -37,8 +37,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/body_builder]]
-- [[concepts/auto_router]]
-- [[concepts/model_fallback]]
-- [[concepts/structured_output]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/body_builder]]
+- [[004-wiki/concepts/auto_router]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/concepts/structured_output]]

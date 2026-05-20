@@ -43,9 +43,9 @@ For API customers, the team insights table shows per-user metrics: members (auth
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/github]]
-- [[concepts/pr_attribution]]
-- [[concepts/observability]]
-- [[concepts/cost_tracking]]
-- [[concepts/zero_data_retention]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/github]]
+- [[004-wiki/concepts/pr_attribution]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/zero_data_retention]]

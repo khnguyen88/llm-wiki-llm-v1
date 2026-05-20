@@ -40,12 +40,12 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/exa]]
-- [[entities/firecrawl]]
-- [[concepts/server_tools]]
-- [[concepts/web_fetch]]
-- [[concepts/byok]]
-- [[concepts/tool_calling]]
-- [[summaries/openrouter-guides-features-server-tools-overview]]
-- [[summaries/openrouter-guides-features-server-tools-web-search]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/exa]]
+- [[004-wiki/entities/firecrawl]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/web_fetch]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-overview]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-web-search]]

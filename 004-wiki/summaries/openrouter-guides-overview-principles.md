@@ -41,8 +41,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/llm_gateway]]
-- [[concepts/provider_fallback]]
-- [[concepts/rate_limiting]]
-- [[concepts/routing_mode]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/routing_mode]]

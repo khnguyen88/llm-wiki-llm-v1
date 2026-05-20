@@ -42,25 +42,25 @@ BYOK issues can be debugged via the Activity page by examining the `provider_res
 
 ### BYOK with Cross-Model Routing
 
-When using BYOK with [[concepts/model_fallback]], `partition: "none"` in the `sort` object allows BYOK prioritization to work across model boundaries. Without this setting, the router always tries the primary model's endpoints first, even if a fallback model has a BYOK key available. With `partition: "none"`, the router can route to any model's BYOK endpoint based on the sort criteria, maximizing usage of the user's own API keys. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+When using BYOK with [[004-wiki/concepts/model_fallback]], `partition: "none"` in the `sort` object allows BYOK prioritization to work across model boundaries. Without this setting, the router always tries the primary model's endpoints first, even if a fallback model has a BYOK key available. With `partition: "none"`, the router can route to any model's BYOK endpoint based on the sort criteria, maximizing usage of the user's own API keys. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
 
 ### BYOK in Workspaces
 
-In OpenRouter [[concepts/workspaces|Workspaces]], BYOK provider keys can be configured per workspace or shared across multiple workspaces. Each workspace maintains its own BYOK configuration independent of other workspaces. ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+In OpenRouter [[004-wiki/concepts/workspaces|Workspaces]], BYOK provider keys can be configured per workspace or shared across multiple workspaces. Each workspace maintains its own BYOK configuration independent of other workspaces. ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[entities/azure_ai_services]]
-- [[concepts/provider_fallback]]
-- [[concepts/authentication]]
-- [[concepts/rate_limiting]]
-- [[summaries/openrouter-guides-overview-auth-byok]]
-- [[concepts/credit_system]]
-- [[concepts/provider_routing]]
-- [[concepts/model_fallback]]
-- [[concepts/workspaces]]
-- [[summaries/openrouter-faq]]
-- [[summaries/openrouter-guides-routing-provider-selection]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/entities/azure_ai_services]]
+- [[004-wiki/concepts/provider_fallback]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/summaries/openrouter-guides-overview-auth-byok]]
+- [[004-wiki/concepts/credit_system]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/concepts/workspaces]]
+- [[004-wiki/summaries/openrouter-faq]]
+- [[004-wiki/summaries/openrouter-guides-routing-provider-selection]]

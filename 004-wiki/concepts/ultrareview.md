@@ -21,7 +21,7 @@ provenance: extracted
 
 # Ultrareview
 
-Ultrareview is a deep code review feature that launches a fleet of reviewer agents in a [[entities/claude_code_web|cloud sandbox]] to find bugs in a branch or pull request. Unlike the local `/review` command, ultrareview independently reproduces and verifies every finding so results focus on real bugs rather than style suggestions. The feature is a public research preview available in Claude Code v2.1.86 and later. ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+Ultrareview is a deep code review feature that launches a fleet of reviewer agents in a [[004-wiki/entities/claude_code_web|cloud sandbox]] to find bugs in a branch or pull request. Unlike the local `/review` command, ultrareview independently reproduces and verifies every finding so results focus on real bugs rather than style suggestions. The feature is a public research preview available in Claude Code v2.1.86 and later. ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
 
 ## Key Points
 
@@ -50,11 +50,11 @@ Both `/review` and `/ultrareview` review code but target different stages. `/rev
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[concepts/code_review]]
-- [[concepts/non_interactive_mode]]
-- [[concepts/ultraplan]]
-- [[summaries/claude-code-ultrareview]]
-- [[summaries/claude-code-whats-new-2026-w16]]
-- [[summaries/claude-code-whats-new-2026-w17]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/code_review]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/concepts/ultraplan]]
+- [[004-wiki/summaries/claude-code-ultrareview]]
+- [[004-wiki/summaries/claude-code-whats-new-2026-w16]]
+- [[004-wiki/summaries/claude-code-whats-new-2026-w17]]

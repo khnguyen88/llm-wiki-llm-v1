@@ -45,13 +45,13 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[entities/github]]
-- [[entities/docker]]
-- [[concepts/cloud_environment]]
-- [[concepts/network_access]]
-- [[concepts/teleport]]
-- [[concepts/auto_fix]]
-- [[concepts/sessions]]
-- [[concepts/hooks]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/entities/github]]
+- [[004-wiki/entities/docker]]
+- [[004-wiki/concepts/cloud_environment]]
+- [[004-wiki/concepts/network_access]]
+- [[004-wiki/concepts/teleport]]
+- [[004-wiki/concepts/auto_fix]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/hooks]]

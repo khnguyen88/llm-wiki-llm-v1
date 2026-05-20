@@ -46,12 +46,12 @@ Code hosting platform that integrates with Claude Code analytics to provide cont
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[concepts/analytics]]
-- [[concepts/pr_attribution]]
-- [[concepts/network_access]]
-- [[concepts/auto_fix]]
-- [[concepts/code_review]]
-- [[concepts/commands]]
-- [[summaries/claude-code-web-quickstart]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/analytics]]
+- [[004-wiki/concepts/pr_attribution]]
+- [[004-wiki/concepts/network_access]]
+- [[004-wiki/concepts/auto_fix]]
+- [[004-wiki/concepts/code_review]]
+- [[004-wiki/concepts/commands]]
+- [[004-wiki/summaries/claude-code-web-quickstart]]

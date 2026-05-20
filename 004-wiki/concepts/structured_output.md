@@ -50,13 +50,13 @@ To ensure only structured-output-capable models handle a request, check `support
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/zod]]
-- [[entities/pydantic]]
-- [[entities/openrouter]]
-- [[concepts/streaming_output]]
-- [[concepts/custom_tools]]
-- [[concepts/agent_loop]]
-- [[concepts/response_healing]]
-- [[concepts/provider_routing]]
-- [[summaries/openrouter-guides-features-structured-outputs]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/zod]]
+- [[004-wiki/entities/pydantic]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/response_healing]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/summaries/openrouter-guides-features-structured-outputs]]

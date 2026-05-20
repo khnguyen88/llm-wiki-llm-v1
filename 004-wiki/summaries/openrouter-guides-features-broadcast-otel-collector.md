@@ -41,9 +41,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[entities/open_telemetry]]
-- [[entities/axiom]]
-- [[concepts/observability]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/entities/axiom]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/data_privacy]]

@@ -60,9 +60,9 @@ When the model calls the datetime tool, it receives a JSON response containing t
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/server_tools]]
-- [[concepts/tool_calling]]
-- [[concepts/web_search]]
-- [[concepts/web_fetch]]
-- [[summaries/openrouter-guides-features-server-tools-datetime]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/tool_calling]]
+- [[004-wiki/concepts/web_search]]
+- [[004-wiki/concepts/web_fetch]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-datetime]]

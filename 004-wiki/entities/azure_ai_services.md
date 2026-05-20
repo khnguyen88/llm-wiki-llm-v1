@@ -30,8 +30,8 @@ Microsoft Azure cloud service providing AI model deployments. Supported as a BYO
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[concepts/byok]]
-- [[concepts/authentication]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/authentication]]

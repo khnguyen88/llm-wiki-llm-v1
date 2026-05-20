@@ -27,7 +27,7 @@ An OpenRouter feature (currently in Beta) that lets users privately save and rev
 - Stored prompts and completions are viewable from the Logs page by clicking a generation, then switching between Prompt and Completion tabs; generation detail view also shows model, provider, token counts, and cost ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 - Only generations made after enabling the feature have stored content; prior generations are not retroactively logged ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 - Does not apply to requests routed through `eu.openrouter.ai`; EU-routed requests work normally but I/O logging is skipped ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Distinct from [[concepts/broadcast|Broadcast]] (which sends data to external platforms) and from Data Discount Logging (a separate Privacy setting that grants 1% discount in exchange for allowing OpenRouter to use data) ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Distinct from [[004-wiki/concepts/broadcast|Broadcast]] (which sends data to external platforms) and from Data Discount Logging (a separate Privacy setting that grants 1% discount in exchange for allowing OpenRouter to use data) ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 
 ## Details
 
@@ -39,7 +39,7 @@ OpenRouter does not access or use logged prompt and response data for model trai
 
 ### Comparison with Broadcast
 
-Both Input & Output Logging and [[concepts/broadcast|Broadcast]] are configured in workspace Observability settings and can be used together. Input & Output Logging stores data on OpenRouter for quick debugging and prompt optimization; Broadcast sends data to external observability platforms for production monitoring and analytics. ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+Both Input & Output Logging and [[004-wiki/concepts/broadcast|Broadcast]] are configured in workspace Observability settings and can be used together. Input & Output Logging stores data on OpenRouter for quick debugging and prompt optimization; Broadcast sends data to external observability platforms for production monitoring and analytics. ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 
 ### Comparison with Data Discount Logging
 
@@ -47,8 +47,8 @@ Input & Output Logging keeps data strictly private and is enabled in Observabili
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/observability]]
-- [[concepts/data_privacy]]
-- [[concepts/broadcast]]
-- [[concepts/zero_data_retention]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/zero_data_retention]]

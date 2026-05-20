@@ -38,13 +38,13 @@ provenance: extracted
 - The ultrareview confirmation dialog shows review scope, remaining free runs, and estimated cost before launch ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
 - If the repository is too large to bundle, Claude Code prompts the user to use PR mode instead ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
 - A stopped review archives the cloud session and partial findings are not returned ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
-- For automatic PR reviews without a CLI step, [[concepts/code_review|Code Review]] integrates directly with repositories and posts findings as inline PR comments ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
+- For automatic PR reviews without a CLI step, [[004-wiki/concepts/code_review|Code Review]] integrates directly with repositories and posts findings as inline PR comments ^[raw/document/claude code/claude-code-113-ultrareview-2026-04-29.md]
 
 ## Related
 
-- [[concepts/ultrareview]]
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[concepts/code_review]]
-- [[concepts/non_interactive_mode]]
-- [[concepts/ultraplan]]
+- [[004-wiki/concepts/ultrareview]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/code_review]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/concepts/ultraplan]]

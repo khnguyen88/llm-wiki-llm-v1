@@ -40,8 +40,8 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/auto_exacto]]
-- [[concepts/provider_routing]]
-- [[entities/openrouter]]
-- [[concepts/model_variants]]
-- [[concepts/performance_thresholds]]
+- [[004-wiki/concepts/auto_exacto]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/performance_thresholds]]

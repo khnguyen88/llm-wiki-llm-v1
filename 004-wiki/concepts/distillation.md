@@ -48,12 +48,12 @@ Multi-Teacher On-Policy Distillation is a variant where the student model sample
 
 ## Related
 
-- [[concepts/instruction_tuning]]
-- [[concepts/model_naming]]
-- [[concepts/on_policy_distillation]]
-- [[entities/deepseek]]
-- [[entities/ernie]]
-- [[entities/qwen]]
-- [[entities/openrouter]]
-- [[concepts/data_collection_policy]]
-- [[summaries/openrouter-guides-routing-provider-selection]]
+- [[004-wiki/concepts/instruction_tuning]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/on_policy_distillation]]
+- [[004-wiki/entities/deepseek]]
+- [[004-wiki/entities/ernie]]
+- [[004-wiki/entities/qwen]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/data_collection_policy]]
+- [[004-wiki/summaries/openrouter-guides-routing-provider-selection]]

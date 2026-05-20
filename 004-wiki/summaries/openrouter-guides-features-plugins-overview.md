@@ -45,12 +45,12 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/plugins]]
-- [[concepts/response_healing]]
-- [[concepts/context_compression]]
-- [[concepts/server_tools]]
-- [[concepts/model_variants]]
-- [[concepts/pdf_input]]
-- [[concepts/web_search]]
-- [[concepts/structured_output]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/response_healing]]
+- [[004-wiki/concepts/context_compression]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/pdf_input]]
+- [[004-wiki/concepts/web_search]]
+- [[004-wiki/concepts/structured_output]]

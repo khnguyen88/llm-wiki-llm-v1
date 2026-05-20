@@ -57,10 +57,10 @@ Organization admins have admin permissions across all workspaces and can view an
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/byok]]
-- [[concepts/provider_routing]]
-- [[concepts/observability]]
-- [[concepts/management_api_keys]]
-- [[concepts/authentication]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/byok]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/management_api_keys]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/data_privacy]]

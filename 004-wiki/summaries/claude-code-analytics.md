@@ -43,9 +43,9 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/github]]
-- [[concepts/analytics]]
-- [[concepts/pr_attribution]]
-- [[concepts/observability]]
-- [[concepts/cost_tracking]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/github]]
+- [[004-wiki/concepts/analytics]]
+- [[004-wiki/concepts/pr_attribution]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/cost_tracking]]

@@ -23,7 +23,7 @@ An open-source LLM engineering platform for tracing, evaluating, and debugging L
 ## Key Facts
 
 - Provides tracing, evaluation, and debugging capabilities for LLM applications ^[raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
-- Available as a [[concepts/broadcast|Broadcast]] destination in [[entities/openrouter|OpenRouter]], configured in Settings > Observability ^[raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
+- Available as a [[004-wiki/concepts/broadcast|Broadcast]] destination in [[004-wiki/entities/openrouter|OpenRouter]], configured in Settings > Observability ^[raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
 - Authentication uses a key pair (Secret Key and Public Key) created in Langfuse project Settings > API Keys ^[raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
 - Default Base URL is `https://us.cloud.langfuse.com`; configurable for other regions or self-hosted deployments ^[raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
 - Supports hierarchical trace structures with traces containing spans containing generations, controlled via the `trace` metadata field ^[raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
@@ -33,8 +33,8 @@ An open-source LLM engineering platform for tracing, evaluating, and debugging L
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/data_privacy]]
-- [[concepts/observability]]
-- [[summaries/openrouter-guides-features-broadcast-langfuse]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/summaries/openrouter-guides-features-broadcast-langfuse]]

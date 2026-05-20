@@ -56,7 +56,7 @@ The result: ERNIE 5.1 compresses total parameters to ~1/3 and active parameters 
 
 ## Disaggregated Fully-Asynchronous RL Training
 
-Baidu built a disaggregated RL infrastructure on [[entities/paddlepaddle|PaddlePaddle]] with four decoupled subsystems — training, inference, reward, and agent loop — centered on an RL Controller. Key innovations include: ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+Baidu built a disaggregated RL infrastructure on [[004-wiki/entities/paddlepaddle|PaddlePaddle]] with four decoupled subsystems — training, inference, reward, and agent loop — centered on an RL Controller. Key innovations include: ^[raw/articles/baidu-ernie-5.1-0508-release.md]
 
 | Innovation | Description | Benefit |
 |------------|-------------|---------|
@@ -93,12 +93,12 @@ ERNIE 5.1 emphasizes creative writing performance, claiming precise alignment of
 
 ## Related
 
-- [[entities/baidu]]
-- [[entities/ernie]]
-- [[entities/paddlepaddle]]
-- [[concepts/mixture_of_experts]]
-- [[concepts/distillation]]
-- [[concepts/elastic_training]]
-- [[concepts/disaggregated_rl]]
-- [[concepts/on_policy_distillation]]
-- [[entities/deepseek]]
+- [[004-wiki/entities/baidu]]
+- [[004-wiki/entities/ernie]]
+- [[004-wiki/entities/paddlepaddle]]
+- [[004-wiki/concepts/mixture_of_experts]]
+- [[004-wiki/concepts/distillation]]
+- [[004-wiki/concepts/elastic_training]]
+- [[004-wiki/concepts/disaggregated_rl]]
+- [[004-wiki/concepts/on_policy_distillation]]
+- [[004-wiki/entities/deepseek]]

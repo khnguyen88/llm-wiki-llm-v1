@@ -18,7 +18,7 @@ provenance: extracted
 
 # Troubleshoot Install
 
-Procedures for diagnosing and fixing installation, PATH, permission, binary compatibility, and authentication errors when installing or signing in to Claude Code. For runtime issues after Claude Code is working, see [[concepts/troubleshooting]]. ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
+Procedures for diagnosing and fixing installation, PATH, permission, binary compatibility, and authentication errors when installing or signing in to Claude Code. For runtime issues after Claude Code is working, see [[004-wiki/concepts/troubleshooting]]. ^[raw/document/claude code/claude-code-111-troubleshoot-install-2026-04-29.md]
 
 ## Key Points
 
@@ -54,8 +54,8 @@ Cloud provider credentials (Bedrock, Vertex, Foundry) that fail with `Could not 
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/troubleshooting]]
-- [[concepts/authentication]]
-- [[entities/docker]]
-- [[summaries/claude-code-troubleshoot-install]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/troubleshooting]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/entities/docker]]
+- [[004-wiki/summaries/claude-code-troubleshoot-install]]

@@ -27,14 +27,14 @@ An npm package (`@anthropic-ai/sandbox-runtime`) from Anthropic that provides li
 - Network isolation removes the network namespace (Linux) or uses Seatbelt profiles (macOS) to route traffic through a built-in proxy ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 - Configuration is JSON-based with allowlists for domains and filesystem paths ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 - Isolation strength is rated "good" with very low performance overhead and low complexity ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
-- Sandbox processes share the host kernel; a kernel vulnerability could theoretically enable escape, so kernel-level isolation requires [[entities/gvisor]] or a VM ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+- Sandbox processes share the host kernel; a kernel vulnerability could theoretically enable escape, so kernel-level isolation requires [[004-wiki/entities/gvisor]] or a VM ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 - The built-in proxy does not terminate or inspect encrypted traffic; domain fronting could potentially bypass the allowlist ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[entities/gvisor]]
-- [[entities/firecracker]]
-- [[concepts/sandbox_hosting]]
-- [[concepts/proxy_pattern]]
-- [[concepts/secure_deployment]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/gvisor]]
+- [[004-wiki/entities/firecracker]]
+- [[004-wiki/concepts/sandbox_hosting]]
+- [[004-wiki/concepts/proxy_pattern]]
+- [[004-wiki/concepts/secure_deployment]]

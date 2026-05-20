@@ -37,7 +37,7 @@ The tool relies on a code intelligence plugin ecosystem. Each plugin provides th
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/permissions]]
-- [[concepts/plugins]]
-- [[summaries/claude-code-tools-reference]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/summaries/claude-code-tools-reference]]

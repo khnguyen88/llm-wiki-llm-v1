@@ -40,8 +40,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/permissions]]
-- [[concepts/hooks]]
-- [[concepts/subagents]]
-- [[concepts/setting_sources]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/setting_sources]]

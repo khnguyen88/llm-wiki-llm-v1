@@ -48,10 +48,10 @@ If a video is not processing: verify the model supports video input (`input_moda
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/google_gemini]]
-- [[entities/google_vertex_ai]]
-- [[concepts/multimodal]]
-- [[concepts/vision_models]]
-- [[concepts/models_api]]
-- [[concepts/video_generation]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/google_gemini]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/vision_models]]
+- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/video_generation]]

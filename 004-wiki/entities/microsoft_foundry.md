@@ -36,10 +36,10 @@ Microsoft Azure service that provides access to Claude models and serves as a cl
 
 ## Related
 
-- [[entities/claude_code]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[concepts/authentication]]
-- [[concepts/deployment_patterns]]
-- [[concepts/llm_gateway]]
-- [[concepts/proxy_pattern]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/concepts/proxy_pattern]]

@@ -18,7 +18,7 @@ provenance: reingested
 
 ## Summary
 
-In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a condensed, six-step format. He reports shifting his token throughput from manipulating code to manipulating knowledge stored as markdown and images. The tweet serves as the practical companion to the architectural design document (see [[summaries/karpathy-github-llm-wiki]]), emphasizing "how it works in practice" over "what the architecture is." ^[raw/articles/karpathy-tweet-llm-wiki.md:4]
+In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a condensed, six-step format. He reports shifting his token throughput from manipulating code to manipulating knowledge stored as markdown and images. The tweet serves as the practical companion to the architectural design document (see [[004-wiki/summaries/karpathy-github-llm-wiki]]), emphasizing "how it works in practice" over "what the architecture is." ^[raw/articles/karpathy-tweet-llm-wiki.md:4]
 
 ## Six-Step Workflow
 
@@ -65,8 +65,8 @@ In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a co
 
 ## Related
 
-- [[concepts/llm_wiki]]
-- [[concepts/rag]]
-- [[concepts/memex]]
-- [[entities/obsidian]]
-- [[summaries/karpathy-github-llm-wiki]]
+- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/concepts/rag]]
+- [[004-wiki/concepts/memex]]
+- [[004-wiki/entities/obsidian]]
+- [[004-wiki/summaries/karpathy-github-llm-wiki]]

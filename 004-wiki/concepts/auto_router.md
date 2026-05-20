@@ -19,7 +19,7 @@ provenance: extracted
 
 # Auto Router
 
-An automatic model selection feature on [[entities/openrouter|OpenRouter]] that analyzes prompts and routes them to the optimal model from a curated pool, powered by [[entities/notdiamond|NotDiamond]]. Instead of manually specifying a model, developers set `model` to `openrouter/auto` and the router selects the best model based on prompt complexity, task type, and model capabilities. ^[raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md]
+An automatic model selection feature on [[004-wiki/entities/openrouter|OpenRouter]] that analyzes prompts and routes them to the optimal model from a curated pool, powered by [[004-wiki/entities/notdiamond|NotDiamond]]. Instead of manually specifying a model, developers set `model` to `openrouter/auto` and the router selects the best model based on prompt complexity, task type, and model capabilities. ^[raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md]
 
 ## Key Points
 
@@ -49,16 +49,16 @@ Configuration can be done per-request via the `plugins` parameter in the API cal
 
 ### Distinction from Other Routing Features
 
-The Auto Router solves the model *selection* problem (which model to use), which is distinct from [[concepts/model_fallback]] (which handles model *failure*) and [[concepts/provider_routing]] (which selects the best *provider* for a given model). [[concepts/auto_exacto]] optimizes provider ordering for tool-calling quality, while the Auto Router chooses the model itself. ^[raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md]
+The Auto Router solves the model *selection* problem (which model to use), which is distinct from [[004-wiki/concepts/model_fallback]] (which handles model *failure*) and [[004-wiki/concepts/provider_routing]] (which selects the best *provider* for a given model). [[004-wiki/concepts/auto_exacto]] optimizes provider ordering for tool-calling quality, while the Auto Router chooses the model itself. ^[raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md]
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/notdiamond]]
-- [[concepts/model_fallback]]
-- [[concepts/provider_routing]]
-- [[concepts/auto_exacto]]
-- [[concepts/llm_gateway]]
-- [[concepts/free_models_router]]
-- [[summaries/openrouter-guides-routing-routers-auto-router]]
-- [[summaries/openrouter-guides-routing-routers-free-models-router]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/notdiamond]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/auto_exacto]]
+- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/concepts/free_models_router]]
+- [[004-wiki/summaries/openrouter-guides-routing-routers-auto-router]]
+- [[004-wiki/summaries/openrouter-guides-routing-routers-free-models-router]]

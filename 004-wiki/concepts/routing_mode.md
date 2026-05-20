@@ -34,8 +34,8 @@ In Code only mode, no intent analysis occurs — all @mentions are treated as co
 
 ## Related
 
-- [[entities/slack]]
-- [[entities/claude_code]]
-- [[entities/claude_code_web]]
-- [[concepts/sessions]]
-- [[summaries/claude-code-slack]]
+- [[004-wiki/entities/slack]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/summaries/claude-code-slack]]

@@ -26,5 +26,5 @@ Guard (or guardian) models are LLMs designed to identify unsafe content or quest
 
 ## Related
 
-- [[concepts/model_naming]]
-- [[concepts/instruction_tuning]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/instruction_tuning]]

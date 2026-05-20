@@ -40,11 +40,11 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/context_compression]]
-- [[concepts/plugins]]
-- [[concepts/context_window]]
-- [[concepts/token_optimization]]
-- [[concepts/model_fallback]]
-- [[entities/openrouter]]
-- [[entities/anthropic]]
-- [[summaries/openrouter-guides-features-plugins-overview]]
+- [[004-wiki/concepts/context_compression]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/token_optimization]]
+- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/anthropic]]
+- [[004-wiki/summaries/openrouter-guides-features-plugins-overview]]

@@ -43,8 +43,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[concepts/webhook]]
-- [[entities/open_telemetry]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/webhook]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/data_privacy]]

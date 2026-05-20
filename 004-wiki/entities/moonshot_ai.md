@@ -26,6 +26,6 @@ LLM provider available on OpenRouter with automated prompt caching. Cache writes
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/prompt_caching]]
-- [[concepts/provider_sticky_routing]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/provider_sticky_routing]]

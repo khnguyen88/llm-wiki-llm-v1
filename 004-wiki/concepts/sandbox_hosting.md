@@ -43,13 +43,13 @@ Communication with sandboxed instances works by exposing ports; applications can
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/deployment_patterns]]
-- [[concepts/cost_tracking]]
-- [[concepts/agent_loop]]
-- [[concepts/secure_deployment]]
-- [[concepts/proxy_pattern]]
-- [[entities/sandbox_runtime]]
-- [[entities/gvisor]]
-- [[entities/firecracker]]
-- [[entities/docker]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/secure_deployment]]
+- [[004-wiki/concepts/proxy_pattern]]
+- [[004-wiki/entities/sandbox_runtime]]
+- [[004-wiki/entities/gvisor]]
+- [[004-wiki/entities/firecracker]]
+- [[004-wiki/entities/docker]]

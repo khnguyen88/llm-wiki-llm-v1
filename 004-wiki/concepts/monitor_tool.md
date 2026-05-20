@@ -41,10 +41,10 @@ Plugin-defined monitors extend this capability by declaring monitors that activa
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/permissions]]
-- [[concepts/plugins]]
-- [[entities/amazon_bedrock]]
-- [[entities/google_vertex_ai]]
-- [[entities/microsoft_foundry]]
-- [[summaries/claude-code-tools-reference]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/plugins]]
+- [[004-wiki/entities/amazon_bedrock]]
+- [[004-wiki/entities/google_vertex_ai]]
+- [[004-wiki/entities/microsoft_foundry]]
+- [[004-wiki/summaries/claude-code-tools-reference]]

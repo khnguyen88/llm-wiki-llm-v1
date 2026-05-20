@@ -42,10 +42,10 @@ provenance: extracted
 
 ## Related
 
-- [[entities/agent_sdk]]
-- [[concepts/subagents]]
-- [[concepts/agent_loop]]
-- [[concepts/skills]]
-- [[concepts/custom_tools]]
-- [[concepts/permissions]]
-- [[concepts/sessions]]
+- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/concepts/subagents]]
+- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/concepts/skills]]
+- [[004-wiki/concepts/custom_tools]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/sessions]]

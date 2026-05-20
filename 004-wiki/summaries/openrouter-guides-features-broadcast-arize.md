@@ -21,11 +21,11 @@ provenance: extracted
 
 ## Key Points
 
-- [[entities/arize_ai|Arize AI]] is an evaluation and observability platform offering agent tracing, evals, and prompt optimization; integrates with OpenRouter via Broadcast ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
+- [[004-wiki/entities/arize_ai|Arize AI]] is an evaluation and observability platform offering agent tracing, evals, and prompt optimization; integrates with OpenRouter via Broadcast ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Setup requires four configuration values: API Key, Space Key, Model ID, and an optional Base URL (default `https://otlp.arize.com`) ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Broadcast must be enabled in OpenRouter Settings > Observability before configuring any destination ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - The Test Connection button verifies the configuration; settings only persist if the test passes ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
-- Arize uses the [[entities/openinference|OpenInference]] semantic convention for tracing; custom metadata from the `trace` field is sent as span attributes in the OTLP payload ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
+- Arize uses the [[004-wiki/entities/openinference|OpenInference]] semantic convention for tracing; custom metadata from the `trace` field is sent as span attributes in the OTLP payload ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Five standard trace metadata keys map to Arize fields: `trace_id`, `trace_name`, `span_name`, `generation_name`, `parent_span_id` ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Privacy Mode strips prompt and completion content from traces while preserving token usage, costs, timing, model information, and custom metadata ^[raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 
@@ -37,8 +37,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/arize_ai]]
-- [[entities/openrouter]]
-- [[concepts/broadcast]]
-- [[entities/openinference]]
-- [[concepts/observability]]
+- [[004-wiki/entities/arize_ai]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/entities/openinference]]
+- [[004-wiki/concepts/observability]]

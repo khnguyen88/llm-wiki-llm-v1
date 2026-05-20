@@ -19,7 +19,7 @@ provenance: extracted
 
 ## Key Points
 
-- The Free Models Router uses model ID `openrouter/free` and automatically selects a free model at random from available free models on [[entities/openrouter|OpenRouter]] ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- The Free Models Router uses model ID `openrouter/free` and automatically selects a free model at random from available free models on [[004-wiki/entities/openrouter|OpenRouter]] ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
 - The router filters free models by required capabilities (vision, tool calling, structured outputs) before random selection ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
 - Completely free to use — no charge for the router or routed requests ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
 - Response includes a `model` field identifying which specific free model handled the request ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
@@ -38,8 +38,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/free_models_router]]
-- [[concepts/auto_router]]
-- [[concepts/model_variants]]
-- [[concepts/rate_limiting]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/free_models_router]]
+- [[004-wiki/concepts/auto_router]]
+- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/rate_limiting]]

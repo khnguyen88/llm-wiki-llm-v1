@@ -35,8 +35,8 @@ provenance: extracted
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/troubleshoot_install]]
-- [[concepts/troubleshooting]]
-- [[concepts/authentication]]
-- [[entities/docker]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/troubleshoot_install]]
+- [[004-wiki/concepts/troubleshooting]]
+- [[004-wiki/concepts/authentication]]
+- [[004-wiki/entities/docker]]

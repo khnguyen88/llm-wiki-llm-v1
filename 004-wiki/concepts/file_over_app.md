@@ -32,5 +32,5 @@ In multi-agent setups, the "File over App" philosophy extends naturally: multipl
 
 ## Related
 
-- [[concepts/llm_wiki]]
-- [[concepts/byoai]]
+- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/concepts/byoai]]

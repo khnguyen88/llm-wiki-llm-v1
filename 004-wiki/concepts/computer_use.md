@@ -59,9 +59,9 @@ The CLI and Desktop app share the same computer use engine but differ in several
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/mcp]]
-- [[concepts/permissions]]
-- [[concepts/browser_automation]]
-- [[concepts/non_interactive_mode]]
-- [[summaries/claude-code-computer-use]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/mcp]]
+- [[004-wiki/concepts/permissions]]
+- [[004-wiki/concepts/browser_automation]]
+- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/summaries/claude-code-computer-use]]

@@ -34,7 +34,7 @@ Session prefill enables deep-linking into Claude Code on the web from external s
 
 ## Related
 
-- [[entities/claude_code_web]]
-- [[concepts/sessions]]
-- [[concepts/cloud_environment]]
-- [[summaries/claude-code-web-quickstart]]
+- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/concepts/sessions]]
+- [[004-wiki/concepts/cloud_environment]]
+- [[004-wiki/summaries/claude-code-web-quickstart]]

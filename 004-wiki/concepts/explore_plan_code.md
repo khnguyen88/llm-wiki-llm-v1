@@ -35,7 +35,7 @@ Planning adds overhead, so it should be used selectively. For tasks where the sc
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/verification]]
-- [[concepts/context_window]]
-- [[concepts/failure_patterns]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/verification]]
+- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/failure_patterns]]

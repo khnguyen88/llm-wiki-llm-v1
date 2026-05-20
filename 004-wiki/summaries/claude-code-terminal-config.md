@@ -42,10 +42,10 @@ provenance: extracted
 
 ## Related
 
-- [[concepts/terminal_config]]
-- [[concepts/custom_themes]]
-- [[concepts/vim_editor_mode]]
-- [[concepts/hooks]]
-- [[concepts/statusline]]
-- [[entities/claude_code]]
-- [[entities/tmux]]
+- [[004-wiki/concepts/terminal_config]]
+- [[004-wiki/concepts/custom_themes]]
+- [[004-wiki/concepts/vim_editor_mode]]
+- [[004-wiki/concepts/hooks]]
+- [[004-wiki/concepts/statusline]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/tmux]]

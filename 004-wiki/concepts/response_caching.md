@@ -65,11 +65,11 @@ OpenRouter response caching operates at the request level before the call reache
 
 ## Related
 
-- [[entities/openrouter]]
-- [[concepts/prompt_caching]]
-- [[concepts/presets]]
-- [[concepts/zero_data_retention]]
-- [[concepts/embedding_models]]
-- [[concepts/rate_limiting]]
-- [[concepts/streaming_output]]
-- [[summaries/openrouter-guides-features-response-caching]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/presets]]
+- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/embedding_models]]
+- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/summaries/openrouter-guides-features-response-caching]]

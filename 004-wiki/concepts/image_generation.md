@@ -51,10 +51,10 @@ The server tool returns `{ "status": "ok", "imageUrl": "https://..." }` on succe
 
 ## Related
 
-- [[entities/openrouter]]
-- [[entities/sourceful]]
-- [[concepts/multimodal]]
-- [[concepts/models_api]]
-- [[concepts/streaming_output]]
-- [[concepts/server_tools]]
-- [[summaries/openrouter-guides-features-server-tools-image-generation]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/sourceful]]
+- [[004-wiki/concepts/multimodal]]
+- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/summaries/openrouter-guides-features-server-tools-image-generation]]

@@ -26,10 +26,10 @@ British computer scientist who coined the term "memoization" in his 1968 paper "
 - Robin Popplestone implemented Michie's memo function facility in POP-2
 - Preliminary tests showed memoized programs running 10-20x faster after 200 successive calls
 - Cited 322+ times according to Google Scholar
-- The concept directly underpins [[concepts/kv_cache|KV cache]] in transformer inference
+- The concept directly underpins [[004-wiki/concepts/kv_cache|KV cache]] in transformer inference
 
 ## Related
 
-- [[concepts/memoization]]
-- [[concepts/kv_cache]]
-- [[summaries/adam-rosler-kv-cache-2026-05-12]]
+- [[004-wiki/concepts/memoization]]
+- [[004-wiki/concepts/kv_cache]]
+- [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]]

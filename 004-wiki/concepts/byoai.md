@@ -43,5 +43,5 @@ The strongest expression of BYOAI is finetuning an open-source model on the wiki
 
 ## Related
 
-- [[concepts/llm_wiki]]
-- [[concepts/file_over_app]]
+- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/concepts/file_over_app]]

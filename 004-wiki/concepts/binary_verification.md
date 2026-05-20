@@ -44,6 +44,6 @@ The apt, dnf, and apk package repositories are all signed with the same Claude C
 
 ## Related
 
-- [[entities/claude_code]]
-- [[concepts/release_channels]]
-- [[concepts/secure_deployment]]
+- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/release_channels]]
+- [[004-wiki/concepts/secure_deployment]]

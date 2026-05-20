@@ -46,10 +46,10 @@ provenance: extracted
 
 ## Related
 
-- [[entities/grafana_cloud]]
-- [[entities/openrouter]]
-- [[entities/open_telemetry]]
-- [[concepts/broadcast]]
-- [[concepts/observability]]
-- [[concepts/traceql]]
-- [[concepts/data_privacy]]
+- [[004-wiki/entities/grafana_cloud]]
+- [[004-wiki/entities/openrouter]]
+- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/broadcast]]
+- [[004-wiki/concepts/observability]]
+- [[004-wiki/concepts/traceql]]
+- [[004-wiki/concepts/data_privacy]]

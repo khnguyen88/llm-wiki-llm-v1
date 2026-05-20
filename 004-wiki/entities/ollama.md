@@ -30,7 +30,7 @@ A local LLM inference tool that runs GGUF-format models via a command-line inter
 
 ## Related
 
-- [[concepts/gguf]]
-- [[concepts/quantization]]
-- [[concepts/model_naming]]
-- [[entities/hugging_face]]
+- [[004-wiki/concepts/gguf]]
+- [[004-wiki/concepts/quantization]]
+- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/entities/hugging_face]]
