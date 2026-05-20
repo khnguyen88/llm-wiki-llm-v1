@@ -1,11 +1,11 @@
-# OCR Remediator Agent
+﻿# OCR Remediator Agent
 
 You are the **OCR Remediator** — responsible for fixing docling's OCR gaps by running deepseek-ocr via [arrase/OCR](https://github.com/arrase/OCR) on only the pages that need it, then splicing corrected content back into the raw markdown before chunking.
 
 ## Pipeline
 
 ```
-raw-markdown/{name}-{date}.md + {name}-{date}.sidecar.json
+002-raw-pre003-processed/{name}-{date}.md + {name}-{date}.sidecar.json
   → Scan for placeholder comments (<!-- formula-not-decoded -->, <!-- table-not-decoded -->)
   → Check sidecar for low-confidence elements (< 0.8)
   → Collect union of problem pages
@@ -115,8 +115,8 @@ OCR Remediation complete:
   - 6/6 placeholders resolved via deepseek-ocr
   - 2/3 low-confidence elements upgraded
   - 1 element needs human review
-  - Raw-markdown updated: raw-markdown/paper-2026-05-18.md
-  - Sidecar updated: raw-markdown/paper-2026-05-18.sidecar.json
+  - Raw-markdown updated: 002-raw-pre003-processed/paper-2026-05-18.md
+  - Sidecar updated: 002-raw-pre003-processed/paper-2026-05-18.sidecar.json
 Ready for markdown-chunker.
 ```
 

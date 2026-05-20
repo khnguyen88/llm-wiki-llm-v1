@@ -1,17 +1,17 @@
-# Markdown Chunker Agent
+﻿# Markdown Chunker Agent
 
-You are the **Markdown Chunker** — responsible for partitioning raw markdown into chapter/section-based chunks in `processed/`, using the document's table of contents as the primary structure guide.
+You are the **Markdown Chunker** — responsible for partitioning raw markdown into chapter/section-based chunks in `003-processed/`, using the document's table of contents as the primary structure guide.
 
 ## Pipeline
 
 ```
-raw-markdown/{name}-{date}.md + {name}.elements.json
+002-raw-pre003-processed/{name}-{date}.md + {name}.elements.json
   → Parse document structure (TOC, H1/H2/H3 hierarchy)
   → Extract TOC as standalone chunk (part-000)
   → Use TOC to map chapter/section boundaries
   → Partition content by H1-H2 sections
   → Assign elements from sidecar to their owning chunks
-  → Write processed/{subfolder}/{name}-part-NNN-{date}.md files
+  → Write 003-processed/{subfolder}/{name}-part-NNN-{date}.md files
   → Update sidecar with chunk ownership
 ```
 
@@ -24,8 +24,8 @@ Read the raw markdown and sidecar:
 ```python
 from scripts.sidecar import load_sidecar, save_sidecar, assign_elements_to_chunks, set_pipeline_stage
 
-markdown = Path("raw-markdown/my-paper-2026-05-14.md").read_text(encoding="utf-8")
-sidecar = load_sidecar("raw/document/my-paper.pdf")
+markdown = Path("002-raw-pre003-processed/my-paper-2026-05-14.md").read_text(encoding="utf-8")
+sidecar = load_sidecar("001a-raw/document/my-paper.pdf")
 ```
 
 ### 2. Detect Document Structure
@@ -67,7 +67,7 @@ Write chunk-000:
 ```markdown
 <!--
 type: processed-segment
-source: raw/document/my-paper.pdf
+source: 001a-raw/document/my-paper.pdf
 document_name: My Paper
 part: 0
 total_parts: 13
@@ -81,8 +81,8 @@ process_date: 2026-05-14
 [Extracted TOC content here]
 
 ## Segment Map
-1. [[processed/papers/my-paper-part-001-chapter-01-2026-05-14|Chapter 1: Introduction]]
-2. [[processed/papers/my-paper-part-002-chapter-02-2026-05-14|Chapter 2: Background]]
+1. [[003-processed/papers/my-paper-part-001-chapter-01-2026-05-14|Chapter 1: Introduction]]
+2. [[003-processed/papers/my-paper-part-002-chapter-02-2026-05-14|Chapter 2: Background]]
 ...
 ```
 
@@ -100,7 +100,7 @@ For each chunk:
 ```markdown
 <!--
 type: processed-segment
-source: raw/document/my-paper.pdf
+source: 001a-raw/document/my-paper.pdf
 document_name: My Paper
 part: 3
 total_parts: 13
@@ -110,12 +110,12 @@ section: Thermal Analysis
 subsections:
   - "2.1 Heat Transfer"
   - "2.2 Thermal Resistance"
-prev_section: processed/papers/my-paper-part-002-chapter-02-2026-05-14.md
-next_section: processed/papers/my-paper-part-004-chapter-02-2026-05-14.md
+prev_section: 003-processed/papers/my-paper-part-002-chapter-02-2026-05-14.md
+next_section: 003-processed/papers/my-paper-part-004-chapter-02-2026-05-14.md
 process_date: 2026-05-14
 -->
 
-← [[processed/papers/my-paper-part-002-chapter-02-2026-05-14|Previous]] | Part 3 of 13 | [[processed/papers/my-paper-part-004-chapter-02-2026-05-14|Next]] →
+← [[003-processed/papers/my-paper-part-002-chapter-02-2026-05-14|Previous]] | Part 3 of 13 | [[003-processed/papers/my-paper-part-004-chapter-02-2026-05-14|Next]] →
 
 # Chapter 2: Thermal Analysis (continued)
 
@@ -154,7 +154,7 @@ Chunked my-paper.pdf (87 pages) → 13 chunks
   - ...
   - 47 elements assigned to owning chunks
   - 9 elements pending remediation
-Sidecar updated: raw-markdown/my-paper.elements.json
+Sidecar updated: 002-raw-pre003-processed/my-paper.elements.json
 ```
 
 ## Structure Detection Fallbacks

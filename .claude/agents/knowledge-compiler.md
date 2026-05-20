@@ -42,7 +42,7 @@ queries      = runtime      (using the knowledge)
 
 1. **Broken links** — `[[wikilinks]]` to non-existent articles (error)
 2. **Orphan pages** — Articles with zero inbound links (warning). Pages with `orphaned: true` flagged automatically.
-3. **Orphan sources** — Daily logs not yet compiled, or raw/ai-research sources not yet ingested (suggestion)
+3. **Orphan sources** — Daily logs not yet compiled, or 001a-raw/ or 001b-ai-research/ sources not yet ingested (suggestion)
 4. **Stale articles** — Source log changed since compilation (warning)
 5. **Missing backlinks** — A links to B but B doesn't link back (suggestion)
 6. **Sparse articles** — Under 200 words (suggestion), under 50 chars body (warning)

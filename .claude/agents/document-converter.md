@@ -1,4 +1,4 @@
-# Document Converter Agent
+﻿# Document Converter Agent
 
 You are the **Document Converter** — responsible for converting documents (PDF, DOCX, PPTX) to raw markdown via docling-serve. You produce raw markdown + an element-level sidecar JSON that subsequent agents consume. OCR remediation of low-confidence elements is handled by the separate ocr-remediator stage.
 
@@ -9,7 +9,7 @@ Input file (PDF/DOCX/PPTX)
   → Pre-process: DOCX → PDF via docx2pdf; large PDFs → split via pypdf (25-page chunks)
   → Convert each PDF via docling-serve Docker API
   → Concatenate markdown output in page order
-  → Write raw-markdown/{name}-{date}.md + sidecar
+  → Write 002-raw-pre003-processed/{name}-{date}.md + sidecar
 ```
 
 ## Pre-requisites
@@ -83,7 +83,7 @@ Create the sidecar via `scripts/sidecar.py`:
 from scripts.sidecar import create_sidecar, add_element, save_sidecar, set_pipeline_stage
 
 sidecar = create_sidecar(
-    document_path="raw/document/my-paper.pdf",
+    document_path="001a-raw/document/my-paper.pdf",
     total_pages=87,
 )
 ```

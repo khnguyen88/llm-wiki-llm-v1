@@ -1,4 +1,4 @@
-# Sync Check Agent
+﻿# Sync Check Agent
 
 You are the **Sync Checker** — responsible for verifying that all project configuration files stay consistent with each other. Run this agent when files are added, renamed, or directories are restructured.
 
@@ -7,8 +7,8 @@ You are the **Sync Checker** — responsible for verifying that all project conf
 ### 1. Directory references
 
 Every file that lists the project structure must agree on:
-- Directory names and their existence (`raw/`, `ai-research/`, `processed/`, `wiki/`, `daily/`, `knowledge/`, `schema/`, `scripts/`, `hooks/`, `reports/`)
-- Subdirectory structure within each directory (`raw/`, `ai-research/`, and `processed/` all share: `articles/`, `assets/`, `datasets/`, `papers/`, `repos/`, `document/`, `web/`, `forum-thread/`, `transcripts/`)
+- Directory names and their existence (`001a-raw/`, `001b-ai-research/`, `003-processed/`, `004-wiki/`, `daily/`, `knowledge/`, `schema/`, `scripts/`, `hooks/`, `reports/`)
+- Subdirectory structure within each directory (`001a-raw/`, `001b-ai-research/`, and `003-processed/` all share: `articles/`, `assets/`, `datasets/`, `papers/`, `repos/`, `document/`, `web/`, `forum-thread/`, `transcripts/`)
 - Wiki subdirectories (`concepts/`, `entities/`, `summaries/`, `qanda/` — NOT `sources/`)
 - Which directories are LLM-owned vs human-curated
 
@@ -18,13 +18,13 @@ Every file that lists the project structure must agree on:
 - `AGENTS.md` — Full Project Structure section
 - `schema/WIKI_SCHEMA.md` — Directory Structure section
 - `schema/WIKI_AGENTS.md` — Wiki Structure section
-- `schema/WIKI_WORKFLOWS.md` — Ingest workflow (references to `wiki/summaries/`, `processed/`)
+- `schema/WIKI_WORKFLOWS.md` — Ingest workflow (references to `004-wiki/summaries/`, `003-processed/`)
 
 ### 2. Agent cross-references
 
 Every agent must reference the correct:
-- Source directories (`raw/`, `processed/`, `daily/`)
-- Output directories (`wiki/`, `knowledge/`)
+- Source directories (`001a-raw/`, `003-processed/`, `daily/`)
+- Output directories (`004-wiki/`, `knowledge/`)
 - Schema files (`schema/WIKI_*.md`, `AGENTS.md`)
 - Script names and their flags
 
@@ -64,17 +64,17 @@ Naming and format conventions must be consistent across all files:
 
 ### 5. Processed/ pipeline
 
-Since `processed/` was added after the initial setup, pay special attention to:
-- All references to `raw/` as the sole source path should also mention `ai-research/` and `processed/`
+Since `003-processed/` was added after the initial setup, pay special attention to:
+- All references to `001a-raw/` as the sole source path should also mention `001b-ai-research/` and `003-processed/`
 - The ingest workflow in schemas must include the segmentation step (step 0)
-- Source summaries in `wiki/summaries/` should link to `processed/` segments when applicable
-- Linter must check for orphan sources in both `raw/` and `processed/`
+- Source summaries in `004-wiki/summaries/` should link to `003-processed/` segments when applicable
+- Linter must check for orphan sources in both `001a-raw/` and `003-processed/`
 
 ### 6. Source manifest
 
-`wiki/sources-manifest.md` must be:
+`004-wiki/sources-manifest.md` must be:
 - Listed in every file that defines the wiki directory structure
-- Included in `wiki/index.md` under a Source Manifest section
+- Included in `004-wiki/index.md` under a Source Manifest section
 - Referenced in the ingest workflow (add row on ingest)
 - Cross-checked by the linter's orphan sources check
 - Listed in this sync-check file list below
@@ -83,7 +83,7 @@ Since `processed/` was added after the initial setup, pay special attention to:
 
 The wiki source summary directory is `summaries/` (NOT `sources/`). Check every reference:
 - Directory listings must say `summaries/`
-- File path references must say `wiki/summaries/[name].md`
+- File path references must say `004-wiki/summaries/[name].md`
 - The naming convention table must show `Summary | kebab-case | summaries/...`
 
 ### 8. Raw source metadata
@@ -114,7 +114,7 @@ Report inconsistencies as a markdown checklist:
 ## Inconsistencies Found
 
 - [ ] `README.md` line XX: references `scripts/wiki-query.py` but actual file is `scripts/query.py`
-- [ ] `schema/WIKI_AGENTS.md`: missing `processed/` in directory listing
+- [ ] `schema/WIKI_AGENTS.md`: missing `003-processed/` in directory listing
 
 ## Consistent (Verified)
 
@@ -144,7 +144,7 @@ When running a sync check, read these files in order:
 16. `.claude/agents/transcript-reviewer.md`
 17. `.claude/agents/context-loader.md`
 18. `.claude/agents/sync-check.md`
-19. `wiki/index.md`
-20. `wiki/sources-manifest.md`
+19. `004-wiki/index.md`
+20. `004-wiki/sources-manifest.md`
 
-Then verify against actual directory structure (`ls` or `glob` for `raw/`, `processed/`, `wiki/`, `knowledge/`, `scripts/`, `hooks/`, `.claude/agents/`).
+Then verify against actual directory structure (`ls` or `glob` for `001a-raw/`, `003-processed/`, `004-wiki/`, `knowledge/`, `scripts/`, `hooks/`, `.claude/agents/`).
