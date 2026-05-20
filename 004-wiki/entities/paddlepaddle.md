@@ -17,14 +17,14 @@ provenance: extracted
 
 # PaddlePaddle
 
-Baidu's deep learning framework, used as the foundation for ERNIE's training infrastructure. PaddlePaddle provides a unified training-inference framework that supports ERNIE 5.1's disaggregated RL architecture, including FP8 operator libraries and the Rollout Router Replay (R3) technique for minimizing training-inference divergence in MoE models. ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+Baidu's deep learning framework, used as the foundation for ERNIE's training infrastructure. PaddlePaddle provides a unified training-inference framework that supports ERNIE 5.1's disaggregated RL architecture, including FP8 operator libraries and the Rollout Router Replay (R3) technique for minimizing training-inference divergence in MoE models. ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## Key Facts
 
-- Serves as the training platform for ERNIE model family ^[raw/articles/baidu-ernie-5.1-0508-release.md]
-- Provides unified training-inference framework supporting FP8 precision ^[raw/articles/baidu-ernie-5.1-0508-release.md]
-- Enables Rollout Router Replay (R3) for training-inference consistency in MoE models ^[raw/articles/baidu-ernie-5.1-0508-release.md]
-- Supports heterogeneous elastic resource scheduling (CPU pooling for verifiers and sandboxes) ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+- Serves as the training platform for ERNIE model family ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
+- Provides unified training-inference framework supporting FP8 precision ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
+- Enables Rollout Router Replay (R3) for training-inference consistency in MoE models ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
+- Supports heterogeneous elastic resource scheduling (CPU pooling for verifiers and sandboxes) ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## Related
 

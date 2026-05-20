@@ -20,25 +20,25 @@ provenance: extracted
 
 ## Key Points
 
-- The `:exacto` suffix on a model slug explicitly activates quality-first provider sorting, overriding the default price-weighted routing ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Exacto uses three signal classes: tool-calling success/reliability from real traffic, provider performance metrics (throughput, latency), and benchmark/evaluation data ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Providers with strong track records are moved to the front; limited-data providers are kept behind established performers; poor-quality providers are deprioritized further ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Explicit sort preferences (price, throughput, latency) take precedence over Exacto sorting ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Exacto differs from [[004-wiki/concepts/auto_exacto]] in that it is opt-in via the `:exacto` suffix, whereas Auto Exacto runs automatically on tool-calling requests ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Can be used alongside the `models` fallback array — any model with `:exacto` will request Exacto sorting when selected ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Most useful on models that support tool calling, have multiple providers, and show meaningful variance in tool-use reliability ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- The `:exacto` suffix on a model slug explicitly activates quality-first provider sorting, overriding the default price-weighted routing ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Exacto uses three signal classes: tool-calling success/reliability from real traffic, provider performance metrics (throughput, latency), and benchmark/evaluation data ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Providers with strong track records are moved to the front; limited-data providers are kept behind established performers; poor-quality providers are deprioritized further ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Explicit sort preferences (price, throughput, latency) take precedence over Exacto sorting ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Exacto differs from [[004-wiki/concepts/auto_exacto]] in that it is opt-in via the `:exacto` suffix, whereas Auto Exacto runs automatically on tool-calling requests ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Can be used alongside the `models` fallback array — any model with `:exacto` will request Exacto sorting when selected ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Most useful on models that support tool calling, have multiple providers, and show meaningful variance in tool-use reliability ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 
 ## Quotes
 
-> "Exacto is a routing shortcut for quality-first provider ordering. Unlike standard routing, which primarily favors lower-cost providers, Exacto prefers providers with stronger signals for tool-calling reliability and deprioritizes weaker performers." ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+> "Exacto is a routing shortcut for quality-first provider ordering. Unlike standard routing, which primarily favors lower-cost providers, Exacto prefers providers with stronger signals for tool-calling reliability and deprioritizes weaker performers." ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 
-> "Providers serving the same model can vary meaningfully in tool-use behavior. Exacto gives you an explicit, request-level way to prefer higher-quality providers when you care more about tool-calling reliability than the default price-weighted route." ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+> "Providers serving the same model can vary meaningfully in tool-use behavior. Exacto gives you an explicit, request-level way to prefer higher-quality providers when you care more about tool-calling reliability than the default price-weighted route." ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 
 ## Notes
 
-- The `:exacto` suffix works with the OpenRouter TypeScript SDK (`@openrouter/sdk`), the OpenAI-compatible SDK, and direct cURL requests ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Exacto is a virtual variant with no separate endpoint pool — it modifies routing behavior only ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
-- Feedback on Exacto is collected via a Notion form linked in the documentation ^[raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- The `:exacto` suffix works with the OpenRouter TypeScript SDK (`@openrouter/sdk`), the OpenAI-compatible SDK, and direct cURL requests ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Exacto is a virtual variant with no separate endpoint pool — it modifies routing behavior only ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
+- Feedback on Exacto is collected via a Notion form linked in the documentation ^[001a-raw/document/openrouter/openrouter-022-guides-routing-model-variants-exacto-2026-04-29.md]
 
 ## Related
 

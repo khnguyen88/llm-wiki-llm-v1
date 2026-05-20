@@ -20,13 +20,13 @@ provenance: extracted
 
 ## Key Points
 
-- The `:nitro` variant is an alias for sorting providers by throughput, prioritizing providers with the highest tokens-per-second rate ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
-- Activated by appending `:nitro` to any model ID (e.g., `"openai/gpt-5.2:nitro"`) ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
-- Exactly equivalent to setting `provider.sort` to `"throughput"` in the request body ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- The `:nitro` variant is an alias for sorting providers by throughput, prioritizing providers with the highest tokens-per-second rate ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- Activated by appending `:nitro` to any model ID (e.g., `"openai/gpt-5.2:nitro"`) ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- Exactly equivalent to setting `provider.sort` to `"throughput"` in the request body ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
 
 ## Quotes
 
-> The `:nitro` variant is an alias for sorting providers by throughput. When you use `:nitro`, OpenRouter will prioritize providers with the highest throughput (tokens per second). ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+> The `:nitro` variant is an alias for sorting providers by throughput. When you use `:nitro`, OpenRouter will prioritize providers with the highest throughput (tokens per second). ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
 
 ## Notes
 

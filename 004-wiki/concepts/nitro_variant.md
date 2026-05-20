@@ -18,14 +18,14 @@ provenance: extracted
 
 # Nitro Variant
 
-A dynamic model variant on OpenRouter that sorts providers by throughput (tokens per second). Appending `:nitro` to a model slug causes OpenRouter to prioritize providers delivering the fastest response times. ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+A dynamic model variant on OpenRouter that sorts providers by throughput (tokens per second). Appending `:nitro` to a model slug causes OpenRouter to prioritize providers delivering the fastest response times. ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
 
 ## Key Points
 
-- Activated by appending `:nitro` to any model ID (e.g., `"openai/gpt-5.2:nitro"`) ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
-- Functionally equivalent to setting `provider.sort` to `"throughput"` in the request body ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
-- Prioritizes providers with the highest throughput (tokens per second) over cost or latency ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
-- As a dynamic variant, `:nitro` can be applied to any model on OpenRouter, not just specific ones ^[raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- Activated by appending `:nitro` to any model ID (e.g., `"openai/gpt-5.2:nitro"`) ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- Functionally equivalent to setting `provider.sort` to `"throughput"` in the request body ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- Prioritizes providers with the highest throughput (tokens per second) over cost or latency ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
+- As a dynamic variant, `:nitro` can be applied to any model on OpenRouter, not just specific ones ^[001a-raw/document/openrouter/openrouter-025-guides-routing-model-variants-nitro-2026-04-29.md]
 
 ## Details
 

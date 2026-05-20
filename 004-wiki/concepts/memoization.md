@@ -17,7 +17,7 @@ provenance: merged
 
 # Memoization
 
-An optimization technique coined by Donald Michie in 1968 in his paper "'Memo' Functions and Machine Learning" (Nature, Vol. 218). The term derives from "memorandum" ("to be remembered"). Michie proposed that functions should have both a "rule part" (computational procedure) and a "rote part" (lookup table), with the machine deciding which to use based on expediency.^[raw/transcripts/adam-rosler-2026-05-12.md]
+An optimization technique coined by Donald Michie in 1968 in his paper "'Memo' Functions and Machine Learning" (Nature, Vol. 218). The term derives from "memorandum" ("to be remembered"). Michie proposed that functions should have both a "rule part" (computational procedure) and a "rote part" (lookup table), with the machine deciding which to use based on expediency.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Core Principles
 

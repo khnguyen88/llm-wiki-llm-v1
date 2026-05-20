@@ -20,19 +20,19 @@ provenance: extracted
 
 # Sentry
 
-An application monitoring platform that helps developers identify and fix issues in real-time, with AI monitoring capabilities for tracking LLM performance and errors. ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+An application monitoring platform that helps developers identify and fix issues in real-time, with AI monitoring capabilities for tracking LLM performance and errors. ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
 ## Key Facts
 
-- Uses OpenTelemetry (OTLP) for trace ingestion; both an OTLP Traces Endpoint and DSN are required for authentication and trace routing ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- OTLP Traces Endpoint is obtained from Settings > Projects > [Project] > SDK Setup > Client Keys (DSN) > OpenTelemetry tab; URL format is `https://o{org_id}.ingest.us.sentry.io/api/{project_id}/integration/otlp/v1/traces` ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- DSN is obtained from the same SDK Setup page; format is `https://{key}@o{org_id}.ingest.us.sentry.io/{project_id}` ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on [[004-wiki/entities/openrouter|OpenRouter]], receiving LLM traces via OTLP protocol ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Maps five standard `trace` metadata keys: `trace_id` → Trace ID, `trace_name` → Transaction Name, `span_name` → Span Description, `generation_name` → Span Description, `parent_span_id` → Parent Span ID ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Custom metadata from the `trace` field maps to `trace.metadata.*` span attributes; the `user` field maps to `user.id` and `session_id` maps to `session.id` ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Automatically correlates LLM traces with existing application error and performance data when `parent_span_id` is provided ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Traces can be viewed in Sentry's Performance or Traces view ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Uses OpenTelemetry (OTLP) for trace ingestion; both an OTLP Traces Endpoint and DSN are required for authentication and trace routing ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- OTLP Traces Endpoint is obtained from Settings > Projects > [Project] > SDK Setup > Client Keys (DSN) > OpenTelemetry tab; URL format is `https://o{org_id}.ingest.us.sentry.io/api/{project_id}/integration/otlp/v1/traces` ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- DSN is obtained from the same SDK Setup page; format is `https://{key}@o{org_id}.ingest.us.sentry.io/{project_id}` ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on [[004-wiki/entities/openrouter|OpenRouter]], receiving LLM traces via OTLP protocol ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Maps five standard `trace` metadata keys: `trace_id` → Trace ID, `trace_name` → Transaction Name, `span_name` → Span Description, `generation_name` → Span Description, `parent_span_id` → Parent Span ID ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Custom metadata from the `trace` field maps to `trace.metadata.*` span attributes; the `user` field maps to `user.id` and `session_id` maps to `session.id` ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Automatically correlates LLM traces with existing application error and performance data when `parent_span_id` is provided ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Traces can be viewed in Sentry's Performance or Traces view ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
 ## Related
 

@@ -21,19 +21,19 @@ provenance: merged
 
 # Scheduled Tasks
 
-Running Claude Code tasks automatically on a recurring basis or at specific times. Four approaches exist, each suited to different deployment contexts and access requirements. ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+Running Claude Code tasks automatically on a recurring basis or at specific times. Four approaches exist, each suited to different deployment contexts and access requirements. ^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 
 ## Key Points
 
-- **Routines** run on Anthropic-managed infrastructure and can operate even when your computer is off; they also support API call and GitHub event triggers in addition to schedules; configure at claude.ai/code/routines; Routines fire templated cloud agents from a schedule, GitHub event, or API call ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md] ^[raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
-- **Desktop scheduled tasks** run on your local machine via the Claude Code desktop app, providing direct access to local files, tools, and uncommitted changes ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
-- **GitHub Actions** run in your CI pipeline, suited for tasks tied to repo events (opened PRs) or cron schedules alongside workflow config ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
-- **`/loop`** is an in-session CLI command for quick polling while a session is open; tasks stop when you start a new conversation, but `--resume` and `--continue` can restore unexpired ones ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- **Routines** run on Anthropic-managed infrastructure and can operate even when your computer is off; they also support API call and GitHub event triggers in addition to schedules; configure at claude.ai/code/routines; Routines fire templated cloud agents from a schedule, GitHub event, or API call ^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md] ^[001a-raw/document/claude code/claude-code-117-whats-new-2026-04-29.md]
+- **Desktop scheduled tasks** run on your local machine via the Claude Code desktop app, providing direct access to local files, tools, and uncommitted changes ^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- **GitHub Actions** run in your CI pipeline, suited for tasks tied to repo events (opened PRs) or cron schedules alongside workflow config ^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- **`/loop`** is an in-session CLI command for quick polling while a session is open; tasks stop when you start a new conversation, but `--resume` and `--continue` can restore unexpired ones ^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 
-- **CronCreate**, **CronDelete**, and **CronList** are session-scoped tools for managing scheduled prompts within a running session; CronCreate schedules a recurring or one-shot prompt, CronDelete cancels a scheduled task by ID, and CronList lists all scheduled tasks in the session ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+- **CronCreate**, **CronDelete**, and **CronList** are session-scoped tools for managing scheduled prompts within a running session; CronCreate schedules a recurring or one-shot prompt, CronDelete cancels a scheduled task by ID, and CronList lists all scheduled tasks in the session ^[001a-raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
 
-- Cron tasks are session-scoped and are restored on `--resume` or `--continue` if they have not expired ^[raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
-- When writing prompts for scheduled tasks, be explicit about what success looks like and what to do with results, since the task runs autonomously and cannot ask clarifying questions ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+- Cron tasks are session-scoped and are restored on `--resume` or `--continue` if they have not expired ^[001a-raw/document/claude code/claude-code-109-tools-reference-2026-04-29.md]
+- When writing prompts for scheduled tasks, be explicit about what success looks like and what to do with results, since the task runs autonomously and cannot ask clarifying questions ^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 
 ## Details
 
@@ -44,9 +44,9 @@ Running Claude Code tasks automatically on a recurring basis or at specific time
 | GitHub Actions | Your CI pipeline | Tasks tied to repo events like opened PRs, or cron schedules that should live alongside workflow config |
 | `/loop` | Current CLI session | Quick polling while a session is open; tasks stop when you start a new conversation |
 
-^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 
-Scheduled task prompts should define success criteria explicitly and specify what to do with results, since the task cannot ask for clarification mid-execution. For example: "Review open PRs labeled `needs-review`, leave inline comments on any issues, and post a summary in the `#eng-reviews` Slack channel." ^[raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
+Scheduled task prompts should define success criteria explicitly and specify what to do with results, since the task cannot ask for clarification mid-execution. For example: "Review open PRs labeled `needs-review`, leave inline comments on any issues, and post a summary in the `#eng-reviews` Slack channel." ^[001a-raw/document/claude code/claude-code-048-common-workflows-2026-04-29.md]
 
 ## Related
 

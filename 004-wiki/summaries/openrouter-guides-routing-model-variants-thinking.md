@@ -20,11 +20,11 @@ provenance: extracted
 
 ## Key Points
 
-- The `:thinking` variant enables extended reasoning capabilities for complex problem-solving tasks ^[raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
-- Accessed by appending `:thinking` to any model ID (e.g., `"deepseek/deepseek-r1:thinking"`) ^[raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
-- Provides more thorough analysis and step-by-step problem solving via chain-of-thought reasoning ^[raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
-- Particularly useful for complex tasks that benefit from chain-of-thought reasoning ^[raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
-- Related to OpenRouter's Reasoning Tokens feature for controlling reasoning output ^[raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
+- The `:thinking` variant enables extended reasoning capabilities for complex problem-solving tasks ^[001a-raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
+- Accessed by appending `:thinking` to any model ID (e.g., `"deepseek/deepseek-r1:thinking"`) ^[001a-raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
+- Provides more thorough analysis and step-by-step problem solving via chain-of-thought reasoning ^[001a-raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
+- Particularly useful for complex tasks that benefit from chain-of-thought reasoning ^[001a-raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
+- Related to OpenRouter's Reasoning Tokens feature for controlling reasoning output ^[001a-raw/document/openrouter/openrouter-023-guides-routing-model-variants-thinking-2026-04-29.md]
 
 ## Notes
 

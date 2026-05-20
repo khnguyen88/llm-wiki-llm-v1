@@ -20,21 +20,21 @@ provenance: extracted
 
 ## Key Points
 
-- Presets are named configurations that encapsulate LLM settings (provider routing, model selection, system prompts, generation parameters, provider inclusion/exclusion rules) separate from application code ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
-- Three API reference methods: direct model reference (`@preset/slug`), preset field (`"preset": "slug"`), and combined model-and-preset (`"model": "provider/model@preset/slug"`) ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
-- Presets enable rapid iteration by allowing LLM configuration changes (model versions, prompts, parameters, provider preferences) without code deployment ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
-- Organization account members can access all organization presets, enabling team-wide sharing of best practices ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
-- Presets maintain version history for rollback, but API requests always use the latest version ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
-- Request-level parameters are shallow-merged with preset-configured options, allowing per-request overrides ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Presets are named configurations that encapsulate LLM settings (provider routing, model selection, system prompts, generation parameters, provider inclusion/exclusion rules) separate from application code ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Three API reference methods: direct model reference (`@preset/slug`), preset field (`"preset": "slug"`), and combined model-and-preset (`"model": "provider/model@preset/slug"`) ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Presets enable rapid iteration by allowing LLM configuration changes (model versions, prompts, parameters, provider preferences) without code deployment ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Organization account members can access all organization presets, enabling team-wide sharing of best practices ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Presets maintain version history for rollback, but API requests always use the latest version ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Request-level parameters are shallow-merged with preset-configured options, allowing per-request overrides ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
 
 ## Quotes
 
-- "Presets allow you to separate your LLM configuration from your code." ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md:9]
-- "If you provide parameters in the request, they will be shallow-merged with the options configured in the preset." ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md:63]
+- "Presets allow you to separate your LLM configuration from your code." ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md:9]
+- "If you provide parameters in the request, they will be shallow-merged with the options configured in the preset." ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md:63]
 
 ## Notes
 
-- Presets are created and managed through the OpenRouter web application at `/settings/presets` ^[raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
+- Presets are created and managed through the OpenRouter web application at `/settings/presets` ^[001a-raw/document/openrouter/openrouter-030-guides-features-presets-2026-04-29.md]
 
 ## Related
 

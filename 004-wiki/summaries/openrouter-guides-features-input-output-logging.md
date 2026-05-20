@@ -20,19 +20,19 @@ provenance: extracted
 
 ## Key Points
 
-- Input & Output Logging privately saves full request and response content for debugging, response comparison, and prompt optimization ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Currently in Beta ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Enabled via Observability settings toggle; only organization admins can toggle it for org accounts ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Stored content viewable from the Logs page with Prompt and Completion tabs; generation detail view also shows model, provider, token counts, and cost ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Only generations made after enabling the feature have stored content ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Data stored in isolated Google Cloud Storage with AES-256 encryption at rest; minimum 3-month retention ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- OpenRouter does not access or use logged data for model training, analytics, or any other purpose ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Does not apply to requests routed through `eu.openrouter.ai` ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Distinct from Broadcast (sends data to external platforms) and Data Discount Logging (1% discount in exchange for data sharing) ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Input & Output Logging privately saves full request and response content for debugging, response comparison, and prompt optimization ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Currently in Beta ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Enabled via Observability settings toggle; only organization admins can toggle it for org accounts ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Stored content viewable from the Logs page with Prompt and Completion tabs; generation detail view also shows model, provider, token counts, and cost ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Only generations made after enabling the feature have stored content ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Data stored in isolated Google Cloud Storage with AES-256 encryption at rest; minimum 3-month retention ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- OpenRouter does not access or use logged data for model training, analytics, or any other purpose ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Does not apply to requests routed through `eu.openrouter.ai` ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Distinct from Broadcast (sends data to external platforms) and Data Discount Logging (1% discount in exchange for data sharing) ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 
 ## Notes
 
-- The feature and Broadcast can be used together for comprehensive observability, both configured in workspace Observability settings ^[raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- The feature and Broadcast can be used together for comprehensive observability, both configured in workspace Observability settings ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 
 ## Related
 

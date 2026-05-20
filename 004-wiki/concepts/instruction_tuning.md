@@ -19,7 +19,7 @@ provenance: merged
 
 # Instruction Tuning
 
-Instruction tuning (suffix: `-instruct`, `-IT`, or `-it`) is a fine-tuning method that trains LLMs on instruction-response pairs via supervised fine-tuning (SFT). It produces models that reliably follow user prompts: "Summarize this," "Write a function that..." -- the standard variant for most use cases. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Instruction tuning (suffix: `-instruct`, `-IT`, or `-it`) is a fine-tuning method that trains LLMs on instruction-response pairs via supervised fine-tuning (SFT). It produces models that reliably follow user prompts: "Summarize this," "Write a function that..." -- the standard variant for most use cases. ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Training Variant Hierarchy
 
@@ -29,7 +29,7 @@ Instruction tuning (suffix: `-instruct`, `-IT`, or `-it`) is a fine-tuning metho
 | Instruct / IT | Fine-tuned on instruction-response pairs (SFT); follows user prompts reliably | Coding, Q&A, summarization, analysis -- virtually everything |
 | Chat | Further optimized for multi-turn conversations with RLHF or DPO; better at maintaining context | Chatbot applications, interactive assistants |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Additional Training Suffixes
 
@@ -44,13 +44,13 @@ Instruction tuning (suffix: `-instruct`, `-IT`, or `-it`) is a fine-tuning metho
 | `-uncensored` | Trained on unfiltered data to remove guardrails |
 | `-LoRA` | Fine-tuned with Low-Rank Adaptation (adapter weights only) |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Naming Guidance
 
-For general use, always pick the instruct/IT variant. Base models are for researchers and fine-tuners. "Instruct" has largely replaced "chat" as the standard naming for conversational models in modern conventions. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md] ^[raw/articles/How to navigate LLM model names.md]
+For general use, always pick the instruct/IT variant. Base models are for researchers and fine-tuners. "Instruct" has largely replaced "chat" as the standard naming for conversational models in modern conventions. ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md] ^[001a-raw/articles/How to navigate LLM model names.md]
 
-Alignment tags in model names serve as the strongest first filter for model selection -- deploying a base model in a user-facing assistant role is one of the most common and costly selection mistakes. However, Instruct quality varies across vendors -- always benchmark on your task set before deployment. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+Alignment tags in model names serve as the strongest first filter for model selection -- deploying a base model in a user-facing assistant role is one of the most common and costly selection mistakes. However, Instruct quality varies across vendors -- always benchmark on your task set before deployment. ^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 
 ## Related
 

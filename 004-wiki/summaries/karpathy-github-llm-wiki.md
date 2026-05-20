@@ -19,7 +19,7 @@ provenance: reingested
 
 ## Summary
 
-Karpathy's gist is the canonical design document for the LLM Wiki pattern. It describes a three-layer architecture (raw sources, LLM-generated wiki, schema) and three core operations (ingest, query, lint) that replace traditional RAG with a persistent, compounding knowledge artifact. The key insight is that LLMs eliminate the bookkeeping burden that causes humans to abandon knowledge bases, enabling a wiki that grows richer with every source. ^[raw/articles/karpathy-github-llm-wiki.md:9-15]
+Karpathy's gist is the canonical design document for the LLM Wiki pattern. It describes a three-layer architecture (raw sources, LLM-generated wiki, schema) and three core operations (ingest, query, lint) that replace traditional RAG with a persistent, compounding knowledge artifact. The key insight is that LLMs eliminate the bookkeeping burden that causes humans to abandon knowledge bases, enabling a wiki that grows richer with every source. ^[001a-raw/articles/karpathy-github-llm-wiki.md:9-15]
 
 ## Architecture: Three-Layer Model
 
@@ -29,7 +29,7 @@ Karpathy's gist is the canonical design document for the LLM Wiki pattern. It de
 | The wiki | Directory of LLM-generated markdown files (summaries, entities, concepts, synthesis) | LLM-owned | LLM-writes, human-reads |
 | The schema | Configuration document (e.g., CLAUDE.md) defining structure, conventions, workflows | Co-evolved by human + LLM | Updated as needs evolve |
 
-^[raw/articles/karpathy-github-llm-wiki.md:29-35]
+^[001a-raw/articles/karpathy-github-llm-wiki.md:29-35]
 
 ## Core Operations
 
@@ -39,23 +39,23 @@ Karpathy's gist is the canonical design document for the LLM Wiki pattern. It de
 | **Query** | LLM searches wiki, reads relevant pages, synthesizes answer with citations; good answers filed back as new pages | Varies by question |
 | **Lint** | Periodic health check for contradictions, stale claims, orphans, missing cross-references, data gaps | Full wiki scan |
 
-^[raw/articles/karpathy-github-llm-wiki.md:39-43]
+^[001a-raw/articles/karpathy-github-llm-wiki.md:39-43]
 
 ## Navigation: Index and Log
 
 Two special files replace the need for embedding-based RAG infrastructure at moderate scale (~100 sources, ~hundreds of pages):
 
-- **index.md** -- Content-oriented catalog of every page with one-line summaries, organized by category. The LLM reads it first to find relevant pages, then drills in. ^[raw/articles/karpathy-github-llm-wiki.md:49]
-- **log.md** -- Chronological, append-only record of ingests, queries, lint passes. Entries start with a consistent prefix (e.g., `## [YYYY-MM-DD]`) making the file parseable with Unix tools. ^[raw/articles/karpathy-github-llm-wiki.md:51]
+- **index.md** -- Content-oriented catalog of every page with one-line summaries, organized by category. The LLM reads it first to find relevant pages, then drills in. ^[001a-raw/articles/karpathy-github-llm-wiki.md:49]
+- **log.md** -- Chronological, append-only record of ingests, queries, lint passes. Entries start with a consistent prefix (e.g., `## [YYYY-MM-DD]`) making the file parseable with Unix tools. ^[001a-raw/articles/karpathy-github-llm-wiki.md:51]
 
 ## Why It Works
 
 The pattern succeeds because of a fundamental division of labor:
 
-- **LLM handles** all bookkeeping: updating cross-references, keeping summaries current, noting contradictions, maintaining consistency across dozens of pages. Cost of maintenance is near zero. ^[raw/articles/karpathy-github-llm-wiki.md:68]
-- **Human handles** curation, direction, questioning, and analysis. ^[raw/articles/karpathy-github-llm-wiki.md:70]
+- **LLM handles** all bookkeeping: updating cross-references, keeping summaries current, noting contradictions, maintaining consistency across dozens of pages. Cost of maintenance is near zero. ^[001a-raw/articles/karpathy-github-llm-wiki.md:68]
+- **Human handles** curation, direction, questioning, and analysis. ^[001a-raw/articles/karpathy-github-llm-wiki.md:70]
 
-The concept is related in spirit to Vannevar Bush's Memex (1945) -- a personal curated knowledge store with associative trails. The critical difference: the LLM solves the maintenance problem that Bush could not. ^[raw/articles/karpathy-github-llm-wiki.md:72]
+The concept is related in spirit to Vannevar Bush's Memex (1945) -- a personal curated knowledge store with associative trails. The critical difference: the LLM solves the maintenance problem that Bush could not. ^[001a-raw/articles/karpathy-github-llm-wiki.md:72]
 
 ## Use Cases
 
@@ -67,17 +67,17 @@ The concept is related in spirit to Vannevar Bush's Memex (1945) -- a personal c
 | Business/team | Internal wiki from Slack threads, transcripts, project docs |
 | Other | Competitive analysis, due diligence, trip planning, course notes, hobbies |
 
-^[raw/articles/karpathy-github-llm-wiki.md:19-25]
+^[001a-raw/articles/karpathy-github-llm-wiki.md:19-25]
 
 ## Key Quotes
 
-> "The wiki is a persistent, compounding artifact." ^[raw/articles/karpathy-github-llm-wiki.md:15]
+> "The wiki is a persistent, compounding artifact." ^[001a-raw/articles/karpathy-github-llm-wiki.md:15]
 
-> "Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase." ^[raw/articles/karpathy-github-llm-wiki.md:17]
+> "Obsidian is the IDE; the LLM is the programmer; the wiki is the codebase." ^[001a-raw/articles/karpathy-github-llm-wiki.md:17]
 
-> "Good answers can be filed back into the wiki as new pages." ^[raw/articles/karpathy-github-llm-wiki.md:41]
+> "Good answers can be filed back into the wiki as new pages." ^[001a-raw/articles/karpathy-github-llm-wiki.md:41]
 
-> "Humans abandon wikis because the maintenance burden grows faster than the value. LLMs don't get bored, don't forget to update a cross-reference, and can touch 15 files in one pass." ^[raw/articles/karpathy-github-llm-wiki.md:68]
+> "Humans abandon wikis because the maintenance burden grows faster than the value. LLMs don't get bored, don't forget to update a cross-reference, and can touch 15 files in one pass." ^[001a-raw/articles/karpathy-github-llm-wiki.md:68]
 
 ## Related
 

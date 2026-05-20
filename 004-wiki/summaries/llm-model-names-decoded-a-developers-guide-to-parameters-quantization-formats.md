@@ -21,7 +21,7 @@ updated: "2026-05-02T12:00:00Z"
 
 ## Summary
 
-This extensive guide by Dylan Boudro (April 2026) provides a complete reference for decoding LLM model names. It covers the anatomy of model names, parameter sizes, training variants, quantization precision formats, GGUF quantization levels, GPU-native quantization methods (AWQ, GPTQ, EXL2), file formats (GGUF, Safetensors, MLX), format compatibility, dense vs MoE architectures, community fine-tunes, the 2026 model landscape, Hugging Face model cards, a decision framework, and a glossary. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+This extensive guide by Dylan Boudro (April 2026) provides a complete reference for decoding LLM model names. It covers the anatomy of model names, parameter sizes, training variants, quantization precision formats, GGUF quantization levels, GPU-native quantization methods (AWQ, GPTQ, EXL2), file formats (GGUF, Safetensors, MLX), format compatibility, dense vs MoE architectures, community fine-tunes, the 2026 model landscape, Hugging Face model cards, a decision framework, and a glossary. ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Anatomy of a Model Name
 
@@ -36,7 +36,7 @@ The general pattern: `[Org/] Family-Version-Size [-Active] -Training [-Format] [
 | Format | `GGUF` | File format for local inference |
 | Quantization | `Q4_K_M` | 4-bit precision, K-quant method, medium block size |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Parameter Size Tiers
 
@@ -48,7 +48,7 @@ The general pattern: `[Org/] Family-Version-Size [-Active] -Training [-Format] [
 | Large | 27-32B | 18-22 GB | Complex reasoning |
 | Extra Large | 70B+ | 40+ GB | Near-frontier quality |
 
-Rule of thumb: parameter count in billions x 0.6 = approximate file size in GB at Q4_K_M. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Rule of thumb: parameter count in billions x 0.6 = approximate file size in GB at Q4_K_M. ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## GGUF Quantization Levels
 
@@ -63,7 +63,7 @@ Rule of thumb: parameter count in billions x 0.6 = approximate file size in GB a
 | Q8_0 | 8 | ~7 GB | Near-lossless | Plenty of RAM |
 | F16 | 16 | ~14 GB | Perfect | Maximum quality baseline |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Model Format Comparison
 
@@ -73,7 +73,7 @@ Rule of thumb: parameter count in billions x 0.6 = approximate file size in GB a
 | Safetensors | Hugging Face | .safetensors | Training, GPU inference | Secure (no code exec), 76x faster load than pickle | Full-precision requires substantial VRAM |
 | MLX | Apple ML Research | .safetensors (MLX) | Apple Silicon | Leverages unified memory, optimized for Mac | Apple Silicon only |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Key Quotes
 

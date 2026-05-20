@@ -22,18 +22,18 @@ provenance: extracted
 
 ## Key Points
 
-- Webhook is a Broadcast destination that sends traces to any HTTP endpoint accepting JSON payloads via POST or PUT ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
-- Traces are sent in OpenTelemetry Protocol (OTLP) JSON format, making them compatible with any OTLP-aware system ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
-- Configuration requires a URL, optional HTTP method (POST default or PUT), and optional custom headers as a JSON object for authentication ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
-- The Test Connection sends an empty OTLP payload with an `X-Test-Connection: true` header; configuration only saves if the test passes (2xx or 400 status accepted) ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
-- Custom metadata from the `trace` field maps to `trace.metadata.*` span attributes; five standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`, `parent_span_id`) map to dedicated OTLP fields ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
-- Privacy Mode excludes prompt and completion content while preserving token usage, costs, timing, model information, and custom metadata ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
-- Use cases include custom analytics pipelines, internal monitoring tools, event-driven architectures, compliance logging, and development/testing ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- Webhook is a Broadcast destination that sends traces to any HTTP endpoint accepting JSON payloads via POST or PUT ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- Traces are sent in OpenTelemetry Protocol (OTLP) JSON format, making them compatible with any OTLP-aware system ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- Configuration requires a URL, optional HTTP method (POST default or PUT), and optional custom headers as a JSON object for authentication ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- The Test Connection sends an empty OTLP payload with an `X-Test-Connection: true` header; configuration only saves if the test passes (2xx or 400 status accepted) ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- Custom metadata from the `trace` field maps to `trace.metadata.*` span attributes; five standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`, `parent_span_id`) map to dedicated OTLP fields ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- Privacy Mode excludes prompt and completion content while preserving token usage, costs, timing, model information, and custom metadata ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+- Use cases include custom analytics pipelines, internal monitoring tools, event-driven architectures, compliance logging, and development/testing ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
 
 ## Quotes
 
-- "Webhook allows you to send traces to any HTTP endpoint that can receive JSON payloads." ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md:3]
-- "For production use, ensure your webhook endpoint is highly available and can handle the expected volume of traces. Consider implementing retry logic on your end for any failed deliveries." ^[raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md:73-74]
+- "Webhook allows you to send traces to any HTTP endpoint that can receive JSON payloads." ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md:3]
+- "For production use, ensure your webhook endpoint is highly available and can handle the expected volume of traces. Consider implementing retry logic on your end for any failed deliveries." ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md:73-74]
 
 ## Notes
 

@@ -20,13 +20,13 @@ provenance: extracted
 
 ## Key Points
 
-- Image inputs to multimodal models are sent via the `/api/v1/chat/completions` endpoint using a multi-part `messages` parameter with `image_url` content type ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
-- The `image_url` field accepts either a direct URL or a base64-encoded data URI ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
-- Multiple images can be sent in separate content array entries within a single request ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
-- OpenRouter recommends sending the text prompt first, then the images; if images must come first, place them in the system prompt ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
-- The number of images allowed per request varies by provider and model ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
-- Direct URLs are more efficient for publicly accessible images; base64 encoding is required for local files or private images ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
-- Supported image content types: `image/png`, `image/jpeg`, `image/webp`, `image/gif` ^[raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- Image inputs to multimodal models are sent via the `/api/v1/chat/completions` endpoint using a multi-part `messages` parameter with `image_url` content type ^[001a-raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- The `image_url` field accepts either a direct URL or a base64-encoded data URI ^[001a-raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- Multiple images can be sent in separate content array entries within a single request ^[001a-raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- OpenRouter recommends sending the text prompt first, then the images; if images must come first, place them in the system prompt ^[001a-raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- The number of images allowed per request varies by provider and model ^[001a-raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- Direct URLs are more efficient for publicly accessible images; base64 encoding is required for local files or private images ^[001a-raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
+- Supported image content types: `image/png`, `image/jpeg`, `image/webp`, `image/gif` ^[001a-raw/document/openrouter/openrouter-005-guides-overview-multimodal-images-2026-04-29.md]
 
 ## Notes
 

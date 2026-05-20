@@ -17,15 +17,15 @@ provenance: extracted
 
 # Report Feedback
 
-A feature on [[004-wiki/entities/openrouter|OpenRouter]] that allows users to flag problematic AI generations with a category and description, helping the team identify and address issues with model responses, latency, billing, and more. ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+A feature on [[004-wiki/entities/openrouter|OpenRouter]] that allows users to flag problematic AI generations with a category and description, helping the team identify and address issues with model responses, latency, billing, and more. ^[001a-raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
 
 ## Key Points
 
-- Six structured feedback categories: Latency, Incoherence, Incorrect Response, Formatting, Billing, and API Error, plus an Other catch-all ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
-- Chatroom reporting: hover over an assistant message, click the bug icon, select a category, add a comment, and submit — the generation ID is captured automatically ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
-- Activity page reporting: per-generation via the row-level bug icon, or general via the header "Report Feedback" button with a manually entered generation ID ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
-- Generation IDs come from the API response `id` field or from Activity page row details ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
-- Submitted feedback is reviewed by the OpenRouter team to improve model routing, provider selection, error handling, billing accuracy, and platform reliability ^[raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+- Six structured feedback categories: Latency, Incoherence, Incorrect Response, Formatting, Billing, and API Error, plus an Other catch-all ^[001a-raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+- Chatroom reporting: hover over an assistant message, click the bug icon, select a category, add a comment, and submit — the generation ID is captured automatically ^[001a-raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+- Activity page reporting: per-generation via the row-level bug icon, or general via the header "Report Feedback" button with a manually entered generation ID ^[001a-raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+- Generation IDs come from the API response `id` field or from Activity page row details ^[001a-raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
+- Submitted feedback is reviewed by the OpenRouter team to improve model routing, provider selection, error handling, billing accuracy, and platform reliability ^[001a-raw/document/openrouter/openrouter-016-guides-overview-report-feedback-2026-04-29.md]
 
 ## Details
 

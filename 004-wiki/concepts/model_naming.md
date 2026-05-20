@@ -22,11 +22,11 @@ provenance: merged
 
 # Model Naming Conventions
 
-LLM model names encode a soft grammar of practical metadata -- family, version, size, alignment stage, and runtime compatibility tags. Names serve as structured shorthand for model selection, enabling fast triage across stakeholders: researchers tracking experiment lineage, platform teams managing artifacts, product teams selecting deployment candidates, and governance teams auditing usage. However, names are useful heuristics, not guarantees. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+LLM model names encode a soft grammar of practical metadata -- family, version, size, alignment stage, and runtime compatibility tags. Names serve as structured shorthand for model selection, enabling fast triage across stakeholders: researchers tracking experiment lineage, platform teams managing artifacts, product teams selecting deployment candidates, and governance teams auditing usage. However, names are useful heuristics, not guarantees. ^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 
 ## The Naming Grammar
 
-Most naming systems encode five fields: (1) family -- architectural lineage or vendor stream, (2) generation/version -- release evolution, (3) capacity tier -- parameter count or size class, (4) alignment stage -- base vs instruct/chat, (5) runtime compatibility tags -- format, quantization, context window. The general pattern is `[Org/] Family-Version-Size [-Active] -Training [-Format] [-Quantization]`, though order varies across vendors. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md] ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Most naming systems encode five fields: (1) family -- architectural lineage or vendor stream, (2) generation/version -- release evolution, (3) capacity tier -- parameter count or size class, (4) alignment stage -- base vs instruct/chat, (5) runtime compatibility tags -- format, quantization, context window. The general pattern is `[Org/] Family-Version-Size [-Active] -Training [-Format] [-Quantization]`, though order varies across vendors. ^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md] ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 | Component | Example | Meaning |
 |---|---|---|
@@ -38,7 +38,7 @@ Most naming systems encode five fields: (1) family -- architectural lineage or v
 | Quantization | `Q4_K_M` | 4-bit precision, K-quant method, medium block size |
 | Context | `4k`, `32k`, `128k` | Context window length |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ### Example Decodings
 
@@ -52,17 +52,17 @@ Most naming systems encode five fields: (1) family -- architectural lineage or v
 | `Llama-3.2-7B-Chat-Q4_K.gguf` | Llama v3.2, 7B, chat-tuned, 4-bit K-quant, GGUF format |
 | `GPT-3.5-175B-Instruct-Q8.onnx` | GPT v3.5, 175B, instruct, 8-bit quantized, ONNX format |
 
-^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md] ^[raw/articles/LLM Naming Explained (What do the options mean_).md] ^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md] ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md] ^[001a-raw/articles/LLM Naming Explained (What do the options mean_).md] ^[001a-raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md] ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Branded Names and Versioning
 
-Branded names identify vendor and architectural lineage -- some encode acronyms (Llama = "Large Language Model Meta AI"), others are marketing-driven (Granite evoking reliability). ^[raw/articles/How to navigate LLM model names.md]
+Branded names identify vendor and architectural lineage -- some encode acronyms (Llama = "Large Language Model Meta AI"), others are marketing-driven (Granite evoking reliability). ^[001a-raw/articles/How to navigate LLM model names.md]
 
-Version numbers follow simplified semantic versioning (major.minor, typically omitting patch). Major version changes indicate significant architectural or training-data shifts that may break compatibility with serving tools like vLLM. Minor versions correspond to incremental improvements or data refreshes. ^[raw/articles/How to navigate LLM model names.md]
+Version numbers follow simplified semantic versioning (major.minor, typically omitting patch). Major version changes indicate significant architectural or training-data shifts that may break compatibility with serving tools like vLLM. Minor versions correspond to incremental improvements or data refreshes. ^[001a-raw/articles/How to navigate LLM model names.md]
 
 ## Alignment and Purpose Tags
 
-Alignment tags in model names are the strongest first filter for model selection -- deploying a base model in a user-facing assistant role is one of the most common and costly mistakes. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+Alignment tags in model names are the strongest first filter for model selection -- deploying a base model in a user-facing assistant role is one of the most common and costly mistakes. ^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 
 | Tag | Description |
 |---|---|
@@ -75,13 +75,13 @@ Alignment tags in model names are the strongest first filter for model selection
 | `embedding` | Converts text to numerical vectors for RAG |
 | `guard` / `guardian` | Safety filtering for detecting unsafe content |
 
-^[raw/articles/How to navigate LLM model names.md] ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/How to navigate LLM model names.md] ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
-Training suffixes also indicate specific fine-tuning techniques: `-DPO` (Direct Preference Optimization), `-RLHF` (Reinforcement Learning from Human Feedback), `-LoRA` (Low-Rank Adaptation adapter weights only). ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Training suffixes also indicate specific fine-tuning techniques: `-DPO` (Direct Preference Optimization), `-RLHF` (Reinforcement Learning from Human Feedback), `-LoRA` (Low-Rank Adaptation adapter weights only). ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Memory Estimation from Names
 
-Raw weight storage: Memory(weights) approximately equals P x b/8 bytes, where P is parameter count and b is bits per weight. For Q4_K_M GGUF, file size in GB roughly equals parameter count in billions x 0.6. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md] ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Raw weight storage: Memory(weights) approximately equals P x b/8 bytes, where P is parameter count and b is bits per weight. For Q4_K_M GGUF, file size in GB roughly equals parameter count in billions x 0.6. ^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md] ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 | Model | Precision | Raw Weight Size |
 |---|---|---|
@@ -100,19 +100,19 @@ Raw weight storage: Memory(weights) approximately equals P x b/8 bytes, where P 
 | Pro | High capability |
 | Flash | Ultra-fast |
 
-^[raw/articles/Naming Conventions of LLM Models.md]
+^[001a-raw/articles/Naming Conventions of LLM Models.md]
 
 ## Paid vs Open-Source Naming
 
-Paid and open-source models follow fundamentally different conventions reflecting their audiences. Paid models use `[Model Family] + [Version] + [Variant/Capability Tier]` -- designed for simplicity, branding, and product differentiation (e.g., GPT-4o, Gemini 1.5 Pro). Open-source models use `[organization]/[model-family]-[version]-[size]-[variant]-[format]` -- designed as engineering artifacts exposing technical metadata (e.g., `meta-llama/Llama-2-7b-chat-hf`). Paid models are designed like products; open-source models are designed like engineering artifacts. ^[raw/articles/Naming Conventions of LLM Models.md]
+Paid and open-source models follow fundamentally different conventions reflecting their audiences. Paid models use `[Model Family] + [Version] + [Variant/Capability Tier]` -- designed for simplicity, branding, and product differentiation (e.g., GPT-4o, Gemini 1.5 Pro). Open-source models use `[organization]/[model-family]-[version]-[size]-[variant]-[format]` -- designed as engineering artifacts exposing technical metadata (e.g., `meta-llama/Llama-2-7b-chat-hf`). Paid models are designed like products; open-source models are designed like engineering artifacts. ^[001a-raw/articles/Naming Conventions of LLM Models.md]
 
 ## Ambiguity and Naming Risks
 
-Model names are not perfect standards. Risks include: Instruct quality varying across vendors, missing context tags causing truncation surprises, quant tags without method details (NF4 vs GPTQ vs AWQ) risking quality drops, and similar names across forks creating provenance risks. Mitigation: always verify claims in the model card, benchmark on your task set, and pin exact sources with checksums. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+Model names are not perfect standards. Risks include: Instruct quality varying across vendors, missing context tags causing truncation surprises, quant tags without method details (NF4 vs GPTQ vs AWQ) risking quality drops, and similar names across forks creating provenance risks. Mitigation: always verify claims in the model card, benchmark on your task set, and pin exact sources with checksums. ^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 
 ## Team Naming Policy
 
-Consistent internal naming practices reduce debugging time: use a consistent naming schema for fine-tuned variants, include date/version and evaluation profile in artifact metadata, separate model lineage name from deployment environment tags, maintain a model registry with immutable IDs, and document mappings from external vendor names to internal IDs. ^[raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
+Consistent internal naming practices reduce debugging time: use a consistent naming schema for fine-tuned variants, include date/version and evaluation profile in artifact metadata, separate model lineage name from deployment environment tags, maintain a model registry with immutable IDs, and document mappings from external vendor names to internal IDs. ^[001a-raw/articles/LLM Model Naming Conventions_ How to Read Names and Why They Matter.md]
 
 ## Related
 

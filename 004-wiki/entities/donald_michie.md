@@ -17,7 +17,7 @@ provenance: merged
 
 # Donald Michie
 
-British computer scientist who coined the term "memoization" in his 1968 paper "'Memo' Functions and Machine Learning" published in Nature (Vol. 218, pp. 19-22). The term derives from "memorandum" ("to be remembered"), proposing that functions should maintain both a "rule part" (computational procedure) and a "rote part" (lookup table).^[raw/transcripts/adam-rosler-2026-05-12.md]
+British computer scientist who coined the term "memoization" in his 1968 paper "'Memo' Functions and Machine Learning" published in Nature (Vol. 218, pp. 19-22). The term derives from "memorandum" ("to be remembered"), proposing that functions should maintain both a "rule part" (computational procedure) and a "rote part" (lookup table).^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Key Facts
 

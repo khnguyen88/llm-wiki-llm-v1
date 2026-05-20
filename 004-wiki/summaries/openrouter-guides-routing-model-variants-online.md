@@ -19,11 +19,11 @@ provenance: extracted
 
 ## Key Points
 
-- The `:online` variant is deprecated; use the `openrouter:web_search` server tool instead, which gives the model control over when and how often to search ^[raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
-- `:online` was accessed by appending `:online` to any model ID (e.g., `"openai/gpt-5.2:online"`) ^[raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
-- The `:online` suffix is exactly equivalent to using the `web` plugin with `openrouter/auto` routing ^[raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
-- Applications that already provide a `web_search` tool (e.g., OpenAI's built-in web search tool type) have it automatically recognized and hoisted to `openrouter:web_search`, so the `:online` suffix can be safely removed ^[raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
-- The Online variant incorporated relevant web search results into model responses, providing access to real-time information and current events beyond the model's training data ^[raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
+- The `:online` variant is deprecated; use the `openrouter:web_search` server tool instead, which gives the model control over when and how often to search ^[001a-raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
+- `:online` was accessed by appending `:online` to any model ID (e.g., `"openai/gpt-5.2:online"`) ^[001a-raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
+- The `:online` suffix is exactly equivalent to using the `web` plugin with `openrouter/auto` routing ^[001a-raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
+- Applications that already provide a `web_search` tool (e.g., OpenAI's built-in web search tool type) have it automatically recognized and hoisted to `openrouter:web_search`, so the `:online` suffix can be safely removed ^[001a-raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
+- The Online variant incorporated relevant web search results into model responses, providing access to real-time information and current events beyond the model's training data ^[001a-raw/document/openrouter/openrouter-024-guides-routing-model-variants-online-2026-04-29.md]
 
 ## Notes
 

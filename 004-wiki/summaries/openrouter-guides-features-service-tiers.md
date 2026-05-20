@@ -21,12 +21,12 @@ provenance: extracted
 
 ## Key Points
 
-- The `service_tier` request parameter controls cost and latency tradeoffs when sending requests through OpenRouter ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- Currently only OpenAI is listed as a supported provider for `service_tier` ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- Accepted request values for OpenAI: `auto`, `default`, `flex`, `priority` ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- The API response includes a `service_tier` field indicating which tier was actually used ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- For Chat Completions API (`/api/v1/chat/completions`) and Responses API (`/api/v1/responses`), `service_tier` is returned at the top level of the response object ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- For Messages API (`/api/v1/messages`), `service_tier` is returned inside the `usage` object, matching Anthropic's native format ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- The `service_tier` request parameter controls cost and latency tradeoffs when sending requests through OpenRouter ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- Currently only OpenAI is listed as a supported provider for `service_tier` ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- Accepted request values for OpenAI: `auto`, `default`, `flex`, `priority` ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- The API response includes a `service_tier` field indicating which tier was actually used ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- For Chat Completions API (`/api/v1/chat/completions`) and Responses API (`/api/v1/responses`), `service_tier` is returned at the top level of the response object ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- For Messages API (`/api/v1/messages`), `service_tier` is returned inside the `usage` object, matching Anthropic's native format ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
 
 ## Related
 

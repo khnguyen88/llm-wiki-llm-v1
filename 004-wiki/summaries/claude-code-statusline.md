@@ -21,13 +21,13 @@ provenance: extracted
 
 ## Key Points
 
-- The status line is a customizable bar at the bottom of Claude Code that runs any shell script configured by the user, receiving JSON session data on stdin and displaying whatever the script prints to stdout ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
-- Configured via `statusLine` field in `~/.claude/settings.json` (user) or project settings, with `type: "command"` and a `command` path or inline shell command ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
-- The `/statusline` command accepts natural language descriptions and auto-generates a script file in `~/.claude/` with settings updated automatically ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
-- Updates are triggered after each assistant message, permission mode change, or vim mode toggle, debounced at 300ms; a `refreshInterval` setting adds periodic re-runs for time-based data ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
-- Scripts can output multiple lines, ANSI escape codes for colors, and OSC 8 escape sequences for clickable hyperlinks ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
-- JSON data includes model info, workspace paths, cost/duration tracking, context window usage, rate limits, session metadata, vim mode, effort level, thinking state, and worktree details ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
-- A separate `subagentStatusLine` setting renders custom row bodies for subagents in the agent panel, receiving all visible subagent rows as a single JSON object on stdin ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- The status line is a customizable bar at the bottom of Claude Code that runs any shell script configured by the user, receiving JSON session data on stdin and displaying whatever the script prints to stdout ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- Configured via `statusLine` field in `~/.claude/settings.json` (user) or project settings, with `type: "command"` and a `command` path or inline shell command ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- The `/statusline` command accepts natural language descriptions and auto-generates a script file in `~/.claude/` with settings updated automatically ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- Updates are triggered after each assistant message, permission mode change, or vim mode toggle, debounced at 300ms; a `refreshInterval` setting adds periodic re-runs for time-based data ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- Scripts can output multiple lines, ANSI escape codes for colors, and OSC 8 escape sequences for clickable hyperlinks ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- JSON data includes model info, workspace paths, cost/duration tracking, context window usage, rate limits, session metadata, vim mode, effort level, thinking state, and worktree details ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- A separate `subagentStatusLine` setting renders custom row bodies for subagents in the agent panel, receiving all visible subagent rows as a single JSON object on stdin ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
 
 ## Notes
 

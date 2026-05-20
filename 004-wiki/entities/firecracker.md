@@ -18,15 +18,15 @@ provenance: extracted
 
 # Firecracker
 
-A lightweight microVM technology from AWS designed for secure, fast container-like isolation at the hardware level. Each VM runs its own kernel, creating a strong boundary where a vulnerability in the guest kernel does not directly compromise the host. ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+A lightweight microVM technology from AWS designed for secure, fast container-like isolation at the hardware level. Each VM runs its own kernel, creating a strong boundary where a vulnerability in the guest kernel does not directly compromise the host. ^[001a-raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
 ## Key Facts
 
-- Boots VMs in under 125ms with less than 5 MiB memory overhead ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
-- Strips unnecessary device emulation to reduce attack surface compared to traditional VMs ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
-- Agent VMs communicate through `vsock` (virtual sockets) rather than network interfaces; all traffic routes through vsock to a proxy on the host ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
-- Isolation strength rated "excellent" (with correct setup), with high performance overhead and medium/high complexity ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
-- VMs are not automatically more secure than alternatives like [[004-wiki/entities/gvisor]]; security depends heavily on the hypervisor and device emulation code ^[raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+- Boots VMs in under 125ms with less than 5 MiB memory overhead ^[001a-raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+- Strips unnecessary device emulation to reduce attack surface compared to traditional VMs ^[001a-raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+- Agent VMs communicate through `vsock` (virtual sockets) rather than network interfaces; all traffic routes through vsock to a proxy on the host ^[001a-raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+- Isolation strength rated "excellent" (with correct setup), with high performance overhead and medium/high complexity ^[001a-raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
+- VMs are not automatically more secure than alternatives like [[004-wiki/entities/gvisor]]; security depends heavily on the hypervisor and device emulation code ^[001a-raw/document/claude code/claude-code-018-agent-sdk-secure-deployment-2026-04-29.md]
 
 ## Related
 

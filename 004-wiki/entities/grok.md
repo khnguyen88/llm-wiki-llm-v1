@@ -17,13 +17,13 @@ provenance: extracted
 
 # Grok
 
-xAI's language model available on OpenRouter with automated prompt caching. Cache writes incur no cost, and cache reads are charged at a reduced multiplier of the original input pricing. ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+xAI's language model available on OpenRouter with automated prompt caching. Cache writes incur no cost, and cache reads are charged at a reduced multiplier of the original input pricing. ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Key Facts
 
-- Prompt caching is automated and requires no additional configuration on OpenRouter ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Cache writes: no cost ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Cache reads: charged at a reduced multiplier of the original input pricing ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Prompt caching is automated and requires no additional configuration on OpenRouter ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Cache writes: no cost ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Cache reads: charged at a reduced multiplier of the original input pricing ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Related
 

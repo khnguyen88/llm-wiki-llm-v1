@@ -17,7 +17,7 @@ provenance: inferred
 
 # Grouped Query Attention (GQA)
 
-An attention variant introduced by Ainslie et al. (2023) that shares key-value heads across groups of query heads, interpolating between Multi-Head Attention (MHA, where each query head has its own KV head) and Multi-Query Attention (MQA, where all query heads share a single KV head). GQA uses G groups where 1 < G < H, providing a tunable trade-off between quality and inference speed.^[raw/transcripts/adam-rosler-2026-05-12.md]
+An attention variant introduced by Ainslie et al. (2023) that shares key-value heads across groups of query heads, interpolating between Multi-Head Attention (MHA, where each query head has its own KV head) and Multi-Query Attention (MQA, where all query heads share a single KV head). GQA uses G groups where 1 < G < H, providing a tunable trade-off between quality and inference speed.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Key Properties
 

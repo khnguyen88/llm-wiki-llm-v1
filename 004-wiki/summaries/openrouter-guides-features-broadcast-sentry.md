@@ -22,17 +22,17 @@ provenance: extracted
 
 ## Key Points
 
-- Sentry receives OpenRouter Broadcast traces via the OTLP protocol, requiring both an OTLP Traces Endpoint URL and a Sentry DSN for authentication and trace routing ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Setup requires four steps: obtain Sentry OTLP endpoint and DSN from SDK setup, enable Broadcast in OpenRouter Settings > Observability, configure Sentry with the endpoint URL and DSN, then test and save ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Five standard `trace` metadata keys map to Sentry fields: `trace_id` → Trace ID, `trace_name` → Transaction Name, `span_name` → Span Description, `generation_name` → Span Description, `parent_span_id` → Parent Span ID ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Custom metadata keys from the `trace` field are included as span attributes under the `trace.metadata.*` namespace; the `user` field maps to `user.id` and `session_id` maps to `session.id` ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- Sentry automatically correlates LLM traces with existing application error and performance data when using `parent_span_id` ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- When Privacy Mode is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- The configuration only saves if the Test Connection check passes ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Sentry receives OpenRouter Broadcast traces via the OTLP protocol, requiring both an OTLP Traces Endpoint URL and a Sentry DSN for authentication and trace routing ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Setup requires four steps: obtain Sentry OTLP endpoint and DSN from SDK setup, enable Broadcast in OpenRouter Settings > Observability, configure Sentry with the endpoint URL and DSN, then test and save ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Five standard `trace` metadata keys map to Sentry fields: `trace_id` → Trace ID, `trace_name` → Transaction Name, `span_name` → Span Description, `generation_name` → Span Description, `parent_span_id` → Parent Span ID ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Custom metadata keys from the `trace` field are included as span attributes under the `trace.metadata.*` namespace; the `user` field maps to `user.id` and `session_id` maps to `session.id` ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- Sentry automatically correlates LLM traces with existing application error and performance data when using `parent_span_id` ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- When Privacy Mode is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- The configuration only saves if the Test Connection check passes ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
 ## Quotes
 
-- "Sentry uses OpenTelemetry for trace ingestion. The OTLP endpoint and DSN are both required for proper authentication and trace routing." ^[raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- "Sentry uses OpenTelemetry for trace ingestion. The OTLP endpoint and DSN are both required for proper authentication and trace routing." ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
 ## Notes
 

@@ -18,19 +18,19 @@ provenance: merged
 
 # KV Cache
 
-A stack of saved key and value vectors from prior tokens kept in GPU memory during transformer inference. After each token is generated, its K and V vectors are appended to the cache. For the next token, only the new pair is computed; attention runs against the full cached stack. The KV cache is the single most important optimization for transformer inference, reducing per-token cost by roughly 1,000x compared to naive recomputation.^[raw/transcripts/adam-rosler-2026-05-12.md]
+A stack of saved key and value vectors from prior tokens kept in GPU memory during transformer inference. After each token is generated, its K and V vectors are appended to the cache. For the next token, only the new pair is computed; attention runs against the full cached stack. The KV cache is the single most important optimization for transformer inference, reducing per-token cost by roughly 1,000x compared to naive recomputation.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Origins
 
-The KV cache applies the principle of [[004-wiki/concepts/memoization|memoization]] -- coined by [[004-wiki/entities/donald_michie|Donald Michie]] in 1968 -- to the attention mechanism. The core idea: if the same input produces the same output through the same matrices, save the result rather than recompute it. Michie proposed that functions should have both a "rule part" (computational procedure) and a "rote part" (lookup table), with the machine deciding which to use. The KV cache is the rote part for attention.^[raw/transcripts/adam-rosler-2026-05-12.md]
+The KV cache applies the principle of [[004-wiki/concepts/memoization|memoization]] -- coined by [[004-wiki/entities/donald_michie|Donald Michie]] in 1968 -- to the attention mechanism. The core idea: if the same input produces the same output through the same matrices, save the result rather than recompute it. Michie proposed that functions should have both a "rule part" (computational procedure) and a "rote part" (lookup table), with the machine deciding which to use. The KV cache is the rote part for attention.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Why Cache K and V (Not Embeddings)?
 
-Embeddings are cheap to compute -- they are simple lookups from a stored table. The expensive operation is the matrix multiplication that transforms each embedding into a key vector and a value vector: roughly 16 million multiplications per token per matrix, across 40 layers, yielding ~2 billion operations per token just for setup. Caching the intermediate result (K and V) rather than the input (embedding) is what eliminates the redundant work.^[raw/transcripts/adam-rosler-2026-05-12.md]
+Embeddings are cheap to compute -- they are simple lookups from a stored table. The expensive operation is the matrix multiplication that transforms each embedding into a key vector and a value vector: roughly 16 million multiplications per token per matrix, across 40 layers, yielding ~2 billion operations per token just for setup. Caching the intermediate result (K and V) rather than the input (embedding) is what eliminates the redundant work.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Memory Cost
 
-For a typical 70-billion-parameter model, each token consumes about 0.5 MB of KV cache. At 100,000 tokens, that is 50 GB of cache per user. Each concurrent user has their own independent cache. This makes [[004-wiki/concepts/memory_wall|GPU memory bandwidth]] the binding constraint on inference cost, not compute.^[raw/transcripts/adam-rosler-2026-05-12.md]
+For a typical 70-billion-parameter model, each token consumes about 0.5 MB of KV cache. At 100,000 tokens, that is 50 GB of cache per user. Each concurrent user has their own independent cache. This makes [[004-wiki/concepts/memory_wall|GPU memory bandwidth]] the binding constraint on inference cost, not compute.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Optimization Techniques
 
@@ -58,7 +58,7 @@ Developed for vLLM (Kwon et al., SOSP 2023), PagedAttention applies OS-style vir
 
 ## Prompt Caching
 
-[[004-wiki/concepts/prompt_caching|Prompt caching]] extends the KV cache across API calls. Anthropic introduced this in 2024: if a subsequent request shares the same prefix as a recent one, the provider keeps the cached KV state in GPU memory and runs attention against it without recomputing. The first call pays to build the cache; subsequent calls rent it at 90% lower cost. This requires placing stable content (system prompts, tools, documents) before dynamic content (user questions), because any change in the prefix invalidates all cache entries from that point onward.^[raw/transcripts/adam-rosler-2026-05-12.md]
+[[004-wiki/concepts/prompt_caching|Prompt caching]] extends the KV cache across API calls. Anthropic introduced this in 2024: if a subsequent request shares the same prefix as a recent one, the provider keeps the cached KV state in GPU memory and runs attention against it without recomputing. The first call pays to build the cache; subsequent calls rent it at 90% lower cost. This requires placing stable content (system prompts, tools, documents) before dynamic content (user questions), because any change in the prefix invalidates all cache entries from that point onward.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Open Questions
 

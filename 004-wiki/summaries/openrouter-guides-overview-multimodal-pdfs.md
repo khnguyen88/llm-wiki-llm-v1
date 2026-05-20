@@ -20,23 +20,23 @@ provenance: extracted
 
 ## Key Points
 
-- PDFs can be sent to OpenRouter via direct URLs (for publicly accessible documents) or base64-encoded data URLs (for local/private files) using the `file` content type in the messages array ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- Three PDF processing engines are available: `mistral-ocr` (best for scanned/image PDFs, priced per 1,000 pages), `cloudflare-ai` (free, converts PDFs to markdown), and `native` (for models with built-in file input, charged as input tokens) ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- PDF processing works on any model on OpenRouter; when a model supports file input natively, the PDF is passed directly; otherwise OpenRouter parses it and sends the parsed results ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- The `pdf-text` engine is deprecated and automatically redirected to `cloudflare-ai` ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- If no engine is specified, OpenRouter defaults to the model's native file processing, then falls back to `cloudflare-ai` ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- File annotations in assistant responses contain parsed PDF content and a unique hash; re-sending these annotations in subsequent requests skips re-parsing, saving time and cost ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- PDFs and other file types can be sent in the same request ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- PDFs can be sent to OpenRouter via direct URLs (for publicly accessible documents) or base64-encoded data URLs (for local/private files) using the `file` content type in the messages array ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- Three PDF processing engines are available: `mistral-ocr` (best for scanned/image PDFs, priced per 1,000 pages), `cloudflare-ai` (free, converts PDFs to markdown), and `native` (for models with built-in file input, charged as input tokens) ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- PDF processing works on any model on OpenRouter; when a model supports file input natively, the PDF is passed directly; otherwise OpenRouter parses it and sends the parsed results ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- The `pdf-text` engine is deprecated and automatically redirected to `cloudflare-ai` ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- If no engine is specified, OpenRouter defaults to the model's native file processing, then falls back to `cloudflare-ai` ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- File annotations in assistant responses contain parsed PDF content and a unique hash; re-sending these annotations in subsequent requests skips re-parsing, saving time and cost ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- PDFs and other file types can be sent in the same request ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
 
 ## Quotes
 
-- "When a model supports file input natively, the PDF is passed directly to the model. When the model does not support file input natively, OpenRouter will parse the file and pass the parsed results to the requested model." ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md:6-8]
+- "When a model supports file input natively, the PDF is passed directly to the model. When the model does not support file input natively, OpenRouter will parse the file and pass the parsed results to the requested model." ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md:6-8]
 
 ## Notes
 
-- The `plugins` parameter configures the PDF engine: `{ id: 'file-parser', pdf: { engine: 'cloudflare-ai' } }` ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- File annotations include a `hash` field for identifying parsed content, an optional `name` for the filename, and a `content` array with `text` and `image_url` parts ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
-- PDFs also work in the OpenRouter chat room for interactive testing ^[raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- The `plugins` parameter configures the PDF engine: `{ id: 'file-parser', pdf: { engine: 'cloudflare-ai' } }` ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- File annotations include a `hash` field for identifying parsed content, an optional `name` for the filename, and a `content` array with `text` and `image_url` parts ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
+- PDFs also work in the OpenRouter chat room for interactive testing ^[001a-raw/document/openrouter/openrouter-007-guides-overview-multimodal-pdfs-2026-04-29.md]
 
 ## Related
 

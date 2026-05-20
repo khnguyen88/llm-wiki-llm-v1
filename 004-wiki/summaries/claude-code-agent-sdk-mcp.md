@@ -20,18 +20,18 @@ provenance: extracted
 
 ## Key Points
 
-- MCP (Model Context Protocol) is an open standard for connecting AI agents to external tools and data sources without writing custom tool implementations ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
-- MCP servers are configured via the `mcpServers` option in code or in a `.mcp.json` file at the project root; the config file is loaded when the `project` setting source is enabled ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
-- MCP tools require explicit permission via `allowedTools` before Claude can use them; the naming convention is `mcp__<server-name>__<tool-name>` ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
-- Three transport types are supported: stdio (local processes via stdin/stdout), HTTP/SSE (remote cloud-hosted servers), and SDK MCP servers (in-process custom tools) ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
-- Authentication is handled via environment variables (`env` field), HTTP headers for remote servers, or OAuth2 access tokens passed in headers after completing the OAuth flow externally ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
-- Tool search is enabled by default and withholds tool definitions from context, loading only the ones Claude needs per turn to reduce context window consumption ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
-- `allowedTools` is preferred over `permissionMode: "bypassPermissions"` for MCP access because it grants exactly the needed permissions without disabling all safety prompts ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- MCP (Model Context Protocol) is an open standard for connecting AI agents to external tools and data sources without writing custom tool implementations ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- MCP servers are configured via the `mcpServers` option in code or in a `.mcp.json` file at the project root; the config file is loaded when the `project` setting source is enabled ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- MCP tools require explicit permission via `allowedTools` before Claude can use them; the naming convention is `mcp__<server-name>__<tool-name>` ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- Three transport types are supported: stdio (local processes via stdin/stdout), HTTP/SSE (remote cloud-hosted servers), and SDK MCP servers (in-process custom tools) ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- Authentication is handled via environment variables (`env` field), HTTP headers for remote servers, or OAuth2 access tokens passed in headers after completing the OAuth flow externally ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- Tool search is enabled by default and withholds tool definitions from context, loading only the ones Claude needs per turn to reduce context window consumption ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- `allowedTools` is preferred over `permissionMode: "bypassPermissions"` for MCP access because it grants exactly the needed permissions without disabling all safety prompts ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
 
 ## Quotes
 
-- "MCP tools require explicit permission before Claude can use them. Without permission, Claude will see that tools are available but won't be able to call them." ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
-- "Prefer `allowedTools` over permission modes for MCP access. `permissionMode: 'acceptEdits'` does not auto-approve MCP tools (only file edits and filesystem Bash commands). `permissionMode: 'bypassPermissions'` does auto-approve MCP tools but also disables all other safety prompts, which is broader than necessary." ^[raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- "MCP tools require explicit permission before Claude can use them. Without permission, Claude will see that tools are available but won't be able to call them." ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
+- "Prefer `allowedTools` over permission modes for MCP access. `permissionMode: 'acceptEdits'` does not auto-approve MCP tools (only file edits and filesystem Bash commands). `permissionMode: 'bypassPermissions'` does auto-approve MCP tools but also disables all other safety prompts, which is broader than necessary." ^[001a-raw/document/claude code/claude-code-009-agent-sdk-mcp-2026-04-29.md]
 
 ## Notes
 

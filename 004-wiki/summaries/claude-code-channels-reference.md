@@ -21,19 +21,19 @@ provenance: extracted
 
 ## Key Points
 
-- Channels are MCP servers that declare `capabilities.experimental['claude/channel']` in the Server constructor; this capability registers a notification listener with Claude Code and makes the server a channel rather than a standard MCP server ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- One-way channels forward alerts and webhooks into the session; two-way channels also expose an MCP tool (e.g., `reply`) so Claude can send messages back to the external platform ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- The notification payload uses method `notifications/claude/channel` with `content` (string, becomes the `<channel>` tag body) and `meta` (optional `Record<string, string>`, each entry becomes a tag attribute) ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- Sender gating is critical: ungated channels are prompt injection vectors; channels must check sender identity against an allowlist before emitting notifications, gating on `message.from.id` (sender) rather than `message.chat.id` (room) ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- Permission relay (v2.1.81+) lets two-way channels receive and respond to tool approval prompts remotely; declared via `capabilities.experimental['claude/channel/permission']` and uses request IDs composed of five lowercase letters from `a`-`z` excluding `l` ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- Custom channels require `--dangerously-load-development-channels` during the research preview because they are not on the approved allowlist; the bypass is per-entry and does not extend to `--channels` entries ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- The `instructions` field in the Server constructor is added to Claude's system prompt and should specify what events to expect, whether to reply, and which tool and attribute to use for routing replies ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- Channels are MCP servers that declare `capabilities.experimental['claude/channel']` in the Server constructor; this capability registers a notification listener with Claude Code and makes the server a channel rather than a standard MCP server ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- One-way channels forward alerts and webhooks into the session; two-way channels also expose an MCP tool (e.g., `reply`) so Claude can send messages back to the external platform ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- The notification payload uses method `notifications/claude/channel` with `content` (string, becomes the `<channel>` tag body) and `meta` (optional `Record<string, string>`, each entry becomes a tag attribute) ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- Sender gating is critical: ungated channels are prompt injection vectors; channels must check sender identity against an allowlist before emitting notifications, gating on `message.from.id` (sender) rather than `message.chat.id` (room) ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- Permission relay (v2.1.81+) lets two-way channels receive and respond to tool approval prompts remotely; declared via `capabilities.experimental['claude/channel/permission']` and uses request IDs composed of five lowercase letters from `a`-`z` excluding `l` ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- Custom channels require `--dangerously-load-development-channels` during the research preview because they are not on the approved allowlist; the bypass is per-entry and does not extend to `--channels` entries ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- The `instructions` field in the Server constructor is added to Claude's system prompt and should specify what events to expect, whether to reply, and which tool and attribute to use for routing replies ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
 
 ## Quotes
 
-- "A channel is an MCP server that pushes events into a Claude Code session so Claude can react to things happening outside the terminal." ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- "An ungated channel is a prompt injection vector. Anyone who can reach your endpoint can put text in front of Claude." ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
-- "Gate on the sender's identity, not the chat or room identity." ^[raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- "A channel is an MCP server that pushes events into a Claude Code session so Claude can react to things happening outside the terminal." ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- "An ungated channel is a prompt injection vector. Anyone who can reach your endpoint can put text in front of Claude." ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
+- "Gate on the sender's identity, not the chat or room identity." ^[001a-raw/document/claude code/claude-code-040-channels-reference-2026-04-29.md]
 
 ## Notes
 

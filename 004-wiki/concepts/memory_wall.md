@@ -17,7 +17,7 @@ provenance: merged
 
 # Memory Wall
 
-The growing gap between processor speed and memory access speed, where compute performance improves exponentially while memory bandwidth improves only incrementally. The term was coined by William A. Wulf and Sally A. McKee in their 1995 paper "Hitting the Memory Wall: Implications of the Obvious." In the context of LLM inference, the memory wall explains why GPU memory bandwidth -- not compute -- is the binding constraint on cost and throughput.^[raw/transcripts/adam-rosler-2026-05-12.md]
+The growing gap between processor speed and memory access speed, where compute performance improves exponentially while memory bandwidth improves only incrementally. The term was coined by William A. Wulf and Sally A. McKee in their 1995 paper "Hitting the Memory Wall: Implications of the Obvious." In the context of LLM inference, the memory wall explains why GPU memory bandwidth -- not compute -- is the binding constraint on cost and throughput.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Origins
 

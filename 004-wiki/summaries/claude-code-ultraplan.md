@@ -20,18 +20,18 @@ provenance: extracted
 
 ## Key Points
 
-- Ultraplan is a research preview (requires v2.1.91+) that hands a planning task from the local CLI to a [[004-wiki/entities/claude_code_web|Claude Code on the web]] session running in [[004-wiki/concepts/plan_mode|plan mode]], freeing the terminal for other work ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- Launch from the CLI via `/ultraplan <prompt>`, the keyword `ultraplan` in a normal prompt, or by choosing "No, refine with Ultraplan" when declining a local plan approval ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- Ultraplan requires a Claude Code on the web account and a GitHub repository; it is not available with Amazon Bedrock, Google Cloud Vertex AI, or Microsoft Foundry authentication ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- The cloud session runs in the account's default [[004-wiki/concepts/cloud_environment|cloud environment]], creating one automatically if none exists ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- If [[004-wiki/concepts/remote_control|Remote Control]] is active, it disconnects when ultraplan starts because both features occupy the claude.ai/code interface ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- Review in the browser supports inline comments (highlight any passage), emoji reactions, and an outline sidebar for navigation; iterate as many times as needed before executing ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- Two execution paths: approve and run on the web (opens a PR from the cloud session), or teleport back to the terminal (choose implement here, start new session, or cancel and save plan to a file) ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- Ultraplan is a research preview (requires v2.1.91+) that hands a planning task from the local CLI to a [[004-wiki/entities/claude_code_web|Claude Code on the web]] session running in [[004-wiki/concepts/plan_mode|plan mode]], freeing the terminal for other work ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- Launch from the CLI via `/ultraplan <prompt>`, the keyword `ultraplan` in a normal prompt, or by choosing "No, refine with Ultraplan" when declining a local plan approval ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- Ultraplan requires a Claude Code on the web account and a GitHub repository; it is not available with Amazon Bedrock, Google Cloud Vertex AI, or Microsoft Foundry authentication ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- The cloud session runs in the account's default [[004-wiki/concepts/cloud_environment|cloud environment]], creating one automatically if none exists ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- If [[004-wiki/concepts/remote_control|Remote Control]] is active, it disconnects when ultraplan starts because both features occupy the claude.ai/code interface ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- Review in the browser supports inline comments (highlight any passage), emoji reactions, and an outline sidebar for navigation; iterate as many times as needed before executing ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- Two execution paths: approve and run on the web (opens a PR from the cloud session), or teleport back to the terminal (choose implement here, start new session, or cancel and save plan to a file) ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 
 ## Quotes
 
-- "Ultraplan hands a planning task from your local CLI to a Claude Code on the web session running in plan mode." ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
-- "This is useful when you want a richer review surface than the terminal offers." ^[raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- "Ultraplan hands a planning task from your local CLI to a Claude Code on the web session running in plan mode." ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
+- "This is useful when you want a richer review surface than the terminal offers." ^[001a-raw/document/claude code/claude-code-112-ultraplan-2026-04-29.md]
 
 ## Notes
 

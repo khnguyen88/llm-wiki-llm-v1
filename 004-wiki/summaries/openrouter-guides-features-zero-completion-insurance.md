@@ -19,12 +19,12 @@ provenance: extracted
 
 ## Key Points
 
-- Zero completion insurance protects users from being charged for failed or empty responses ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- No credits are deducted when a response has zero completion tokens and a blank or null finish reason ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- No credits are deducted when a response has an error finish reason ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- The feature applies even if the underlying provider charged OpenRouter for prompt processing ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- Zero completion insurance is automatically enabled for all accounts and requires no configuration ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- It applies to all requests across all models and providers ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- Zero completion insurance protects users from being charged for failed or empty responses ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- No credits are deducted when a response has zero completion tokens and a blank or null finish reason ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- No credits are deducted when a response has an error finish reason ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- The feature applies even if the underlying provider charged OpenRouter for prompt processing ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- Zero completion insurance is automatically enabled for all accounts and requires no configuration ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- It applies to all requests across all models and providers ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
 
 ## Notes
 

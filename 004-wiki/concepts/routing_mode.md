@@ -21,10 +21,10 @@ Routing mode controls how Claude Code for Slack handles @Claude mentions, determ
 
 ## Key Points
 
-- Two modes available: Code only and Code + Chat, configured in the Claude App Home in Slack ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Code only routes all @mentions to Claude Code sessions, best for teams using Claude in Slack exclusively for development tasks ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Code + Chat analyzes each message and routes between Claude Code (for coding tasks) and Claude Chat (for writing, analysis, and general questions) ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- In Code + Chat mode, users can click "Retry as Code" to re-route a chat response as a coding session, or choose to send a coding session result to Chat ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Two modes available: Code only and Code + Chat, configured in the Claude App Home in Slack ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Code only routes all @mentions to Claude Code sessions, best for teams using Claude in Slack exclusively for development tasks ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Code + Chat analyzes each message and routes between Claude Code (for coding tasks) and Claude Chat (for writing, analysis, and general questions) ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- In Code + Chat mode, users can click "Retry as Code" to re-route a chat response as a coding session, or choose to send a coding session result to Chat ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
 
 ## Details
 

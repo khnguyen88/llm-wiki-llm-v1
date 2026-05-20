@@ -21,17 +21,17 @@ provenance: extracted
 
 ## Key Points
 
-- Datadog LLM Observability integrates with OpenRouter Broadcast to investigate root causes, monitor operational performance, and evaluate LLM application quality, privacy, and safety ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- Setup requires creating a Datadog API key (Organization Settings > API Keys), enabling Broadcast in OpenRouter (Settings > Observability), and configuring the Datadog destination with the API key, ML App name, and optional URL override ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- Four metadata keys from the `trace` field map to Datadog: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- Datadog automatically adds two tags: `service:{ml_app}` (from the configured ML App name) and `user_id:{user}` (from the request `user` field); additional `trace` keys are passed to the span's `meta` object ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- The default Datadog API URL is `https://api.us5.datadoghq.com`; this should be changed for non-US5 regions ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- Configuration only saves if the Test Connection check passes ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Datadog destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- Datadog LLM Observability integrates with OpenRouter Broadcast to investigate root causes, monitor operational performance, and evaluate LLM application quality, privacy, and safety ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- Setup requires creating a Datadog API key (Organization Settings > API Keys), enabling Broadcast in OpenRouter (Settings > Observability), and configuring the Datadog destination with the API key, ML App name, and optional URL override ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- Four metadata keys from the `trace` field map to Datadog: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- Datadog automatically adds two tags: `service:{ml_app}` (from the configured ML App name) and `user_id:{user}` (from the request `user` field); additional `trace` keys are passed to the span's `meta` object ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- The default Datadog API URL is `https://api.us5.datadoghq.com`; this should be changed for non-US5 regions ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- Configuration only saves if the Test Connection check passes ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Datadog destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
 ## Notes
 
-- The `trace_id` metadata key groups multiple OpenRouter requests into a single Datadog trace, enabling correlation of multi-step LLM workflows ^[raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- The `trace_id` metadata key groups multiple OpenRouter requests into a single Datadog trace, enabling correlation of multi-step LLM workflows ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
 ## Related
 

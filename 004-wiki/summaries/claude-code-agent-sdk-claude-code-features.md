@@ -21,13 +21,13 @@ provenance: extracted
 
 ## Key Points
 
-- The `settingSources` option (`setting_sources` in Python, `settingSources` in TypeScript) controls which filesystem-based settings the SDK loads: `"project"` from `<cwd>/.claude/`, `"user"` from `~/.claude/`, `"local"` for gitignored local settings ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
-- Omitting `settingSources` defaults to `["user", "project", "local"]`; passing `settingSources: []` disables all filesystem settings ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
-- Three inputs are read regardless of `settingSources`: managed policy settings, `~/.claude.json` global config, and auto memory at `~/.claude/projects/<project>/memory/` ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
-- CLAUDE.md files at different levels (project root, parent directories, child directories, local, user) are all additive with no hard precedence rule; conflicts depend on how Claude interprets them ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
-- Skills load on demand (unlike CLAUDE.md which loads every session); the `Skill` tool must be explicitly included in `allowedTools` when using an allowlist ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
-- The SDK supports both filesystem hooks (defined in `settings.json`, loaded via `settingSources`) and programmatic hooks (callback functions passed to `query()`); they run side by side ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
-- For multi-tenant deployments, run each tenant in its own filesystem and set `settingSources: []` plus `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in `env` ^[raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
+- The `settingSources` option (`setting_sources` in Python, `settingSources` in TypeScript) controls which filesystem-based settings the SDK loads: `"project"` from `<cwd>/.claude/`, `"user"` from `~/.claude/`, `"local"` for gitignored local settings ^[001a-raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
+- Omitting `settingSources` defaults to `["user", "project", "local"]`; passing `settingSources: []` disables all filesystem settings ^[001a-raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
+- Three inputs are read regardless of `settingSources`: managed policy settings, `~/.claude.json` global config, and auto memory at `~/.claude/projects/<project>/memory/` ^[001a-raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
+- CLAUDE.md files at different levels (project root, parent directories, child directories, local, user) are all additive with no hard precedence rule; conflicts depend on how Claude interprets them ^[001a-raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
+- Skills load on demand (unlike CLAUDE.md which loads every session); the `Skill` tool must be explicitly included in `allowedTools` when using an allowlist ^[001a-raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
+- The SDK supports both filesystem hooks (defined in `settings.json`, loaded via `settingSources`) and programmatic hooks (callback functions passed to `query()`); they run side by side ^[001a-raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
+- For multi-tenant deployments, run each tenant in its own filesystem and set `settingSources: []` plus `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in `env` ^[001a-raw/document/claude code/claude-code-003-agent-sdk-claude-code-features-2026-04-29.md]
 
 ## Notes
 

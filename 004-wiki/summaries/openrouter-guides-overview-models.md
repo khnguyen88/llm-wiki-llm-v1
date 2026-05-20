@@ -19,23 +19,23 @@ provenance: extracted
 
 ## Key Points
 
-- The Models API (`/api/v1/models`) returns standardized JSON metadata for 300+ models, cached at the edge for production reliability ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- The `output_modalities` query parameter filters models by output type: `text` (default), `image`, `audio`, `embeddings`, or `all` ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- The `supported_parameters` query parameter filters models by API parameters they support (e.g., `?supported_parameters=tools` for tool-capable models) ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- Each model object includes: `id`, `canonical_slug`, `name`, `context_length`, `architecture`, `pricing`, `top_provider`, `supported_parameters`, `default_parameters`, and `expiration_date` ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- Pricing objects break down cost per token type: `prompt`, `completion`, `request`, `image`, `web_search`, `internal_reasoning`, `input_cache_read`, and `input_cache_write` — a value of `"0"` indicates the feature is free ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- The `canonical_slug` field provides a permanent identifier that never changes, unlike model `id` values which may vary ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- Tokenization varies across models: some tokenize by multi-character chunks (GPT, Claude, Llama) while others tokenize by character (PaLM), affecting token counts and costs even for identical inputs ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- The Models API (`/api/v1/models`) returns standardized JSON metadata for 300+ models, cached at the edge for production reliability ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- The `output_modalities` query parameter filters models by output type: `text` (default), `image`, `audio`, `embeddings`, or `all` ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- The `supported_parameters` query parameter filters models by API parameters they support (e.g., `?supported_parameters=tools` for tool-capable models) ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- Each model object includes: `id`, `canonical_slug`, `name`, `context_length`, `architecture`, `pricing`, `top_provider`, `supported_parameters`, `default_parameters`, and `expiration_date` ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- Pricing objects break down cost per token type: `prompt`, `completion`, `request`, `image`, `web_search`, `internal_reasoning`, `input_cache_read`, and `input_cache_write` — a value of `"0"` indicates the feature is free ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- The `canonical_slug` field provides a permanent identifier that never changes, unlike model `id` values which may vary ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- Tokenization varies across models: some tokenize by multi-character chunks (GPT, Claude, Llama) while others tokenize by character (PaLM), affecting token counts and costs even for identical inputs ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
 
 ## Quotes
 
-> "Different models tokenize text in different ways... This means that token counts (and therefore costs) will vary between models, even when inputs and outputs are the same." ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+> "Different models tokenize text in different ways... This means that token counts (and therefore costs) will vary between models, even when inputs and outputs are the same." ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
 
 ## Notes
 
-- An RSS feed for new models is available at `/api/v1/models?use_rss=true` ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- The `/v1/models/count` endpoint supports the same `output_modalities` parameter for consistent count results ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
-- The `expiration_date` field signals model endpoint deprecation; `null` means not deprecated ^[raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- An RSS feed for new models is available at `/api/v1/models?use_rss=true` ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- The `/v1/models/count` endpoint supports the same `output_modalities` parameter for consistent count results ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
+- The `expiration_date` field signals model endpoint deprecation; `null` means not deprecated ^[001a-raw/document/openrouter/openrouter-003-guides-overview-models-2026-04-29.md]
 
 ## Related
 

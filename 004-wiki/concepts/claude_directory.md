@@ -20,19 +20,19 @@ provenance: extracted
 
 # Claude Directory
 
-The `.claude` directory is where Claude Code reads project-level configuration, and `~/.claude` holds global configuration that applies across all projects. Project files should be committed to git for team sharing; global files are personal. On Windows, `~/.claude` resolves to `%USERPROFILE%\.claude`. If `CLAUDE_CONFIG_DIR` is set, every `~/.claude` path lives under that directory instead. ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+The `.claude` directory is where Claude Code reads project-level configuration, and `~/.claude` holds global configuration that applies across all projects. Project files should be committed to git for team sharing; global files are personal. On Windows, `~/.claude` resolves to `%USERPROFILE%\.claude`. If `CLAUDE_CONFIG_DIR` is set, every `~/.claude` path lives under that directory instead. ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
 
 ## Key Points
 
-- Project-scope files live under `.claude/` (or at the project root for `CLAUDE.md`, `.mcp.json`, `.worktreeinclude`); global-scope files live under `~/.claude/` and apply across all projects ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- Most users only need to edit `CLAUDE.md` and `settings.json`; the rest of the directory structure is optional and added as needed ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- `CLAUDE.md` provides project context and conventions; loaded every session at project or global scope ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- `CLAUDE.local.md` (project root, gitignored) holds private developer preferences alongside `CLAUDE.md` ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- `settings.json` holds permissions, hooks, environment variables, and model defaults at project or global scope ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- `settings.local.json` (project only, auto-gitignored) holds personal overrides that should not be committed ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- Settings precedence from highest to lowest: managed settings, CLI flags, environment variables, then `settings.json` ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- REVIEW.md at the repository root is a review-only instruction file injected directly into every Code Review agent as highest priority; `@` import syntax is not expanded in REVIEW.md, so rules must be written directly in the file ^[raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
-- In Code Review, CLAUDE.md violations newly introduced by a PR are flagged as nit-level findings; bidirectionally, if a PR changes code in a way that makes a CLAUDE.md statement outdated, Claude flags that the docs need updating ^[raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
+- Project-scope files live under `.claude/` (or at the project root for `CLAUDE.md`, `.mcp.json`, `.worktreeinclude`); global-scope files live under `~/.claude/` and apply across all projects ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Most users only need to edit `CLAUDE.md` and `settings.json`; the rest of the directory structure is optional and added as needed ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- `CLAUDE.md` provides project context and conventions; loaded every session at project or global scope ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- `CLAUDE.local.md` (project root, gitignored) holds private developer preferences alongside `CLAUDE.md` ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- `settings.json` holds permissions, hooks, environment variables, and model defaults at project or global scope ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- `settings.local.json` (project only, auto-gitignored) holds personal overrides that should not be committed ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Settings precedence from highest to lowest: managed settings, CLI flags, environment variables, then `settings.json` ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- REVIEW.md at the repository root is a review-only instruction file injected directly into every Code Review agent as highest priority; `@` import syntax is not expanded in REVIEW.md, so rules must be written directly in the file ^[001a-raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
+- In Code Review, CLAUDE.md violations newly introduced by a PR are flagged as nit-level findings; bidirectionally, if a PR changes code in a way that makes a CLAUDE.md statement outdated, Claude flags that the docs need updating ^[001a-raw/document/claude code/claude-code-046-code-review-2026-04-29.md]
 
 ## Details
 
@@ -59,15 +59,15 @@ Each file in the `.claude` directory has a defined scope and commit behavior:
 | `keybindings.json` | Global only | No | Custom keyboard shortcuts |
 | `themes/*.json` | Global only | No | Custom color themes |
 
-^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
 
 ### Files Not in the Explorer
 
-Several related files live outside the directory explorer: `managed-settings.json` at system level (enterprise-enforced, cannot be overridden), `CLAUDE.local.md` at project root (private preferences, gitignored), and installed plugins under `~/.claude/plugins` (managed by `claude plugin` commands, with orphaned versions deleted after 7 days). ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+Several related files live outside the directory explorer: `managed-settings.json` at system level (enterprise-enforced, cannot be overridden), `CLAUDE.local.md` at project root (private preferences, gitignored), and installed plugins under `~/.claude/plugins` (managed by `claude plugin` commands, with orphaned versions deleted after 7 days). ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
 
 ### Choosing the Right File
 
-Different customization types belong in different files: project context and conventions go in `CLAUDE.md`; tool call allow/block rules go in `settings.json` permissions or hooks; pre/post-tool scripts go in `settings.json` hooks; session environment variables go in `settings.json` env; personal overrides not for git go in `settings.local.json`; reusable slash-command prompts go in `skills/<name>/SKILL.md`; specialized subagents go in `agents/*.md`; external tools over MCP go in `.mcp.json`; and response formatting goes in `output-styles/*.md`. ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+Different customization types belong in different files: project context and conventions go in `CLAUDE.md`; tool call allow/block rules go in `settings.json` permissions or hooks; pre/post-tool scripts go in `settings.json` hooks; session environment variables go in `settings.json` env; personal overrides not for git go in `settings.local.json`; reusable slash-command prompts go in `skills/<name>/SKILL.md`; specialized subagents go in `agents/*.md`; external tools over MCP go in `.mcp.json`; and response formatting goes in `output-styles/*.md`. ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
 
 ## Related
 

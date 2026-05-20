@@ -21,11 +21,11 @@ An OpenRouter feature that automatically protects users from being charged for r
 
 ## Key Points
 
-- Zero completion insurance waives charges when a response has zero completion tokens and a blank or null finish reason ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- It also waives charges when a response has an error finish reason ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- The protection applies even if the underlying provider charged OpenRouter for prompt processing ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- Automatically enabled for all accounts with no configuration required ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
-- Applies to all requests across all models and providers ^[raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- Zero completion insurance waives charges when a response has zero completion tokens and a blank or null finish reason ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- It also waives charges when a response has an error finish reason ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- The protection applies even if the underlying provider charged OpenRouter for prompt processing ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- Automatically enabled for all accounts with no configuration required ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
+- Applies to all requests across all models and providers ^[001a-raw/document/openrouter/openrouter-043-guides-features-zero-completion-insurance-2026-04-29.md]
 
 ## Details
 

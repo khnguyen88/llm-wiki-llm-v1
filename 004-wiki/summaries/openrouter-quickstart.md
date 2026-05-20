@@ -20,17 +20,17 @@ provenance: extracted
 
 ## Key Points
 
-- OpenRouter provides a unified API that gives access to hundreds of AI models through a single endpoint (`/api/v1/chat/completions`), automatically handling fallbacks and selecting cost-effective options ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
-- Three integration approaches: direct API (standard HTTP requests), Client SDKs (type-safe wrappers in TypeScript and Python), and Agent SDK (higher-level agent primitives with tool execution and state management) ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
-- The OpenRouter API is compatible with the OpenAI SDK as a drop-in replacement via `baseURL` configuration ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
-- Optional headers `HTTP-Referer` and `X-OpenRouter-Title` enable app attribution for rankings on OpenRouter's public leaderboards ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
-- Client SDK (`@openrouter/sdk` for TypeScript, `openrouter` for Python) provides full type safety with auto-generated types from the OpenAPI spec and zero boilerplate ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
-- Agent SDK (`@openrouter/agent`) provides the `callModel` function that handles multi-turn conversation loops, tool execution, and state management in a single invocation ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
-- An interactive Request Builder at `/request-builder` generates OpenRouter API requests in various languages ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- OpenRouter provides a unified API that gives access to hundreds of AI models through a single endpoint (`/api/v1/chat/completions`), automatically handling fallbacks and selecting cost-effective options ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Three integration approaches: direct API (standard HTTP requests), Client SDKs (type-safe wrappers in TypeScript and Python), and Agent SDK (higher-level agent primitives with tool execution and state management) ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- The OpenRouter API is compatible with the OpenAI SDK as a drop-in replacement via `baseURL` configuration ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Optional headers `HTTP-Referer` and `X-OpenRouter-Title` enable app attribution for rankings on OpenRouter's public leaderboards ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Client SDK (`@openrouter/sdk` for TypeScript, `openrouter` for Python) provides full type safety with auto-generated types from the OpenAPI spec and zero boilerplate ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- Agent SDK (`@openrouter/agent`) provides the `callModel` function that handles multi-turn conversation loops, tool execution, and state management in a single invocation ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- An interactive Request Builder at `/request-builder` generates OpenRouter API requests in various languages ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
 
 ## Quotes
 
-- "OpenRouter provides a unified API that gives you access to hundreds of AI models through a single endpoint, while automatically handling fallbacks and selecting the most cost-effective options." ^[raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
+- "OpenRouter provides a unified API that gives you access to hundreds of AI models through a single endpoint, while automatically handling fallbacks and selecting the most cost-effective options." ^[001a-raw/document/openrouter/openrouter-001-quickstart-2026-04-29.md]
 
 ## Notes
 

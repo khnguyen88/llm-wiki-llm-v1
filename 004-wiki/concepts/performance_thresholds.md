@@ -18,15 +18,15 @@ provenance: extracted
 
 # Performance Thresholds
 
-OpenRouter routing parameters that deprioritize (not exclude) providers based on throughput and latency percentile metrics. Providers that do not meet the specified thresholds are moved to the end of the routing list rather than excluded entirely, so requests still complete even if no preferred provider qualifies. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+OpenRouter routing parameters that deprioritize (not exclude) providers based on throughput and latency percentile metrics. Providers that do not meet the specified thresholds are moved to the end of the routing list rather than excluded entirely, so requests still complete even if no preferred provider qualifies. ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
 
 ## Key Points
 
-- `preferred_min_throughput` sets a minimum tokens-per-second threshold; providers below it are deprioritized ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
-- `preferred_max_latency` sets a maximum latency threshold in seconds; providers above it are deprioritized ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
-- Both thresholds accept a single number (applies to p50) or an object with percentile cutoffs: p50, p75, p90, p99 ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
-- Percentile metrics are calculated over a rolling 5-minute window; when multiple cutoffs are specified, all must be met for a provider to be in the preferred group ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
-- These thresholds do not guarantee a provider meeting the performance level; they only deprioritize underperforming providers — unlike `max_price`, which prevents execution if no provider meets the price constraint ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- `preferred_min_throughput` sets a minimum tokens-per-second threshold; providers below it are deprioritized ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- `preferred_max_latency` sets a maximum latency threshold in seconds; providers above it are deprioritized ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- Both thresholds accept a single number (applies to p50) or an object with percentile cutoffs: p50, p75, p90, p99 ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- Percentile metrics are calculated over a rolling 5-minute window; when multiple cutoffs are specified, all must be met for a provider to be in the preferred group ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+- These thresholds do not guarantee a provider meeting the performance level; they only deprioritize underperforming providers — unlike `max_price`, which prevents execution if no provider meets the price constraint ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
 
 ## Details
 
@@ -37,7 +37,7 @@ OpenRouter routing parameters that deprioritize (not exclude) providers based on
 - **p90**: 90% of requests perform better than this value; reflects typical worst-case performance
 - **p99**: 99% of requests perform better than this value; reflects rare worst-case performance
 
-Higher percentiles (p90, p99) give more confidence about worst-case performance, while lower percentiles (p50) reflect typical performance. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+Higher percentiles (p90, p99) give more confidence about worst-case performance, while lower percentiles (p50) reflect typical performance. ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
 
 ### Use Cases
 
@@ -46,7 +46,7 @@ Higher percentiles (p90, p99) give more confidence about worst-case performance,
 - **SLA compliance**: Use multiple percentile cutoffs to enforce performance across tiers
 - **Cost optimization**: Combine with `sort: "price"` to get the cheapest provider meeting performance requirements
 
-When combined with `partition: "none"` in the `sort` object and [[004-wiki/concepts/model_fallback]], performance thresholds can select the cheapest or fastest endpoint across multiple models. ^[raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
+When combined with `partition: "none"` in the `sort` object and [[004-wiki/concepts/model_fallback]], performance thresholds can select the cheapest or fastest endpoint across multiple models. ^[001a-raw/document/openrouter/openrouter-018-guides-routing-provider-selection-2026-04-29.md]
 
 ## Related
 

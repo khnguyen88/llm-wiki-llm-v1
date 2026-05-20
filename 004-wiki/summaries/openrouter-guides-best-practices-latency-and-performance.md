@@ -21,19 +21,19 @@ provenance: extracted
 
 ## Key Points
 
-- OpenRouter is designed to add minimal latency to requests, using edge computing via Cloudflare Workers, efficient edge caching of user and API key data, and optimized routing logic ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
-- Cold edge caches during the first 1-2 minutes of operation in a new region cause slightly higher latency until caches warm up ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
-- Low credit balances (single-digit dollars) or API keys approaching configured credit limits trigger additional database checks and more aggressive cache expiration, increasing latency ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
-- Model fallback adds latency to the specific request when the primary model or provider fails, but OpenRouter tracks provider failures and routes around unavailable providers to prevent recurring latency ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
-- Maintaining a credit balance of $10-20 is recommended to avoid forced credit checks that add latency ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
-- Provider preferences can be configured to optimize for specific latency requirements (time to first token or time to last token) ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
-- Auto-topup with a higher threshold and amount helps maintain a healthy credit balance and avoid latency from forced credit checks ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- OpenRouter is designed to add minimal latency to requests, using edge computing via Cloudflare Workers, efficient edge caching of user and API key data, and optimized routing logic ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Cold edge caches during the first 1-2 minutes of operation in a new region cause slightly higher latency until caches warm up ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Low credit balances (single-digit dollars) or API keys approaching configured credit limits trigger additional database checks and more aggressive cache expiration, increasing latency ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Model fallback adds latency to the specific request when the primary model or provider fails, but OpenRouter tracks provider failures and routes around unavailable providers to prevent recurring latency ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Maintaining a credit balance of $10-20 is recommended to avoid forced credit checks that add latency ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Provider preferences can be configured to optimize for specific latency requirements (time to first token or time to last token) ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
+- Auto-topup with a higher threshold and amount helps maintain a healthy credit balance and avoid latency from forced credit checks ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md]
 
 ## Quotes
 
-> "OpenRouter is designed with performance as a top priority. OpenRouter is heavily optimized to add as little latency as possible to your requests." ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md:5]
+> "OpenRouter is designed with performance as a top priority. OpenRouter is heavily optimized to add as little latency as possible to your requests." ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md:5]
 
-> "Recommended minimum balance: $10-20 to ensure smooth operation" ^[raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md:31]
+> "Recommended minimum balance: $10-20 to ensure smooth operation" ^[001a-raw/document/openrouter/openrouter-069-guides-best-practices-latency-and-performance-2026-04-29.md:31]
 
 ## Notes
 

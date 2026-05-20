@@ -16,7 +16,7 @@ provenance: merged
 
 # Wulf and McKee
 
-William A. Wulf and Sally A. McKee, the computer architects who coined the term "memory wall" in their 1995 paper "Hitting the Memory Wall: Implications of the Obvious" (ACM SIGARCH Computer Architecture News, Vol. 23, Issue 1, pp. 20-24). They identified the growing gap between processor speed (improving at 75-80% per year) and DRAM speed (improving at only ~7% per year) as the fundamental bottleneck on computing performance.^[raw/transcripts/adam-rosler-2026-05-12.md]
+William A. Wulf and Sally A. McKee, the computer architects who coined the term "memory wall" in their 1995 paper "Hitting the Memory Wall: Implications of the Obvious" (ACM SIGARCH Computer Architecture News, Vol. 23, Issue 1, pp. 20-24). They identified the growing gap between processor speed (improving at 75-80% per year) and DRAM speed (improving at only ~7% per year) as the fundamental bottleneck on computing performance.^[001a-raw/transcripts/adam-rosler-2026-05-12.md]
 
 ## Key Facts
 

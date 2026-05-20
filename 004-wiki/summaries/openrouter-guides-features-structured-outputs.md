@@ -20,13 +20,13 @@ provenance: extracted
 
 ## Key Points
 
-- Structured outputs enforce JSON Schema validation on model responses via the `response_format` parameter with `type: "json_schema"` and a `json_schema` object containing the schema definition ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
-- The `json_schema` object requires three fields: `name` (schema identifier), `strict` (set to `true` for exact schema adherence), and `schema` (the JSON Schema definition with `type`, `properties`, `required`, and `additionalProperties: false`) ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
-- Supported model providers include OpenAI (GPT-4o+), Google Gemini, Anthropic (Sonnet 4.5, Opus 4.1+), most open-source models, and all Fireworks-provided models ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
-- Model support can be verified by checking `supported_parameters` on the models page and setting `require_parameters: true` in provider preferences to ensure only structured-output-capable models are used ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
-- Structured outputs work with streaming responses (`stream: true`); the model streams valid partial JSON that assembles into a complete, schema-conformant response ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
-- Two error scenarios exist: models that don't support structured outputs produce a request failure, and invalid JSON Schemas produce a schema validation error ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
-- The [[004-wiki/concepts/response_healing|Response Healing]] plugin can be enabled for non-streaming structured output requests to repair imperfect JSON formatting from models ^[raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Structured outputs enforce JSON Schema validation on model responses via the `response_format` parameter with `type: "json_schema"` and a `json_schema` object containing the schema definition ^[001a-raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- The `json_schema` object requires three fields: `name` (schema identifier), `strict` (set to `true` for exact schema adherence), and `schema` (the JSON Schema definition with `type`, `properties`, `required`, and `additionalProperties: false`) ^[001a-raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Supported model providers include OpenAI (GPT-4o+), Google Gemini, Anthropic (Sonnet 4.5, Opus 4.1+), most open-source models, and all Fireworks-provided models ^[001a-raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Model support can be verified by checking `supported_parameters` on the models page and setting `require_parameters: true` in provider preferences to ensure only structured-output-capable models are used ^[001a-raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Structured outputs work with streaming responses (`stream: true`); the model streams valid partial JSON that assembles into a complete, schema-conformant response ^[001a-raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- Two error scenarios exist: models that don't support structured outputs produce a request failure, and invalid JSON Schemas produce a schema validation error ^[001a-raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
+- The [[004-wiki/concepts/response_healing|Response Healing]] plugin can be enabled for non-streaming structured output requests to repair imperfect JSON formatting from models ^[001a-raw/document/openrouter/openrouter-041-guides-features-structured-outputs-2026-04-29.md]
 
 ## Notes
 

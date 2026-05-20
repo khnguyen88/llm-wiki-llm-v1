@@ -20,19 +20,19 @@ provenance: extracted
 
 ## Key Points
 
-- The Agent SDK embeds Claude Code's autonomous agent loop in external applications; the SDK is a standalone package that does not require the Claude Code CLI ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- Every agent session follows a five-step cycle: receive prompt, evaluate/respond, execute tools, repeat, and return result ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- A turn is one round trip of Claude producing output with tool calls, the SDK executing those tools, and results feeding back automatically; turns continue until Claude produces output with no tool calls ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- The SDK yields five message types: SystemMessage, AssistantMessage, UserMessage, StreamEvent, and ResultMessage ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- Context accumulates across turns and does not reset; when it approaches the window limit, the SDK automatically compacts older history into summaries ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- Read-only tools (Read, Glob, Grep, read-only MCP tools) can execute in parallel; state-modifying tools (Edit, Write, Bash) run sequentially ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- Six permission modes control tool approval: default, acceptEdits, plan, dontAsk, auto (TypeScript only), and bypassPermissions ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- The Agent SDK embeds Claude Code's autonomous agent loop in external applications; the SDK is a standalone package that does not require the Claude Code CLI ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- Every agent session follows a five-step cycle: receive prompt, evaluate/respond, execute tools, repeat, and return result ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- A turn is one round trip of Claude producing output with tool calls, the SDK executing those tools, and results feeding back automatically; turns continue until Claude produces output with no tool calls ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- The SDK yields five message types: SystemMessage, AssistantMessage, UserMessage, StreamEvent, and ResultMessage ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- Context accumulates across turns and does not reset; when it approaches the window limit, the SDK automatically compacts older history into summaries ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- Read-only tools (Read, Glob, Grep, read-only MCP tools) can execute in parallel; state-modifying tools (Edit, Write, Bash) run sequentially ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- Six permission modes control tool approval: default, acceptEdits, plan, dontAsk, auto (TypeScript only), and bypassPermissions ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
 
 ## Quotes
 
-- "The Agent SDK lets you embed Claude Code's autonomous agent loop in your own applications. The SDK is a standalone package that gives you programmatic control over tools, permissions, cost limits, and output." ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- "Content that stays the same across turns (system prompt, tool definitions, CLAUDE.md) is automatically prompt cached, which reduces cost and latency for repeated prefixes." ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
-- "Each subagent starts with a fresh conversation (no prior message history, though it does load its own system prompt and project-level context like CLAUDE.md). It does not see the parent's turns, and only its final response returns to the parent as a tool result." ^[raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- "The Agent SDK lets you embed Claude Code's autonomous agent loop in your own applications. The SDK is a standalone package that gives you programmatic control over tools, permissions, cost limits, and output." ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- "Content that stays the same across turns (system prompt, tool definitions, CLAUDE.md) is automatically prompt cached, which reduces cost and latency for repeated prefixes." ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
+- "Each subagent starts with a fresh conversation (no prior message history, though it does load its own system prompt and project-level context like CLAUDE.md). It does not see the parent's turns, and only its final response returns to the parent as a tool result." ^[001a-raw/document/claude code/claude-code-002-agent-sdk-agent-loop-2026-04-29.md]
 
 ## Notes
 

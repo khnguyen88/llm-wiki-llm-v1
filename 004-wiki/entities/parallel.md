@@ -17,17 +17,17 @@ provenance: extracted
 
 # Parallel
 
-A search API (parallel.ai) that integrates with OpenRouter's web search server tool, supporting domain filtering and context size control. ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+A search API (parallel.ai) that integrates with OpenRouter's web search server tool, supporting domain filtering and context size control. ^[001a-raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
 
 ## Key Facts
 
-- Selected with `engine: "parallel"` in the `openrouter:web_search` tool parameters ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
-- Supports both `allowed_domains` and `excluded_domains`, but they are mutually exclusive (only one can be used per request) ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
-- Supports `search_context_size` (`low`/`medium`/`high`) which controls total characters across all results (unlike Exa where it applies per result) ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
-- `max_results` applies per search call (1–25, default 5) ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
-- Pricing: $4 per 1,000 results using OpenRouter credits (same rate as Exa) ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
-- Does not support `user_location` for location-biased results ^[raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
-- In the deprecated `web` plugin, domain filtering uses `include_domains` and `exclude_domains`; Parallel supports both but they are mutually exclusive (only one can be used per request) ^[raw/document/openrouter/openrouter-039-guides-features-plugins-web-search-2026-04-29.md]
+- Selected with `engine: "parallel"` in the `openrouter:web_search` tool parameters ^[001a-raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Supports both `allowed_domains` and `excluded_domains`, but they are mutually exclusive (only one can be used per request) ^[001a-raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Supports `search_context_size` (`low`/`medium`/`high`) which controls total characters across all results (unlike Exa where it applies per result) ^[001a-raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- `max_results` applies per search call (1–25, default 5) ^[001a-raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Pricing: $4 per 1,000 results using OpenRouter credits (same rate as Exa) ^[001a-raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- Does not support `user_location` for location-biased results ^[001a-raw/document/openrouter/openrouter-034-guides-features-server-tools-web-search-2026-04-29.md]
+- In the deprecated `web` plugin, domain filtering uses `include_domains` and `exclude_domains`; Parallel supports both but they are mutually exclusive (only one can be used per request) ^[001a-raw/document/openrouter/openrouter-039-guides-features-plugins-web-search-2026-04-29.md]
 
 ## Related
 

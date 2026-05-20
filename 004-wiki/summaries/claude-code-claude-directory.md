@@ -20,13 +20,13 @@ provenance: extracted
 
 ## Key Points
 
-- The `.claude` directory at project level and `~/.claude` at global level store all Claude Code configuration: instructions, settings, skills, subagents, and memory ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- Project-scope files live under `.claude/` (or at the project root for `CLAUDE.md`, `.mcp.json`, `.worktreeinclude`); global-scope files live under `~/.claude/` and apply across all projects ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- On Windows, `~/.claude` resolves to `%USERPROFILE%\.claude`; setting `CLAUDE_CONFIG_DIR` overrides all `~/.claude` paths ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- Settings precedence from highest to lowest: managed settings, CLI flags, environment variables, then `settings.json` ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- `CLAUDE.local.md` (project root, gitignored) holds private preferences alongside `CLAUDE.md`; `settings.local.json` (project only, auto-gitignored) holds personal overrides ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- Application data (transcripts, tool results, file snapshots, caches) is stored in `~/.claude/` and auto-cleaned after `cleanupPeriodDays` (default 30); transcripts are plaintext and not encrypted at rest ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
-- Several paths persist indefinitely until manually deleted: `history.jsonl` (prompt history), `stats-cache.json` (usage stats), and legacy `todos/` directory ^[raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- The `.claude` directory at project level and `~/.claude` at global level store all Claude Code configuration: instructions, settings, skills, subagents, and memory ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Project-scope files live under `.claude/` (or at the project root for `CLAUDE.md`, `.mcp.json`, `.worktreeinclude`); global-scope files live under `~/.claude/` and apply across all projects ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- On Windows, `~/.claude` resolves to `%USERPROFILE%\.claude`; setting `CLAUDE_CONFIG_DIR` overrides all `~/.claude` paths ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Settings precedence from highest to lowest: managed settings, CLI flags, environment variables, then `settings.json` ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- `CLAUDE.local.md` (project root, gitignored) holds private preferences alongside `CLAUDE.md`; `settings.local.json` (project only, auto-gitignored) holds personal overrides ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Application data (transcripts, tool results, file snapshots, caches) is stored in `~/.claude/` and auto-cleaned after `cleanupPeriodDays` (default 30); transcripts are plaintext and not encrypted at rest ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
+- Several paths persist indefinitely until manually deleted: `history.jsonl` (prompt history), `stats-cache.json` (usage stats), and legacy `todos/` directory ^[001a-raw/document/claude code/claude-code-044-claude-directory-2026-04-29.md]
 
 ## Notes
 

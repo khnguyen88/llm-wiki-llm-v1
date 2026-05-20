@@ -18,11 +18,11 @@ updated: "2026-05-02T12:00:00Z"
 
 ## Summary
 
-This TempleSpark guide (October 2024) provides a comprehensive breakdown of LLM file naming conventions, emphasizing how file names convey valuable information about model architecture, size, quantization level, file format, and intended purpose. It covers the purpose of naming conventions for deployment environments, task-specific models, platform compatibility, and performance optimization. The guide includes detailed example breakdowns of real model names. ^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
+This TempleSpark guide (October 2024) provides a comprehensive breakdown of LLM file naming conventions, emphasizing how file names convey valuable information about model architecture, size, quantization level, file format, and intended purpose. It covers the purpose of naming conventions for deployment environments, task-specific models, platform compatibility, and performance optimization. The guide includes detailed example breakdowns of real model names. ^[001a-raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
 
 ## Purpose of Naming Conventions
 
-Model file names enable rapid identification of characteristics without opening the file. Four key purposes: deployment environment selection (smaller quantized models for edge devices), task-specific model identification (Instruct/Chat labels), platform compatibility assessment (format extensions), and performance optimization (quantization levels). ^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
+Model file names enable rapid identification of characteristics without opening the file. Four key purposes: deployment environment selection (smaller quantized models for edge devices), task-specific model identification (Instruct/Chat labels), platform compatibility assessment (format extensions), and performance optimization (quantization levels). ^[001a-raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
 
 ## File Format Extensions
 
@@ -35,7 +35,7 @@ Model file names enable rapid identification of characteristics without opening 
 | .onnx | ONNX | Cross-framework interoperability |
 | .tflite | TensorFlow Lite | Mobile and embedded devices |
 
-^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
+^[001a-raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
 
 ## Example Model Name Breakdowns
 
@@ -47,7 +47,7 @@ Model file names enable rapid identification of characteristics without opening 
 | Llama-2-13B-Embedding-Q4_F.pt | Llama 2 | 13B | Embedding | Q4_F | .pt |
 | Falcon-40B-Chat-FP16.bin | Falcon | 40B | Chat | FP16 | .bin |
 
-^[raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
+^[001a-raw/articles/Understanding Naming Conventions Of LLM Files_ A Comprehensive Guide.md]
 
 ## Key Quotes
 

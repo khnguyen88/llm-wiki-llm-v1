@@ -20,19 +20,19 @@ provenance: extracted
 
 ## Key Points
 
-- OpenRouter does not store prompts or responses unless the user opts in to one or both data-sharing settings ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
-- **Private Input & Output Logging** (off by default) makes prompts and completions visible in logs for debugging and prompt optimization; OpenRouter does not access or use this data; for organizations, only admins can view logged data; enabled via Observability settings ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
-- **OpenRouter Use of Inputs/Outputs** (off by default) allows OpenRouter to use prompt and completion data to improve the product, in exchange for a 1% discount on all model usage; enabled via Privacy settings ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
-- OpenRouter samples a small number of prompts for anonymous categorization to power reporting and model ranking; if not opted in to OpenRouter use of inputs/outputs, categorization is stored completely anonymously and never associated with the user's account or user ID ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
-- Categorization is performed by a model with a zero-data-retention policy ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
-- Metadata (prompt/completion token counts, latency, etc.) is stored for every request regardless of opt-in status; metadata does not include prompt or response content ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
-- Metadata powers reporting, model ranking, and the logs metadata page ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- OpenRouter does not store prompts or responses unless the user opts in to one or both data-sharing settings ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- **Private Input & Output Logging** (off by default) makes prompts and completions visible in logs for debugging and prompt optimization; OpenRouter does not access or use this data; for organizations, only admins can view logged data; enabled via Observability settings ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- **OpenRouter Use of Inputs/Outputs** (off by default) allows OpenRouter to use prompt and completion data to improve the product, in exchange for a 1% discount on all model usage; enabled via Privacy settings ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- OpenRouter samples a small number of prompts for anonymous categorization to power reporting and model ranking; if not opted in to OpenRouter use of inputs/outputs, categorization is stored completely anonymously and never associated with the user's account or user ID ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- Categorization is performed by a model with a zero-data-retention policy ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- Metadata (prompt/completion token counts, latency, etc.) is stored for every request regardless of opt-in status; metadata does not include prompt or response content ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
+- Metadata powers reporting, model ranking, and the logs metadata page ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md]
 
 ## Quotes
 
-- "OpenRouter does not store your prompts or responses, *unless* you opt in to one or both of the following" ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md:15]
-- "if you are not opted in to OpenRouter use of inputs/outputs, any categorization of your prompts is stored completely anonymously and never associated with your account or user ID" ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md:23]
-- "This metadata does not include the content of your prompts or responses, only information about the request itself." ^[raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md:27]
+- "OpenRouter does not store your prompts or responses, *unless* you opt in to one or both of the following" ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md:15]
+- "if you are not opted in to OpenRouter use of inputs/outputs, any categorization of your prompts is stored completely anonymously and never associated with your account or user ID" ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md:23]
+- "This metadata does not include the content of your prompts or responses, only information about the request itself." ^[001a-raw/document/openrouter/openrouter-067-guides-privacy-data-collection-2026-04-29.md:27]
 
 ## Notes
 

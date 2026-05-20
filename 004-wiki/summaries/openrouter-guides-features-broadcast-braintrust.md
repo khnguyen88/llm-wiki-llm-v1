@@ -20,18 +20,18 @@ provenance: extracted
 
 ## Key Points
 
-- [[004-wiki/entities/braintrust|Braintrust]] is an end-to-end platform for evaluating, monitoring, and improving LLM applications, configurable as a [[004-wiki/concepts/broadcast|Broadcast]] destination in OpenRouter ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
-- Setup requires a Braintrust API key (from Account Settings) and Project ID (from project settings), plus an optional Base URL defaulting to `https://api.braintrust.dev` ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
-- Broadcast must be enabled in OpenRouter via Settings > Observability before configuring individual destinations ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
-- Configuration only saves if the Test Connection check passes, ensuring credentials are valid before activation ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
-- Custom metadata keys supported: `trace_id` (groups logs into traces), `trace_name` (display name), `span_name` (intermediate spans), `generation_name` (LLM span name) ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
-- Braintrust receives detailed metrics per LLM call: token counts, cached token usage, reasoning tokens, cost information (input/output/total), and duration/timing ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
-- Privacy Mode strips prompt and completion content from traces while preserving all other data (token usage, costs, timing, model info, custom metadata) ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- [[004-wiki/entities/braintrust|Braintrust]] is an end-to-end platform for evaluating, monitoring, and improving LLM applications, configurable as a [[004-wiki/concepts/broadcast|Broadcast]] destination in OpenRouter ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Setup requires a Braintrust API key (from Account Settings) and Project ID (from project settings), plus an optional Base URL defaulting to `https://api.braintrust.dev` ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Broadcast must be enabled in OpenRouter via Settings > Observability before configuring individual destinations ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Configuration only saves if the Test Connection check passes, ensuring credentials are valid before activation ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Custom metadata keys supported: `trace_id` (groups logs into traces), `trace_name` (display name), `span_name` (intermediate spans), `generation_name` (LLM span name) ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Braintrust receives detailed metrics per LLM call: token counts, cached token usage, reasoning tokens, cost information (input/output/total), and duration/timing ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Privacy Mode strips prompt and completion content from traces while preserving all other data (token usage, costs, timing, model info, custom metadata) ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 
 ## Notes
 
-- The `user` field in API requests maps to Braintrust's `user_id` metadata; `session_id` maps to `session_id` metadata ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
-- Custom metadata keys beyond the standard four are included in the span's metadata object; tags are passed through for filtering in the Braintrust UI ^[raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- The `user` field in API requests maps to Braintrust's `user_id` metadata; `session_id` maps to `session_id` metadata ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+- Custom metadata keys beyond the standard four are included in the span's metadata object; tags are passed through for filtering in the Braintrust UI ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 
 ## Related
 

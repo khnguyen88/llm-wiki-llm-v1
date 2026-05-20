@@ -20,15 +20,15 @@ provenance: extracted
 
 ## Key Points
 
-- The `models` parameter accepts an array of model IDs in priority order; if the first model returns an error, OpenRouter automatically tries the next model in the list ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
-- Any error can trigger a fallback by default, including context length validation errors, moderation flags for filtered models, rate-limiting, and provider downtime ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
-- Requests are priced using whichever model ultimately handled the request, as indicated by the `model` attribute in the response body ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
-- The `models` array works with the OpenAI SDK by passing it via the `extra_body` parameter; the `model` field specifies the primary model and the `models` array specifies ordered fallbacks ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
-- If both the primary model and the fallback model return errors, OpenRouter returns the fallback model's error ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- The `models` parameter accepts an array of model IDs in priority order; if the first model returns an error, OpenRouter automatically tries the next model in the list ^[001a-raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- Any error can trigger a fallback by default, including context length validation errors, moderation flags for filtered models, rate-limiting, and provider downtime ^[001a-raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- Requests are priced using whichever model ultimately handled the request, as indicated by the `model` attribute in the response body ^[001a-raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- The `models` array works with the OpenAI SDK by passing it via the `extra_body` parameter; the `model` field specifies the primary model and the `models` array specifies ordered fallbacks ^[001a-raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
+- If both the primary model and the fallback model return errors, OpenRouter returns the fallback model's error ^[001a-raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md]
 
 ## Quotes
 
-> "The `models` parameter lets you automatically try other models if the primary model's providers are down, rate-limited, or refuse to reply due to content moderation." ^[raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md:1]
+> "The `models` parameter lets you automatically try other models if the primary model's providers are down, rate-limited, or refuse to reply due to content moderation." ^[001a-raw/document/openrouter/openrouter-017-guides-routing-model-fallbacks-2026-04-29.md:1]
 
 ## Notes
 

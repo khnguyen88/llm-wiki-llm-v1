@@ -20,16 +20,16 @@ provenance: extracted
 
 ## Key Points
 
-- Body Builder (`openrouter/bodybuilder`) uses AI to transform natural language prompts into valid OpenRouter API request bodies, enabling the same task to be run across multiple models in parallel ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
-- Free to use — no charge for generating request bodies; standard model pricing applies only when executing the generated requests ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
-- Returns a JSON object containing an array of OpenRouter-compatible request bodies, one per model, each with its own `model` and `messages` fields ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
-- Understands model aliases and common names (e.g., "Claude Sonnet" maps to `anthropic/claude-sonnet-4.5`, "GPT-5" maps to `openai/gpt-5.1`) and selects latest model versions by default ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
-- Requires `messages` format input; generated requests use minimal required fields by default; system messages in input are preserved and forwarded ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
-- Primary use cases include model benchmarking, redundancy and reliability (multi-provider verification), A/B testing across models, and exploration of model capabilities ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+- Body Builder (`openrouter/bodybuilder`) uses AI to transform natural language prompts into valid OpenRouter API request bodies, enabling the same task to be run across multiple models in parallel ^[001a-raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+- Free to use — no charge for generating request bodies; standard model pricing applies only when executing the generated requests ^[001a-raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+- Returns a JSON object containing an array of OpenRouter-compatible request bodies, one per model, each with its own `model` and `messages` fields ^[001a-raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+- Understands model aliases and common names (e.g., "Claude Sonnet" maps to `anthropic/claude-sonnet-4.5`, "GPT-5" maps to `openai/gpt-5.1`) and selects latest model versions by default ^[001a-raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+- Requires `messages` format input; generated requests use minimal required fields by default; system messages in input are preserved and forwarded ^[001a-raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
+- Primary use cases include model benchmarking, redundancy and reliability (multi-provider verification), A/B testing across models, and exploration of model capabilities ^[001a-raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md]
 
 ## Quotes
 
-- "Body Builder uses AI to understand your intent and generate valid OpenRouter API request bodies." ^[raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md:8]
+- "Body Builder uses AI to understand your intent and generate valid OpenRouter API request bodies." ^[001a-raw/document/openrouter/openrouter-027-guides-routing-routers-body-builder-2026-04-29.md:8]
 
 ## Notes
 

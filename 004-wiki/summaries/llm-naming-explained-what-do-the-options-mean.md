@@ -18,7 +18,7 @@ updated: "2026-05-02T12:00:00Z"
 
 ## Summary
 
-Martin Kollie's guide (February 2025) focuses on the practical side of LLM naming conventions, particularly the quantization level system. Using the Llama model series as a running example (`llama3.3-70b-instruct-q4_K_M`), it explains the three-component naming pattern of model name, parameter count, fine-tuning type, and quantization type. The guide provides a detailed quantization reference table with quality impact and recommendation guidance sourced from the llama.cpp project. ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
+Martin Kollie's guide (February 2025) focuses on the practical side of LLM naming conventions, particularly the quantization level system. Using the Llama model series as a running example (`llama3.3-70b-instruct-q4_K_M`), it explains the three-component naming pattern of model name, parameter count, fine-tuning type, and quantization type. The guide provides a detailed quantization reference table with quality impact and recommendation guidance sourced from the llama.cpp project. ^[001a-raw/articles/LLM Naming Explained (What do the options mean_).md]
 
 ## Quantization Type Reference
 
@@ -38,7 +38,7 @@ Martin Kollie's guide (February 2025) focuses on the practical side of LLM namin
 | F16/FP16 | Extremely large | N/A | Virtually no loss | Not Recommended |
 | F32/FP32 | Absolutely huge | N/A | Lossless | Not Recommended |
 
-Key insights: prefer K-quant over uniform at similar bit-widths; higher bit-widths (Q6_K, Q8_0, FP16, FP32) are not recommended because marginal quality gain does not justify the large file size increase. ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
+Key insights: prefer K-quant over uniform at similar bit-widths; higher bit-widths (Q6_K, Q8_0, FP16, FP32) are not recommended because marginal quality gain does not justify the large file size increase. ^[001a-raw/articles/LLM Naming Explained (What do the options mean_).md]
 
 ## Suffix Meanings
 
@@ -48,11 +48,11 @@ Key insights: prefer K-quant over uniform at similar bit-widths; higher bit-widt
 - **K** -- K-quant quantization method (smarter bit allocation across layers)
 - **_S, _M, _L** -- Block size: Small (low memory, lower precision), Medium (balanced), Large (more precision, more memory)
 
-If not specified, Q4_K_M is the default quantization for most models. ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
+If not specified, Q4_K_M is the default quantization for most models. ^[001a-raw/articles/LLM Naming Explained (What do the options mean_).md]
 
 ## Analogy
 
-Quantization is compared to video resolution: 1080p (FP16, high quality, large file), 720p (Q4_K_M, balanced), 480p (Q2_K, small but significant quality loss). ^[raw/articles/LLM Naming Explained (What do the options mean_).md]
+Quantization is compared to video resolution: 1080p (FP16, high quality, large file), 720p (Q4_K_M, balanced), 480p (Q2_K, small but significant quality loss). ^[001a-raw/articles/LLM Naming Explained (What do the options mean_).md]
 
 ## Key Quotes
 

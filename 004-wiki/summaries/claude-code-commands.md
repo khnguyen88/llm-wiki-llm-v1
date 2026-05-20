@@ -21,13 +21,13 @@ provenance: extracted
 
 ## Key Points
 
-- Claude Code provides 50+ slash commands for controlling sessions, switching models, managing permissions, running workflows, and more ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
-- Commands fall into two categories: built-in commands (coded into the CLI) and bundled skills (prompt-based, marked [Skill]) ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
-- Availability depends on platform, plan, and environment; e.g., /desktop (macOS/Windows only), /upgrade (Pro/Max), /setup-bedrock (CLAUDE_CODE_USE_BEDROCK=1) ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
-- /compact summarizes conversation history to free context (optionally with focus instructions); /clear starts a fresh conversation ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
-- /batch orchestrates large-scale changes by decomposing work into 5-30 units, each handled by a background agent in an isolated git worktree ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
-- /autofix-pr spawns a Claude Code on the Web session that watches the current branch's PR and pushes fixes for CI failures and review comments; accepts an optional prompt for custom instructions ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
-- MCP servers expose prompts as commands in the /mcp__<server>__<prompt> format, dynamically discovered from connected servers ^[raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- Claude Code provides 50+ slash commands for controlling sessions, switching models, managing permissions, running workflows, and more ^[001a-raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- Commands fall into two categories: built-in commands (coded into the CLI) and bundled skills (prompt-based, marked [Skill]) ^[001a-raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- Availability depends on platform, plan, and environment; e.g., /desktop (macOS/Windows only), /upgrade (Pro/Max), /setup-bedrock (CLAUDE_CODE_USE_BEDROCK=1) ^[001a-raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- /compact summarizes conversation history to free context (optionally with focus instructions); /clear starts a fresh conversation ^[001a-raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- /batch orchestrates large-scale changes by decomposing work into 5-30 units, each handled by a background agent in an isolated git worktree ^[001a-raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- /autofix-pr spawns a Claude Code on the Web session that watches the current branch's PR and pushes fixes for CI failures and review comments; accepts an optional prompt for custom instructions ^[001a-raw/document/claude code/claude-code-047-commands-2026-04-29.md]
+- MCP servers expose prompts as commands in the /mcp__<server>__<prompt> format, dynamically discovered from connected servers ^[001a-raw/document/claude code/claude-code-047-commands-2026-04-29.md]
 
 ## Quotes
 

@@ -21,16 +21,16 @@ provenance: extracted
 
 # Rate Limiting
 
-Per-user Token Per Minute (TPM) and Request Per Minute (RPM) recommendations for Claude Code team deployments. Rate limits apply at the organization level, not per individual user, meaning individual users can temporarily consume more than their calculated share when others are not actively using the service. ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+Per-user Token Per Minute (TPM) and Request Per Minute (RPM) recommendations for Claude Code team deployments. Rate limits apply at the organization level, not per individual user, meaning individual users can temporarily consume more than their calculated share when others are not actively using the service. ^[001a-raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 
 ## Key Points
 
-- Rate limits apply at the organization level, not per individual user; individuals can temporarily exceed their calculated share when others are inactive ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- TPM per user decreases as team size grows because fewer users tend to use Claude Code concurrently in larger organizations ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- For organizations with custom rate limits, Claude Code traffic in the workspace counts toward the organization's overall API rate limits; a workspace rate limit can cap Claude Code's share and protect other production workloads ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- Scenarios with unusually high concurrent usage (such as live training sessions with large groups) may need higher TPM allocations per user ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
-- The statusline exposes Claude.ai subscription rate limit usage via `rate_limits.five_hour.used_percentage` and `rate_limits.seven_day.used_percentage` (0-100), with `resets_at` Unix epoch timestamps; this field only appears for Pro/Max subscribers after the first API response, and each window may be independently absent ^[raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
-- On OpenRouter, free model rate limits are determined by credit purchase history: users who have purchased at least a credit threshold receive higher daily free-model request limits than those with no credit purchases ^[raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
+- Rate limits apply at the organization level, not per individual user; individuals can temporarily exceed their calculated share when others are inactive ^[001a-raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- TPM per user decreases as team size grows because fewer users tend to use Claude Code concurrently in larger organizations ^[001a-raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- For organizations with custom rate limits, Claude Code traffic in the workspace counts toward the organization's overall API rate limits; a workspace rate limit can cap Claude Code's share and protect other production workloads ^[001a-raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- Scenarios with unusually high concurrent usage (such as live training sessions with large groups) may need higher TPM allocations per user ^[001a-raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+- The statusline exposes Claude.ai subscription rate limit usage via `rate_limits.five_hour.used_percentage` and `rate_limits.seven_day.used_percentage` (0-100), with `resets_at` Unix epoch timestamps; this field only appears for Pro/Max subscribers after the first API response, and each window may be independently absent ^[001a-raw/document/claude code/claude-code-105-statusline-2026-04-29.md]
+- On OpenRouter, free model rate limits are determined by credit purchase history: users who have purchased at least a credit threshold receive higher daily free-model request limits than those with no credit purchases ^[001a-raw/document/openrouter/openrouter-015-faq-2026-04-29.md]
 
 ## Details
 
@@ -45,9 +45,9 @@ Recommended per-user TPM and RPM allocations based on organization size:
 | 100-500 users | 15k-20k | 0.37-0.47 |
 | 500+ users | 10k-15k | 0.25-0.35 |
 
-^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+^[001a-raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 
-For example, a 200-user organization might request 20k TPM per user, or 4 million total TPM (200 x 20,000). The workspace rate limit can be configured on the workspace's Limits page in the [[004-wiki/entities/claude_console|Claude Console]]. ^[raw/document/claude code/claude-code-052-costs-2026-04-29.md]
+For example, a 200-user organization might request 20k TPM per user, or 4 million total TPM (200 x 20,000). The workspace rate limit can be configured on the workspace's Limits page in the [[004-wiki/entities/claude_console|Claude Console]]. ^[001a-raw/document/claude code/claude-code-052-costs-2026-04-29.md]
 
 ## Related
 

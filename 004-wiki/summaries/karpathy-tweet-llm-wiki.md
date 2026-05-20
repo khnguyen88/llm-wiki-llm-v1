@@ -18,7 +18,7 @@ provenance: reingested
 
 ## Summary
 
-In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a condensed, six-step format. He reports shifting his token throughput from manipulating code to manipulating knowledge stored as markdown and images. The tweet serves as the practical companion to the architectural design document (see [[004-wiki/summaries/karpathy-github-llm-wiki]]), emphasizing "how it works in practice" over "what the architecture is." ^[raw/articles/karpathy-tweet-llm-wiki.md:4]
+In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a condensed, six-step format. He reports shifting his token throughput from manipulating code to manipulating knowledge stored as markdown and images. The tweet serves as the practical companion to the architectural design document (see [[004-wiki/summaries/karpathy-github-llm-wiki]]), emphasizing "how it works in practice" over "what the architecture is." ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:4]
 
 ## Six-Step Workflow
 
@@ -31,13 +31,13 @@ In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a co
 | 5. Linting | Health checks for inconsistencies | Find stale data, impute missing data (web search), suggest new articles |
 | 6. Extra tools | Custom CLIs for larger queries | Vibe-coded search engine used directly or handed to LLM via CLI |
 
-^[raw/articles/karpathy-tweet-llm-wiki.md:7-22]
+^[001a-raw/articles/karpathy-tweet-llm-wiki.md:7-22]
 
 ## Key Observations
 
-- **Scale threshold**: At ~100 articles and ~400K words, the LLM can navigate the wiki without RAG by relying on auto-maintained index files and brief summaries. This suggests a practical scale where index-based navigation is sufficient without embedding infrastructure. ^[raw/articles/karpathy-tweet-llm-wiki.md:13]
-- **Compounding knowledge**: Query outputs are filed back into the wiki rather than disappearing into chat history, so every exploration adds to the knowledge base. ^[raw/articles/karpathy-tweet-llm-wiki.md:16]
-- **Future direction**: As the wiki grows, synthetic data generation + finetuning could allow the LLM to "know" the data in its weights instead of context windows. ^[raw/articles/karpathy-tweet-llm-wiki.md:25]
+- **Scale threshold**: At ~100 articles and ~400K words, the LLM can navigate the wiki without RAG by relying on auto-maintained index files and brief summaries. This suggests a practical scale where index-based navigation is sufficient without embedding infrastructure. ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:13]
+- **Compounding knowledge**: Query outputs are filed back into the wiki rather than disappearing into chat history, so every exploration adds to the knowledge base. ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:16]
+- **Future direction**: As the wiki grows, synthetic data generation + finetuning could allow the LLM to "know" the data in its weights instead of context windows. ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:25]
 
 ## Tools Used
 
@@ -49,19 +49,19 @@ In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a co
 | Custom search engine | Vibe-coded for larger queries via CLI |
 | Unix CLI tools | Operate on file-based wiki data |
 
-^[raw/articles/karpathy-tweet-llm-wiki.md:7-10,22]
+^[001a-raw/articles/karpathy-tweet-llm-wiki.md:7-10,22]
 
 ## Key Quotes
 
-> "I use an LLM to incrementally 'compile' a wiki, which is just a collection of .md files in a directory structure." ^[raw/articles/karpathy-tweet-llm-wiki.md:7]
+> "I use an LLM to incrementally 'compile' a wiki, which is just a collection of .md files in a directory structure." ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:7]
 
-> "The LLM writes and maintains all of the data of the wiki, I rarely touch it directly." ^[raw/articles/karpathy-tweet-llm-wiki.md:10]
+> "The LLM writes and maintains all of the data of the wiki, I rarely touch it directly." ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:10]
 
-> "I thought I had to reach for fancy RAG, but the LLM has been pretty good about auto-maintaining index files and brief summaries." ^[raw/articles/karpathy-tweet-llm-wiki.md:13]
+> "I thought I had to reach for fancy RAG, but the LLM has been pretty good about auto-maintaining index files and brief summaries." ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:13]
 
-> "My own explorations and queries always 'add up' in the knowledge base." ^[raw/articles/karpathy-tweet-llm-wiki.md:16]
+> "My own explorations and queries always 'add up' in the knowledge base." ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:16]
 
-> "I think there is room here for an incredible new product instead of a hacky collection of scripts." ^[raw/articles/karpathy-tweet-llm-wiki.md:27]
+> "I think there is room here for an incredible new product instead of a hacky collection of scripts." ^[001a-raw/articles/karpathy-tweet-llm-wiki.md:27]
 
 ## Related
 

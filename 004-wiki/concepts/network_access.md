@@ -19,16 +19,16 @@ provenance: extracted
 
 # Network Access
 
-Network access controls outbound connections from Claude Code on the Web cloud environments. Each environment specifies one access level, extendable with custom allowed domains. The default level is Trusted. ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+Network access controls outbound connections from Claude Code on the Web cloud environments. Each environment specifies one access level, extendable with custom allowed domains. The default level is Trusted. ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 
 ## Key Points
 
-- Four access levels: None (no outbound), Trusted (allowlisted domains only, the default), Full (any domain), Custom (user-defined allowlist, optionally including the Trusted defaults) ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- GitHub operations use a separate proxy that is independent of the network access level setting; inside the sandbox, git authenticates via a scoped credential that the proxy translates to the user's actual token ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- All outbound traffic passes through an HTTP/HTTPS security proxy providing protection against malicious requests, rate limiting, and content filtering ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- The Trusted allowlist covers Anthropic services, version control (GitHub, GitLab, Bitbucket), container registries (Docker Hub, GCR, GHCR, MCR, ECR), cloud platforms (GCP, Azure, AWS, Oracle), package managers (npm, PyPI, RubyGems, crates.io, Go, Maven, Packagist, NuGet, pub.dev, hex.pm, CPAN, CocoaPods, Hackage, Swift), Linux distributions, development tools, monitoring services, and MCP domains ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- Custom domains support wildcard subdomain matching with `*.` prefix (e.g., `*.internal.example.com`) ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- Some package managers (notably Bun) have known proxy compatibility issues when operating behind the security proxy ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Four access levels: None (no outbound), Trusted (allowlisted domains only, the default), Full (any domain), Custom (user-defined allowlist, optionally including the Trusted defaults) ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- GitHub operations use a separate proxy that is independent of the network access level setting; inside the sandbox, git authenticates via a scoped credential that the proxy translates to the user's actual token ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- All outbound traffic passes through an HTTP/HTTPS security proxy providing protection against malicious requests, rate limiting, and content filtering ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- The Trusted allowlist covers Anthropic services, version control (GitHub, GitLab, Bitbucket), container registries (Docker Hub, GCR, GHCR, MCR, ECR), cloud platforms (GCP, Azure, AWS, Oracle), package managers (npm, PyPI, RubyGems, crates.io, Go, Maven, Packagist, NuGet, pub.dev, hex.pm, CPAN, CocoaPods, Hackage, Swift), Linux distributions, development tools, monitoring services, and MCP domains ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Custom domains support wildcard subdomain matching with `*.` prefix (e.g., `*.internal.example.com`) ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Some package managers (notably Bun) have known proxy compatibility issues when operating behind the security proxy ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 
 ## Details
 

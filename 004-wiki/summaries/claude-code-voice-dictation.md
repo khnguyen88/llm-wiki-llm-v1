@@ -20,18 +20,18 @@ provenance: extracted
 
 ## Key Points
 
-- Voice dictation streams recorded audio to Anthropic's servers for transcription; audio is not processed locally and the service requires a Claude.ai account (not available with API key, Bedrock, Vertex AI, or Foundry authentication) ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
-- Two recording modes: hold mode (push-to-talk, default, requires v2.1.69+) and tap mode (tap to start/stop, requires v2.1.116+); both default to the Space key ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
-- Transcription does not consume Claude messages or tokens and does not count toward `/usage` limits ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
-- Speech is transcribed live and inserted at the cursor position, allowing mixed voice and typing in the same prompt ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
-- Transcription is tuned for coding vocabulary; common development terms like `regex`, `OAuth`, `JSON`, and `localhost` are recognized correctly, and the current project name and git branch name are added as recognition hints ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
-- Supports 20 dictation languages controlled by the `language` setting; defaults to English if unset ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
-- Not available in remote environments (Claude Code on the Web, SSH sessions, VS Code Remote) because it requires local microphone access ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Voice dictation streams recorded audio to Anthropic's servers for transcription; audio is not processed locally and the service requires a Claude.ai account (not available with API key, Bedrock, Vertex AI, or Foundry authentication) ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Two recording modes: hold mode (push-to-talk, default, requires v2.1.69+) and tap mode (tap to start/stop, requires v2.1.116+); both default to the Space key ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Transcription does not consume Claude messages or tokens and does not count toward `/usage` limits ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Speech is transcribed live and inserted at the cursor position, allowing mixed voice and typing in the same prompt ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Transcription is tuned for coding vocabulary; common development terms like `regex`, `OAuth`, `JSON`, and `localhost` are recognized correctly, and the current project name and git branch name are added as recognition hints ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Supports 20 dictation languages controlled by the `language` setting; defaults to English if unset ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- Not available in remote environments (Claude Code on the Web, SSH sessions, VS Code Remote) because it requires local microphone access ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
 
 ## Quotes
 
-- "Speak your prompts instead of typing them in the Claude Code CLI. Your speech is transcribed live into the prompt input, so you can mix voice and typing in the same message." ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
-- "Hold detection requires your terminal to send key-repeat events, so it cannot detect a held key if key-repeat is disabled at the OS level." ^[raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- "Speak your prompts instead of typing them in the Claude Code CLI. Your speech is transcribed live into the prompt input, so you can mix voice and typing in the same message." ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
+- "Hold detection requires your terminal to send key-repeat events, so it cannot detect a held key if key-repeat is disabled at the OS level." ^[001a-raw/document/claude code/claude-code-114-voice-dictation-2026-04-29.md]
 
 ## Notes
 

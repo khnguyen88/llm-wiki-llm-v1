@@ -20,13 +20,13 @@ provenance: extracted
 
 ## Key Points
 
-- Claude Code supports multiple authentication methods: Claude.ai account login (Pro/Max/Teams/Enterprise), Claude Console credentials, and cloud provider authentication (Amazon Bedrock, Google Vertex AI, Microsoft Foundry) ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
-- Credentials are stored in macOS Keychain (macOS) or `~/.claude/.credentials.json` (Linux/Windows), with the file written with mode 0600 on Linux and inheriting user profile ACLs on Windows ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
-- Authentication precedence order: cloud provider credentials (when env vars set) > `ANTHROPIC_AUTH_TOKEN` > `ANTHROPIC_API_KEY` > `apiKeyHelper` script > `CLAUDE_CODE_OAUTH_TOKEN` > subscription OAuth from `/login` ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
-- `apiKeyHelper` setting runs a shell script that returns an API key, refreshing by default after 5 minutes or on HTTP 401; customizable via `CLAUDE_CODE_API_KEY_HELPER_TTL_MS` ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
-- `claude setup-token` generates a one-year OAuth token for CI pipelines; set as `CLAUDE_CODE_OAUTH_TOKEN` environment variable ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
-- `apiKeyHelper`, `ANTHROPIC_API_KEY`, and `ANTHROPIC_AUTH_TOKEN` apply only to terminal CLI sessions; Claude Desktop and remote sessions use OAuth exclusively ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
-- Claude Console supports two user roles: Claude Code role (API keys only) and Developer role (any API key type) ^[raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- Claude Code supports multiple authentication methods: Claude.ai account login (Pro/Max/Teams/Enterprise), Claude Console credentials, and cloud provider authentication (Amazon Bedrock, Google Vertex AI, Microsoft Foundry) ^[001a-raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- Credentials are stored in macOS Keychain (macOS) or `~/.claude/.credentials.json` (Linux/Windows), with the file written with mode 0600 on Linux and inheriting user profile ACLs on Windows ^[001a-raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- Authentication precedence order: cloud provider credentials (when env vars set) > `ANTHROPIC_AUTH_TOKEN` > `ANTHROPIC_API_KEY` > `apiKeyHelper` script > `CLAUDE_CODE_OAUTH_TOKEN` > subscription OAuth from `/login` ^[001a-raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- `apiKeyHelper` setting runs a shell script that returns an API key, refreshing by default after 5 minutes or on HTTP 401; customizable via `CLAUDE_CODE_API_KEY_HELPER_TTL_MS` ^[001a-raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- `claude setup-token` generates a one-year OAuth token for CI pipelines; set as `CLAUDE_CODE_OAUTH_TOKEN` environment variable ^[001a-raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- `apiKeyHelper`, `ANTHROPIC_API_KEY`, and `ANTHROPIC_AUTH_TOKEN` apply only to terminal CLI sessions; Claude Desktop and remote sessions use OAuth exclusively ^[001a-raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
+- Claude Console supports two user roles: Claude Code role (API keys only) and Developer role (any API key type) ^[001a-raw/document/claude code/claude-code-034-authentication-2026-04-29.md]
 
 ## Notes
 

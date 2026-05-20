@@ -18,14 +18,14 @@ provenance: extracted
 
 # Uptime Optimization
 
-The practice of continuously monitoring AI provider health and availability to ensure maximum uptime for applications. OpenRouter tracks response times, error rates, and availability across all providers in real time, using this data to make intelligent routing decisions. ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+The practice of continuously monitoring AI provider health and availability to ensure maximum uptime for applications. OpenRouter tracks response times, error rates, and availability across all providers in real time, using this data to make intelligent routing decisions. ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
 
 ## Key Points
 
-- OpenRouter monitors response times, error rates, and availability across all providers in real time ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
-- Real-time health data drives routing decisions, directing traffic away from degraded or unavailable providers ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
-- Users can customize provider selection via request parameters while still benefiting from automatic fallback when needed ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
-- Uptime visibility is provided per model (e.g., Claude 4 Sonnet, Llama 3.3 70B Instruct) through interactive charts on OpenRouter ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- OpenRouter monitors response times, error rates, and availability across all providers in real time ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- Real-time health data drives routing decisions, directing traffic away from degraded or unavailable providers ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- Users can customize provider selection via request parameters while still benefiting from automatic fallback when needed ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- Uptime visibility is provided per model (e.g., Claude 4 Sonnet, Llama 3.3 70B Instruct) through interactive charts on OpenRouter ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
 
 ## Details
 

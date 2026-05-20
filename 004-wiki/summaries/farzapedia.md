@@ -19,7 +19,7 @@ provenance: reingested
 
 ## Summary
 
-Karpathy's commentary on Farzapedia (Farza's personal wiki) presents the LLM Wiki pattern through the lens of AI personalization. He contrasts the approach with the "status quo" of implicit AI learning (where an AI "allegedly gets better the more you use it") and articulates four distinct advantages that put the user in full control of their data and AI relationship. ^[raw/articles/farzapedia.md:4-6]
+Karpathy's commentary on Farzapedia (Farza's personal wiki) presents the LLM Wiki pattern through the lens of AI personalization. He contrasts the approach with the "status quo" of implicit AI learning (where an AI "allegedly gets better the more you use it") and articulates four distinct advantages that put the user in full control of their data and AI relationship. ^[001a-raw/articles/farzapedia.md:4-6]
 
 ## The Four Pillars of LLM Wiki Personalization
 
@@ -30,7 +30,7 @@ Karpathy's commentary on Farzapedia (Farza's personal wiki) presents the LLM Wik
 | **File over App** | Stored in universal formats (markdown, images) | Interoperable with any tool, CLI, or agent; entire Unix toolkit applicable |
 | **BYOAI** | Use any AI you want | Claude, Codex, OpenCode, or finetuned open-source models; keeps providers competitive |
 
-^[raw/articles/farzapedia.md:4-9]
+^[001a-raw/articles/farzapedia.md:4-9]
 
 ## Comparison: LLM Wiki vs. Implicit AI Personalization
 
@@ -42,23 +42,23 @@ Karpathy's commentary on Farzapedia (Farza's personal wiki) presents the LLM Wik
 | AI flexibility | Any model, any provider | Tied to specific provider |
 | Control | User in full control | Provider-centric |
 
-^[raw/articles/farzapedia.md:4-11]
+^[001a-raw/articles/farzapedia.md:4-11]
 
 ## Agent Proficiency
 
 Karpathy emphasizes that managing file directories requires some technical comfort, but agents make it simple. He argues that **agent proficiency** is a core skill of the 21st century:
 
-> "These are extremely powerful tools - they speak English and they do all the computer stuff for you. Try this opportunity to play with one." ^[raw/articles/farzapedia.md:13]
+> "These are extremely powerful tools - they speak English and they do all the computer stuff for you. Try this opportunity to play with one." ^[001a-raw/articles/farzapedia.md:13]
 
 ## Finetuning Vision
 
-The strongest form of BYOAI involves finetuning an open-source model on the wiki data. This would allow the AI to "know" the user in its weights -- not merely attend over the data in a context window. This represents the ultimate expression of data ownership and AI flexibility combined. ^[raw/articles/farzapedia.md:9]
+The strongest form of BYOAI involves finetuning an open-source model on the wiki data. This would allow the AI to "know" the user in its weights -- not merely attend over the data in a context window. This represents the ultimate expression of data ownership and AI flexibility combined. ^[001a-raw/articles/farzapedia.md:9]
 
 ## Key Quotes
 
-> "This approach to personalization puts _you_ in full control. The data is yours. In Universal formats. Explicit and inspectable. Use whatever AI you want over it, keep the AI companies on their toes!" ^[raw/articles/farzapedia.md:11]
+> "This approach to personalization puts _you_ in full control. The data is yours. In Universal formats. Explicit and inspectable. Use whatever AI you want over it, keep the AI companies on their toes!" ^[001a-raw/articles/farzapedia.md:11]
 
-> "'agent proficiency' is a CORE SKILL of the 21st century. These are extremely powerful tools - they speak English and they do all the computer stuff for you." ^[raw/articles/farzapedia.md:13]
+> "'agent proficiency' is a CORE SKILL of the 21st century. These are extremely powerful tools - they speak English and they do all the computer stuff for you." ^[001a-raw/articles/farzapedia.md:13]
 
 ## Related
 

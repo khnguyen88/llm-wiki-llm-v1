@@ -18,15 +18,15 @@ provenance: extracted
 
 # Workspaces
 
-Workspaces organize OpenRouter projects into separate environments under a single account, each with independent API keys, routing defaults, guardrails, and observability. They enable isolation of teams, projects, or deployment stages (e.g., staging vs. production). ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+Workspaces organize OpenRouter projects into separate environments under a single account, each with independent API keys, routing defaults, guardrails, and observability. They enable isolation of teams, projects, or deployment stages (e.g., staging vs. production). ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
 
 ## Key Points
 
-- Every account has a Default workspace containing all existing keys, guardrails, BYOK provider keys, routing policies, presets, plugins, and observability integrations; no action is needed if multiple workspaces are not required ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
-- Each workspace has independent settings for API keys, guardrails, BYOK provider keys, routing, presets, plugins, observability integrations, and members ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
-- Only organization admins can create and delete workspaces; members can create their own API keys in any workspace they belong to ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
-- Workspace guardrails inherit account-level policies and can add more restrictive rules, but cannot be less restrictive than the account-level ceiling ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
-- All organization members automatically have member access to the Default workspace; chatroom and Fusion usage is governed by the Default workspace ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+- Every account has a Default workspace containing all existing keys, guardrails, BYOK provider keys, routing policies, presets, plugins, and observability integrations; no action is needed if multiple workspaces are not required ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+- Each workspace has independent settings for API keys, guardrails, BYOK provider keys, routing, presets, plugins, observability integrations, and members ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+- Only organization admins can create and delete workspaces; members can create their own API keys in any workspace they belong to ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+- Workspace guardrails inherit account-level policies and can add more restrictive rules, but cannot be less restrictive than the account-level ceiling ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+- All organization members automatically have member access to the Default workspace; chatroom and Fusion usage is governed by the Default workspace ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
 
 ## Details
 
@@ -45,15 +45,15 @@ Each workspace maintains independent configuration for eight categories:
 | Observability | Different integrations per workspace, or traces from all workspaces to the same platform |
 | Members | Access control per workspace; members can belong to multiple workspaces |
 
-^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
 
 ### Account-Level Settings
 
-Some settings apply globally across all workspaces: activity and logs (filterable by workspace), credits and billing, organization membership and roles, management keys (for administrative actions across all workspaces), privacy policies and provider/model restrictions, and account preferences. ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+Some settings apply globally across all workspaces: activity and logs (filterable by workspace), credits and billing, organization membership and roles, management keys (for administrative actions across all workspaces), privacy policies and provider/model restrictions, and account preferences. ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
 
 ### Organization Roles
 
-Organization admins have admin permissions across all workspaces and can view and manage everything (API keys, guardrails, BYOK, routing, presets, plugins, observability, members, settings). Only admins can create/delete workspaces and control member access. Organization members have member permissions in each workspace they belong to, with their API keys governed by that workspace's settings. ^[raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
+Organization admins have admin permissions across all workspaces and can view and manage everything (API keys, guardrails, BYOK, routing, presets, plugins, observability, members, settings). Only admins can create/delete workspaces and control member access. Organization members have member permissions in each workspace they belong to, with their API keys governed by that workspace's settings. ^[001a-raw/document/openrouter/openrouter-029-guides-features-workspaces-2026-04-29.md]
 
 ## Related
 

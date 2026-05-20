@@ -19,9 +19,9 @@ provenance: extracted
 
 ## Key Points
 
-- The `:extended` variant provides access to model versions with extended context windows ^[raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md]
-- Usage: append `:extended` to any model ID, e.g., `"anthropic/claude-sonnet-4.5:extended"` ^[raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md]
-- Extended variants offer larger context windows than the standard model versions, allowing processing of longer inputs and maintaining more conversation history ^[raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md]
+- The `:extended` variant provides access to model versions with extended context windows ^[001a-raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md]
+- Usage: append `:extended` to any model ID, e.g., `"anthropic/claude-sonnet-4.5:extended"` ^[001a-raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md]
+- Extended variants offer larger context windows than the standard model versions, allowing processing of longer inputs and maintaining more conversation history ^[001a-raw/document/openrouter/openrouter-021-guides-routing-model-variants-extended-2026-04-29.md]
 
 ## Notes
 

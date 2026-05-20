@@ -20,10 +20,10 @@ provenance: extracted
 
 ## Key Points
 
-- OpenRouter continuously monitors the health and availability of AI providers to ensure maximum uptime for applications ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
-- Response times, error rates, and availability are tracked across all providers in real time ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
-- Routing decisions are made based on this real-time health feedback ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
-- Users can customize provider selection using request parameters while still benefiting from automatic fallback ^[raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- OpenRouter continuously monitors the health and availability of AI providers to ensure maximum uptime for applications ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- Response times, error rates, and availability are tracked across all providers in real time ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- Routing decisions are made based on this real-time health feedback ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
+- Users can customize provider selection using request parameters while still benefiting from automatic fallback ^[001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md]
 
 ## Notes
 

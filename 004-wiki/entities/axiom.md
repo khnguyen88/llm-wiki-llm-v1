@@ -19,14 +19,14 @@ provenance: extracted
 
 # Axiom
 
-A cloud-native log and trace management platform that accepts traces via the OpenTelemetry Protocol (OTLP), listed as a compatible backend for OpenRouter's Broadcast feature. ^[raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+A cloud-native log and trace management platform that accepts traces via the OpenTelemetry Protocol (OTLP), listed as a compatible backend for OpenRouter's Broadcast feature. ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
 
 ## Key Facts
 
-- Listed as a compatible OTLP backend for OpenRouter's OpenTelemetry Collector Broadcast destination ^[raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
-- Requires an Axiom account and dataset, with an API token created via Settings > API Tokens ^[raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
-- OTLP traces endpoint: `https://api.axiom.co/v1/traces` ^[raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
-- Authentication headers required: `Authorization: Bearer xaat-xxx` (API token) and `X-Axiom-Dataset: your-dataset` (dataset name) ^[raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+- Listed as a compatible OTLP backend for OpenRouter's OpenTelemetry Collector Broadcast destination ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+- Requires an Axiom account and dataset, with an API token created via Settings > API Tokens ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+- OTLP traces endpoint: `https://api.axiom.co/v1/traces` ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+- Authentication headers required: `Authorization: Bearer xaat-xxx` (API token) and `X-Axiom-Dataset: your-dataset` (dataset name) ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
 
 ## Related
 

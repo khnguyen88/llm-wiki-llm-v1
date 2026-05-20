@@ -19,7 +19,7 @@ provenance: merged
 
 # Mixture of Experts
 
-Mixture of Experts (MoE) is an architecture where the model contains multiple "expert" sub-networks and a router selects only a few experts per token -- the rest stay idle. This gives the knowledge capacity of a much larger model at a fraction of the compute cost per token, but requires enough RAM to hold all parameters since the router needs access to every expert. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Mixture of Experts (MoE) is an architecture where the model contains multiple "expert" sub-networks and a router selects only a few experts per token -- the rest stay idle. This gives the knowledge capacity of a much larger model at a fraction of the compute cost per token, but requires enough RAM to hold all parameters since the router needs access to every expert. ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Naming Conventions
 
@@ -31,15 +31,15 @@ MoE models encode their size in a special format indicating both total and activ
 | Experts-in-name | Llama-4-Scout-17B-16E | `ActiveB-NExperts` | 16 experts, 17B active per token |
 | Legacy | Mixtral-8x7B-v0.1 | `NxP` | 8 experts, 7B active per token |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md] ^[raw/articles/How to navigate LLM model names.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md] ^[001a-raw/articles/How to navigate LLM model names.md]
 
-Key distinction: MoE total parameter count is always less than experts x active params because some parameters are shared across all experts. Mixtral's 8x7B is 46B total, not 56B; Llama 4 Scout's 17B-16E is 109B total, not 272B. ^[raw/articles/How to navigate LLM model names.md]
+Key distinction: MoE total parameter count is always less than experts x active params because some parameters are shared across all experts. Mixtral's 8x7B is 46B total, not 56B; Llama 4 Scout's 17B-16E is 109B total, not 272B. ^[001a-raw/articles/How to navigate LLM model names.md]
 
 ## Tradeoffs
 
 - RAM requirement: based on total parameters (all experts must be in memory)
 - Compute cost: based on active parameters (only selected experts run)
-- An MoE model trades memory for intelligence -- more RAM for the knowledge of a larger model at the speed of a smaller one ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+- An MoE model trades memory for intelligence -- more RAM for the knowledge of a larger model at the speed of a smaller one ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Notable MoE Models (2026)
 
@@ -56,15 +56,15 @@ Key distinction: MoE total parameter count is always less than experts x active 
 | GLM-5 | 744B | 40B | MoE | MIT licensed, trained on Huawei chips |
 | Mistral Large 3 | 675B | 41B | MoE | Apache 2.0, strong multilingual |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Elastic MoE (ERNIE)
 
-ERNIE 5.1 introduces elastic MoE through the Once-For-All framework: during training, the model jointly optimizes sub-networks with varying depths, expert capacities, and routing sparsity levels. This allows extracting an optimal sub-network (ERNIE 5.1) from the larger ERNIE 5.0 with ~1/3 total parameters and ~1/2 active parameters, achieving leading performance at only 6% of comparable models' pre-training cost. ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+ERNIE 5.1 introduces elastic MoE through the Once-For-All framework: during training, the model jointly optimizes sub-networks with varying depths, expert capacities, and routing sparsity levels. This allows extracting an optimal sub-network (ERNIE 5.1) from the larger ERNIE 5.0 with ~1/3 total parameters and ~1/2 active parameters, achieving leading performance at only 6% of comparable models' pre-training cost. ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## 2026 Trends
 
-Almost every major 2026 LLM release uses MoE. The pattern is massive total parameters for knowledge, small active parameters for speed. The landscape also features hybrid reasoning (models like Qwen 3.5 toggle between fast responses and chain-of-thought), distillation economy, elastic training (ERNIE 5.1's Once-For-All framework), and growing context windows (Llama 4 Scout: 10M tokens). ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md] ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+Almost every major 2026 LLM release uses MoE. The pattern is massive total parameters for knowledge, small active parameters for speed. The landscape also features hybrid reasoning (models like Qwen 3.5 toggle between fast responses and chain-of-thought), distillation economy, elastic training (ERNIE 5.1's Once-For-All framework), and growing context windows (Llama 4 Scout: 10M tokens). ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md] ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## Related
 

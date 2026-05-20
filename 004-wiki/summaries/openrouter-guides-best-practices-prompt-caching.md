@@ -25,17 +25,17 @@ provenance: extracted
 
 ## Key Points
 
-- OpenRouter uses provider sticky routing to maximize cache hit rates by routing subsequent requests to the same provider endpoint after a cached request ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Sticky routing is tracked at the account level, per model and per conversation, identified by hashing the first system message and first non-system message ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Most providers enable prompt caching automatically; Anthropic requires explicit `cache_control` configuration on a per-message basis ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Cache usage can be inspected via the Activity page, the `/api/v1/generation` API, or the `prompt_tokens_details` object in API responses ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- OpenAI, Grok, Moonshot AI, and Groq offer automated caching with no cost for cache writes and reduced-cost cache reads ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Anthropic supports both automatic caching (top-level `cache_control`) and explicit cache breakpoints (per-block `cache_control`), with a 5-minute default TTL and an optional 1-hour TTL ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Google Gemini 2.5 Pro and 2.5 Flash support implicit caching with no cache write or storage costs, and explicit `cache_control` breakpoints via OpenRouter ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- OpenRouter uses provider sticky routing to maximize cache hit rates by routing subsequent requests to the same provider endpoint after a cached request ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Sticky routing is tracked at the account level, per model and per conversation, identified by hashing the first system message and first non-system message ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Most providers enable prompt caching automatically; Anthropic requires explicit `cache_control` configuration on a per-message basis ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Cache usage can be inspected via the Activity page, the `/api/v1/generation` API, or the `prompt_tokens_details` object in API responses ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- OpenAI, Grok, Moonshot AI, and Groq offer automated caching with no cost for cache writes and reduced-cost cache reads ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Anthropic supports both automatic caching (top-level `cache_control`) and explicit cache breakpoints (per-block `cache_control`), with a 5-minute default TTL and an optional 1-hour TTL ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Google Gemini 2.5 Pro and 2.5 Flash support implicit caching with no cache write or storage costs, and explicit `cache_control` breakpoints via OpenRouter ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Quotes
 
-- "Sticky routing only activates when the provider's cache read pricing is cheaper than regular prompt pricing, ensuring you always benefit from cost savings." ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- "Sticky routing only activates when the provider's cache read pricing is cheaper than regular prompt pricing, ensuring you always benefit from cost savings." ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Notes
 

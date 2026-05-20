@@ -22,18 +22,18 @@ provenance: extracted
 
 ## Key Points
 
-- Computer use is a research preview on macOS that requires a Pro or Max plan, Claude Code v2.1.85+, and an interactive session (not available with `-p` flag) ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
-- Enabled as a built-in MCP server called `computer-use` via the `/mcp` menu; the setting persists per project ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
-- Requires two macOS permissions: Accessibility (click, type, scroll) and Screen Recording (see the screen); macOS may require a restart after granting Screen Recording ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
-- Claude uses the most precise tool available: MCP servers first, then Bash, then Chrome extension, then computer use as a fallback for GUI-only tasks ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
-- Per-session app approval: the first time Claude needs a specific app, a prompt shows which apps it wants to control, extra permissions requested, and how many other apps will be hidden ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
-- Apps with broad access show sentinel warnings: Terminal/IDEs are "equivalent to shell access," Finder is "can read or write any file," System Settings is "can change system settings" ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
-- Screenshots are automatically downscaled (e.g., 3456×2234 → ~1372×887) to fit the model's input; there is no setting to change the target size ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Computer use is a research preview on macOS that requires a Pro or Max plan, Claude Code v2.1.85+, and an interactive session (not available with `-p` flag) ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Enabled as a built-in MCP server called `computer-use` via the `/mcp` menu; the setting persists per project ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Requires two macOS permissions: Accessibility (click, type, scroll) and Screen Recording (see the screen); macOS may require a restart after granting Screen Recording ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Claude uses the most precise tool available: MCP servers first, then Bash, then Chrome extension, then computer use as a fallback for GUI-only tasks ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Per-session app approval: the first time Claude needs a specific app, a prompt shows which apps it wants to control, extra permissions requested, and how many other apps will be hidden ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Apps with broad access show sentinel warnings: Terminal/IDEs are "equivalent to shell access," Finder is "can read or write any file," System Settings is "can change system settings" ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- Screenshots are automatically downscaled (e.g., 3456×2234 → ~1372×887) to fit the model's input; there is no setting to change the target size ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 
 ## Quotes
 
-- "Computer use lets Claude open apps, control your screen, and work on your machine the way you would." ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
-- "Screen control is reserved for things nothing else can reach: native apps, simulators, and tools without an API." ^[raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- "Computer use lets Claude open apps, control your screen, and work on your machine the way you would." ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
+- "Screen control is reserved for things nothing else can reach: native apps, simulators, and tools without an API." ^[001a-raw/document/claude code/claude-code-050-computer-use-2026-04-29.md]
 
 ## Notes
 

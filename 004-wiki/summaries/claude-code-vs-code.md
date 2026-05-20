@@ -22,19 +22,19 @@ provenance: extracted
 
 ## Key Points
 
-- The VS Code extension provides a native graphical interface for Claude Code, including inline diff review, @-mentions with line ranges, plan review, conversation history, and multiple tabs ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
-- Requires VS Code 1.98.0+ and an Anthropic account; includes the CLI which is accessible from the integrated terminal ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
-- The prompt box supports permission modes, a command menu (`/`), context indicator, extended thinking toggle, and multi-line input (`Shift+Enter`) ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
-- @-mentions reference files and folders with fuzzy matching; `Option+K`/`Alt+K` inserts an @-mention with the current selection's file path and line numbers ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
-- The extension runs a built-in IDE MCP server that exposes `mcp__ide__getDiagnostics` and `mcp__ide__executeCode` tools; the server binds to `127.0.0.1` with per-activation random auth tokens ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
-- Checkpoints in the extension offer three rewind options: fork conversation, rewind code, or fork conversation and rewind code ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
-- Remote sessions from Claude Code on the Web can be resumed locally in VS Code via the Session history Remote tab; only web sessions started with a GitHub repository appear ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- The VS Code extension provides a native graphical interface for Claude Code, including inline diff review, @-mentions with line ranges, plan review, conversation history, and multiple tabs ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Requires VS Code 1.98.0+ and an Anthropic account; includes the CLI which is accessible from the integrated terminal ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- The prompt box supports permission modes, a command menu (`/`), context indicator, extended thinking toggle, and multi-line input (`Shift+Enter`) ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- @-mentions reference files and folders with fuzzy matching; `Option+K`/`Alt+K` inserts an @-mention with the current selection's file path and line numbers ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- The extension runs a built-in IDE MCP server that exposes `mcp__ide__getDiagnostics` and `mcp__ide__executeCode` tools; the server binds to `127.0.0.1` with per-activation random auth tokens ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Checkpoints in the extension offer three rewind options: fork conversation, rewind code, or fork conversation and rewind code ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
+- Remote sessions from Claude Code on the Web can be resumed locally in VS Code via the Session history Remote tab; only web sessions started with a GitHub repository appear ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md]
 
 ## Quotes
 
-- "The VS Code extension provides a native graphical interface for Claude Code, integrated directly into your IDE." ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md:1]
-- "When Claude wants to edit a file, it shows a side-by-side comparison of the original and proposed changes, then asks for permission." ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md:1]
-- "Jupyter execution always asks first. mcp__ide__executeCode can't run anything silently." ^[raw/document/claude code/claude-code-115-vs-code-2026-04-29.md:1]
+- "The VS Code extension provides a native graphical interface for Claude Code, integrated directly into your IDE." ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md:1]
+- "When Claude wants to edit a file, it shows a side-by-side comparison of the original and proposed changes, then asks for permission." ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md:1]
+- "Jupyter execution always asks first. mcp__ide__executeCode can't run anything silently." ^[001a-raw/document/claude code/claude-code-115-vs-code-2026-04-29.md:1]
 
 ## Notes
 

@@ -19,11 +19,11 @@ provenance: extracted
 
 ## Key Points
 
-- The Agent SDK includes built-in todo functionality for managing tasks and displaying progress to users ^[raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
-- Todos follow a lifecycle: created as `pending`, activated to `in_progress`, marked `completed` on success, and removed when all tasks in a group finish ^[raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
-- The SDK automatically creates todos for complex multi-step tasks (3+ actions), user-provided task lists, non-trivial operations, and explicit user requests ^[raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
-- Todo updates are reflected in the message stream as `tool_use` blocks with `name: "TodoWrite"`; each block contains an `input.todos` array with `status`, `content`, and `activeForm` fields ^[raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
-- Each todo item has three fields: `status` (pending/in_progress/completed), `content` (task description), and `activeForm` (present-continuous description shown when in_progress) ^[raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
+- The Agent SDK includes built-in todo functionality for managing tasks and displaying progress to users ^[001a-raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
+- Todos follow a lifecycle: created as `pending`, activated to `in_progress`, marked `completed` on success, and removed when all tasks in a group finish ^[001a-raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
+- The SDK automatically creates todos for complex multi-step tasks (3+ actions), user-provided task lists, non-trivial operations, and explicit user requests ^[001a-raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
+- Todo updates are reflected in the message stream as `tool_use` blocks with `name: "TodoWrite"`; each block contains an `input.todos` array with `status`, `content`, and `activeForm` fields ^[001a-raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
+- Each todo item has three fields: `status` (pending/in_progress/completed), `content` (task description), and `activeForm` (present-continuous description shown when in_progress) ^[001a-raw/document/claude code/claude-code-026-agent-sdk-todo-tracking-2026-04-29.md]
 
 ## Notes
 

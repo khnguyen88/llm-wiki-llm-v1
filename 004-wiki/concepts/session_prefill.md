@@ -18,15 +18,15 @@ provenance: extracted
 
 # Session Prefill
 
-Web sessions at claude.ai/code can be pre-filled by appending query parameters to the URL, enabling programmatic session creation from external tools like issue trackers or project management dashboards. ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+Web sessions at claude.ai/code can be pre-filled by appending query parameters to the URL, enabling programmatic session creation from external tools like issue trackers or project management dashboards. ^[001a-raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 
 ## Key Points
 
-- `prompt` (alias `q`) pre-fills the input box with task text; URL-encode the value ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
-- `prompt_url` fetches prompt text from a URL for prompts too long to embed in a query string; the URL must allow cross-origin requests; ignored when `prompt` is also set ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
-- `repositories` (alias `repo`) accepts a comma-separated list of `owner/repo` slugs to pre-select; example: `acme/webapp,acme/api` ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
-- `environment` pre-selects a cloud environment by name or ID ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
-- All parameter values must be URL-encoded; example: `https://claude.ai/code?prompt=Fix%20the%20login%20bug&repositories=acme/webapp` ^[raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- `prompt` (alias `q`) pre-fills the input box with task text; URL-encode the value ^[001a-raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- `prompt_url` fetches prompt text from a URL for prompts too long to embed in a query string; the URL must allow cross-origin requests; ignored when `prompt` is also set ^[001a-raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- `repositories` (alias `repo`) accepts a comma-separated list of `owner/repo` slugs to pre-select; example: `acme/webapp,acme/api` ^[001a-raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- `environment` pre-selects a cloud environment by name or ID ^[001a-raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
+- All parameter values must be URL-encoded; example: `https://claude.ai/code?prompt=Fix%20the%20login%20bug&repositories=acme/webapp` ^[001a-raw/document/claude code/claude-code-116-web-quickstart-2026-04-29.md]
 
 ## Details
 

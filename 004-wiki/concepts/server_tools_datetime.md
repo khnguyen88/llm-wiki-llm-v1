@@ -18,23 +18,23 @@ provenance: extracted
 
 # Server Tools Datetime
 
-The `openrouter:datetime` server tool gives any model on OpenRouter access to the current date and time. It is useful for prompts that require temporal awareness — scheduling, time-sensitive questions, or any task where the model needs to know the current moment. ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+The `openrouter:datetime` server tool gives any model on OpenRouter access to the current date and time. It is useful for prompts that require temporal awareness — scheduling, time-sensitive questions, or any task where the model needs to know the current moment. ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
 
 ## Key Points
 
-- Invoked by including `{ "type": "openrouter:datetime" }` in the `tools` array of a chat completions request; the model decides when to call it based on the prompt ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
-- Accepts an optional `timezone` parameter (IANA timezone name) that defaults to `UTC` ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
-- Response returns a JSON object with `datetime` (ISO 8601 with timezone offset) and `timezone` fields ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
-- No additional cost beyond standard token usage ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
-- Currently in beta; API and behavior may change ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+- Invoked by including `{ "type": "openrouter:datetime" }` in the `tools` array of a chat completions request; the model decides when to call it based on the prompt ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+- Accepts an optional `timezone` parameter (IANA timezone name) that defaults to `UTC` ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+- Response returns a JSON object with `datetime` (ISO 8601 with timezone offset) and `timezone` fields ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+- No additional cost beyond standard token usage ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+- Currently in beta; API and behavior may change ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
 
 ## Details
 
-The datetime tool is one of four OpenRouter server tools (alongside `openrouter:web_search`, `openrouter:image_generation`, and `openrouter:web_fetch`). Like other server tools, it requires no client-side implementation — the model decides when to call it, and OpenRouter executes it server-side, returning the result to the model. ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+The datetime tool is one of four OpenRouter server tools (alongside `openrouter:web_search`, `openrouter:image_generation`, and `openrouter:web_fetch`). Like other server tools, it requires no client-side implementation — the model decides when to call it, and OpenRouter executes it server-side, returning the result to the model. ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
 
 ### Configuration
 
-The tool is specified in the request's `tools` array with type `openrouter:datetime`. An optional `timezone` parameter accepts IANA timezone names (e.g., `"America/New_York"`, `"Europe/London"`, `"Asia/Tokyo"`). When no timezone is provided, the default is `UTC`. ^[raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
+The tool is specified in the request's `tools` array with type `openrouter:datetime`. An optional `timezone` parameter accepts IANA timezone names (e.g., `"America/New_York"`, `"Europe/London"`, `"Asia/Tokyo"`). When no timezone is provided, the default is `UTC`. ^[001a-raw/document/openrouter/openrouter-036-guides-features-server-tools-datetime-2026-04-29.md]
 
 Example configuration with timezone:
 

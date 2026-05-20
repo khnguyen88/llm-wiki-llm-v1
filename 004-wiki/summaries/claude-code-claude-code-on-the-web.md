@@ -23,19 +23,19 @@ provenance: extracted
 
 ## Key Points
 
-- Claude Code on the Web (research preview for Pro, Max, Team, and Enterprise with premium seats) runs tasks on Anthropic-managed cloud VMs at claude.ai/code; sessions persist even if the browser is closed ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- Two GitHub authentication methods: the GitHub App (per-repo scoping, required for auto-fix) and `/web-setup` (syncs local `gh` token, suited for individual developers) ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- Cloud sessions start in fresh VMs with pre-installed runtimes (Python, Node.js, Ruby, PHP, Java, Go, Rust, C/C++, Docker, PostgreSQL, Redis) and 4 vCPU / 16 GB RAM / 30 GB disk limits ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- Setup scripts run before Claude launches on first session; the filesystem is snapshotted and reused for subsequent sessions, keeping startup fast even with large dependency installs ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- Network access has four levels (None, Trusted, Full, Custom) with a default Trusted allowlist covering major package registries, GitHub, cloud SDKs, and container registries; all outbound traffic passes through a security proxy ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- `--remote` creates new cloud sessions from the terminal; `--teleport` pulls cloud sessions into a local terminal; sessions can also be sent from the Desktop app's "Continue in" menu ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- Auto-fix watches PRs for CI failures and review comments, pushing fixes when confident; requires the Claude GitHub App and can be enabled from the web UI, CLI (`/autofix-pr`), or mobile app ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Claude Code on the Web (research preview for Pro, Max, Team, and Enterprise with premium seats) runs tasks on Anthropic-managed cloud VMs at claude.ai/code; sessions persist even if the browser is closed ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Two GitHub authentication methods: the GitHub App (per-repo scoping, required for auto-fix) and `/web-setup` (syncs local `gh` token, suited for individual developers) ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Cloud sessions start in fresh VMs with pre-installed runtimes (Python, Node.js, Ruby, PHP, Java, Go, Rust, C/C++, Docker, PostgreSQL, Redis) and 4 vCPU / 16 GB RAM / 30 GB disk limits ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Setup scripts run before Claude launches on first session; the filesystem is snapshotted and reused for subsequent sessions, keeping startup fast even with large dependency installs ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Network access has four levels (None, Trusted, Full, Custom) with a default Trusted allowlist covering major package registries, GitHub, cloud SDKs, and container registries; all outbound traffic passes through a security proxy ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- `--remote` creates new cloud sessions from the terminal; `--teleport` pulls cloud sessions into a local terminal; sessions can also be sent from the Desktop app's "Continue in" menu ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- Auto-fix watches PRs for CI failures and review comments, pushing fixes when confident; requires the Claude GitHub App and can be enabled from the web UI, CLI (`/autofix-pr`), or mobile app ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 
 ## Quotes
 
-- "Each session runs in a fresh Anthropic-managed VM with your repository cloned." ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- "The setup script runs the first time you start a session in an environment. After it completes, Anthropic snapshots the filesystem and reuses that snapshot as the starting point for later sessions." ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
-- "Sensitive credentials such as git credentials or signing keys are never inside the sandbox with Claude Code. Authentication is handled through a secure proxy using scoped credentials." ^[raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- "Each session runs in a fresh Anthropic-managed VM with your repository cloned." ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- "The setup script runs the first time you start a session in an environment. After it completes, Anthropic snapshots the filesystem and reuses that snapshot as the starting point for later sessions." ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
+- "Sensitive credentials such as git credentials or signing keys are never inside the sandbox with Claude Code. Authentication is handled through a secure proxy using scoped credentials." ^[001a-raw/document/claude code/claude-code-043-claude-code-on-the-web-2026-04-29.md]
 
 ## Notes
 

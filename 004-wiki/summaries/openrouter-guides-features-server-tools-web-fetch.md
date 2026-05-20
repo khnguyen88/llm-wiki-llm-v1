@@ -21,17 +21,17 @@ provenance: extracted
 
 ## Key Points
 
-- The `openrouter:web_fetch` server tool allows any model on OpenRouter to fetch content from a specific URL; the model decides when to call it, and OpenRouter fetches and extracts the content server-side ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
-- Five fetch engines are available: `auto` (default, uses native provider fetch or falls back to Exa), `native` (provider's built-in fetch), `exa` (Exa Contents API, supports BYOK), `openrouter` (direct HTTP fetch), and `firecrawl` (Firecrawl scrape API, BYOK) ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
-- Configuration parameters include `engine`, `max_uses` (maximum fetches per request), `max_content_tokens` (content length limit before truncation), `allowed_domains`, and `blocked_domains` ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
-- OpenRouter and native engines have a hard limit of 50 fetches per request; Exa and Firecrawl have no hard limit ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
-- Works with both Chat Completions (`/api/v1/chat/completions`) and Responses (`/api/v1/responses`) APIs ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
-- Pricing: Exa $1 per 1,000 fetches (free with BYOK), Firecrawl uses your Firecrawl credits directly, OpenRouter engine is free, Native pricing is passed through from the provider ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
-- Domain filtering with `allowed_domains` (whitelist) and `blocked_domains` (blacklist) restricts which URLs can be fetched ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- The `openrouter:web_fetch` server tool allows any model on OpenRouter to fetch content from a specific URL; the model decides when to call it, and OpenRouter fetches and extracts the content server-side ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Five fetch engines are available: `auto` (default, uses native provider fetch or falls back to Exa), `native` (provider's built-in fetch), `exa` (Exa Contents API, supports BYOK), `openrouter` (direct HTTP fetch), and `firecrawl` (Firecrawl scrape API, BYOK) ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Configuration parameters include `engine`, `max_uses` (maximum fetches per request), `max_content_tokens` (content length limit before truncation), `allowed_domains`, and `blocked_domains` ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- OpenRouter and native engines have a hard limit of 50 fetches per request; Exa and Firecrawl have no hard limit ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Works with both Chat Completions (`/api/v1/chat/completions`) and Responses (`/api/v1/responses`) APIs ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Pricing: Exa $1 per 1,000 fetches (free with BYOK), Firecrawl uses your Firecrawl credits directly, OpenRouter engine is free, Native pricing is passed through from the provider ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
+- Domain filtering with `allowed_domains` (whitelist) and `blocked_domains` (blacklist) restricts which URLs can be fetched ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md]
 
 ## Quotes
 
-> "Server tools are currently in beta. The API and behavior may change." ^[raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md:1]
+> "Server tools are currently in beta. The API and behavior may change." ^[001a-raw/document/openrouter/openrouter-035-guides-features-server-tools-web-fetch-2026-04-29.md:1]
 
 ## Notes
 

@@ -21,13 +21,13 @@ provenance: extracted
 
 ## Key Points
 
-- Claude Code in Slack routes @Claude mentions to Claude Code on the web when coding intent is detected, creating cloud sessions at claude.ai/code without leaving Slack ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Two routing modes: Code only (all @mentions go to Claude Code) and Code + Chat (intelligent routing between Code and Chat based on message content); Code + Chat users can retry with the other mode via action buttons ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Context is gathered from the full thread (when mentioned in a thread) or recent channel messages (when mentioned directly), helping Claude select the appropriate repository and approach ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Access is channel-based: Claude must be explicitly invited to channels with `/invite @Claude`; it only responds to @mentions in channels where it has been added, not in DMs ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Each user runs sessions under their own Claude account with their own plan limits; repository access is limited to repos the user has personally connected ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Prerequisites: Pro, Max, Team, or Enterprise plan with Claude Code access; Claude Code on the web enabled; GitHub account connected with at least one authenticated repository; Slack account linked to Claude via the app ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Current limitations: GitHub only (no GitLab/Bitbucket), one PR per session, individual rate limits apply, web access required (users without it only get standard Claude chat) ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Claude Code in Slack routes @Claude mentions to Claude Code on the web when coding intent is detected, creating cloud sessions at claude.ai/code without leaving Slack ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Two routing modes: Code only (all @mentions go to Claude Code) and Code + Chat (intelligent routing between Code and Chat based on message content); Code + Chat users can retry with the other mode via action buttons ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Context is gathered from the full thread (when mentioned in a thread) or recent channel messages (when mentioned directly), helping Claude select the appropriate repository and approach ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Access is channel-based: Claude must be explicitly invited to channels with `/invite @Claude`; it only responds to @mentions in channels where it has been added, not in DMs ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Each user runs sessions under their own Claude account with their own plan limits; repository access is limited to repos the user has personally connected ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Prerequisites: Pro, Max, Team, or Enterprise plan with Claude Code access; Claude Code on the web enabled; GitHub account connected with at least one authenticated repository; Slack account linked to Claude via the app ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Current limitations: GitHub only (no GitLab/Bitbucket), one PR per session, individual rate limits apply, web access required (users without it only get standard Claude chat) ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
 
 ## Notes
 

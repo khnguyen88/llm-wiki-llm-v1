@@ -22,14 +22,14 @@ Slack is a messaging platform that integrates with Claude Code through the Claud
 
 ## Key Facts
 
-- The Claude app is installed from the Slack App Marketplace by a workspace administrator ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Individual users authenticate by opening the Claude app in Slack, navigating to App Home, and clicking "Connect" to link their Slack account with their Claude account ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Claude Code in Slack only works in channels (public or private), not in direct messages (DMs) ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Users must explicitly invite Claude to channels with `/invite @Claude`; it is not added to any channels automatically after installation ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Routing modes are configured in the Claude App Home: Code only routes all @mentions to coding sessions, Code + Chat intelligently routes between Claude Code and Claude Chat ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Each user's sessions run under their own Claude account with their own plan limits; repository access is limited to repos the user has personally connected ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Workspace administrators control app installation and can remove the app to immediately revoke access for all users ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
-- Enterprise Grid organizations can control which workspaces have access to the Claude app ^[raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- The Claude app is installed from the Slack App Marketplace by a workspace administrator ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Individual users authenticate by opening the Claude app in Slack, navigating to App Home, and clicking "Connect" to link their Slack account with their Claude account ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Claude Code in Slack only works in channels (public or private), not in direct messages (DMs) ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Users must explicitly invite Claude to channels with `/invite @Claude`; it is not added to any channels automatically after installation ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Routing modes are configured in the Claude App Home: Code only routes all @mentions to coding sessions, Code + Chat intelligently routes between Claude Code and Claude Chat ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Each user's sessions run under their own Claude account with their own plan limits; repository access is limited to repos the user has personally connected ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Workspace administrators control app installation and can remove the app to immediately revoke access for all users ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
+- Enterprise Grid organizations can control which workspaces have access to the Claude app ^[001a-raw/document/claude code/claude-code-104-slack-2026-04-29.md]
 
 ## Details
 

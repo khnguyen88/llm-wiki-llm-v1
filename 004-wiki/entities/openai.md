@@ -18,15 +18,15 @@ provenance: merged
 
 # OpenAI
 
-An AI research and deployment company that provides language models and API services. OpenAI is the only provider currently listed as supporting the `service_tier` parameter through OpenRouter. OpenAI prompt caching is automated on OpenRouter with no cache write costs and reduced cache read pricing. ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md] ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+An AI research and deployment company that provides language models and API services. OpenAI is the only provider currently listed as supporting the `service_tier` parameter through OpenRouter. OpenAI prompt caching is automated on OpenRouter with no cache write costs and reduced cache read pricing. ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md] ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Key Facts
 
-- OpenAI is the supported provider for the `service_tier` parameter on OpenRouter ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- Accepted `service_tier` values for OpenAI: `auto`, `default`, `flex`, `priority` ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- OpenAI's Chat Completions and Responses APIs return `service_tier` at the top level of the response object ^[raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
-- Prompt caching with OpenAI is automated and requires no additional configuration on OpenRouter; minimum prompt size of 1024 tokens ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- OpenAI cache writes incur no cost; cache reads are charged at 0.25x or 0.50x the original input pricing depending on the model ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- OpenAI is the supported provider for the `service_tier` parameter on OpenRouter ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- Accepted `service_tier` values for OpenAI: `auto`, `default`, `flex`, `priority` ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- OpenAI's Chat Completions and Responses APIs return `service_tier` at the top level of the response object ^[001a-raw/document/openrouter/openrouter-047-guides-features-service-tiers-2026-04-29.md]
+- Prompt caching with OpenAI is automated and requires no additional configuration on OpenRouter; minimum prompt size of 1024 tokens ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- OpenAI cache writes incur no cost; cache reads are charged at 0.25x or 0.50x the original input pricing depending on the model ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Related
 

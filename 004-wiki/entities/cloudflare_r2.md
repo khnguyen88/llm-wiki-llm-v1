@@ -18,13 +18,13 @@ provenance: extracted
 
 # Cloudflare R2
 
-An S3-compatible object storage service from Cloudflare, supported as an [[004-wiki/concepts/broadcast|OpenRouter Broadcast]] destination alongside AWS S3 and other S3-compatible services. ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+An S3-compatible object storage service from Cloudflare, supported as an [[004-wiki/concepts/broadcast|OpenRouter Broadcast]] destination alongside AWS S3 and other S3-compatible services. ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
 ## Key Facts
 
-- R2 setup requires creating an R2 bucket in the Cloudflare dashboard and generating an API token with write permissions from R2 > Manage R2 API Tokens ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
-- R2 requires specifying a custom endpoint URL (e.g., `https://your-account-id.r2.cloudflarestorage.com`) in the S3 configuration's Custom Endpoint field ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
-- The Region field is required for R2 and other S3-compatible services where auto-detection is not available ^[raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+- R2 setup requires creating an R2 bucket in the Cloudflare dashboard and generating an API token with write permissions from R2 > Manage R2 API Tokens ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+- R2 requires specifying a custom endpoint URL (e.g., `https://your-account-id.r2.cloudflarestorage.com`) in the S3 configuration's Custom Endpoint field ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+- The Region field is required for R2 and other S3-compatible services where auto-detection is not available ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
 ## Related
 

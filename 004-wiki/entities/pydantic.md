@@ -18,15 +18,15 @@ provenance: extracted
 
 # Pydantic
 
-A Python data validation library that integrates with the Agent SDK for defining structured output schemas. Pydantic models generate JSON Schema via `.model_json_schema()` and provide runtime validation with `model_validate()`, returning objects with full type hints. ^[raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
+A Python data validation library that integrates with the Agent SDK for defining structured output schemas. Pydantic models generate JSON Schema via `.model_json_schema()` and provide runtime validation with `model_validate()`, returning objects with full type hints. ^[001a-raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
 
 ## Key Facts
 
-- Used with the Agent SDK's `output_format` option to define structured output schemas in Python ^[raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
-- `.model_json_schema()` converts a Pydantic model to a JSON Schema object suitable for the `output_format` schema field ^[raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
-- `model_validate()` validates the `structured_output` data at runtime, enabling type-safe access to parsed results ^[raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
-- Supports composable schemas with features like `enum` constrained values and nested model structures ^[raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
-- Provides better error messages than raw JSON Schema validation when structured output validation fails ^[raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
+- Used with the Agent SDK's `output_format` option to define structured output schemas in Python ^[001a-raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
+- `.model_json_schema()` converts a Pydantic model to a JSON Schema object suitable for the `output_format` schema field ^[001a-raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
+- `model_validate()` validates the `structured_output` data at runtime, enabling type-safe access to parsed results ^[001a-raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
+- Supports composable schemas with features like `enum` constrained values and nested model structures ^[001a-raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
+- Provides better error messages than raw JSON Schema validation when structured output validation fails ^[001a-raw/document/claude code/claude-code-024-agent-sdk-structured-outputs-2026-04-29.md]
 
 ## Related
 

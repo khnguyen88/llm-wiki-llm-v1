@@ -17,7 +17,7 @@ provenance: extracted
 
 # Gemma
 
-Google's open-weight LLM family. The Gemma 4 generation (Apache 2.0) is natively multimodal across all sizes -- the E4B variant supports audio, video, and image understanding at 4.5B parameters. ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+Google's open-weight LLM family. The Gemma 4 generation (Apache 2.0) is natively multimodal across all sizes -- the E4B variant supports audio, video, and image understanding at 4.5B parameters. ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Key Facts
 
@@ -28,10 +28,10 @@ Google's open-weight LLM family. The Gemma 4 generation (Apache 2.0) is natively
 | Gemma 4 26B-A4B | 26B total / 4B active | MoE | 256K | Text, Image, Video |
 | Gemma 4 31B | 31B | Dense | 256K | Text, Image, Video |
 
-^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
-- The 26B MoE achieves near-31B quality with only 4B active parameters ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
-- Naming example: `google/gemma-4-26B-A4B-it` -- organization google, family gemma-4, 26B total / 4B active (MoE), instruction-tuned ^[raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+- The 26B MoE achieves near-31B quality with only 4B active parameters ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
+- Naming example: `google/gemma-4-26B-A4B-it` -- organization google, family gemma-4, 26B total / 4B active (MoE), instruction-tuned ^[001a-raw/articles/LLM Model Names Decoded_ A Developer's Guide to Parameters, Quantization & Formats.md]
 
 ## Related
 

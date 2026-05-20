@@ -17,14 +17,14 @@ provenance: extracted
 
 # Groq
 
-High-speed inference provider available on OpenRouter. Prompt caching on Groq is automated and currently available on Kimi K2 models. Cache writes incur no cost, and cache reads are charged at a reduced multiplier of the original input pricing. ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+High-speed inference provider available on OpenRouter. Prompt caching on Groq is automated and currently available on Kimi K2 models. Cache writes incur no cost, and cache reads are charged at a reduced multiplier of the original input pricing. ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Key Facts
 
-- Prompt caching is automated and requires no additional configuration on OpenRouter ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Currently available on Kimi K2 models ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Cache writes: no cost ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
-- Cache reads: charged at a reduced multiplier of the original input pricing ^[raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Prompt caching is automated and requires no additional configuration on OpenRouter ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Currently available on Kimi K2 models ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Cache writes: no cost ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
+- Cache reads: charged at a reduced multiplier of the original input pricing ^[001a-raw/document/openrouter/openrouter-070-guides-best-practices-prompt-caching-2026-04-29.md]
 
 ## Related
 

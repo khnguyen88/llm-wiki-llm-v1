@@ -20,19 +20,19 @@ provenance: extracted
 
 ## Key Points
 
-- Video generation on OpenRouter uses an asynchronous API at `POST /api/v1/videos` — requests return a job ID immediately, and clients poll `GET /api/v1/videos/{jobId}` until the status is `completed` ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
-- Model discovery via a dedicated `GET /api/v1/videos/models` endpoint that returns supported resolutions, aspect ratios, sizes, pricing SKUs, and allowed passthrough parameters per model ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
-- Two image-based generation modes: `frame_images` for image-to-video (specifying first or last frame) and `input_references` for reference-to-video (style guidance); `frame_images` takes precedence when both are provided ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
-- Webhook notifications available via `callback_url` per-request or workspace-level default, with HMAC-SHA256 signature verification using `X-OpenRouter-Signature` headers ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
-- Video generation is not eligible for Zero Data Retention because generated output must be temporarily retained by the provider for retrieval after the async job completes ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
-- Supported resolutions: 480p, 720p, 1080p, 1K, 2K, 4K; supported aspect ratios: 16:9, 9:16, 1:1, 4:3, 3:4, 21:9, 9:21 ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
-- Provider-specific parameters (e.g., `personGeneration`, `negativePrompt` for Google Vertex) can be passed through the `provider.options` field, keyed by provider slug ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Video generation on OpenRouter uses an asynchronous API at `POST /api/v1/videos` — requests return a job ID immediately, and clients poll `GET /api/v1/videos/{jobId}` until the status is `completed` ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Model discovery via a dedicated `GET /api/v1/videos/models` endpoint that returns supported resolutions, aspect ratios, sizes, pricing SKUs, and allowed passthrough parameters per model ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Two image-based generation modes: `frame_images` for image-to-video (specifying first or last frame) and `input_references` for reference-to-video (style guidance); `frame_images` takes precedence when both are provided ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Webhook notifications available via `callback_url` per-request or workspace-level default, with HMAC-SHA256 signature verification using `X-OpenRouter-Signature` headers ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Video generation is not eligible for Zero Data Retention because generated output must be temporarily retained by the provider for retrieval after the async job completes ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Supported resolutions: 480p, 720p, 1080p, 1K, 2K, 4K; supported aspect ratios: 16:9, 9:16, 1:1, 4:3, 3:4, 21:9, 9:21 ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+- Provider-specific parameters (e.g., `personGeneration`, `negativePrompt` for Google Vertex) can be passed through the `provider.options` field, keyed by provider slug ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
 
 ## Quotes
 
-> Unlike text or image generation, video generation is asynchronous because generating video takes significantly longer. ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md:2]
+> Unlike text or image generation, video generation is asynchronous because generating video takes significantly longer. ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md:2]
 
-> Video generation is not eligible for Zero Data Retention (ZDR). Because video generation is asynchronous, the generated video output must be retained by the provider for a short period of time so that it can be retrieved after generation is complete. ^[raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
+> Video generation is not eligible for Zero Data Retention (ZDR). Because video generation is asynchronous, the generated video output must be retained by the provider for a short period of time so that it can be retrieved after generation is complete. ^[001a-raw/document/openrouter/openrouter-010-guides-overview-multimodal-video-generation-2026-04-29.md]
 
 ## Notes
 

@@ -18,25 +18,25 @@ provenance: extracted
 
 # Claude Code Best Practices
 
-Guidance from Anthropic on effective Claude Code usage, organized around the fundamental constraint that context window capacity degrades performance as it fills. ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+Guidance from Anthropic on effective Claude Code usage, organized around the fundamental constraint that context window capacity degrades performance as it fills. ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 
 ## Key Points
 
-- Verification is the single highest-leverage practice: provide tests, screenshots, or expected outputs so Claude can check its own work ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
-- Separate exploration from implementation using Plan Mode; planning is most useful when the approach is uncertain, the change touches multiple files, or you are unfamiliar with the code ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
-- Context window management is critical: use `/clear` between unrelated tasks, `/compact` with instructions to preserve specific context, and `/btw` for quick questions that don't need to persist ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
-- Subagents preserve context by running investigation in a separate context window, returning only summaries to the main conversation ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
-- Three ways to reduce permission interruptions: auto mode (classifier handles approvals), permission allowlists (permit specific safe commands), and sandboxing (OS-level isolation) ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
-- Common failure patterns include kitchen-sink sessions, repeated corrections, over-specified CLAUDE.md, trust-without-verification, and infinite exploration ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
-- Scale work with non-interactive mode (`claude -p`), parallel sessions, and fan-out patterns across files ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Verification is the single highest-leverage practice: provide tests, screenshots, or expected outputs so Claude can check its own work ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Separate exploration from implementation using Plan Mode; planning is most useful when the approach is uncertain, the change touches multiple files, or you are unfamiliar with the code ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Context window management is critical: use `/clear` between unrelated tasks, `/compact` with instructions to preserve specific context, and `/btw` for quick questions that don't need to persist ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Subagents preserve context by running investigation in a separate context window, returning only summaries to the main conversation ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Three ways to reduce permission interruptions: auto mode (classifier handles approvals), permission allowlists (permit specific safe commands), and sandboxing (OS-level isolation) ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Common failure patterns include kitchen-sink sessions, repeated corrections, over-specified CLAUDE.md, trust-without-verification, and infinite exploration ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+- Scale work with non-interactive mode (`claude -p`), parallel sessions, and fan-out patterns across files ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 
 ## Quotes
 
-> "Claude performs dramatically better when it can verify its own work, like run tests, compare screenshots, and validate outputs. Without clear success criteria, it might produce something that looks right but actually doesn't work." ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+> "Claude performs dramatically better when it can verify its own work, like run tests, compare screenshots, and validate outputs. Without clear success criteria, it might produce something that looks right but actually doesn't work." ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 
-> "Most best practices are based on one constraint: Claude's context window fills up fast, and performance degrades as it fills." ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+> "Most best practices are based on one constraint: Claude's context window fills up fast, and performance degrades as it fills." ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 
-> "After two failed corrections, /clear and write a better initial prompt incorporating what you learned. A clean session with a better prompt almost always outperforms a long session with accumulated corrections." ^[raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
+> "After two failed corrections, /clear and write a better initial prompt incorporating what you learned. A clean session with a better prompt almost always outperforms a long session with accumulated corrections." ^[001a-raw/document/claude code/claude-code-036-best-practices-2026-04-29.md]
 
 ## Notes
 

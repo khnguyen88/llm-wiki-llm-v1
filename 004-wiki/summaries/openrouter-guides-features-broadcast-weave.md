@@ -21,17 +21,17 @@ provenance: extracted
 
 ## Key Points
 
-- [[004-wiki/entities/wandb_weave|W&B Weave]] is an observability platform for tracking and evaluating LLM applications, available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on OpenRouter ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
-- Setup requires a W&B API key (from User Settings), enabling Broadcast in OpenRouter Settings > Observability, and configuring Weave with API Key, Entity, Project, and optional Base URL (default `https://trace.wandb.ai`) ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
-- Three custom metadata keys are supported: `trace_id` maps to the `openrouter_trace_id` attribute, `trace_name` and `generation_name` both map to `op_name` ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
-- Weave organizes trace data into Attributes (metadata like user IDs, trace identifiers), Inputs (request data, messages, model parameters), and Summary (token usage, costs, timing) ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
-- The `user` request field maps to `user_id` in attributes; `session_id` maps to `session_id` in attributes; custom `trace` keys merge into the call's attributes ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
-- Model parameters (`temperature`, `max_tokens`, `top_p`) are included in inputs for easy filtering ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
-- Privacy Mode excludes prompt and completion content from traces while sending all other data (token usage, costs, timing, model info, custom metadata) normally ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- [[004-wiki/entities/wandb_weave|W&B Weave]] is an observability platform for tracking and evaluating LLM applications, available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on OpenRouter ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- Setup requires a W&B API key (from User Settings), enabling Broadcast in OpenRouter Settings > Observability, and configuring Weave with API Key, Entity, Project, and optional Base URL (default `https://trace.wandb.ai`) ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- Three custom metadata keys are supported: `trace_id` maps to the `openrouter_trace_id` attribute, `trace_name` and `generation_name` both map to `op_name` ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- Weave organizes trace data into Attributes (metadata like user IDs, trace identifiers), Inputs (request data, messages, model parameters), and Summary (token usage, costs, timing) ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- The `user` request field maps to `user_id` in attributes; `session_id` maps to `session_id` in attributes; custom `trace` keys merge into the call's attributes ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- Model parameters (`temperature`, `max_tokens`, `top_p`) are included in inputs for easy filtering ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- Privacy Mode excludes prompt and completion content from traces while sending all other data (token usage, costs, timing, model info, custom metadata) normally ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 
 ## Notes
 
-- The configuration only saves if the Test Connection check passes, consistent with other Broadcast destinations ^[raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- The configuration only saves if the Test Connection check passes, consistent with other Broadcast destinations ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 
 ## Related
 

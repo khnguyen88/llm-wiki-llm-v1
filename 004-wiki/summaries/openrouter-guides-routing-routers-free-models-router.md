@@ -19,17 +19,17 @@ provenance: extracted
 
 ## Key Points
 
-- The Free Models Router uses model ID `openrouter/free` and automatically selects a free model at random from available free models on [[004-wiki/entities/openrouter|OpenRouter]] ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
-- The router filters free models by required capabilities (vision, tool calling, structured outputs) before random selection ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
-- Completely free to use — no charge for the router or routed requests ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
-- Response includes a `model` field identifying which specific free model handled the request ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
-- For specific free model selection, append `:free` to a model ID (e.g., `meta-llama/llama-3.2-3b-instruct:free`) instead of using the router ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
-- Limitations include lower rate limits, variable availability, and higher latency compared to paid models ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
-- Intended for learning, experimentation, prototyping, and low-volume use cases ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- The Free Models Router uses model ID `openrouter/free` and automatically selects a free model at random from available free models on [[004-wiki/entities/openrouter|OpenRouter]] ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- The router filters free models by required capabilities (vision, tool calling, structured outputs) before random selection ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- Completely free to use — no charge for the router or routed requests ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- Response includes a `model` field identifying which specific free model handled the request ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- For specific free model selection, append `:free` to a model ID (e.g., `meta-llama/llama-3.2-3b-instruct:free`) instead of using the router ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- Limitations include lower rate limits, variable availability, and higher latency compared to paid models ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
+- Intended for learning, experimentation, prototyping, and low-volume use cases ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md]
 
 ## Quotes
 
-> Instead of manually choosing a specific free model, let the Free Models Router handle model selection for you. This is ideal for experimentation, learning, and low-volume use cases where you want zero-cost inference without worrying about which specific model to use. ^[raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md:12-14]
+> Instead of manually choosing a specific free model, let the Free Models Router handle model selection for you. This is ideal for experimentation, learning, and low-volume use cases where you want zero-cost inference without worrying about which specific model to use. ^[001a-raw/document/openrouter/openrouter-028-guides-routing-routers-free-models-router-2026-04-29.md:12-14]
 
 ## Notes
 

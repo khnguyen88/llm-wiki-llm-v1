@@ -18,7 +18,7 @@ provenance: extracted
 
 # On-Policy Distillation
 
-Multi-Teacher On-Policy Distillation (MOPD) is a training technique where a student model samples from its own policy distribution and concurrently learns from multiple domain expert teachers via token-level reverse KL divergence. This efficiently consolidates diverse expert capabilities into a unified parameter space while eliminating the multi-objective optimization conflicts ("seesaw" effect) that arise when trying to fuse all capabilities in a single training stage. ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+Multi-Teacher On-Policy Distillation (MOPD) is a training technique where a student model samples from its own policy distribution and concurrently learns from multiple domain expert teachers via token-level reverse KL divergence. This efficiently consolidates diverse expert capabilities into a unified parameter space while eliminating the multi-objective optimization conflicts ("seesaw" effect) that arise when trying to fuse all capabilities in a single training stage. ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## The Four-Stage Pipeline
 
@@ -29,15 +29,15 @@ Multi-Teacher On-Policy Distillation (MOPD) is a training technique where a stud
 | 3 | On-Policy Distillation (OPD) | Student samples from own policy, learns from multiple teachers via token-level reverse KL |
 | 4 | General Online RL | Online RL for high-entropy tasks (open-ended chat, creative writing) where OPD is insufficient |
 
-^[raw/articles/baidu-ernie-5.1-0508-release.md]
+^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## Why OPD Alone Is Not Enough
 
-Not all tasks are amenable to token-level KL-based distillation. Tasks with high-entropy output distributions — particularly open-ended chat and creative writing — suffer from low distillation efficiency and excessive probability smoothing. The General-RL stage (Stage 4) addresses this by applying online RL directly to the post-OPD model for these domains. ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+Not all tasks are amenable to token-level KL-based distillation. Tasks with high-entropy output distributions — particularly open-ended chat and creative writing — suffer from low distillation efficiency and excessive probability smoothing. The General-RL stage (Stage 4) addresses this by applying online RL directly to the post-OPD model for these domains. ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## The Seesaw Problem
 
-Traditional sequential post-training (SFT → Mixed RL) creates multi-objective optimization conflicts: improving one capability often degrades another. MOPD solves this by training domain experts independently in Stage 2 (eliminating mutual interference) and then fusing their capabilities through OPD in Stage 3. ^[raw/articles/baidu-ernie-5.1-0508-release.md]
+Traditional sequential post-training (SFT → Mixed RL) creates multi-objective optimization conflicts: improving one capability often degrades another. MOPD solves this by training domain experts independently in Stage 2 (eliminating mutual interference) and then fusing their capabilities through OPD in Stage 3. ^[001a-raw/articles/baidu-ernie-5.1-0508-release.md]
 
 ## Related
 
