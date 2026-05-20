@@ -184,7 +184,7 @@ def wiki_page_exists(link: str) -> bool:
 
 
 def list_source_files() -> list[Path]:
-    """List all source files in raw/ and ai-research/ (all subfolders)."""
+    """List all source files in 001a-raw/ and 001b-ai-research/ (all subfolders)."""
     files = []
     for base in [RAW_DIR, AI_RESEARCH_DIR]:
         if not base.exists():
@@ -195,7 +195,7 @@ def list_source_files() -> list[Path]:
 
 
 def list_processed_files() -> list[Path]:
-    """List all files in processed/ (all subfolders)."""
+    """List all files in 003-processed/ (all subfolders)."""
     if not PROCESSED_DIR.exists():
         return []
     return sorted(PROCESSED_DIR.rglob("*.md"))

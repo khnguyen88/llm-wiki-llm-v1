@@ -26,7 +26,7 @@ A query language for Grafana Tempo used to filter and search distributed traces 
 - Accessed via the Explore view in Grafana Cloud by selecting a Tempo data source and switching to the TraceQL tab ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 - Queries OpenRouter traces using `{ resource.service.name = "openrouter" }` as the base filter ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 - Supports filtering by model: `{ resource.service.name = "openrouter" && span.gen_ai.request.model = "openai/gpt-4-turbo" }` ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
-- Supports duration queries for slow requests: `{ resource.service.name = "openrouter" && duration > 5s }` ^[001a-raw/document/openrouter/openrouter/055-guides-features-broadcast-grafana-2026-04-29.md]
+- Supports duration queries for slow requests: `{ resource.service.name = "openrouter" && duration > 5s }` ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 - Supports filtering by user ID, error status, and model name patterns using `=`, `=~` (regex), and comparison operators ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 - Custom metadata from OpenRouter's `trace` field is queryable under the `trace.metadata.*` namespace: `{ resource.service.name = "openrouter" && span.trace.metadata.environment = "production" }` ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 

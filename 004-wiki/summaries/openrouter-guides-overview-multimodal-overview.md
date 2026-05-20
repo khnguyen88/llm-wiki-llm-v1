@@ -29,7 +29,7 @@ provenance: extracted
 - Video generation uses an asynchronous API at `/api/v1/videos` — submit a prompt, receive a job ID, then poll until the video is ready ^[001a-raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
 - Both URLs and base64-encoded data are accepted for multimodal inputs; URLs are recommended for public content while base64 is required for local files ^[001a-raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
 - Audio input is only supported via base64 encoding (no URL support); video URL support varies by provider (e.g., Gemini on AI Studio only accepts YouTube links) ^[001a-raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
-- Model compatibility is automatic: OpenRouter filters available models based on request content, and not all models support every modality ^[001a-raw/document/openrouter/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
+- Model compatibility is automatic: OpenRouter filters available models based on request content, and not all models support every modality ^[001a-raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
 - Multiple modalities can be combined in a single request (text, images, PDFs, audio, video together) ^[001a-raw/document/openrouter/openrouter-004-guides-overview-multimodal-overview-2026-04-29.md]
 
 ## Quotes

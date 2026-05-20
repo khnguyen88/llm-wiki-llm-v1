@@ -36,7 +36,7 @@ Remediate 002-raw-preprocessed/{name}-{date}.md using deepseek-ocr:
 - Scan for placeholders and low-confidence elements in sidecar
 - Convert source to PDF if needed
 - Run ocr --include on problem pages
-- Splice fixes back into raw-markdown
+- Splice fixes back into 002-raw-preprocessed
 - Update sidecar with resolved elements
 ```
 

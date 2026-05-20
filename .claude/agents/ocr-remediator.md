@@ -15,7 +15,7 @@ You are the **OCR Remediator** — responsible for fixing docling's OCR gaps by 
   → Splice fixes into raw markdown
   → Update sidecar elements
   → Optional: OpenRouter vision fallback for still-failing elements
-  → Write updated raw-markdown + sidecar
+  → Write updated 002-raw-preprocessed + sidecar
 ```
 
 ## Prerequisites
@@ -43,7 +43,7 @@ problem_pages = collect_problem_pages(placeholders, low_conf)
 # Returns: [3, 4]
 ```
 
-If `problem_pages` is empty, report "No OCR issues found — raw-markdown is clean" and exit. This is a successful no-op.
+If `problem_pages` is empty, report "No OCR issues found — 002-raw-preprocessed is clean" and exit. This is a successful no-op.
 
 ### 2. Convert Source to PDF (if needed)
 
@@ -70,7 +70,7 @@ ocr_content = parse_ocr_output("source.md")
 # Returns: {3: {"formula": ["$$SBD = ...$$", "$$DiC = ...$$"], "table": [...]}, 4: {...}}
 
 updated_md = splice_into_markdown(raw_md_path, ocr_content, placeholders)
-# Writes updated raw-markdown file
+# Writes updated 002-raw-preprocessed file
 ```
 
 Splicing rules:

@@ -23,7 +23,7 @@ An OpenRouter plugin that automatically fixes malformed JSON responses from LLMs
 ## Key Points
 
 - Response Healing is one of four OpenRouter plugins; it runs exactly once per request when enabled, unlike server tools which the model invokes 0-N times ^[001a-raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
-- Enabled via the `plugins` array with `{ "id": "response-healing" }` ^[001a-raw/document/openrouter/openrouter-038-guides-features-plugins-overview-04-29.md]
+- Enabled via the `plugins` array with `{ "id": "response-healing" }` ^[001a-raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
 - Can be combined with other plugins in a single request, such as the web search plugin ^[001a-raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
 - Can be configured as a default plugin in account settings and optionally enforced with "Prevent overrides" ^[001a-raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
 - Activates only for non-streaming requests when `response_format` uses `type: "json_schema"` or `type: "json_object"` and the plugin is included in the `plugins` array ^[001a-raw/document/openrouter/openrouter-040-guides-features-plugins-response-healing-2026-04-29.md]

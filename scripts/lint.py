@@ -363,7 +363,7 @@ def check_orphan_pages_external() -> list[dict]:
 
 
 def check_orphan_sources_external() -> list[dict]:
-    """Check for raw/ and ai-research/ files not yet ingested, or processed/ segments not yet ingested."""
+    """Check for 001a-raw/ and 001b-ai-research/ files not yet ingested, or 003-processed/ segments not yet ingested."""
     issues = []
     ingested_sources = set()
 
@@ -372,7 +372,7 @@ def check_orphan_sources_external() -> list[dict]:
         for src in get_wiki_sources(page):
             ingested_sources.add(src.strip())
 
-    # Check raw/ files
+    # Check 001a-raw/ files
     for src_file in list_source_files():
         rel = str(src_file.relative_to(ROOT_DIR)).replace("\\", "/")
         if rel not in ingested_sources:
@@ -384,7 +384,7 @@ def check_orphan_sources_external() -> list[dict]:
                 "detail": f"Source not yet ingested: {rel}",
             })
 
-    # Check processed/ files
+    # Check 003-processed/ files
     for proc_file in list_processed_files():
         rel = str(proc_file.relative_to(ROOT_DIR)).replace("\\", "/")
         if rel not in ingested_sources:
@@ -448,7 +448,7 @@ def check_sparse_articles_external() -> list[dict]:
 
 
 def check_unsourced_claims_external() -> list[dict]:
-    """Check for external wiki pages whose sources don't trace back to raw/ or ai-research/."""
+    """Check for external wiki pages whose sources don't trace back to 001a-raw/ or 001b-ai-research/."""
     issues = []
     all_source_files = set()
     for src_file in list_source_files():
@@ -568,7 +568,7 @@ def check_malformed_citation_external() -> list[dict]:
                     "check": "malformed_citation",
                     "kb": "external",
                     "file": str(rel),
-                    "detail": f"Malformed citation: ^[{citation}] — path must start with raw/, ai-research/, or processed/",
+                    "detail": f"Malformed citation: ^[{citation}] — path must start with 001a-raw/, 001b-ai-research/, or 003-processed/",
                 })
                 continue
 
@@ -699,7 +699,7 @@ def check_broken_citation_external() -> list[dict]:
 
 
 def check_unapproved_processed() -> list[dict]:
-    """Check for processed/ files whose sidecar has not been approved."""
+    """Check for 003-processed/ files whose sidecar has not been approved."""
     issues = []
     import re
     for proc_file in list_processed_files():
@@ -718,7 +718,7 @@ def check_unapproved_processed() -> list[dict]:
                 "severity": "warning",
                 "check": "unapproved_processed",
                 "kb": "external",
-                "file": f"processed/{rel}",
+                "file": f"003-processed/{rel}",
                 "detail": f"Document not approved for ingestion (stage: {stage}). Unresolved elements: {sidecar['pipeline_state'].get('unresolved_blockers', '?')}",
             })
     return issues

@@ -1,7 +1,7 @@
 """
 OCR remediation for docling output.
 
-Scans raw-markdown for placeholder comments and low-confidence sidecar elements,
+Scans 002-raw-preprocessed for placeholder comments and low-confidence sidecar elements,
 runs deepseek-ocr (arrase/OCR) on specific pages, and splices fixes back in.
 """
 
@@ -368,7 +368,7 @@ def _to_sidecar_type(placeholder_type: str) -> str:
 # ── Main entry ─────────────────────────────────────────────────────────────
 
 def remediate(raw_md_path: str | Path, sidecar_path: str | Path, source_path: str | Path) -> bool:
-    """Run full OCR remediation on a raw-markdown file.
+    """Run full OCR remediation on a 002-raw-preprocessed file.
 
     Args:
         raw_md_path: Path to the raw markdown file.
@@ -382,7 +382,7 @@ def remediate(raw_md_path: str | Path, sidecar_path: str | Path, source_path: st
     low_conf = find_low_confidence(sidecar_path)
 
     if not placeholders and not low_conf:
-        print("No OCR issues found — raw-markdown is clean.")
+        print("No OCR issues found — 002-raw-preprocessed is clean.")
         return False
 
     total_pages = _load_json(sidecar_path).get("conversion_metadata", {}).get("pages", 0)

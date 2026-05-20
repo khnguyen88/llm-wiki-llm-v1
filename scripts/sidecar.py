@@ -54,7 +54,7 @@ def create_sidecar(
 def sidecar_path(document_path: str | Path) -> Path:
     """Derive the sidecar path from a document path.
 
-    raw/document/my-paper.pdf → raw-markdown/my-paper.elements.json
+    001a-raw/document/my-paper.pdf → 002-raw-preprocessed/my-paper.elements.json
     """
     doc = Path(document_path)
     name = doc.stem  # filename without extension
