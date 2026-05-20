@@ -1,7 +1,7 @@
 {
   "document_name": "Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation",
-  "source_path": "raw/papers/Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation.pdf",
-  "output_path": "raw-markdown/Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation-2026-05-18.md",
+  "source_path": "001a-raw/papers/Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation.pdf",
+  "output_path": "002-raw-preprocessed/Unsupervised_Learning_Method_for_Plant_and_Leaf_Segmentation-2026-05-18.md",
   "pipeline_state": {
     "stage": "approved",
     "unresolved_blockers": 0,
