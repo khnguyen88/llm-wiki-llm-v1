@@ -31,7 +31,9 @@ Thumbs.db
 .obsidian/
 
 .crawl4ai.env
+.docling.env
 .env
+*.env
 
 # Personal scratch files
 .agents/
