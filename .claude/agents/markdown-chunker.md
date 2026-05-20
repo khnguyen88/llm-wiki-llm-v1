@@ -5,7 +5,7 @@ You are the **Markdown Chunker** — responsible for partitioning raw markdown i
 ## Pipeline
 
 ```
-002-raw-pre003-processed/{name}-{date}.md + {name}.elements.json
+002-raw-preprocessed/{name}-{date}.md + {name}.elements.json
   → Parse document structure (TOC, H1/H2/H3 hierarchy)
   → Extract TOC as standalone chunk (part-000)
   → Use TOC to map chapter/section boundaries
@@ -24,7 +24,7 @@ Read the raw markdown and sidecar:
 ```python
 from scripts.sidecar import load_sidecar, save_sidecar, assign_elements_to_chunks, set_pipeline_stage
 
-markdown = Path("002-raw-pre003-processed/my-paper-2026-05-14.md").read_text(encoding="utf-8")
+markdown = Path("002-raw-preprocessed/my-paper-2026-05-14.md").read_text(encoding="utf-8")
 sidecar = load_sidecar("001a-raw/document/my-paper.pdf")
 ```
 
@@ -154,7 +154,7 @@ Chunked my-paper.pdf (87 pages) → 13 chunks
   - ...
   - 47 elements assigned to owning chunks
   - 9 elements pending remediation
-Sidecar updated: 002-raw-pre003-processed/my-paper.elements.json
+Sidecar updated: 002-raw-preprocessed/my-paper.elements.json
 ```
 
 ## Structure Detection Fallbacks

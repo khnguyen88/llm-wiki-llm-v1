@@ -22,7 +22,7 @@ Dispatch document-converter as a subagent:
 Convert {file_path} to markdown using the full document-converter pipeline:
 - Pre-process (DOCX→PDF, split large PDFs)
 - docling-serve conversion
-- Write 002-raw-pre003-processed/{name}-{date}.md + sidecar
+- Write 002-raw-preprocessed/{name}-{date}.md + sidecar
 ```
 
 Wait for document-converter to complete. Verify output files exist. If document-converter fails, report the error and stop — do not proceed to chunking.
@@ -32,7 +32,7 @@ Wait for document-converter to complete. Verify output files exist. If document-
 Dispatch ocr-remediator as a subagent:
 
 ```
-Remediate 002-raw-pre003-processed/{name}-{date}.md using deepseek-ocr:
+Remediate 002-raw-preprocessed/{name}-{date}.md using deepseek-ocr:
 - Scan for placeholders and low-confidence elements in sidecar
 - Convert source to PDF if needed
 - Run ocr --include on problem pages
@@ -49,7 +49,7 @@ and Stage 4 auto-remediation can attempt LLM-based fixes.
 Dispatch markdown-chunker as a subagent:
 
 ```
-Chunk 002-raw-pre003-processed/{name}-{date}.md using the markdown-chunker pipeline:
+Chunk 002-raw-preprocessed/{name}-{date}.md using the markdown-chunker pipeline:
 - Detect document structure (TOC, H1/H2/H3)
 - Extract TOC as chunk-000
 - Partition by H1-H2 sections

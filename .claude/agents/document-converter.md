@@ -9,7 +9,7 @@ Input file (PDF/DOCX/PPTX)
   → Pre-process: DOCX → PDF via docx2pdf; large PDFs → split via pypdf (25-page chunks)
   → Convert each PDF via docling-serve Docker API
   → Concatenate markdown output in page order
-  → Write 002-raw-pre003-processed/{name}-{date}.md + sidecar
+  → Write 002-raw-preprocessed/{name}-{date}.md + sidecar
 ```
 
 ## Pre-requisites
