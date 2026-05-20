@@ -30,6 +30,9 @@ Every agent must reference the correct:
 
 **Agent files to check:**
 - `.claude/agents/wiki-maintainer.md`
+- `.claude/agents/document-converter.md`
+- `.claude/agents/ocr-remediator.md`
+- `.claude/agents/markdown-chunker.md`
 - `.claude/agents/document-processor.md`
 - `.claude/agents/knowledge-compiler.md`
 - `.claude/agents/wiki-linter.md`
@@ -47,7 +50,7 @@ Every agent must reference the correct:
 CLI commands referenced in any file must match actual scripts in `scripts/`. Check:
 - `scripts/compile.py` — flags: `--all`, `--file`, `--dry-run`
 - `scripts/query.py` — flags: `--file-back`
-- `scripts/lint.py` — flags: `--structural-only`
+- `scripts/lint.py` — flags: `--structural-only`, `--kb internal`, `--kb external`
 - `scripts/flush.py` — background process, spawned by hooks
 
 ### 4. Conventions
@@ -133,18 +136,21 @@ When running a sync check, read these files in order:
 5. `schema/WIKI_SCHEMA.md`
 6. `schema/WIKI_WORKFLOWS.md`
 7. `.claude/agents/wiki-maintainer.md`
-8. `.claude/agents/document-processor.md`
-9. `.claude/agents/knowledge-compiler.md`
-10. `.claude/agents/wiki-linter.md`
-11. `.claude/agents/wiki-query.md`
-12. `.claude/agents/wiki-repair.md`
-13. `.claude/agents/web-search.md`
-14. `.claude/agents/ai-research.md`
-15. `.claude/agents/youtube-transcript.md`
-16. `.claude/agents/transcript-reviewer.md`
-17. `.claude/agents/context-loader.md`
-18. `.claude/agents/sync-check.md`
-19. `004-wiki/index.md`
-20. `004-wiki/sources-manifest.md`
+8. `.claude/agents/document-converter.md`
+9. `.claude/agents/ocr-remediator.md`
+10. `.claude/agents/markdown-chunker.md`
+11. `.claude/agents/document-processor.md`
+12. `.claude/agents/knowledge-compiler.md`
+13. `.claude/agents/wiki-linter.md`
+14. `.claude/agents/wiki-query.md`
+15. `.claude/agents/wiki-repair.md`
+16. `.claude/agents/web-search.md`
+17. `.claude/agents/ai-research.md`
+18. `.claude/agents/youtube-transcript.md`
+19. `.claude/agents/transcript-reviewer.md`
+20. `.claude/agents/context-loader.md`
+21. `.claude/agents/sync-check.md`
+22. `004-wiki/index.md`
+23. `004-wiki/sources-manifest.md`
 
 Then verify against actual directory structure (`ls` or `glob` for `001a-raw/`, `003-processed/`, `004-wiki/`, `knowledge/`, `scripts/`, `hooks/`, `.claude/agents/`).

@@ -38,7 +38,7 @@ queries      = runtime      (using the knowledge)
 4. Synthesize answer with `[[wikilink]]` citations
 5. If `--file-back`: create `knowledge/qa/` article, update index.md and log.md
 
-### Lint (12 health checks)
+### Lint (14 health checks)
 
 1. **Broken links** — `[[wikilinks]]` to non-existent articles (error)
 2. **Orphan pages** — Articles with zero inbound links (warning). Pages with `orphaned: true` flagged automatically.
@@ -51,7 +51,9 @@ queries      = runtime      (using the knowledge)
 9. **Duplicate concept** — Multiple pages with the same title (case-insensitive comparison) (error)
 10. **Malformed citation** — Invalid `^[...]` citation syntax (error, external only)
 11. **Broken citation** — Citations pointing to nonexistent files or exceeding file length (error, external only)
-12. **Contradictions** — Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
+12. **Raw source metadata** — Validate `type` field against valid values and required/recommended fields per type in source file HTML comment headers (error/warning, external only)
+13. **Filename convention** — LLM-generated files must follow naming conventions (warning, external only)
+14. **Contradictions** — Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
 
 ## Article Formats
 
@@ -64,8 +66,8 @@ aliases: [alternate-name, abbreviation]
 tags: [domain, topic]
 sources:
   - "daily/2026-04-01.md"
-created: 2026-04-01
-updated: 2026-04-03
+created: "2026-04-01T12:00:00Z"
+updated: "2026-04-03T12:00:00Z"
 confidence: 0.9
 provenance: extracted
 ---

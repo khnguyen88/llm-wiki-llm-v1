@@ -80,6 +80,7 @@ llm-wiki-llm-v1/
 │   ├── web/
 │   ├── forum-thread/
 │   └── transcripts/
+├── 002-raw-preprocessed/              # Document conversion + OCR output (pre-chunking)
 ├── 003-processed/                    # Segmented markdown from large raw files
 │   ├── articles/
 │   ├── papers/
@@ -133,16 +134,21 @@ llm-wiki-llm-v1/
 ├── .claude/                      # Claude Code configuration
 │   ├── settings.json
 │   └── agents/                   # Project-specific agents
-│       ├── wiki-maintainer.md
+│       ├── ai-research.md
+│       ├── context-loader.md
+│       ├── document-converter.md
 │       ├── document-processor.md
 │       ├── knowledge-compiler.md
+│       ├── markdown-chunker.md
+│       ├── ocr-remediator.md
+│       ├── sync-check.md
+│       ├── transcript-reviewer.md
+│       ├── web-search.md
 │       ├── wiki-linter.md
+│       ├── wiki-maintainer.md
 │       ├── wiki-query.md
 │       ├── wiki-repair.md
-│       ├── sync-check.md
-│       ├── context-loader.md
-│       ├── web-search.md
-│       └── ai-research.md
+│       └── youtube-transcript.md
 └── README.md                     # This file
 ```
 
@@ -652,13 +658,12 @@ docker restart vane    # Restart (stop + start in one command)
 
 **Usage:**
 
-Two project agents use Vane — one ephemeral, one persistent:
+Two project agents use Vane — web-search (ephemeral, Vane-first) and ai-research (persistent, Vane + crawl4ai):
 
-| Agent           | Command                     | Behavior                                      | Output                      |
-| --------------- | --------------------------- | --------------------------------------------- | --------------------------- |
-| **web-search**  | "Search the web for X"      | Ephemeral — returns results, never saves      | stdout only (uses built-in) |
-| **vane-search** | "Vane Search the web for X" | Ephemeral — returns results, never saves      | stdout only (uses vane)     |
-| **ai-research** | "Research X and save it"    | Persistent — deep search + crawl4ai follow-up | saves to `001b-ai-research/web/` |
+| Agent           | Command                     | Behavior                                      | Output                                     |
+| --------------- | --------------------------- | --------------------------------------------- | ------------------------------------------ |
+| **web-search**  | "Search the web for X"      | Ephemeral — returns results, never saves      | stdout only (Vane-first, falls back to built-in) |
+| **ai-research** | "Research X and save it"    | Persistent — deep search + crawl4ai follow-up | saves to `001b-ai-research/web/`           |
 
 Both agents enforce the same citation convention: every factual claim must include an inline citation `[N]` referencing a numbered source, and all sources must be included verbatim (no filtering or truncation).
 

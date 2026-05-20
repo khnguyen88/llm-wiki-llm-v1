@@ -263,7 +263,7 @@ When processing a daily log:
 
 ### 3. Lint (Health Checks)
 
-Twelve checks, run periodically. See the lint checks table in the Script Details section for the full specification.
+Fourteen checks, run periodically. See the lint checks table in the Script Details section for the full specification.
 
 1. **Broken links** - `[[wikilinks]]` pointing to non-existent articles (error)
 2. **Orphan pages** - Articles with zero inbound links from other articles (warning). `orphaned: true` in frontmatter flags automatically.
@@ -276,7 +276,9 @@ Twelve checks, run periodically. See the lint checks table in the Script Details
 9. **Duplicate concept** - Multiple pages with the same title (case-insensitive) (error)
 10. **Malformed citation** - `^[...]` citation markers with invalid syntax (error, external only)
 11. **Broken citation** - Citations pointing to nonexistent files or exceeding file length (error, external only)
-12. **Contradictions** - Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
+12. **Raw source metadata** - Validate `type` field against valid values and required/recommended fields per type in source file HTML comment headers (error/warning, external only)
+13. **Filename convention** - LLM-generated files must follow naming conventions (warning, external only)
+14. **Contradictions** - Conflicting claims across articles (error, requires LLM judgment). Suggest adding `contradictedBy` to frontmatter.
 
 Output: a markdown report with severity levels (error, warning, suggestion).
 
@@ -332,16 +334,21 @@ llm-wiki-llm-v1/
 |-- .claude/
 |   |-- settings.json                # Hook configuration (auto-activates in Claude Code)
 |   |-- agents/                      # Project-specific Claude Code agents
-|       |-- wiki-maintainer.md
+|       |-- ai-research.md
+|       |-- context-loader.md
+|       |-- document-converter.md
 |       |-- document-processor.md
 |       |-- knowledge-compiler.md
-|       |-- wiki-linter.md
-|       |-- wiki-repair.md
-|       |-- wiki-query.md
+|       |-- markdown-chunker.md
+|       |-- ocr-remediator.md
 |       |-- sync-check.md
-|       |-- context-loader.md
+|       |-- transcript-reviewer.md
 |       |-- web-search.md
-|       |-- ai-research.md
+|       |-- wiki-linter.md
+|       |-- wiki-query.md
+|       |-- wiki-repair.md
+|       |-- wiki-maintainer.md
+|       |-- youtube-transcript.md
 |-- .gitignore                       # Excludes runtime state, temp files, caches
 |-- AGENTS.md                        # This file - schema + full technical reference
 |-- CLAUDE.md                        # Project instructions for Claude Code sessions
@@ -367,6 +374,7 @@ llm-wiki-llm-v1/
 |   |-- web/
 |   |-- forum-thread/
 |   |-- transcripts/
+|-- 002-raw-preprocessed/                # Document conversion + OCR output (pre-chunking)
 |-- 003-processed/                       # Segmented markdown from large raw files (LLM-owned)
 |   |-- articles/
 |   |-- papers/
@@ -400,7 +408,7 @@ llm-wiki-llm-v1/
 |-- scripts/                         # CLI tools
 |   |-- compile.py                   #   Compile daily logs -> knowledge articles
 |   |-- query.py                     #   Ask questions (index-guided, no RAG)
-|   |-- lint.py                      #   12 health checks
+|   |-- lint.py                      #   14 health checks
 |   |-- flush.py                     #   Extract memories from conversations (background)
 |   |-- config.py                    #   Path constants
 |   |-- utils.py                     #   Shared helpers
@@ -543,7 +551,7 @@ With `--file-back`, creates a Q&A article in `knowledge/qa/` and updates the ind
 
 ### lint.py - Health Checks
 
-Twelve checks:
+Fourteen checks:
 
 | Check | Type | Catches |
 |-------|------|---------|
@@ -558,6 +566,8 @@ Twelve checks:
 | Duplicate concept | Structural | Multiple pages with the same title (case-insensitive) |
 | Malformed citation | Structural | `^[...]` citation markers with invalid syntax (external only) |
 | Broken citation | Structural | Citations pointing to nonexistent files or exceeding file length (external only) |
+| Raw source metadata | Structural | Validates `type` field and required/recommended fields in source file metadata headers (external only) |
+| Filename convention | Structural | LLM-generated files must follow naming conventions (external only) |
 | Contradictions | LLM | Conflicting claims across articles |
 
 **CLI:**
