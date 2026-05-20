@@ -228,7 +228,7 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **Role**: Fixes docling OCR gaps by running deepseek-ocr on pages with placeholder comments or low-confidence elements.
 
-**When to invoke**: "Fix OCR issues in raw-markdown", second stage of document processing pipeline
+**When to invoke**: "Fix OCR issues in 002-raw-preprocessed", second stage of document processing pipeline
 
 **Operations**:
 1. **Scan** — Find `<!-- formula-not-decoded -->` and similar placeholders + low-confidence sidecar elements
