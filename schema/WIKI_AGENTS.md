@@ -37,10 +37,11 @@ Optional: `confidence`, `provenance`, `contradictedBy`, `orphaned`.
 
 ### Naming
 
-- **Entities**: snake_case (e.g., `entities/transformer_model.md`)
-- **Concepts**: snake_case (e.g., `concepts/attention_mechanism.md`)
+- **Entities**: kebab-case (e.g., `entities/transformer-model.md`)
+- **Concepts**: kebab-case (e.g., `concepts/attention-mechanism.md`)
 - **Summaries**: kebab-case (e.g., `summaries/attention-is-all-you-need.md`)
-- **Summaries**: kebab-case (e.g., `summaries/attention-is-all-you-need.md`)
+- **Q&A**: kebab-case (e.g., `qanda/why-is-x-important.md`)
+- **Connections**: kebab-case (e.g., `connections/agent-loop-and-context-window.md`)
 
 ### Linking
 

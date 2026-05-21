@@ -54,7 +54,7 @@ When a query reveals gaps or the human asks to research a topic:
 ## Conventions
 
 - **Frontmatter**: All pages require YAML with title, summary, type, sources, tags, created, updated. Optional: confidence, provenance, contradictedBy, orphaned.
-- **Naming**: snake_case for entities/concepts, kebab-case for summaries
+- **Naming**: kebab-case for all wiki pages (concepts, entities, summaries, connections)
 - **File naming** (001a-raw/ or 001b-ai-research): All LLM-generated files must end with `-{YYYY-MM-DD}.md`. Crawl files: `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md`. Other types: `{slug}-{YYYY-MM-DD}.md`. See `schema/WIKI_SCHEMA.md` → LLM-Generated File Naming and Crawl File Naming.
 - **File naming** (003-processed/): `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md`. See `schema/WIKI_SCHEMA.md` → Processed File Naming.
 - **Internal**: `[[path/to/article]]` or `[[path/to/article|Display Name]]`

@@ -61,7 +61,7 @@ CLI commands referenced in any file must match actual scripts in `scripts/`. Thi
 Naming and format conventions must be consistent across all files:
 - Wikilink format: `[[path/to/article]]` (no `.md`)
 - Frontmatter fields: title, summary, type, sources, tags, created, updated (optional: confidence, provenance, contradictedBy, orphaned)
-- File naming: snake_case for entities/concepts, kebab-case for summaries
+- File naming: kebab-case for all wiki pages (entities, concepts, summaries, qanda, connections)
 - Claim citation syntax: `^[path/to/source.md]` or `^[path/to/source.md:42-58]`
 - Processed file naming: `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md` (date always at end)
 - Crawl file naming: `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md`

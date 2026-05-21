@@ -128,8 +128,7 @@ Fix source paths in frontmatter that reference non-existent files or use wrong f
 Rename files that violate the naming convention specified in `schema/WIKI_SCHEMA.md`.
 
 **Convention:**
-- Entities and concepts: snake_case (`entities/transformer_model.md`)
-- Summaries and Q&A: kebab-case (`summaries/attention-is-all-you-need.md`)
+- All wiki pages: kebab-case (entities, concepts, summaries, qanda, connections)
 
 **Steps:**
 1. Scan wiki subdirectories for files violating the naming convention

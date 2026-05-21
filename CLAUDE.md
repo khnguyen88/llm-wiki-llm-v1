@@ -18,6 +18,8 @@ Core insight: the LLM incrementally builds a **persistent, compounding wiki** in
 - `002-raw-preprocessed/` — Document conversion + OCR output (pre-chunking)
 - `003-processed/` — Segmented markdown from large raw files (LLM-owned)
 - `004-wiki/` — External KB (LLM-owned)
+- `004-wiki/qanda/` — Q&A pages filed by wiki-query
+- `004-wiki/connections/` — Cross-concept connection pages
 - `daily/` — Conversation logs (immutable)
 - `knowledge/` — Internal KB (LLM-owned)
 
@@ -57,7 +59,7 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 - Claim citations: `^[001a-raw/articles/source.md]` or `^[001a-raw/articles/source.md:42-58]` for paragraph-level provenance
 - Frontmatter required on all wiki pages (title, summary, type, sources, tags, created, updated)
 - Optional provenance fields: confidence, provenance, contradictedBy, orphaned
-- Naming: snake_case for entities/concepts, kebab-case for summaries
+- Naming: kebab-case for all wiki pages (concepts, entities, summaries, qanda, connections)
 - Dates: ISO 8601 with timestamps (`"2026-04-05T12:00:00Z"`)
 - Style: encyclopedia-style, factual, concise
 - Git commits: never include AI attribution (Co-Authored-By, Generated with, etc.) — commit messages must be AI-free
