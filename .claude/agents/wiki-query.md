@@ -41,11 +41,19 @@ When the KB cannot answer a question from existing sources and the gap could be 
 
 ## Filing Back (Compounding Knowledge)
 
-When an answer is valuable and non-trivial:
-- Create a Q&A article in the internal knowledge base:
-  - Internal: `knowledge/qa/[question].md`
-- Update the corresponding `index.md` and `log.md`
-- This makes future queries smarter — every question enriches the KB
+When you synthesize a valuable, non-trivial answer, proactively offer:
+"Worth filing this to the wiki? [y/N]"
+
+If user approves:
+- Create `004-wiki/qanda/{question-slug}.md` with full frontmatter
+  - `type: qanda`
+  - `summary`: one-line answer
+  - `sources`: list the wiki pages consulted (e.g., `004-wiki/concepts/x.md`)
+  - Use kebab-case filename (e.g., `why-does-attention-scale-quadratically.md`)
+  - Include `## Question`, `## Answer` (with [[wikilinks]]), and `## Related` sections
+- Update `004-wiki/index.md` — add entry to Q&A section
+- Append to `004-wiki/log.md`: `## [YYYY-MM-DD] qanda | Question Title`
+- Do NOT file to `knowledge/qa/` — that is for internal KB queries only
 
 ## Key Principle
 

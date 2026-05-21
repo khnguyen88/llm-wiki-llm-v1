@@ -24,6 +24,7 @@ The wiki is a **persistent, compounding artifact**. Cross-references are already
 7. Add row to `004-wiki/sources-manifest.md` with source path, status `ingested`, wiki page link, date
 8. Append to `004-wiki/log.md`: `## [YYYY-MM-DD] ingest | Source Title`
 9. Update cross-references between related pages
+9b. **Create/update connection pages** in `004-wiki/connections/` if the source reveals non-obvious relationships between 2+ existing concepts — how they relate, an insight that only emerges when considering them together, or evidence linking them. Follow the Connection template in `schema/WIKI_SCHEMA.md`. Use kebab-case filenames (e.g., `attention-mechanism-and-context-window.md`).
 10. Update `004-wiki/synthesis.md` if relevant to overarching theme
 
 ### Query (answer questions against the wiki)

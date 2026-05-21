@@ -60,7 +60,7 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 
 6. **Update index**
    - Add entries for new pages in `004-wiki/index.md`
-   - Organize by category (entities, concepts, summaries)
+   - Organize by category (entities, concepts, summaries, qanda, connections)
 
 7. **Update sources manifest**
    - Add row to `004-wiki/sources-manifest.md` table
@@ -74,6 +74,12 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - Add backlinks to related pages
    - Ensure bidirectional linking where appropriate
    - Check for connections between concepts
+
+9b. **Create/update connection pages**
+   - If the source reveals non-obvious relationships between 2+ existing concepts, create `004-wiki/connections/{concept-a}-and-{concept-b}.md`
+   - Use kebab-case filenames, type: connection
+   - Use `connects:` in frontmatter instead of `summary:`
+   - Include ## The Connection, ## Key Insight, ## Evidence, ## Related Concepts sections
 
 10. **Update synthesis.md** (if relevant)
    - Add key takeaways to overarching summary
@@ -111,9 +117,11 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
    - **Slide deck (Marp)** - For presentations
    - **Chart** - For data visualization
 
-5. **Optionally file back**
-   - If the answer is valuable, create a new wiki page
-   - Add to index and update log
+5. **Proactively offer to file back**
+   - After synthesizing a valuable, non-trivial answer, ask: "Worth filing this to the wiki? [y/N]"
+   - If approved: create `004-wiki/qanda/{question-slug}.md` (type: qanda, kebab-case filename)
+   - Include question, synthesized answer with [[wikilinks]], and Related section
+   - Update `004-wiki/index.md` and `004-wiki/log.md`
    - This makes future queries more efficient (compounding knowledge)
 
 **Output**: Answer in appropriate format, optionally added to wiki
