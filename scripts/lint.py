@@ -492,6 +492,8 @@ def check_missing_summary_external() -> list[dict]:
         content = page.read_text(encoding="utf-8")
         rel = page.relative_to(WIKI_DIR)
         fm = parse_frontmatter(content)
+        if fm.get("type") == "connection":
+            continue  # connections use `connects:` instead of `summary:`
         summary = fm.get("summary", "")
         if not summary or (isinstance(summary, str) and not summary.strip()):
             issues.append({
