@@ -18,8 +18,10 @@ from config import (
     RAW_DIR,
     STATE_FILE,
     WIKI_CONCEPTS_DIR,
+    WIKI_CONNECTIONS_DIR,
     WIKI_DIR,
     WIKI_ENTITIES_DIR,
+    WIKI_QANDA_DIR,
 
     WIKI_SOURCES_MANIFEST_FILE,
     WIKI_SUMMARIES_DIR,
@@ -69,7 +71,7 @@ def snake_slugify(text: str) -> str:
 
 def wiki_page_type(page_path: Path) -> str | None:
     """Return wiki page type from parent directory name."""
-    type_map = {"entities": "entity", "concepts": "concept", "summaries": "summary"}
+    type_map = {"entities": "entity", "concepts": "concept", "summaries": "summary", "qanda": "qanda", "connections": "connection"}
     return type_map.get(page_path.parent.name)
 
 
@@ -166,7 +168,7 @@ def build_index_entry(rel_path: str, summary: str, sources: str, updated: str) -
 def list_wiki_pages() -> list[Path]:
     """List all external wiki article files (concepts, entities, summaries)."""
     articles = []
-    for subdir in [WIKI_CONCEPTS_DIR, WIKI_ENTITIES_DIR, WIKI_SUMMARIES_DIR]:
+    for subdir in [WIKI_CONCEPTS_DIR, WIKI_ENTITIES_DIR, WIKI_SUMMARIES_DIR, WIKI_QANDA_DIR, WIKI_CONNECTIONS_DIR]:
         if subdir.exists():
             articles.extend(sorted(subdir.glob("*.md")))
     return articles
@@ -174,7 +176,7 @@ def list_wiki_pages() -> list[Path]:
 
 def wiki_page_exists(link: str) -> bool:
     """Check if a wikilinked wiki page exists on disk."""
-    for subdir in [WIKI_CONCEPTS_DIR, WIKI_ENTITIES_DIR, WIKI_SUMMARIES_DIR]:
+    for subdir in [WIKI_CONCEPTS_DIR, WIKI_ENTITIES_DIR, WIKI_SUMMARIES_DIR, WIKI_QANDA_DIR, WIKI_CONNECTIONS_DIR]:
         if not subdir.exists():
             continue
         candidate = subdir / f"{link.split('/')[-1]}.md"
