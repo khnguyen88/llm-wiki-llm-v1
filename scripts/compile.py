@@ -18,7 +18,7 @@ import asyncio
 import sys
 from pathlib import Path
 
-from config import AGENTS_FILE, CONCEPTS_DIR, CONNECTIONS_DIR, DAILY_DIR, KNOWLEDGE_DIR, now_iso
+from config import AGENTS_FILE, CONCEPTS_DIR, CONNECTIONS_DIR, DAILY_DIR, KNOWLEDGE_DIR, WIKI_CONCEPTS_DIR, now_iso
 from utils import (
     file_hash,
     list_raw_files,
@@ -49,6 +49,15 @@ async def compile_daily_log(log_path: Path, state: dict) -> float:
     schema = AGENTS_FILE.read_text(encoding="utf-8")
     wiki_index = read_wiki_index()
 
+    # Build list of existing external KB concepts to avoid duplication
+    external_concepts_list = ""
+    if WIKI_CONCEPTS_DIR.exists():
+        external_concepts = sorted(WIKI_CONCEPTS_DIR.glob("*.md"))
+        if external_concepts:
+            external_concepts_list = "\n".join(
+                f"- {f.stem}" for f in external_concepts
+            )
+
     # Read existing articles for context
     existing_articles_context = ""
     existing = {}
@@ -71,6 +80,11 @@ and extract knowledge into structured wiki articles.
 
 {schema}
 
+## Existing External KB Concepts (004-wiki/concepts/)
+
+Do NOT create duplicates of these in knowledge/concepts/:
+{external_concepts_list if external_concepts_list else "(none yet)"}
+
 ## Current Wiki Index
 
 {wiki_index}
@@ -91,6 +105,14 @@ Read the daily log above and compile it into wiki articles following the schema 
 
 ### Rules:
 
+0. **Check external KB first** — Before creating a concept in knowledge/concepts/,
+   check the list above. If the same concept (by kebab-case slug) already exists
+   in 004-wiki/concepts/, do NOT create a duplicate. Instead:
+   - If the daily log adds project-specific context (patterns, conventions,
+     architectural decisions unique to this project), create a focused article
+     that references the external one for domain background
+   - If the daily log only references the concept without new project-specific
+     insight, skip it entirely
 1. **Extract key concepts** - Identify 3-7 distinct concepts worth their own article
 2. **Create concept articles** in `knowledge/concepts/` - One .md file per concept
    - Use the exact article format from AGENTS.md (YAML frontmatter + sections)
