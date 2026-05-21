@@ -41,8 +41,8 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/video_input]]
+- [[004-wiki/concepts/video-input]]
 - [[004-wiki/concepts/multimodal]]
-- [[004-wiki/entities/google_vertex_ai]]
-- [[004-wiki/entities/google_gemini]]
-- [[004-wiki/concepts/models_api]]
+- [[004-wiki/entities/google-vertex-ai]]
+- [[004-wiki/entities/google-gemini]]
+- [[004-wiki/concepts/models-api]]

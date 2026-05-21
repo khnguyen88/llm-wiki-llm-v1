@@ -35,4 +35,4 @@ A cloud data warehouse platform available as an [[004-wiki/concepts/broadcast|Op
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]

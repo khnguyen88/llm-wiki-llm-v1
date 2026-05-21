@@ -41,12 +41,12 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/context_window]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/context-window]]
 - [[004-wiki/concepts/compaction]]
 - [[004-wiki/concepts/skills]]
 - [[004-wiki/concepts/hooks]]
 - [[004-wiki/concepts/subagents]]
-- [[004-wiki/concepts/system_prompt]]
-- [[004-wiki/concepts/output_styles]]
-- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/system-prompt]]
+- [[004-wiki/concepts/output-styles]]
+- [[004-wiki/concepts/prompt-caching]]

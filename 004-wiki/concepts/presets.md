@@ -42,7 +42,7 @@ Presets can enable response caching for all requests that reference them. Two fi
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/provider_routing]]
-- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/provider-routing]]
+- [[004-wiki/concepts/system-prompt]]
 - [[004-wiki/concepts/workspaces]]
-- [[004-wiki/concepts/response_caching]]
+- [[004-wiki/concepts/response-caching]]

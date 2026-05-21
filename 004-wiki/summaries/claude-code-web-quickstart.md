@@ -43,12 +43,12 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/entities/claude-code-web]]
 - [[004-wiki/entities/github]]
-- [[004-wiki/concepts/cloud_environment]]
-- [[004-wiki/concepts/network_access]]
+- [[004-wiki/concepts/cloud-environment]]
+- [[004-wiki/concepts/network-access]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/session_prefill]]
+- [[004-wiki/concepts/session-prefill]]
 - [[004-wiki/concepts/sessions]]
-- [[004-wiki/concepts/parallel_sessions]]
+- [[004-wiki/concepts/parallel-sessions]]
 - [[004-wiki/concepts/teleport]]

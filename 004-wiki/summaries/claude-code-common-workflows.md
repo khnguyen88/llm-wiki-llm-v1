@@ -48,15 +48,15 @@ Step-by-step guides for exploring codebases, debugging, refactoring, testing, cr
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/plan_mode]]
-- [[004-wiki/concepts/extended_thinking]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/plan-mode]]
+- [[004-wiki/concepts/extended-thinking]]
 - [[004-wiki/concepts/worktrees]]
 - [[004-wiki/concepts/sessions]]
-- [[004-wiki/concepts/parallel_sessions]]
+- [[004-wiki/concepts/parallel-sessions]]
 - [[004-wiki/concepts/subagents]]
 - [[004-wiki/concepts/hooks]]
-- [[004-wiki/concepts/non_interactive_mode]]
-- [[004-wiki/concepts/scheduled_tasks]]
+- [[004-wiki/concepts/non-interactive-mode]]
+- [[004-wiki/concepts/scheduled-tasks]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/context-window]]

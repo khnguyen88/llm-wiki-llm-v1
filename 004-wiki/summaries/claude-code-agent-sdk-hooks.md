@@ -47,9 +47,9 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/concepts/hooks]]
-- [[004-wiki/concepts/agent_loop]]
-- [[004-wiki/concepts/custom_tools]]
-- [[004-wiki/concepts/setting_sources]]
-- [[004-wiki/concepts/file_checkpointing]]
-- [[004-wiki/entities/agent_sdk]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/agent-loop]]
+- [[004-wiki/concepts/custom-tools]]
+- [[004-wiki/concepts/setting-sources]]
+- [[004-wiki/concepts/file-checkpointing]]
+- [[004-wiki/entities/agent-sdk]]
+- [[004-wiki/entities/claude-code]]

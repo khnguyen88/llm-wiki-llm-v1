@@ -29,5 +29,5 @@ An AI model provider offering image generation models on OpenRouter, distinguish
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/image_generation]]
+- [[004-wiki/concepts/image-generation]]
 - [[004-wiki/concepts/multimodal]]

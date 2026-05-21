@@ -30,8 +30,8 @@ An AI research and deployment company that provides language models and API serv
 
 ## Related
 
-- [[004-wiki/concepts/service_tier]]
-- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/service-tier]]
+- [[004-wiki/concepts/prompt-caching]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/summaries/openrouter-guides-features-service-tiers]]
 - [[004-wiki/summaries/openrouter-guides-best-practices-prompt-caching]]

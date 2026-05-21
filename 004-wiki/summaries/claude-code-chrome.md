@@ -42,8 +42,8 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/chrome_extension]]
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/browser_automation]]
+- [[004-wiki/entities/chrome-extension]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/browser-automation]]
 - [[004-wiki/concepts/mcp]]
 - [[004-wiki/concepts/permissions]]

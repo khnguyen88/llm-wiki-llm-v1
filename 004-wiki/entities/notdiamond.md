@@ -16,7 +16,7 @@ provenance: extracted
 
 # NotDiamond
 
-A routing service that powers [[004-wiki/concepts/auto_router|OpenRouter's Auto Router]] by analyzing prompts and selecting the optimal model from a curated pool based on prompt complexity, task type, and model capabilities. ^[001a-raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md]
+A routing service that powers [[004-wiki/concepts/auto-router|OpenRouter's Auto Router]] by analyzing prompts and selecting the optimal model from a curated pool based on prompt complexity, task type, and model capabilities. ^[001a-raw/document/openrouter/openrouter-026-guides-routing-routers-auto-router-2026-04-29.md]
 
 ## Key Facts
 
@@ -27,5 +27,5 @@ A routing service that powers [[004-wiki/concepts/auto_router|OpenRouter's Auto 
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/auto_router]]
-- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/auto-router]]
+- [[004-wiki/concepts/provider-routing]]

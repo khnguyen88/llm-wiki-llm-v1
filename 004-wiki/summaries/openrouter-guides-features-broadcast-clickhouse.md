@@ -28,7 +28,7 @@ provenance: extracted
 - ClickHouse `JSONExtract*` functions are used to query nested fields in JSON columns, including custom metadata from the `trace` field ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - Custom metadata from the `trace` field is stored in the `METADATA` column as a JSON string, with standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`) mapping to typed columns or JSON fields ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - The `user` and `session_id` request fields map to the `USER_ID` and `SESSION_ID` typed columns respectively ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for a ClickHouse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is sent normally ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for a ClickHouse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is sent normally ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 
 ## Quotes
 
@@ -47,6 +47,6 @@ provenance: extracted
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/entities/clickhouse]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/cost-tracking]]

@@ -36,14 +36,14 @@ provenance: extracted
 
 ## Notes
 
-- The Auto Router complements [[004-wiki/concepts/model_fallback]] (which handles failures) and [[004-wiki/concepts/provider_routing]] (which selects providers for a given model) by addressing a different problem: choosing *which model* to use in the first place.
+- The Auto Router complements [[004-wiki/concepts/model-fallback]] (which handles failures) and [[004-wiki/concepts/provider-routing]] (which selects providers for a given model) by addressing a different problem: choosing *which model* to use in the first place.
 - Use cases include general-purpose applications with unpredictable prompt types, cost optimization for simpler tasks, quality optimization for complex prompts, and experimentation to discover best-performing models.
 
 ## Related
 
-- [[004-wiki/concepts/auto_router]]
+- [[004-wiki/concepts/auto-router]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/entities/notdiamond]]
-- [[004-wiki/concepts/model_fallback]]
-- [[004-wiki/concepts/provider_routing]]
-- [[004-wiki/concepts/auto_exacto]]
+- [[004-wiki/concepts/model-fallback]]
+- [[004-wiki/concepts/provider-routing]]
+- [[004-wiki/concepts/auto-exacto]]

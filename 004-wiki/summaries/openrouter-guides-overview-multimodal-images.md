@@ -37,5 +37,5 @@ provenance: extracted
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/multimodal]]
-- [[004-wiki/concepts/vision_models]]
+- [[004-wiki/concepts/vision-models]]
 - [[004-wiki/summaries/openrouter-guides-overview-multimodal-overview]]

@@ -31,7 +31,7 @@ A container runtime developed by Google that intercepts system calls in userspac
 ## Related
 
 - [[004-wiki/entities/docker]]
-- [[004-wiki/entities/sandbox_runtime]]
+- [[004-wiki/entities/sandbox-runtime]]
 - [[004-wiki/entities/firecracker]]
-- [[004-wiki/concepts/sandbox_hosting]]
-- [[004-wiki/concepts/secure_deployment]]
+- [[004-wiki/concepts/sandbox-hosting]]
+- [[004-wiki/concepts/secure-deployment]]

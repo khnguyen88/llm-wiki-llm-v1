@@ -29,12 +29,12 @@ A fast, open-source columnar database for real-time analytics. [[004-wiki/entiti
 - Nested JSON fields are queried using ClickHouse's `JSONExtract*` functions ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - Custom metadata from the `trace` field is stored in the `METADATA` JSON column; standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`) have dedicated mappings ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 - For high-performance filtering on metadata fields, materialized columns can be created with `ALTER TABLE ... ADD COLUMN` ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while all other data continues to be sent ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+- When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while all other data continues to be sent ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 
 ## Related
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]
 - [[004-wiki/concepts/observability]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-clickhouse]]

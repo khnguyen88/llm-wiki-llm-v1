@@ -28,6 +28,6 @@ A fast regex-based search tool (rg) that Claude Code bundles as its default file
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude-code]]
 - [[004-wiki/concepts/troubleshooting]]
-- [[004-wiki/concepts/tool_search]]
+- [[004-wiki/concepts/tool-search]]

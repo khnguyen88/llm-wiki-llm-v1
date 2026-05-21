@@ -95,9 +95,9 @@ On OpenRouter, the `quantizations` field in the `provider` request object filter
 
 - [[004-wiki/concepts/gguf]]
 - [[004-wiki/concepts/safetensors]]
-- [[004-wiki/concepts/model_naming]]
-- [[004-wiki/concepts/provider_routing]]
+- [[004-wiki/concepts/model-naming]]
+- [[004-wiki/concepts/provider-routing]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/entities/ollama]]
-- [[004-wiki/entities/hugging_face]]
+- [[004-wiki/entities/hugging-face]]
 - [[004-wiki/summaries/openrouter-guides-routing-provider-selection]]

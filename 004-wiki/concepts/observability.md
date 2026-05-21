@@ -58,7 +58,7 @@ In OpenRouter [[004-wiki/concepts/workspaces|Workspaces]], observability integra
 
 ### OpenRouter Input & Output Logging and Broadcast
 
-OpenRouter provides two observability features configured in workspace Observability settings: [[004-wiki/concepts/input_output_logging|Input & Output Logging]] privately stores full request/response content on OpenRouter for debugging and prompt optimization, while [[004-wiki/concepts/broadcast|Broadcast]] sends data to external observability platforms for production monitoring and analytics. Both can be used together for comprehensive observability. ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+OpenRouter provides two observability features configured in workspace Observability settings: [[004-wiki/concepts/input-output-logging|Input & Output Logging]] privately stores full request/response content on OpenRouter for debugging and prompt optimization, while [[004-wiki/concepts/broadcast|Broadcast]] sends data to external observability platforms for production monitoring and analytics. Both can be used together for comprehensive observability. ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 
 Broadcast supports 17 stable destinations (including Langfuse, Datadog, Grafana Cloud, and an OpenTelemetry Collector), per-destination API key filtering and sampling rates, and Privacy Mode that strips prompt/completion content while preserving metrics. The `trace` field accepts arbitrary JSON metadata with standard keys (`trace_id`, `trace_name`, `span_name`, `generation_name`, `parent_span_id`) for hierarchical trace structure, enabling integration with existing tracing systems via `parent_span_id`. ^[001a-raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md] Datadog LLM Observability is one such destination, mapping `trace` keys to Datadog trace/span fields and auto-adding `service` and `user_id` tags. ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
@@ -66,15 +66,15 @@ Grafana Cloud is another Broadcast destination, receiving traces via the OTLP HT
 
 ## Related
 
-- [[004-wiki/entities/open_telemetry]]
-- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/open-telemetry]]
+- [[004-wiki/entities/agent-sdk]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/workspaces]]
-- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/concepts/cost-tracking]]
 - [[004-wiki/concepts/hooks]]
-- [[004-wiki/concepts/agent_loop]]
-- [[004-wiki/concepts/input_output_logging]]
+- [[004-wiki/concepts/agent-loop]]
+- [[004-wiki/concepts/input-output-logging]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/entities/grafana_cloud]]
+- [[004-wiki/entities/grafana-cloud]]
 - [[004-wiki/concepts/traceql]]
-- [[004-wiki/entities/wandb_weave]]
+- [[004-wiki/entities/wandb-weave]]

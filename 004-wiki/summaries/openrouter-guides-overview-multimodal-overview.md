@@ -45,6 +45,6 @@ provenance: extracted
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/multimodal]]
-- [[004-wiki/concepts/vision_models]]
-- [[004-wiki/concepts/streaming_output]]
-- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/vision-models]]
+- [[004-wiki/concepts/streaming-output]]
+- [[004-wiki/concepts/models-api]]

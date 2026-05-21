@@ -44,8 +44,8 @@ A playbook for individual engineers already using Claude Code who want to help t
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/champion_kit]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/champion-kit]]
 - [[004-wiki/concepts/skills]]
 - [[004-wiki/concepts/hooks]]
 - [[004-wiki/concepts/permissions]]

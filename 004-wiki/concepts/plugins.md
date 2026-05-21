@@ -64,7 +64,7 @@ The plugin directory structure includes `.claude-plugin/plugin.json` (required),
 
 ## OpenRouter Plugins
 
-OpenRouter plugins are a distinct mechanism from Claude Code plugins. They extend model capabilities by injecting or mutating requests and responses. Unlike [[004-wiki/concepts/server_tools|server tools]] (which the model calls 0-N times), OpenRouter plugins always run exactly once when enabled. ^[001a-raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
+OpenRouter plugins are a distinct mechanism from Claude Code plugins. They extend model capabilities by injecting or mutating requests and responses. Unlike [[004-wiki/concepts/server-tools|server tools]] (which the model calls 0-N times), OpenRouter plugins always run exactly once when enabled. ^[001a-raw/document/openrouter/openrouter-038-guides-features-plugins-overview-2026-04-29.md]
 
 ### Available OpenRouter Plugins
 
@@ -101,18 +101,18 @@ When xAI models use web search, OpenRouter automatically adds an `x_search` tool
 
 ## Related
 
-- [[004-wiki/entities/agent_sdk]]
-- [[004-wiki/entities/vs_code_extension]]
+- [[004-wiki/entities/agent-sdk]]
+- [[004-wiki/entities/vs-code-extension]]
 - [[004-wiki/concepts/skills]]
 - [[004-wiki/concepts/hooks]]
 - [[004-wiki/concepts/mcp]]
 - [[004-wiki/concepts/subagents]]
-- [[004-wiki/concepts/setting_sources]]
+- [[004-wiki/concepts/setting-sources]]
 - [[004-wiki/concepts/channels]]
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/server_tools]]
-- [[004-wiki/concepts/response_healing]]
-- [[004-wiki/concepts/context_compression]]
-- [[004-wiki/concepts/model_variants]]
+- [[004-wiki/concepts/server-tools]]
+- [[004-wiki/concepts/response-healing]]
+- [[004-wiki/concepts/context-compression]]
+- [[004-wiki/concepts/model-variants]]
 - [[004-wiki/summaries/openrouter-guides-features-plugins-overview]]
 - [[004-wiki/summaries/openrouter-guides-features-plugins-web-search]]

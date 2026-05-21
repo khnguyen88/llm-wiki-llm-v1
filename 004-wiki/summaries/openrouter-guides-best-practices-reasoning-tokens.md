@@ -45,11 +45,11 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/reasoning_tokens]]
-- [[004-wiki/concepts/reasoning_details]]
-- [[004-wiki/concepts/extended_thinking]]
-- [[004-wiki/concepts/tool_calling]]
-- [[004-wiki/entities/google_gemini]]
+- [[004-wiki/concepts/reasoning-tokens]]
+- [[004-wiki/concepts/reasoning-details]]
+- [[004-wiki/concepts/extended-thinking]]
+- [[004-wiki/concepts/tool-calling]]
+- [[004-wiki/entities/google-gemini]]
 - [[004-wiki/entities/openai]]
 - [[004-wiki/entities/deepseek]]
 - [[004-wiki/entities/grok]]

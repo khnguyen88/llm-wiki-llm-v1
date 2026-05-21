@@ -34,6 +34,6 @@ A search API (parallel.ai) that integrates with OpenRouter's web search server t
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/entities/exa]]
 - [[004-wiki/entities/firecrawl]]
-- [[004-wiki/concepts/web_search]]
-- [[004-wiki/concepts/server_tools]]
+- [[004-wiki/concepts/web-search]]
+- [[004-wiki/concepts/server-tools]]
 - [[004-wiki/summaries/openrouter-guides-features-plugins-web-search]]

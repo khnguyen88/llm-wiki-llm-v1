@@ -81,9 +81,9 @@ The concept is related in spirit to Vannevar Bush's Memex (1945) -- a personal c
 
 ## Related
 
-- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/concepts/llm-wiki]]
 - [[004-wiki/entities/obsidian]]
 - [[004-wiki/concepts/rag]]
 - [[004-wiki/concepts/memex]]
-- [[004-wiki/concepts/file_over_app]]
+- [[004-wiki/concepts/file-over-app]]
 - [[004-wiki/concepts/byoai]]

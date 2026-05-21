@@ -32,5 +32,5 @@ A cloud-native log and trace management platform that accepts traces via the Ope
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/entities/open-telemetry]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-otel-collector]]

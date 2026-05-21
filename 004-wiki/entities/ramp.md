@@ -25,7 +25,7 @@ A finance automation platform that helps businesses manage expenses, track spend
 
 - API key is generated in Ramp's integration settings (Settings > Integrations > OpenRouter > Connect > Generate API Key) ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 - Default API base URL is `https://api.ramp.com/developer/v1/ai-usage/openrouter`; only change if directed by Ramp ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
-- Receives LLM trace data from OpenRouter via the [[004-wiki/entities/open_telemetry|OpenTelemetry Protocol (OTLP)]], including token usage, cost information, timing metrics, model information, and request/response content ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
+- Receives LLM trace data from OpenRouter via the [[004-wiki/entities/open-telemetry|OpenTelemetry Protocol (OTLP)]], including token usage, cost information, timing metrics, model information, and request/response content ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 - Supports optional custom HTTP headers passed as a JSON object in the Broadcast configuration ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 - AI spend dashboard displays usage data received from OpenRouter traces ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 - Five standard `trace` metadata keys map to OTLP span attributes: `trace_id` (Trace ID), `trace_name` (Span Name), `span_name` (Span Name), `generation_name` (Span Name), `parent_span_id` (Parent Span ID) ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
@@ -35,5 +35,5 @@ A finance automation platform that helps businesses manage expenses, track spend
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/concepts/cost_tracking]]
-- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/concepts/cost-tracking]]
+- [[004-wiki/entities/open-telemetry]]

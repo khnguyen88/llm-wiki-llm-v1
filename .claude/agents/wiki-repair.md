@@ -32,7 +32,7 @@ Fix `[[wikilinks]]` pointing to non-existent targets.
 **Common patterns:**
 - Kebab-case link to snake_case file: `[[my-article]]` → `[[concepts/my_article]]`
 - Bare link resolving to wrong type: `[[claude-code-router]]` resolves to summary instead of entity → `[[entities/claude_code_router]]`
-- Missing path prefix: `[[file-over-app]]` → `[[concepts/file_over_app]]`
+- Missing path prefix: `[[file-over-app]]` → `[[concepts/file-over-app]]`
 - Pipe syntax is valid: `[[entities/trevor_royer|Trevor Royer]]` — never strip the display text portion
 
 **Steps:**

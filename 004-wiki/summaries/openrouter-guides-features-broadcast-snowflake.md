@@ -47,5 +47,5 @@ provenance: extracted
 - [[004-wiki/entities/snowflake]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]
 - [[004-wiki/concepts/observability]]

@@ -35,8 +35,8 @@ Google's open-weight LLM family. The Gemma 4 generation (Apache 2.0) is natively
 
 ## Related
 
-- [[004-wiki/concepts/mixture_of_experts]]
-- [[004-wiki/concepts/instruction_tuning]]
-- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/mixture-of-experts]]
+- [[004-wiki/concepts/instruction-tuning]]
+- [[004-wiki/concepts/model-naming]]
 - [[004-wiki/entities/qwen]]
 - [[004-wiki/entities/llama]]

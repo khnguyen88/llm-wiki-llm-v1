@@ -21,7 +21,7 @@ provenance: extracted
 
 ## Key Points
 
-- [[004-wiki/entities/wandb_weave|W&B Weave]] is an observability platform for tracking and evaluating LLM applications, available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on OpenRouter ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+- [[004-wiki/entities/wandb-weave|W&B Weave]] is an observability platform for tracking and evaluating LLM applications, available as a [[004-wiki/concepts/broadcast|Broadcast]] destination on OpenRouter ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 - Setup requires a W&B API key (from User Settings), enabling Broadcast in OpenRouter Settings > Observability, and configuring Weave with API Key, Entity, Project, and optional Base URL (default `https://trace.wandb.ai`) ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 - Three custom metadata keys are supported: `trace_id` maps to the `openrouter_trace_id` attribute, `trace_name` and `generation_name` both map to `op_name` ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 - Weave organizes trace data into Attributes (metadata like user IDs, trace identifiers), Inputs (request data, messages, model parameters), and Summary (token usage, costs, timing) ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
@@ -35,8 +35,8 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/wandb_weave]]
+- [[004-wiki/entities/wandb-weave]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]

@@ -62,8 +62,8 @@ The strongest form of BYOAI involves finetuning an open-source model on the wiki
 
 ## Related
 
-- [[004-wiki/concepts/llm_wiki]]
-- [[004-wiki/concepts/file_over_app]]
+- [[004-wiki/concepts/llm-wiki]]
+- [[004-wiki/concepts/file-over-app]]
 - [[004-wiki/concepts/byoai]]
 - [[004-wiki/summaries/karpathy-github-llm-wiki]]
 - [[004-wiki/summaries/karpathy-tweet-llm-wiki]]

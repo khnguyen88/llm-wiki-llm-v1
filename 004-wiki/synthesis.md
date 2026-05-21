@@ -203,7 +203,7 @@ A central theme emerging across multiple wiki sources is that LLM inference is g
 
 ### The Fundamental Tension
 
-Transformers gain their training advantage from parallel attention -- every token attending to every other simultaneously. But inference is sequential: each new token depends on all prior tokens. The naive approach recomputes K and V for the entire prefix on every step, wasting billions of identical operations. [[004-wiki/concepts/memoization|Memoization]] (Donald Michie, 1968) provides the solution: cache the expensive intermediate results (K and V) rather than recompute them. The [[004-wiki/concepts/kv_cache|KV cache]] stores these vectors in GPU memory, reducing generation cost by roughly 1,000x.
+Transformers gain their training advantage from parallel attention -- every token attending to every other simultaneously. But inference is sequential: each new token depends on all prior tokens. The naive approach recomputes K and V for the entire prefix on every step, wasting billions of identical operations. [[004-wiki/concepts/memoization|Memoization]] (Donald Michie, 1968) provides the solution: cache the expensive intermediate results (K and V) rather than recompute them. The [[004-wiki/concepts/kv-cache|KV cache]] stores these vectors in GPU memory, reducing generation cost by roughly 1,000x.
 
 ### The Memory Wall
 
@@ -217,7 +217,7 @@ Multiple techniques target this memory bottleneck:
 |-----------|----------|-----------|
 | [[004-wiki/concepts/grouped_query_attention\|GQA]] | Share K/V heads across query head groups | Near-MHA quality, near-MQA speed |
 | [[004-wiki/concepts/multi_query_attention\|MQA]] | Single K/V head for all query heads | Maximum speed, quality degradation |
-| [[004-wiki/concepts/paged_attention|PagedAttention]] | OS-style paging for KV cache blocks | Near-zero fragmentation, copy-on-write sharing |
+| [[004-wiki/concepts/paged-attention|PagedAttention]] | OS-style paging for KV cache blocks | Near-zero fragmentation, copy-on-write sharing |
 | [[004-wiki/concepts/prompt_caching\|Prompt caching]] | Reuse KV cache across API calls | 90% cost reduction on repeated prefixes |
 | Quantization | Store K/V in INT8/FP8 | 2x memory reduction |
 

@@ -27,7 +27,7 @@ provenance: extracted
 - Datadog automatically adds two tags: `service:{ml_app}` (from the configured ML App name) and `user_id:{user}` (from the request `user` field); additional `trace` keys are passed to the span's `meta` object ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 - The default Datadog API URL is `https://api.us5.datadoghq.com`; this should be changed for non-US5 regions ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 - Configuration only saves if the Test Connection check passes ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Datadog destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Datadog destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
 ## Notes
 
@@ -39,4 +39,4 @@ provenance: extracted
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]

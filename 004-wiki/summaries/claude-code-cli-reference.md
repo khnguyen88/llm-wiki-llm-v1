@@ -42,15 +42,15 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/non-interactive-mode]]
 - [[004-wiki/concepts/sessions]]
-- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/system-prompt]]
 - [[004-wiki/concepts/permissions]]
 - [[004-wiki/concepts/subagents]]
-- [[004-wiki/concepts/bare_mode]]
+- [[004-wiki/concepts/bare-mode]]
 - [[004-wiki/concepts/channels]]
 - [[004-wiki/concepts/plugins]]
 - [[004-wiki/concepts/mcp]]
-- [[004-wiki/concepts/structured_output]]
-- [[004-wiki/concepts/parallel_sessions]]
+- [[004-wiki/concepts/structured-output]]
+- [[004-wiki/concepts/parallel-sessions]]

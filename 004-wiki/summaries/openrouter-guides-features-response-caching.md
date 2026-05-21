@@ -46,10 +46,10 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/response_caching]]
-- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/response-caching]]
+- [[004-wiki/concepts/prompt-caching]]
 - [[004-wiki/concepts/presets]]
-- [[004-wiki/concepts/zero_data_retention]]
-- [[004-wiki/concepts/embedding_models]]
-- [[004-wiki/concepts/rate_limiting]]
-- [[004-wiki/concepts/streaming_output]]
+- [[004-wiki/concepts/zero-data-retention]]
+- [[004-wiki/concepts/embedding-models]]
+- [[004-wiki/concepts/rate-limiting]]
+- [[004-wiki/concepts/streaming-output]]

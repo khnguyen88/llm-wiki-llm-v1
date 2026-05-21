@@ -44,14 +44,14 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/vs_code_extension]]
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/ide_mcp_server]]
-- [[004-wiki/concepts/file_checkpointing]]
+- [[004-wiki/entities/vs-code-extension]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/ide-mcp-server]]
+- [[004-wiki/concepts/file-checkpointing]]
 - [[004-wiki/concepts/plugins]]
 - [[004-wiki/concepts/mcp]]
 - [[004-wiki/concepts/sessions]]
 - [[004-wiki/concepts/permissions]]
 - [[004-wiki/concepts/worktrees]]
-- [[004-wiki/entities/chrome_extension]]
-- [[004-wiki/concepts/browser_automation]]
+- [[004-wiki/entities/chrome-extension]]
+- [[004-wiki/concepts/browser-automation]]

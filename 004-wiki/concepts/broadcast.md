@@ -63,7 +63,7 @@ An OpenRouter feature that sends LLM request and response trace data to external
 ## Key Points
 
 - Data is stored on the user's external platform rather than on OpenRouter ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
-- Setup requires configuring destinations and credentials, unlike [[004-wiki/concepts/input_output_logging|Input & Output Logging]] which uses a single toggle ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+- Setup requires configuring destinations and credentials, unlike [[004-wiki/concepts/input-output-logging|Input & Output Logging]] which uses a single toggle ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 - Primary use case is production monitoring and analytics, complementing Input & Output Logging's debugging and prompt optimization focus ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 - 17 stable destinations are available including Langfuse, Datadog, Grafana Cloud, ClickHouse, Snowflake, S3, and a generic Webhook endpoint ^[001a-raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md]
 - Each destination can be filtered by API key and configured with an independent sampling rate; sampling is deterministic per `session_id` so complete sessions stay intact ^[001a-raw/document/openrouter/openrouter-049-guides-features-broadcast-overview-2026-04-29.md]
@@ -72,7 +72,7 @@ An OpenRouter feature that sends LLM request and response trace data to external
 
 ## Details
 
-Broadcast and [[004-wiki/concepts/input_output_logging|Input & Output Logging]] can be used together for comprehensive observability. Both are configured in the workspace's Observability settings. Broadcast is suited for ongoing production monitoring with external tooling, while Input & Output Logging is suited for ad-hoc debugging and prompt evaluation directly on the OpenRouter platform. ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
+Broadcast and [[004-wiki/concepts/input-output-logging|Input & Output Logging]] can be used together for comprehensive observability. Both are configured in the workspace's Observability settings. Broadcast is suited for ongoing production monitoring with external tooling, while Input & Output Logging is suited for ad-hoc debugging and prompt evaluation directly on the OpenRouter platform. ^[001a-raw/document/openrouter/openrouter-048-guides-features-input-output-logging-2026-04-29.md]
 
 ### Trace Data
 
@@ -90,7 +90,7 @@ Broadcast can be configured at both individual and organization levels. Organiza
 
 ### Arize AI Destination
 
-[[004-wiki/entities/arize_ai|Arize AI]] is one of the 17 stable Broadcast destinations. It uses the [[004-wiki/entities/openinference|OpenInference]] semantic convention for tracing, mapping custom metadata from the `trace` field as span attributes in the OTLP payload. Configuration requires an API Key, Space Key, Model ID, and an optional Base URL (default `https://otlp.arize.com`). The Test Connection button validates credentials before saving. ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
+[[004-wiki/entities/arize-ai|Arize AI]] is one of the 17 stable Broadcast destinations. It uses the [[004-wiki/entities/openinference|OpenInference]] semantic convention for tracing, mapping custom metadata from the `trace` field as span attributes in the OTLP payload. Configuration requires an API Key, Space Key, Model ID, and an optional Base URL (default `https://otlp.arize.com`). The Test Connection button validates credentials before saving. ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 
 For Arize specifically, the five standard `trace` keys map to dedicated fields: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name, `parent_span_id` → Parent Span ID. Arbitrary metadata keys map to the `metadata.*` namespace. The `user` and `session_id` request fields map to user identification and session tracking span attributes respectively. ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 
@@ -100,7 +100,7 @@ For Arize specifically, the five standard `trace` keys map to dedicated fields: 
 
 Braintrust maps four metadata keys from the `trace` field: `trace_id` → Span ID / Root Span ID (groups logs into a single trace), `trace_name` → Name (display name in log view), `span_name` → Name (intermediate span name), `generation_name` → Name (LLM span name). The `user` field maps to `user_id` and `session_id` maps to `session_id` in Braintrust metadata. Custom metadata keys are included in the span's metadata object, and tags are passed through for UI filtering. ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 
-Braintrust receives detailed per-call metrics: token counts (prompt, completion, total), cached token usage, reasoning token counts for supported models, cost information (input, output, total), and duration/timing metrics. When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Braintrust destination, prompt and completion content is excluded from traces while all other data continues to be sent normally. ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
+Braintrust receives detailed per-call metrics: token counts (prompt, completion, total), cached token usage, reasoning token counts for supported models, cost information (input, output, total), and duration/timing metrics. When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Braintrust destination, prompt and completion content is excluded from traces while all other data continues to be sent normally. ^[001a-raw/document/openrouter/openrouter-051-guides-features-broadcast-braintrust-2026-04-29.md]
 
 ### ClickHouse Destination
 
@@ -110,15 +110,15 @@ The ClickHouse schema uses typed columns for commonly-queried fields (identifier
 
 Custom metadata from the `trace` field maps as follows: `trace_id` → TRACE_ID column and METADATA JSON, `trace_name` → METADATA JSON, `span_name` → METADATA JSON, `generation_name` → METADATA JSON. The `user` field maps to `USER_ID` and `session_id` maps to `SESSION_ID`. ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the ClickHouse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is sent normally. ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the ClickHouse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is sent normally. ^[001a-raw/document/openrouter/openrouter-052-guides-features-broadcast-clickhouse-2026-04-29.md]
 
 ### Comet Opik Destination
 
-[[004-wiki/entities/comet_opik|Comet Opik]] is an open-source platform for evaluating, testing, and monitoring LLM applications, available as a Broadcast destination. Configuration requires a Comet API key (prefix `opik_...`), workspace name, and project name, entered in Settings > Observability after enabling Broadcast. The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md]
+[[004-wiki/entities/comet-opik|Comet Opik]] is an open-source platform for evaluating, testing, and monitoring LLM applications, available as a Broadcast destination. Configuration requires a Comet API key (prefix `opik_...`), workspace name, and project name, entered in Settings > Observability after enabling Broadcast. The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md]
 
 Opik maps four metadata keys from the `trace` field: `trace_id` → trace metadata (`openrouter_trace_id`), `trace_name` → Trace Name, `span_name` → Span Name, `generation_name` → Span Name. Custom metadata keys from the `trace` field are included in both trace and span metadata objects. Cost information (input, output, total) is automatically added to span metadata, and model parameters and finish reasons are included when available. Opik uses UUIDv7 format for trace and span IDs internally; original OpenRouter IDs are stored as `openrouter_trace_id` and `openrouter_observation_id` in metadata. The `user` field maps to user identification in trace metadata. ^[001a-raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Opik destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Opik destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-053-guides-features-broadcast-opik-2026-04-29.md]
 
 ### Datadog Destination
 
@@ -126,17 +126,17 @@ When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Opik des
 
 Datadog maps four metadata keys from the `trace` field: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name. Two tags are automatically added: `service:{ml_app}` (from the configured ML App name) and `user_id:{user}` (from the request `user` field). Any additional keys in the `trace` object are passed to the span's `meta` object and viewable in Datadog's trace details. ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Datadog destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Datadog destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
 ### Grafana Cloud Destination
 
-[[004-wiki/entities/grafana_cloud|Grafana Cloud]] is a fully-managed observability platform that includes Grafana Tempo for distributed tracing, available as a Broadcast destination. It receives traces via the standard OTLP HTTP/JSON endpoint. Configuration requires three values: an OTLP base URL (e.g., `https://otlp-gateway-prod-us-west-0.grafana.net`), a numeric Instance ID, and an API key with `traces:write` scope (prefixed `glc_...`). The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
+[[004-wiki/entities/grafana-cloud|Grafana Cloud]] is a fully-managed observability platform that includes Grafana Tempo for distributed tracing, available as a Broadcast destination. It receives traces via the standard OTLP HTTP/JSON endpoint. Configuration requires three values: an OTLP base URL (e.g., `https://otlp-gateway-prod-us-west-0.grafana.net`), a numeric Instance ID, and an API key with `traces:write` scope (prefixed `glc_...`). The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 
 OpenRouter traces include resource attributes (`service.name: openrouter`, `service.version: 1.0.0`, `openrouter.trace.id`) and span attributes following OpenTelemetry GenAI semantic conventions (`gen_ai.operation.name`, `gen_ai.system`, `gen_ai.request.model`, `gen_ai.response.model`, token usage counts, `gen_ai.response.finish_reason`). Custom metadata from the `trace` field maps to `trace.metadata.*` span attributes; the `user` field maps to `user.id` and `session_id` maps to `session.id`. ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 
 Grafana Cloud maps five standard `trace` keys: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name, `parent_span_id` → Parent Span ID. Traces can be viewed via Explore with [[004-wiki/concepts/traceql|TraceQL]] (using `{ resource.service.name = "openrouter" }` as a base query) or via Drilldown > Traces with attribute-based filtering. ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Grafana Cloud destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Grafana Cloud destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-055-guides-features-broadcast-grafana-2026-04-29.md]
 
 ### Langfuse Destination
 
@@ -144,37 +144,37 @@ When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Grafana 
 
 Langfuse maps five standard `trace` keys to its hierarchy: `trace_id` → Trace ID (groups requests into a single trace), `trace_name` → Trace Name, `span_name` → Span Name (intermediate spans), `generation_name` → Generation Name (LLM generation observation), `parent_span_id` → Parent Observation ID (links to existing spans). The `user` field maps to Langfuse's User ID for user-level analytics, and `session_id` maps to Session ID for grouping conversations. Additional keys in the `trace` object are passed as trace metadata for filtering and analysis. ^[001a-raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Langfuse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Langfuse destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-056-guides-features-broadcast-langfuse-2026-04-29.md]
 
 ### LangSmith Destination
 
 [[004-wiki/entities/langsmith|LangSmith]] is LangChain's platform for debugging, testing, evaluating, and monitoring LLM applications, available as a Broadcast destination. Configuration requires a LangSmith API key (prefix `lsv2_pt_...`, created in Settings > API Keys), a project name, and an optional endpoint (default `https://api.smith.langchain.com`, changeable for self-hosted instances). The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md]
 
-LangSmith receives trace data via the [[004-wiki/entities/open_telemetry|OpenTelemetry]] protocol at the `/otel/v1/traces` endpoint. Traces include GenAI semantic conventions (model name, token counts, costs, request parameters), LangSmith-specific attributes (trace name, span kind, user ID, custom metadata), and error events with exception types and messages. ^[001a-raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md]
+LangSmith receives trace data via the [[004-wiki/entities/open-telemetry|OpenTelemetry]] protocol at the `/otel/v1/traces` endpoint. Traces include GenAI semantic conventions (model name, token counts, costs, request parameters), LangSmith-specific attributes (trace name, span kind, user ID, custom metadata), and error events with exception types and messages. ^[001a-raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md]
 
 LangSmith maps five standard `trace` keys: `trace_id` → Trace ID, `trace_name` → Run Name, `span_name` → Run Name, `generation_name` → Run Name, `parent_span_id` → Parent Run ID. Observation types map to LangSmith run types: GENERATION → `llm`, SPAN → `chain`, EVENT → `tool`. The `user` field maps to LangSmith User ID and `session_id` maps to Session ID for conversation tracking. Custom metadata keys are passed as span attributes; string arrays become comma-separated tags. ^[001a-raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the LangSmith destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the LangSmith destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-057-guides-features-broadcast-langsmith-2026-04-29.md]
 
 ### New Relic Destination
 
-[[004-wiki/entities/new_relic|New Relic]] is a full-stack observability platform for monitoring applications, infrastructure, and digital experiences, available as a Broadcast destination. New Relic receives traces via the [[004-wiki/entities/open_telemetry|OTLP]] protocol. Configuration requires a New Relic Ingest License Key (from API Keys in account settings) and a region selection (`us` or `eu`), entered in Settings > Observability after enabling Broadcast. The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
+[[004-wiki/entities/new-relic|New Relic]] is a full-stack observability platform for monitoring applications, infrastructure, and digital experiences, available as a Broadcast destination. New Relic receives traces via the [[004-wiki/entities/open-telemetry|OTLP]] protocol. Configuration requires a New Relic Ingest License Key (from API Keys in account settings) and a region selection (`us` or `eu`), entered in Settings > Observability after enabling Broadcast. The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 
 New Relic maps five standard `trace` metadata keys: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name, `parent_span_id` → Parent Span ID. Custom metadata keys from the `trace` field are included as span attributes under the `trace.metadata.*` namespace. The `user` field maps to `user.id` and `session_id` maps to `session.id`. GenAI semantic conventions (`gen_ai.*` attributes) are used for model, token, and cost data. ^[001a-raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 
 In New Relic's distributed tracing view, traces can be filtered by custom attributes using NRQL queries, custom metadata can be viewed in the span attributes panel, and alerts and dashboards can be created based on metadata fields. ^[001a-raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the New Relic destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the New Relic destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-058-guides-features-broadcast-newrelic-2026-04-29.md]
 
 ### OpenTelemetry Collector Destination
 
-OpenRouter Broadcast supports an [[004-wiki/entities/open_telemetry|OpenTelemetry]] Collector destination that sends traces to any backend supporting OTLP over HTTP, including [[004-wiki/entities/axiom|Axiom]], Jaeger, Grafana Tempo, Honeycomb, Lightstep, and self-hosted collectors. Traces are sent using OTLP/HTTP protocol with JSON encoding on the `/v1/traces` path. ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+OpenRouter Broadcast supports an [[004-wiki/entities/open-telemetry|OpenTelemetry]] Collector destination that sends traces to any backend supporting OTLP over HTTP, including [[004-wiki/entities/axiom|Axiom]], Jaeger, Grafana Tempo, Honeycomb, Lightstep, and self-hosted collectors. Traces are sent using OTLP/HTTP protocol with JSON encoding on the `/v1/traces` path. ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
 
 Configuration requires enabling Broadcast in Settings > Observability, then adding an OpenTelemetry Collector destination with an endpoint URL (e.g., `https://api.axiom.co/v1/traces` for Axiom or `https://your-collector.example.com:4318/v1/traces` for self-hosted) and optional authentication headers as a JSON object. The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
 
 Custom metadata from the `trace` field maps to five standard OTLP keys: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name, `parent_span_id` → Parent Span ID. Arbitrary metadata keys are included as span attributes under the `trace.metadata.*` namespace. The `user` field maps to `user.id` and `session_id` maps to `session.id`. Standard GenAI semantic conventions (`gen_ai.*`) are used for model, token usage, and cost attributes. ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the OpenTelemetry Collector destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) continues to be sent normally. ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the OpenTelemetry Collector destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) continues to be sent normally. ^[001a-raw/document/openrouter/openrouter-059-guides-features-broadcast-otel-collector-2026-04-29.md]
 
 ### PostHog Destination
 
@@ -182,19 +182,19 @@ When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the OpenTele
 
 PostHog maps three standard `trace` keys to event properties: `trace_id`, `trace_name`, and `generation_name`. The `user` field maps to PostHog's `$ai_user` property for user-level LLM analytics, and `session_id` maps to `$ai_session_id` for session grouping. Custom metadata keys from the `trace` field are included as properties on the LLM analytics event. PostHog's LLM analytics dashboard automatically tracks token usage, costs, and model performance. ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the PostHog destination, the `$ai_input` and `$ai_output_choices` properties are excluded from events while all other analytics data (token usage, costs, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the PostHog destination, the `$ai_input` and `$ai_output_choices` properties are excluded from events while all other analytics data (token usage, costs, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
 
 ### Ramp Destination
 
 [[004-wiki/entities/ramp|Ramp]] is a finance automation platform that helps businesses manage expenses, track spending, and optimize costs. It is available as a Broadcast destination for monitoring and controlling LLM spending through OpenRouter. Configuration requires a Ramp API key (generated in Ramp's Settings > Integrations by searching for "OpenRouter"), an optional Base URL (default `https://api.ramp.com/developer/v1/ai-usage/openrouter`), and optional custom HTTP headers as a JSON object. The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 
-Ramp receives traces via the [[004-wiki/entities/open_telemetry|OpenTelemetry Protocol (OTLP)]]. Each trace includes token usage (prompt, completion, total), cost information, timing (start, end, latency), model information (slug and provider name), and request/response content. Five standard `trace` keys map to OTLP span attributes: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name, `parent_span_id` → Parent Span ID. The `user` field maps to `user.id`, `session_id` maps to `session.id`, and custom metadata keys map to the `trace.metadata.*` namespace. Standard GenAI semantic conventions (`gen_ai.*`) are used for model, token usage, and cost attributes. ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
+Ramp receives traces via the [[004-wiki/entities/open-telemetry|OpenTelemetry Protocol (OTLP)]]. Each trace includes token usage (prompt, completion, total), cost information, timing (start, end, latency), model information (slug and provider name), and request/response content. Five standard `trace` keys map to OTLP span attributes: `trace_id` → Trace ID, `trace_name` → Span Name, `span_name` → Span Name, `generation_name` → Span Name, `parent_span_id` → Parent Span ID. The `user` field maps to `user.id`, `session_id` maps to `session.id`, and custom metadata keys map to the `trace.metadata.*` namespace. Standard GenAI semantic conventions (`gen_ai.*`) are used for model, token usage, and cost attributes. ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Ramp destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Ramp destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-061-guides-features-broadcast-ramp-2026-04-29.md]
 
 ### S3 / S3-Compatible Destination
 
-[[004-wiki/entities/amazon_s3|Amazon S3]] is a scalable object storage service supported as a Broadcast destination. OpenRouter can send traces to any S3-compatible storage, including AWS S3, [[004-wiki/entities/cloudflare_r2|Cloudflare R2]], MinIO, and other compatible services. ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+[[004-wiki/entities/amazon-s3|Amazon S3]] is a scalable object storage service supported as a Broadcast destination. OpenRouter can send traces to any S3-compatible storage, including AWS S3, [[004-wiki/entities/cloudflare-r2|Cloudflare R2]], MinIO, and other compatible services. ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
 Setup requires creating an S3 bucket with write credentials, enabling Broadcast in Settings > Observability, and configuring the S3 destination. For AWS S3, this means creating an IAM user with `s3:PutObject` permissions on the bucket. For Cloudflare R2, this means creating an R2 bucket and generating an API token with write permissions, plus specifying the custom endpoint URL (e.g., `https://your-account-id.r2.cloudflarestorage.com`). The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
@@ -204,11 +204,11 @@ Path templates support variables `{prefix}`, `{date}`, `{year}`, `{month}`, `{da
 
 Custom metadata from the `trace` field maps to four supported keys in S3 trace files: `trace_id` → trace-level `id`, `trace_name` → trace-level `name`, `span_name` → observation-level `name`, `generation_name` → observation-level `name`. The `user` field maps to `userId` and `session_id` maps to `sessionId` in the trace JSON. Trace files include full input/output messages, token counts, costs, and timing data alongside custom metadata. S3 trace files can be queried using JSON-aware engines like Amazon Athena or Presto. ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the S3 destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the S3 destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-062-guides-features-broadcast-s3-2026-04-29.md]
 
 ### Sentry Destination
 
-[[004-wiki/entities/sentry|Sentry]] is an application monitoring platform that helps developers identify and fix issues in real-time, available as a Broadcast destination with AI monitoring capabilities for tracking LLM performance and errors. Sentry receives traces via the [[004-wiki/entities/open_telemetry|OpenTelemetry Protocol (OTLP)]], requiring both an OTLP Traces Endpoint URL and a DSN for authentication and trace routing. ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+[[004-wiki/entities/sentry|Sentry]] is an application monitoring platform that helps developers identify and fix issues in real-time, available as a Broadcast destination with AI monitoring capabilities for tracking LLM performance and errors. Sentry receives traces via the [[004-wiki/entities/open-telemetry|OpenTelemetry Protocol (OTLP)]], requiring both an OTLP Traces Endpoint URL and a DSN for authentication and trace routing. ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
 Setup requires: (1) obtaining the OTLP Traces Endpoint URL and DSN from Sentry's project SDK setup (Settings > Projects > [Project] > SDK Setup > Client Keys > OpenTelemetry tab), (2) enabling Broadcast in OpenRouter Settings > Observability, (3) configuring Sentry with the endpoint URL (format: `https://o{org_id}.ingest.us.sentry.io/api/{project_id}/integration/otlp/v1/traces`) and DSN (format: `https://{key}@o{org_id}.ingest.us.sentry.io/{project_id}`), and (4) testing and saving the connection. The configuration only saves if the test passes. ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
@@ -216,7 +216,7 @@ Sentry maps five standard `trace` metadata keys: `trace_id` → Trace ID (groups
 
 Sentry automatically correlates LLM traces with existing application error and performance data when `parent_span_id` is provided, enabling cross-referencing between LLM calls and application errors. Traces can be viewed in Sentry's Performance or Traces view. ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Sentry destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Sentry destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
 ### Snowflake Destination
 
@@ -228,21 +228,21 @@ The Snowflake schema uses typed columns for commonly-queried fields (identifiers
 
 Custom metadata from the `trace` field maps as follows: `trace_id` → TRACE_ID column and METADATA VARIANT, `trace_name` → METADATA VARIANT, `span_name` → METADATA VARIANT, `generation_name` → METADATA VARIANT. The `user` field maps to the USER_ID typed column and `session_id` maps to the SESSION_ID typed column. Materialized views can be created on frequently queried metadata fields for better performance. ^[001a-raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Snowflake destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Snowflake destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-064-guides-features-broadcast-snowflake-2026-04-29.md]
 
 ### W&B Weave Destination
 
-[[004-wiki/entities/wandb_weave|W&B Weave]] is an observability platform by Weights & Biases for tracking and evaluating LLM applications, available as a Broadcast destination. Configuration requires a W&B API key (from W&B User Settings), an Entity (W&B username or team name), a Project name, and an optional Base URL (default `https://trace.wandb.ai`). The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+[[004-wiki/entities/wandb-weave|W&B Weave]] is an observability platform by Weights & Biases for tracking and evaluating LLM applications, available as a Broadcast destination. Configuration requires a W&B API key (from W&B User Settings), an Entity (W&B username or team name), a Project name, and an optional Base URL (default `https://trace.wandb.ai`). The configuration only saves if the Test Connection check passes. ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 
 W&B Weave supports three custom metadata keys from the `trace` field: `trace_id` maps to the `openrouter_trace_id` attribute, `trace_name` maps to `op_name`, and `generation_name` maps to `op_name`. The `user` field maps to `user_id` and `session_id` maps to `session_id` in attributes. Custom metadata keys from the `trace` field are merged into the call's attributes. Model parameters (`temperature`, `max_tokens`, `top_p`) are included in inputs for easy filtering. ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 
 Weave organizes trace data into three categories: **Attributes** (metadata about the call — user IDs, organization IDs, trace identifiers, custom metadata), **Inputs** (actual request data including messages and model parameters), and **Summary** (token usage, costs, and timing metrics). ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the W&B Weave destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the W&B Weave destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-065-guides-features-broadcast-weave-2026-04-29.md]
 
 ### Webhook Destination
 
-The Webhook destination sends traces to any HTTP endpoint that can receive JSON payloads. Traces are delivered in [[004-wiki/entities/open_telemetry|OpenTelemetry Protocol (OTLP)]] JSON format, making them compatible with any OTLP-aware system. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+The Webhook destination sends traces to any HTTP endpoint that can receive JSON payloads. Traces are delivered in [[004-wiki/entities/open-telemetry|OpenTelemetry Protocol (OTLP)]] JSON format, making them compatible with any OTLP-aware system. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
 
 Setup requires enabling Broadcast in Settings > Observability, then configuring the Webhook destination with a URL (e.g., `https://api.example.com/traces`), an optional HTTP method (`POST` default or `PUT`), and optional custom headers as a JSON object for authentication (e.g., `Authorization: Bearer your-token`). The Test Connection sends an empty OTLP payload with an `X-Test-Connection: true` header; the test passes if the endpoint returns a 2xx or 400 status code. The configuration only saves if the test passes. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
 
@@ -250,34 +250,34 @@ The OTLP JSON payload contains a `resourceSpans` array with span data including 
 
 Use cases for the Webhook destination include custom analytics pipelines, internal monitoring tools, event-driven architectures, compliance logging, and development/testing. For production use, the endpoint should be highly available with retry logic for failed deliveries. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
 
-When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Webhook destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled for the Webhook destination, prompt and completion content is excluded from traces while all other data (token usage, costs, timing, model information, custom metadata) is still sent normally. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
 
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/input_output_logging]]
+- [[004-wiki/concepts/input-output-logging]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/data_privacy]]
-- [[004-wiki/entities/open_telemetry]]
-- [[004-wiki/entities/arize_ai]]
+- [[004-wiki/concepts/data-privacy]]
+- [[004-wiki/entities/open-telemetry]]
+- [[004-wiki/entities/arize-ai]]
 - [[004-wiki/entities/openinference]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-arize]]
 - [[004-wiki/entities/braintrust]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-braintrust]]
 - [[004-wiki/entities/clickhouse]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-clickhouse]]
-- [[004-wiki/entities/comet_opik]]
+- [[004-wiki/entities/comet-opik]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-opik]]
 - [[004-wiki/entities/datadog]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-datadog]]
-- [[004-wiki/entities/grafana_cloud]]
+- [[004-wiki/entities/grafana-cloud]]
 - [[004-wiki/concepts/traceql]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-grafana]]
 - [[004-wiki/entities/langfuse]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-langfuse]]
 - [[004-wiki/entities/langsmith]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-langsmith]]
-- [[004-wiki/entities/new_relic]]
+- [[004-wiki/entities/new-relic]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-newrelic]]
 - [[004-wiki/entities/axiom]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-otel-collector]]
@@ -285,14 +285,14 @@ When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled for the Webhook 
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-posthog]]
 - [[004-wiki/entities/ramp]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-ramp]]
-- [[004-wiki/entities/amazon_s3]]
-- [[004-wiki/entities/cloudflare_r2]]
+- [[004-wiki/entities/amazon-s3]]
+- [[004-wiki/entities/cloudflare-r2]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-s3]]
 - [[004-wiki/entities/sentry]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-sentry]]
 - [[004-wiki/entities/snowflake]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-snowflake]]
-- [[004-wiki/entities/wandb_weave]]
+- [[004-wiki/entities/wandb-weave]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-weave]]
 - [[004-wiki/concepts/webhook]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-webhook]]

@@ -44,13 +44,13 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/concepts/prompt_caching]]
-- [[004-wiki/concepts/provider_sticky_routing]]
+- [[004-wiki/concepts/prompt-caching]]
+- [[004-wiki/concepts/provider-sticky-routing]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/entities/anthropic]]
 - [[004-wiki/entities/openai]]
 - [[004-wiki/entities/deepseek]]
-- [[004-wiki/entities/google_gemini]]
+- [[004-wiki/entities/google-gemini]]
 - [[004-wiki/entities/grok]]
-- [[004-wiki/entities/moonshot_ai]]
+- [[004-wiki/entities/moonshot-ai]]
 - [[004-wiki/entities/groq]]

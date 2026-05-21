@@ -56,10 +56,10 @@ When @Claude is invoked in a thread, it gathers context from all messages in tha
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/entities/claude-code-web]]
 - [[004-wiki/entities/github]]
-- [[004-wiki/concepts/routing_mode]]
+- [[004-wiki/concepts/routing-mode]]
 - [[004-wiki/concepts/sessions]]
 - [[004-wiki/concepts/channels]]
 - [[004-wiki/summaries/claude-code-slack]]

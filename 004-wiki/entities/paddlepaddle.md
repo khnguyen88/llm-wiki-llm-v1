@@ -30,4 +30,4 @@ Baidu's deep learning framework, used as the foundation for ERNIE's training inf
 
 - [[004-wiki/entities/baidu]]
 - [[004-wiki/entities/ernie]]
-- [[004-wiki/concepts/disaggregated_rl]]
+- [[004-wiki/concepts/disaggregated-rl]]

@@ -133,11 +133,11 @@ Claude Code includes bundled skills available in every session: `/simplify`, `/b
 ## Related
 
 - [[004-wiki/concepts/skills]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude-code]]
 - [[004-wiki/concepts/subagents]]
 - [[004-wiki/concepts/plugins]]
-- [[004-wiki/concepts/managed_settings]]
-- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/managed-settings]]
+- [[004-wiki/concepts/context-window]]
 - [[004-wiki/concepts/commands]]
-- [[004-wiki/concepts/extended_thinking]]
+- [[004-wiki/concepts/extended-thinking]]
 - [[004-wiki/concepts/permissions]]

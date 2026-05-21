@@ -37,9 +37,9 @@ Open-weight LLM family. DeepSeek-V3 is a 671B total / 37B active MoE model focus
 ## Related
 
 - [[004-wiki/concepts/distillation]]
-- [[004-wiki/concepts/mixture_of_experts]]
-- [[004-wiki/concepts/model_naming]]
+- [[004-wiki/concepts/mixture-of-experts]]
+- [[004-wiki/concepts/model-naming]]
 - [[004-wiki/entities/qwen]]
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/prompt-caching]]
 - [[004-wiki/summaries/openrouter-guides-best-practices-prompt-caching]]

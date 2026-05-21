@@ -52,14 +52,14 @@ Other improvements in this release cycle:
 
 ## Related
 
-- [[004-wiki/concepts/auto_mode]]
-- [[004-wiki/concepts/computer_use]]
-- [[004-wiki/concepts/auto_fix]]
-- [[004-wiki/concepts/transcript_search]]
-- [[004-wiki/concepts/powershell_tool]]
+- [[004-wiki/concepts/auto-mode]]
+- [[004-wiki/concepts/computer-use]]
+- [[004-wiki/concepts/auto-fix]]
+- [[004-wiki/concepts/transcript-search]]
+- [[004-wiki/concepts/powershell-tool]]
 - [[004-wiki/concepts/hooks]]
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/entities/claude_code_web]]
-- [[004-wiki/concepts/managed_settings]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/entities/claude-code-web]]
+- [[004-wiki/concepts/managed-settings]]
 - [[004-wiki/concepts/plugins]]
 - [[004-wiki/concepts/sessions]]

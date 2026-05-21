@@ -19,7 +19,7 @@ provenance: merged
 
 # Troubleshooting
 
-Diagnostic procedures for identifying and resolving performance, stability, search, and installation issues in Claude Code. The `/doctor` command provides an automated health check covering installation, settings, MCP configuration, and context usage; `claude doctor` runs the same check from the shell when Claude Code cannot start. ^[001a-raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md] For installation and login errors specifically, see [[004-wiki/concepts/troubleshoot_install]].
+Diagnostic procedures for identifying and resolving performance, stability, search, and installation issues in Claude Code. The `/doctor` command provides an automated health check covering installation, settings, MCP configuration, and context usage; `claude doctor` runs the same check from the shell when Claude Code cannot start. ^[001a-raw/document/claude code/claude-code-110-troubleshooting-2026-04-29.md] For installation and login errors specifically, see [[004-wiki/concepts/troubleshoot-install]].
 
 ## Key Points
 
@@ -45,11 +45,11 @@ Disk read performance penalties when working across file systems on WSL result i
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/context_window]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/context-window]]
 - [[004-wiki/concepts/commands]]
 - [[004-wiki/concepts/sessions]]
 - [[004-wiki/entities/ripgrep]]
 - [[004-wiki/summaries/claude-code-troubleshooting]]
-- [[004-wiki/concepts/troubleshoot_install]]
+- [[004-wiki/concepts/troubleshoot-install]]
 - [[004-wiki/summaries/claude-code-troubleshoot-install]]

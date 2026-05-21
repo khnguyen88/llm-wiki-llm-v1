@@ -36,5 +36,5 @@ provenance: extracted
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/guardrails]]
-- [[004-wiki/concepts/zero_data_retention]]
+- [[004-wiki/concepts/zero-data-retention]]
 - [[004-wiki/concepts/workspaces]]

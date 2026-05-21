@@ -39,7 +39,7 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/agent-sdk]]
 - [[004-wiki/concepts/plugins]]
 - [[004-wiki/concepts/skills]]
 - [[004-wiki/concepts/hooks]]

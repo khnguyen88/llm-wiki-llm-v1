@@ -41,8 +41,8 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/concepts/code_review]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/code-review]]
+- [[004-wiki/entities/claude-code]]
 - [[004-wiki/entities/github]]
-- [[004-wiki/concepts/claude_directory]]
+- [[004-wiki/concepts/claude-directory]]
 - [[004-wiki/concepts/verification]]

@@ -31,4 +31,4 @@ A markdown-based note-taking application that serves as the viewing and browsing
 
 ## Related
 
-- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/concepts/llm-wiki]]

@@ -43,8 +43,8 @@ A tutorial walking through project setup, SDK installation, API key configuratio
 
 ## Related
 
-- [[004-wiki/entities/agent_sdk]]
-- [[004-wiki/concepts/agent_loop]]
+- [[004-wiki/entities/agent-sdk]]
+- [[004-wiki/concepts/agent-loop]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/custom_tools]]
-- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/custom-tools]]
+- [[004-wiki/concepts/system-prompt]]

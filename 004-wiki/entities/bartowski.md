@@ -29,4 +29,4 @@ Bartowski is the most prolific community GGUF quantizer on Hugging Face, providi
 
 - [[004-wiki/concepts/gguf]]
 - [[004-wiki/concepts/quantization]]
-- [[004-wiki/entities/hugging_face]]
+- [[004-wiki/entities/hugging-face]]

@@ -42,5 +42,5 @@ provenance: extracted
 - [[004-wiki/concepts/mcp]]
 - [[004-wiki/concepts/plugins]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/managed_settings]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/managed-settings]]
+- [[004-wiki/entities/claude-code]]

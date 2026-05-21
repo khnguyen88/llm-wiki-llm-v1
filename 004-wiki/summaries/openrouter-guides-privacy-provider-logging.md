@@ -37,8 +37,8 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/provider_logging]]
-- [[004-wiki/concepts/data_privacy]]
-- [[004-wiki/concepts/provider_routing]]
-- [[004-wiki/concepts/zero_data_retention]]
-- [[004-wiki/concepts/data_collection_policy]]
+- [[004-wiki/concepts/provider-logging]]
+- [[004-wiki/concepts/data-privacy]]
+- [[004-wiki/concepts/provider-routing]]
+- [[004-wiki/concepts/zero-data-retention]]
+- [[004-wiki/concepts/data-collection-policy]]

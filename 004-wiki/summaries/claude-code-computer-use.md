@@ -46,9 +46,9 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/concepts/computer_use]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/computer-use]]
+- [[004-wiki/entities/claude-code]]
 - [[004-wiki/concepts/mcp]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/browser_automation]]
-- [[004-wiki/concepts/non_interactive_mode]]
+- [[004-wiki/concepts/browser-automation]]
+- [[004-wiki/concepts/non-interactive-mode]]

@@ -40,7 +40,7 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/models_api]]
-- [[004-wiki/concepts/token_optimization]]
-- [[004-wiki/concepts/structured_output]]
-- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/models-api]]
+- [[004-wiki/concepts/token-optimization]]
+- [[004-wiki/concepts/structured-output]]
+- [[004-wiki/concepts/prompt-caching]]

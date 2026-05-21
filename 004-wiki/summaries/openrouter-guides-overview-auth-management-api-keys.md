@@ -40,7 +40,7 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/management_api_keys]]
+- [[004-wiki/concepts/management-api-keys]]
 - [[004-wiki/concepts/authentication]]
-- [[004-wiki/concepts/oauth_pkce]]
-- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/oauth-pkce]]
+- [[004-wiki/concepts/rate-limiting]]

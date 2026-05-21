@@ -65,7 +65,7 @@ In this tweet thread, Karpathy describes his practical LLM Wiki workflow in a co
 
 ## Related
 
-- [[004-wiki/concepts/llm_wiki]]
+- [[004-wiki/concepts/llm-wiki]]
 - [[004-wiki/concepts/rag]]
 - [[004-wiki/concepts/memex]]
 - [[004-wiki/entities/obsidian]]

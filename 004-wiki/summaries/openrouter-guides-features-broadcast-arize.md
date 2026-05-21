@@ -21,7 +21,7 @@ provenance: extracted
 
 ## Key Points
 
-- [[004-wiki/entities/arize_ai|Arize AI]] is an evaluation and observability platform offering agent tracing, evals, and prompt optimization; integrates with OpenRouter via Broadcast ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
+- [[004-wiki/entities/arize-ai|Arize AI]] is an evaluation and observability platform offering agent tracing, evals, and prompt optimization; integrates with OpenRouter via Broadcast ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Setup requires four configuration values: API Key, Space Key, Model ID, and an optional Base URL (default `https://otlp.arize.com`) ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - Broadcast must be enabled in OpenRouter Settings > Observability before configuring any destination ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
 - The Test Connection button verifies the configuration; settings only persist if the test passes ^[001a-raw/document/openrouter/openrouter-050-guides-features-broadcast-arize-2026-04-29.md]
@@ -37,7 +37,7 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/arize_ai]]
+- [[004-wiki/entities/arize-ai]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
 - [[004-wiki/entities/openinference]]

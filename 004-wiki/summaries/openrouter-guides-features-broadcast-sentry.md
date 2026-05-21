@@ -45,6 +45,6 @@ provenance: extracted
 - [[004-wiki/entities/sentry]]
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/entities/open-telemetry]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]

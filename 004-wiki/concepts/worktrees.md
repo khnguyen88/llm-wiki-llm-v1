@@ -44,11 +44,11 @@ For manual worktree management outside of Claude, use standard Git commands: `gi
 
 ## Related
 
-- [[004-wiki/concepts/parallel_sessions]]
+- [[004-wiki/concepts/parallel-sessions]]
 - [[004-wiki/concepts/sessions]]
 - [[004-wiki/concepts/subagents]]
 - [[004-wiki/concepts/hooks]]
 - [[004-wiki/entities/github]]
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/entities/vs_code_extension]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/entities/vs-code-extension]]
 - [[004-wiki/summaries/claude-code-common-workflows]]

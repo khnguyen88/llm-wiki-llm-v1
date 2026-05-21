@@ -20,7 +20,7 @@ provenance: extracted
 
 # Webhook
 
-An [[004-wiki/entities/openrouter|OpenRouter]] [[004-wiki/concepts/broadcast|Broadcast]] destination that sends LLM request/response traces to any HTTP endpoint capable of receiving JSON payloads. Traces are delivered in [[004-wiki/entities/open_telemetry|OpenTelemetry Protocol (OTLP)]] JSON format, enabling integration with any OTLP-aware system or custom observability pipeline. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
+An [[004-wiki/entities/openrouter|OpenRouter]] [[004-wiki/concepts/broadcast|Broadcast]] destination that sends LLM request/response traces to any HTTP endpoint capable of receiving JSON payloads. Traces are delivered in [[004-wiki/entities/open-telemetry|OpenTelemetry Protocol (OTLP)]] JSON format, enabling integration with any OTLP-aware system or custom observability pipeline. ^[001a-raw/document/openrouter/openrouter-066-guides-features-broadcast-webhook-2026-04-29.md]
 
 ## Key Points
 
@@ -66,6 +66,6 @@ The Webhook destination suits custom analytics pipelines (data warehouse or anal
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/entities/open_telemetry]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/entities/open-telemetry]]
+- [[004-wiki/concepts/data-privacy]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-webhook]]

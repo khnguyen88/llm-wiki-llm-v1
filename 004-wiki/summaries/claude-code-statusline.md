@@ -39,10 +39,10 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude-code]]
 - [[004-wiki/concepts/statusline]]
-- [[004-wiki/concepts/context_window]]
-- [[004-wiki/concepts/cost_tracking]]
-- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/context-window]]
+- [[004-wiki/concepts/cost-tracking]]
+- [[004-wiki/concepts/rate-limiting]]
 - [[004-wiki/concepts/subagents]]
 - [[004-wiki/concepts/sessions]]

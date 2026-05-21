@@ -50,11 +50,11 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/concepts/subagents]]
-- [[004-wiki/concepts/subagent_forking]]
+- [[004-wiki/concepts/subagent-forking]]
 - [[004-wiki/concepts/hooks]]
 - [[004-wiki/concepts/permissions]]
 - [[004-wiki/concepts/skills]]
 - [[004-wiki/concepts/mcp]]
-- [[004-wiki/concepts/agent_teams]]
+- [[004-wiki/concepts/agent-teams]]
 - [[004-wiki/concepts/worktrees]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude-code]]

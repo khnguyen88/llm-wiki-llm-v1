@@ -43,13 +43,13 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/concepts/communications_kit]]
-- [[004-wiki/concepts/champion_kit]]
+- [[004-wiki/concepts/communications-kit]]
+- [[004-wiki/concepts/champion-kit]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/plan_mode]]
+- [[004-wiki/concepts/plan-mode]]
 - [[004-wiki/concepts/skills]]
 - [[004-wiki/concepts/hooks]]
 - [[004-wiki/concepts/mcp]]
 - [[004-wiki/concepts/plugins]]
-- [[004-wiki/concepts/file_checkpointing]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/concepts/file-checkpointing]]
+- [[004-wiki/entities/claude-code]]

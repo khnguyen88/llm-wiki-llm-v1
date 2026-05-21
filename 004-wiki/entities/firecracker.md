@@ -32,6 +32,6 @@ A lightweight microVM technology from AWS designed for secure, fast container-li
 
 - [[004-wiki/entities/gvisor]]
 - [[004-wiki/entities/docker]]
-- [[004-wiki/entities/sandbox_runtime]]
-- [[004-wiki/concepts/sandbox_hosting]]
-- [[004-wiki/concepts/secure_deployment]]
+- [[004-wiki/entities/sandbox-runtime]]
+- [[004-wiki/concepts/sandbox-hosting]]
+- [[004-wiki/concepts/secure-deployment]]

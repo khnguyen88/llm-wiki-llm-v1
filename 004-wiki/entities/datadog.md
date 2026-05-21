@@ -28,11 +28,11 @@ A monitoring and observability platform providing LLM Observability capabilities
 - Two tags are automatically added: `service:{ml_app}` and `user_id:{user}`; additional `trace` keys are passed to the span's `meta` object ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 - The default Datadog API URL (`https://api.us5.datadoghq.com`) should be overridden for non-US5 regions ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 - Configuration only saves if the Test Connection check passes ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
+- When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[001a-raw/document/openrouter/openrouter-054-guides-features-broadcast-datadog-2026-04-29.md]
 
 ## Related
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]

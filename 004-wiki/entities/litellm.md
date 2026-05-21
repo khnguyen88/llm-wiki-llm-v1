@@ -30,9 +30,9 @@ An open-source tool that helps organizations track spend by API key on cloud-hos
 
 ## Related
 
-- [[004-wiki/entities/amazon_bedrock]]
-- [[004-wiki/entities/google_vertex_ai]]
-- [[004-wiki/entities/microsoft_foundry]]
-- [[004-wiki/concepts/cost_tracking]]
-- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/entities/amazon-bedrock]]
+- [[004-wiki/entities/google-vertex-ai]]
+- [[004-wiki/entities/microsoft-foundry]]
+- [[004-wiki/concepts/cost-tracking]]
+- [[004-wiki/concepts/deployment-patterns]]
 - [[004-wiki/summaries/claude-code-costs]]

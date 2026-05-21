@@ -37,7 +37,7 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/input_output_logging]]
+- [[004-wiki/concepts/input-output-logging]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]
 - [[004-wiki/concepts/broadcast]]

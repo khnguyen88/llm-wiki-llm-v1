@@ -51,17 +51,17 @@ Other improvements in this release cycle:
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/entities/claude_code_web]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/entities/claude-code-web]]
 - [[004-wiki/concepts/routines]]
 - [[004-wiki/concepts/ultrareview]]
-- [[004-wiki/concepts/native_binaries]]
-- [[004-wiki/concepts/auto_mode]]
+- [[004-wiki/concepts/native-binaries]]
+- [[004-wiki/concepts/auto-mode]]
 - [[004-wiki/concepts/commands]]
 - [[004-wiki/concepts/permissions]]
 - [[004-wiki/concepts/hooks]]
 - [[004-wiki/concepts/plugins]]
-- [[004-wiki/concepts/prompt_caching]]
+- [[004-wiki/concepts/prompt-caching]]
 - [[004-wiki/concepts/skills]]
-- [[004-wiki/concepts/session_recap]]
+- [[004-wiki/concepts/session-recap]]
 - [[004-wiki/summaries/claude-code-whats-new]]

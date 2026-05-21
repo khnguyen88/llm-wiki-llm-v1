@@ -35,5 +35,5 @@ An end-to-end platform for evaluating, monitoring, and improving LLM application
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/entities/arize_ai]]
+- [[004-wiki/entities/arize-ai]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-braintrust]]

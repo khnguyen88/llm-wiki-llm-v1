@@ -33,6 +33,6 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/report_feedback]]
-- [[004-wiki/concepts/provider_fallback]]
-- [[004-wiki/concepts/llm_gateway]]
+- [[004-wiki/concepts/report-feedback]]
+- [[004-wiki/concepts/provider-fallback]]
+- [[004-wiki/concepts/llm-gateway]]

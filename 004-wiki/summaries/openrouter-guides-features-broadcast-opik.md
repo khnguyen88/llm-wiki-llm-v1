@@ -37,7 +37,7 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/comet_opik]]
+- [[004-wiki/entities/comet-opik]]
 - [[004-wiki/concepts/broadcast]]
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]

@@ -31,14 +31,14 @@ An application monitoring platform that helps developers identify and fix issues
 - Maps five standard `trace` metadata keys: `trace_id` → Trace ID, `trace_name` → Transaction Name, `span_name` → Span Description, `generation_name` → Span Description, `parent_span_id` → Parent Span ID ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 - Custom metadata from the `trace` field maps to `trace.metadata.*` span attributes; the `user` field maps to `user.id` and `session_id` maps to `session.id` ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 - Automatically correlates LLM traces with existing application error and performance data when `parent_span_id` is provided ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
+- When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled, prompt and completion content is excluded from traces while token usage, costs, timing, model information, and custom metadata are still sent ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 - Traces can be viewed in Sentry's Performance or Traces view ^[001a-raw/document/openrouter/openrouter-063-guides-features-broadcast-sentry-2026-04-29.md]
 
 ## Related
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/broadcast]]
-- [[004-wiki/entities/open_telemetry]]
+- [[004-wiki/entities/open-telemetry]]
 - [[004-wiki/concepts/observability]]
-- [[004-wiki/concepts/data_privacy]]
+- [[004-wiki/concepts/data-privacy]]
 - [[004-wiki/summaries/openrouter-guides-features-broadcast-sentry]]

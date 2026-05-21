@@ -43,13 +43,13 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/agent_sdk]]
-- [[004-wiki/entities/sandbox_runtime]]
+- [[004-wiki/entities/agent-sdk]]
+- [[004-wiki/entities/sandbox-runtime]]
 - [[004-wiki/entities/gvisor]]
 - [[004-wiki/entities/firecracker]]
 - [[004-wiki/entities/docker]]
-- [[004-wiki/concepts/sandbox_hosting]]
-- [[004-wiki/concepts/deployment_patterns]]
+- [[004-wiki/concepts/sandbox-hosting]]
+- [[004-wiki/concepts/deployment-patterns]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/proxy_pattern]]
-- [[004-wiki/concepts/secure_deployment]]
+- [[004-wiki/concepts/proxy-pattern]]
+- [[004-wiki/concepts/secure-deployment]]

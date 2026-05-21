@@ -41,7 +41,7 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/pdf_input]]
+- [[004-wiki/concepts/pdf-input]]
 - [[004-wiki/concepts/multimodal]]
-- [[004-wiki/concepts/models_api]]
+- [[004-wiki/concepts/models-api]]
 - [[004-wiki/summaries/openrouter-guides-overview-multimodal-overview]]

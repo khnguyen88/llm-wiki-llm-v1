@@ -37,6 +37,6 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/model_variants]]
-- [[004-wiki/concepts/rate_limiting]]
-- [[004-wiki/concepts/routing_mode]]
+- [[004-wiki/concepts/model-variants]]
+- [[004-wiki/concepts/rate-limiting]]
+- [[004-wiki/concepts/routing-mode]]

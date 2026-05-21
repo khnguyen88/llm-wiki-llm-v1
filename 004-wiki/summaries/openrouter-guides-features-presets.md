@@ -40,6 +40,6 @@ provenance: extracted
 
 - [[004-wiki/entities/openrouter]]
 - [[004-wiki/concepts/presets]]
-- [[004-wiki/concepts/provider_routing]]
-- [[004-wiki/concepts/system_prompt]]
+- [[004-wiki/concepts/provider-routing]]
+- [[004-wiki/concepts/system-prompt]]
 - [[004-wiki/concepts/workspaces]]

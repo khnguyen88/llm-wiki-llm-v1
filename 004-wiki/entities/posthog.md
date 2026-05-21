@@ -30,7 +30,7 @@ An open-source product analytics platform that helps understand user behavior, w
 - The `session_id` request field maps to PostHog's `$ai_session_id` property for session grouping ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
 - Custom metadata keys from the `trace` field are included as properties on the LLM analytics event ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
 - PostHog's LLM analytics dashboard automatically tracks token usage, costs, and model performance ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
-- When [[004-wiki/concepts/data_privacy|Privacy Mode]] is enabled, the `$ai_input` and `$ai_output_choices` properties are excluded from events; all other analytics data is still sent normally ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
+- When [[004-wiki/concepts/data-privacy|Privacy Mode]] is enabled, the `$ai_input` and `$ai_output_choices` properties are excluded from events; all other analytics data is still sent normally ^[001a-raw/document/openrouter/openrouter-060-guides-features-broadcast-posthog-2026-04-29.md]
 
 ## Related
 

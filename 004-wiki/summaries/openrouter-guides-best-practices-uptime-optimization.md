@@ -33,7 +33,7 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/uptime_optimization]]
-- [[004-wiki/concepts/provider_routing]]
-- [[004-wiki/concepts/provider_fallback]]
-- [[004-wiki/concepts/performance_thresholds]]
+- [[004-wiki/concepts/uptime-optimization]]
+- [[004-wiki/concepts/provider-routing]]
+- [[004-wiki/concepts/provider-fallback]]
+- [[004-wiki/concepts/performance-thresholds]]

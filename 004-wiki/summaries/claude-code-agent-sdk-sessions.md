@@ -41,7 +41,7 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/agent_sdk]]
+- [[004-wiki/entities/agent-sdk]]
 - [[004-wiki/concepts/sessions]]
-- [[004-wiki/concepts/agent_loop]]
-- [[004-wiki/concepts/file_checkpointing]]
+- [[004-wiki/concepts/agent-loop]]
+- [[004-wiki/concepts/file-checkpointing]]

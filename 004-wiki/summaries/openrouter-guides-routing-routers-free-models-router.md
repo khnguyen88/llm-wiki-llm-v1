@@ -39,7 +39,7 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/free_models_router]]
-- [[004-wiki/concepts/auto_router]]
-- [[004-wiki/concepts/model_variants]]
-- [[004-wiki/concepts/rate_limiting]]
+- [[004-wiki/concepts/free-models-router]]
+- [[004-wiki/concepts/auto-router]]
+- [[004-wiki/concepts/model-variants]]
+- [[004-wiki/concepts/rate-limiting]]

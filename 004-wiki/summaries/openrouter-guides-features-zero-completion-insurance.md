@@ -33,6 +33,6 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/zero_completion_insurance]]
-- [[004-wiki/concepts/credit_system]]
-- [[004-wiki/concepts/model_fallback]]
+- [[004-wiki/concepts/zero-completion-insurance]]
+- [[004-wiki/concepts/credit-system]]
+- [[004-wiki/concepts/model-fallback]]

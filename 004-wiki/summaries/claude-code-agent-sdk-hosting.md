@@ -34,8 +34,8 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/agent_sdk]]
-- [[004-wiki/concepts/sandbox_hosting]]
-- [[004-wiki/concepts/deployment_patterns]]
-- [[004-wiki/concepts/agent_loop]]
-- [[004-wiki/concepts/cost_tracking]]
+- [[004-wiki/entities/agent-sdk]]
+- [[004-wiki/concepts/sandbox-hosting]]
+- [[004-wiki/concepts/deployment-patterns]]
+- [[004-wiki/concepts/agent-loop]]
+- [[004-wiki/concepts/cost-tracking]]

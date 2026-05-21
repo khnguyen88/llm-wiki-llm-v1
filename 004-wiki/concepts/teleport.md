@@ -44,7 +44,7 @@ Bundled repositories that exceed 100 MB fall back to bundling only the current b
 
 ## Related
 
-- [[004-wiki/entities/claude_code_web]]
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude-code-web]]
+- [[004-wiki/entities/claude-code]]
 - [[004-wiki/concepts/sessions]]
-- [[004-wiki/concepts/cloud_environment]]
+- [[004-wiki/concepts/cloud-environment]]

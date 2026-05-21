@@ -40,5 +40,5 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/app_attribution]]
+- [[004-wiki/concepts/app-attribution]]
 - [[004-wiki/concepts/analytics]]

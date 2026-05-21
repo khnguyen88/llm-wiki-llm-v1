@@ -19,7 +19,7 @@ provenance: extracted
 
 # Routines
 
-Routines are templated cloud agents on [[004-wiki/entities/claude_code_web|Claude Code on the web]] that fire on a schedule, a GitHub event, or an API call, without requiring the user's machine to be running. They are defined once with a prompt, the repos they can touch, and the connectors they need. ^[001a-raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
+Routines are templated cloud agents on [[004-wiki/entities/claude-code-web|Claude Code on the web]] that fire on a schedule, a GitHub event, or an API call, without requiring the user's machine to be running. They are defined once with a prompt, the repos they can touch, and the connectors they need. ^[001a-raw/document/claude code/claude-code-121-whats-new-2026-w16-2026-04-29.md]
 
 ## Key Points
 
@@ -37,8 +37,8 @@ The trigger picker in the web UI covers GitHub events (with optional filters) an
 
 ## Related
 
-- [[004-wiki/entities/claude_code_web]]
-- [[004-wiki/entities/claude_code]]
-- [[004-wiki/concepts/scheduled_tasks]]
+- [[004-wiki/entities/claude-code-web]]
+- [[004-wiki/entities/claude-code]]
+- [[004-wiki/concepts/scheduled-tasks]]
 - [[004-wiki/concepts/commands]]
-- [[004-wiki/concepts/cloud_environment]]
+- [[004-wiki/concepts/cloud-environment]]

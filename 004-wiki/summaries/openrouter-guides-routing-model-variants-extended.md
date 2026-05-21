@@ -31,5 +31,5 @@ provenance: extracted
 ## Related
 
 - [[004-wiki/entities/openrouter]]
-- [[004-wiki/concepts/model_variants]]
-- [[004-wiki/concepts/context_window]]
+- [[004-wiki/concepts/model-variants]]
+- [[004-wiki/concepts/context-window]]

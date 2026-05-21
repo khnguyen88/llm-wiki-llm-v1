@@ -51,15 +51,15 @@ provenance: extracted
 
 ## Related
 
-- [[004-wiki/entities/claude_code]]
+- [[004-wiki/entities/claude-code]]
 - [[004-wiki/concepts/permissions]]
-- [[004-wiki/concepts/lsp_tool]]
-- [[004-wiki/concepts/monitor_tool]]
-- [[004-wiki/concepts/powershell_tool]]
-- [[004-wiki/concepts/scheduled_tasks]]
-- [[004-wiki/concepts/tool_search]]
+- [[004-wiki/concepts/lsp-tool]]
+- [[004-wiki/concepts/monitor-tool]]
+- [[004-wiki/concepts/powershell-tool]]
+- [[004-wiki/concepts/scheduled-tasks]]
+- [[004-wiki/concepts/tool-search]]
 - [[004-wiki/concepts/subagents]]
 - [[004-wiki/concepts/mcp]]
 - [[004-wiki/concepts/skills]]
 - [[004-wiki/concepts/worktrees]]
-- [[004-wiki/concepts/agent_teams]]
+- [[004-wiki/concepts/agent-teams]]
