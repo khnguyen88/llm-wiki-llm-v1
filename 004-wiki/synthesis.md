@@ -215,10 +215,10 @@ Multiple techniques target this memory bottleneck:
 
 | Technique | Strategy | Trade-off |
 |-----------|----------|-----------|
-| [[004-wiki/concepts/grouped_query_attention\|GQA]] | Share K/V heads across query head groups | Near-MHA quality, near-MQA speed |
-| [[004-wiki/concepts/multi_query_attention\|MQA]] | Single K/V head for all query heads | Maximum speed, quality degradation |
+| [[004-wiki/concepts/grouped-query-attention\|GQA]] | Share K/V heads across query head groups | Near-MHA quality, near-MQA speed |
+| [[004-wiki/concepts/multi-query-attention\|MQA]] | Single K/V head for all query heads | Maximum speed, quality degradation |
 | [[004-wiki/concepts/paged-attention|PagedAttention]] | OS-style paging for KV cache blocks | Near-zero fragmentation, copy-on-write sharing |
-| [[004-wiki/concepts/prompt_caching\|Prompt caching]] | Reuse KV cache across API calls | 90% cost reduction on repeated prefixes |
+| [[004-wiki/concepts/prompt-caching\|Prompt caching]] | Reuse KV cache across API calls | 90% cost reduction on repeated prefixes |
 | Quantization | Store K/V in INT8/FP8 | 2x memory reduction |
 
 ### Prompt Caching: From Theory to Product

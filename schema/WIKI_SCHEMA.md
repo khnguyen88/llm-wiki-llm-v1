@@ -464,7 +464,7 @@ field2: value2
 
 If a tool cannot provide a specific field, **omit the field entirely** rather than using placeholder values like `N/A` or `unknown`.
 
-All date fields use ISO 8601 format: `YYYY-MM-DD` (or `YYYY-MM-DDTHH:MM:SSZ` when precision is needed). Field names use `snake_case`.
+All date fields use ISO 8601 format: `YYYY-MM-DD` (or `YYYY-MM-DDTHH:MM:SSZ` when precision is needed). Field names use kebab-case for wiki pages, snake_case only in Python source code.
 
 #### Source Types
 

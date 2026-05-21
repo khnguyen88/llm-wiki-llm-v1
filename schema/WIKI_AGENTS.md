@@ -121,7 +121,7 @@ The wiki is designed to be viewed in Obsidian:
 | `prune-stubs` | Mark or flag entity pages with <30 words and no source material for expansion or deletion |
 | `merge-duplicates` | Consolidate pages covering the same topic from the same sources with >70% overlap |
 | `validate-sources` | Fix frontmatter source paths that reference non-existent files or use wrong formats |
-| `fix-naming` | Rename files violating the naming convention (snake_case for entities/concepts, kebab-case for summaries) |
+| `fix-naming` | Rename files violating the naming convention (kebab-case for all wiki pages) |
 
 **Key boundary:** Wiki-repair does NOT create new content from sources (that is wiki-maintainer's job). It only fixes structural defects in existing content.
 

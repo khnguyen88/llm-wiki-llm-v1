@@ -30,17 +30,17 @@ Invoke by name; for example: "Run fix-broken-links on the wiki" or "Resolve orph
 Fix `[[wikilinks]]` pointing to non-existent targets.
 
 **Common patterns:**
-- Kebab-case link to snake_case file: `[[my-article]]` → `[[concepts/my_article]]`
-- Bare link resolving to wrong type: `[[claude-code-router]]` resolves to summary instead of entity → `[[entities/claude_code_router]]`
+- Kebab-case link to wrong target: `[[my-article]]` → `[[concepts/my-article]]`
+- Bare link resolving to wrong type: `[[claude-code-router]]` resolves to summary instead of entity → `[[entities/claude-code-router]]`
 - Missing path prefix: `[[file-over-app]]` → `[[concepts/file-over-app]]`
-- Pipe syntax is valid: `[[entities/trevor_royer|Trevor Royer]]` — never strip the display text portion
+- Pipe syntax is valid: `[[entities/trevor-royer|Trevor Royer]]` — never strip the display text portion
 
 **Steps:**
 1. Run `uv run python scripts/lint.py --structural-only --kb external` to get current broken links
 2. For each broken link, identify the correct target:
    - Search wiki subdirectories for the closest matching filename
-   - If a concept/entity with snake_case exists, use fully qualified path (`[[concepts/name]]` or `[[entities/name]]`)
-   - If only a summary with kebab-case exists, use `[[summaries/kebab-name]]`
+   - Use fully qualified path with kebab-case (`[[concepts/name]]` or `[[entities/name]]`)
+   - If only a summary exists, use `[[summaries/kebab-name]]`
    - If no target exists at all, either create a minimal stub entity page or remove the link
 3. Edit the source file to replace the broken link
 4. Re-run lint to verify zero broken links remain
