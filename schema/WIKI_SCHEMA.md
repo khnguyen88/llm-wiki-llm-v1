@@ -48,15 +48,19 @@ This file defines the structure and conventions for the external knowledge base 
   concepts/       # Concept pages
   entities/       # Entity pages
   summaries/      # Source document summaries
+  qanda/          # Q&A pages (filed by wiki-query)
+  connections/    # Cross-concept connection pages
 ```
 
 ## Page Naming Conventions
 
 | Page Type | Naming | Example |
 |-----------|--------|---------|
-| Entity | snake_case | `entities/transformer_model.md` |
-| Concept | snake_case | `concepts/attention_mechanism.md` |
+| Entity | kebab-case | `entities/transformer-model.md` |
+| Concept | kebab-case | `concepts/attention-mechanism.md` |
 | Summary | kebab-case | `summaries/attention-is-all-you-need.md` |
+| Q&A | kebab-case | `qanda/why-is-x-important.md` |
+| Connection | kebab-case | `connections/agent-loop-and-context-window.md` |
 
 ### Processed File Naming
 
@@ -129,7 +133,7 @@ All wiki pages must include YAML frontmatter. Fields are split into **required**
 ---
 title: Page Title
 summary: One-line description of what this page covers
-type: entity | concept | summary | index | manifest | synthesis | other
+type: entity | concept | summary | qanda | connection | index | manifest | synthesis | other
 sources:
   - 001a-raw/document/path/to/source.md or 001a-raw/web/path/to/source.md or 001b-ai-research/web/path/to/source.md
 tags:
@@ -254,6 +258,76 @@ Explanation of the concept.
 ## Related
 - [[Entity Name]]
 - [[Concept Name]]
+```
+
+### Q&A Pages
+
+```markdown
+---
+title: "Why is X important for Y?"
+summary: One-line answer to the question
+type: qanda
+sources:
+  - 004-wiki/concepts/x.md
+  - 004-wiki/summaries/source-name.md
+tags:
+  - topic
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
+---
+
+# Why is X important for Y?
+
+## Question
+
+[The original question as asked]
+
+## Answer
+
+[Synthesized answer with [[wikilinks]] to source articles]
+
+## Related
+
+- [[concepts/x]]
+- [[summaries/source-name]]
+```
+
+### Connection Pages
+
+```markdown
+---
+title: "Connection: Concept A and Concept B"
+connects:
+  - "concepts/concept-a"
+  - "concepts/concept-b"
+type: connection
+sources:
+  - 001a-raw/articles/source.md
+tags:
+  - topic
+created: "2026-04-05T12:00:00Z"
+updated: "2026-04-05T12:00:00Z"
+---
+
+# Connection: Concept A and Concept B
+
+## The Connection
+
+[How these concepts relate to each other]
+
+## Key Insight
+
+[The non-obvious relationship or synthesis that emerges from connecting them]
+
+## Evidence
+
+- Evidence point 1^[001a-raw/articles/source.md]
+- Evidence point 2
+
+## Related Concepts
+
+- [[concepts/concept-a]]
+- [[concepts/concept-b]]
 ```
 
 ### Summary Pages
