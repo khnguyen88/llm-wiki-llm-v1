@@ -187,28 +187,32 @@ Trigger when a file in `001a-raw/` is:
 
 Page range is captured in the metadata header (see step 4c), not in filenames.
 
-## Segment Frontmatter
+## Segment Metadata
 
-Every processed segment must include:
+Every processed segment uses an HTML comment metadata header at the top of the file (per `schema/WIKI_SCHEMA.md` → `processed-segment`):
 
-```yaml
----
-title: "Chapter 2: Thermal Analysis"
-source: "001a-raw/design-report.pdf"
+```html
+<!--
+type: processed-segment
+source: 001a-raw/document/design-report.pdf
+document_name: Design Report
 part: 3
 total_parts: 7
-date: 2026-05-03
-created: "2026-05-03T12:00:00Z"
+page_range: 15-28
 chapter: 2
-section: "Thermal Analysis"
-page_range: "15-28"
+section: Thermal Analysis
 subsections:
   - "2.1 Heat Transfer"
   - "2.2 Thermal Resistance"
-word_count: 1240
-has_images: true
-has_tables: true
----
+prev_section: 003-processed/document/design-report-part-002-2026-05-03.md
+next_section: 003-processed/document/design-report-part-004-2026-05-03.md
+prev_subsection:
+next_subsection: "2.1 Heat Transfer"
+process_date: 2026-05-03
+-->
+```
+
+See `schema/WIKI_SCHEMA.md` → Raw Source Metadata → `processed-segment` for the full field specification.
 ```
 
 ## Segment Body
@@ -240,9 +244,9 @@ The second line is optional — include it only when `section` and `next_subsect
 - The first segment should include a **segment map** listing all parts:
   ```markdown
   ## Segment Map
-  1. [[003-processed/document/design-report-2026-04-22-part-001|Chapter 1: Introduction]]
-  2. [[003-processed/document/design-report-2026-04-22-part-002|Chapter 2: Architecture]]
-  3. [[003-processed/document/design-report-2026-04-22-part-003|Chapter 3: Implementation]]
+  1. [[003-processed/document/design-report-part-001-2026-05-03|Chapter 1: Introduction]]
+  2. [[003-processed/document/design-report-part-002-2026-05-03|Chapter 2: Architecture]]
+  3. [[003-processed/document/design-report-part-003-2026-05-03|Chapter 3: Implementation]]
   ```
 - Wiki source summaries (`004-wiki/summaries/`) should link to the `003-processed/` segments, not the deleted raw file
 
