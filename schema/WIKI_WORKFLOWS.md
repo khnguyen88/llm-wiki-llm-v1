@@ -175,9 +175,22 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
     - Find `^[source.md]` references pointing to nonexistent source files
     - Find claim citations with line ranges exceeding source file length
 
+12. **Raw source metadata** (error/warning)
+    - Validate LLM-extracted source files against the Raw Source Metadata schema in `schema/WIKI_SCHEMA.md`
+    - Error: `type` field is not one of the 8 valid values (`web-crawl`, `web-search`, `ai-research`, `ai-research-multi`, `video-transcript`, `video-transcript-llm`, `manual`, `processed-segment`)
+    - Error: missing required fields for the declared `type`
+    - Warning: missing recommended fields for the declared `type`
+    - Only validate files with an HTML comment metadata header (skip human-curated files without headers)
+
+13. **Filename convention** (warning)
+    - LLM-generated files must follow naming conventions in `schema/WIKI_SCHEMA.md`
+    - Warning: `003-processed/` files not matching `{base-name}-part-{###}[-{chapter-##|section-slug}]-{YYYY-MM-DD}.md` pattern
+    - Warning: crawl files not matching `{website}-{index-###}-{webpage-topic}-{YYYY-MM-DD}.md` pattern
+    - Warning: other LLM-generated files not ending with `-{YYYY-MM-DD}.md`
+
 ### LLM Judgment Check
 
-12. **Contradictions** (error, requires LLM judgment)
+14. **Contradictions** (error, requires LLM judgment)
     - Compare claims across pages for conflicts
     - When found, add `contradictedBy` to frontmatter of affected pages
 
