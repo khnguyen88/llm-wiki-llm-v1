@@ -516,19 +516,21 @@ Web crawling service for the LLM, exposed via MCP and a REST API. The preferred 
 
 1. Download and install [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-2. Create a `.crawl4ai.env` file in your project root:
+2. Copy the template and fill in your API key:
 
-```env
-# .crawl4ai.env
-OPENAI_API_KEY=sk-or-your-openrouter-key
-OPENAI_BASE_URL=https://openrouter.ai/api/v1
-
-# Default model (use any OpenRouter model string)
-LLM_PROVIDER=openai/gpt-4o
-LLM_TEMPERATURE=0.7
+**macOS / Linux:**
+```bash
+cp .crawl4ai.env.template .crawl4ai.env
 ```
 
-> ⚠️ Never commit `.crawl4ai.env` to version control. Add it to `.gitignore`.
+**Windows (PowerShell):**
+```powershell
+Copy-Item .crawl4ai.env.template .crawl4ai.env
+```
+
+Then edit `.crawl4ai.env` and replace `your-openrouter-api-key` with your actual OpenRouter key.
+
+> ⚠️ Never commit `.crawl4ai.env` to version control — it's already in `.gitignore`.
 
 3. Run the container with the env file attached:
 
@@ -685,33 +687,21 @@ Converts documents (PDF, DOCX, PPTX) to markdown via docling-serve, with OCR rem
     - [Ollama](#ollama) (installed and running)
     - Python 3.11+ with `pipx` (for arrase/OCR CLI)
 
-2. Create a `.docling.env` file in your project root:
+2. Copy the template and fill in your API key:
 
-```env
-# Document Processing Pipeline — Required Environment Variables
-
-# docling-serve Docker container URL
-DOCLING_SERVE_URL=http://localhost:5001
-
-# Ollama URL for arrase/deepseek-ocr
-OLLAMA_URL=http://localhost:11434
-
-# OpenRouter API key (for vision model OCR fallback)
-# Get yours at: https://openrouter.ai/keys
-OPENROUTER_API_KEY=sk-or-v1-your-key-here
-
-# ── Optional: Override thresholds ──────────────────────────────────────
-# PDF_SPLIT_PAGE_SIZE=25
-# DOCLING_CONFIDENCE_THRESHOLD=0.8
-# ARRASE_CONFIDENCE_FLOOR=0.7
-# LLM_OCR_CONFIDENCE_FLOOR=0.5
-# CHUNK_MAX_WORDS=3000
-# CHUNK_TARGET_WORDS=1500
-# MAX_AUTO_ATTEMPTS=3
-# WEBSEARCH_CONFIDENCE_FLOOR=0.6
+**macOS / Linux:**
+```bash
+cp .docling.env.template .docling.env
 ```
 
-> ⚠️ Never commit `.docling.env` to version control. It's already listed in `.gitignore`.
+**Windows (PowerShell):**
+```powershell
+Copy-Item .docling.env.template .docling.env
+```
+
+Then edit `.docling.env` and replace `your-openrouter-api-key` with your actual OpenRouter key.
+
+> ⚠️ Never commit `.docling.env` to version control — it's already in `.gitignore`.
 
 3. Pull and run the docling-serve Docker container:
 

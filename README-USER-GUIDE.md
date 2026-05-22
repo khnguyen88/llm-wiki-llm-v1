@@ -13,6 +13,8 @@ Instead of rediscovering knowledge from scratch on every query (RAG), the LLM in
 - Python >=3.11
 - [uv](https://docs.astral.sh/uv/) (Python package manager)
 - Anthropic API key (or Claude Code credentials)
+- [Docker Desktop](https://docs.docker.com/desktop/) (for crawl4ai and docling-serve containers)
+- [ytscribe.io](https://ytscribe.io/api) free API key (optional — for YouTube transcript extraction, 100 req/month)
 
 ### Setup
 
@@ -21,6 +23,38 @@ git clone <your-repo-url>
 cd llm-wiki-llm-v1
 uv sync
 ```
+
+### Environment Files
+
+Copy the template files (remove the `.template` extension) and fill in your API keys:
+
+**macOS / Linux:**
+```bash
+# crawl4ai — web crawling (requires OpenRouter key)
+cp .crawl4ai.env.template .crawl4ai.env
+
+# docling — document conversion pipeline (requires OpenRouter key)
+cp .docling.env.template .docling.env
+
+# ytscribe — YouTube transcript extraction (optional, free tier)
+cp .ytscribe.env.template .ytscribe.env
+```
+
+**Windows (PowerShell):**
+```powershell
+# crawl4ai — web crawling (requires OpenRouter key)
+Copy-Item .crawl4ai.env.template .crawl4ai.env
+
+# docling — document conversion pipeline (requires OpenRouter key)
+Copy-Item .docling.env.template .docling.env
+
+# ytscribe — YouTube transcript extraction (optional, free tier)
+Copy-Item .ytscribe.env.template .ytscribe.env
+```
+
+Then edit each `.env` file and replace the placeholder API keys with your actual keys.
+
+> Never commit `.env` files — they are git-ignored. The `.template` files are safe to commit.
 
 ### First Ingestion
 

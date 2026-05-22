@@ -112,14 +112,14 @@ Extracts YouTube transcripts and optionally reviews them for speech-to-text erro
 
 ```
 YouTube URL
-  → youtube-transcript   (ytscribe.io API → 001a-raw/transcripts/{channel}-{date}.md)
+  → youtube-transcript   (youtube-transcript-api → 001a-raw/transcripts/{channel}-{date}.md; ytscribe.io API as fallback)
   → transcript-reviewer  (web-verify suspect terms → corrections + audit trail)
   → Ready for ingest
 ```
 
 | Step | Agent | Input | Output | Key Tools |
 |------|-------|-------|--------|------------|
-| Extract | `youtube-transcript` | YouTube URL | `001a-raw/transcripts/{channel-or-topic}-{YYYY-MM-DD}.md` | ytscribe.io API, YouTube oEmbed, crawl4ai REST API |
+| Extract | `youtube-transcript` | YouTube URL | `001a-raw/transcripts/{channel-or-topic}-{YYYY-MM-DD}.md` | youtube-transcript-api (primary), ytscribe.io API (fallback), YouTube oEmbed, crawl4ai REST API |
 | Review | `transcript-reviewer` | Transcript file path or URL | Corrected file with `reviewed_date` + `revisions` in metadata | Vane API (vane_web_search), WebSearch (fallback) |
 
 ---
@@ -222,7 +222,7 @@ User question
 | **OpenRouter** API | Document Processing (OCR fallback, vision, auto-remediation) |
 | **Vane** Docker (localhost:3000) | AI Research, Web Search, Transcript Review |
 | **crawl4ai** MCP (localhost:11235) | AI Research, Web Search (deep dive), Transcript (metadata fallback) |
-| **ytscribe.io** API | Transcript |
+| **ytscribe.io** API (free tier, https://ytscribe.io/api) | Transcript (fallback) |
 | **Claude Agent SDK** | Memory Compilation (flush.py, compile.py) |
 | **scripts/sidecar.py** | Document Processing (all stages) |
 | **scripts/ocr_remediate.py** | Document Processing (OCR stage) |

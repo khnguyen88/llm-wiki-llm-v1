@@ -102,7 +102,7 @@ Internal reference for how the system works, what to maintain, and what to watch
 | Questions about compiled knowledge | `wiki-query` | 7-step query with optional file-back |
 | "Search the web for X" | `web-search` | Ephemeral web search via Vane (vane_web_search shell tool) |
 | "Research X and save it" | `ai-research` | Deep research: Vane + crawl4ai, saves to 001b-ai-research/web/ |
-| "Get transcript for `<url>`" | `youtube-transcript` | Extract transcript via ytscribe.io, save to 001a-raw/transcripts/ |
+| "Get transcript for `<url>`" | `youtube-transcript` | Extract via youtube-transcript-api (primary), ytscribe.io API key in `.ytscribe.env` (fallback) |
 | "Review transcript `<path>`" | `transcript-reviewer` | Verify/correct speech-to-text errors in transcripts |
 | After structural changes | `sync-check` | 7 categories of consistency checks |
 | "Load rules for X", "Audit CLAUDE.md" | `context-loader` | On-demand rule loading, prompt health |
