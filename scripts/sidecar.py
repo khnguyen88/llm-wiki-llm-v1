@@ -273,3 +273,105 @@ def validate_sidecar(sidecar: dict[str, Any]) -> list[str]:
             errors.append(f"{prefix}: missing page")
 
     return errors
+
+
+# ── Split-table merging ──────────────────────────────────────────────────
+
+def merge_split_tables(sidecar: dict[str, Any], page_height: float) -> int:
+    """Merge table elements that span consecutive pages.
+
+    Detects tables where the first ends near the bottom of its page and the
+    second starts near the top of the next page. Merges their markdown
+    representations, stripping the duplicate header from the continuation.
+
+    Multi-pass: chains mergers for tables spanning 3+ pages.
+
+    Args:
+        sidecar: The sidecar dict (mutated in place).
+        page_height: PDF page height in points (from MediaBox).
+
+    Returns:
+        Number of merges performed.
+    """
+    BOTTOM_THRESHOLD = 0.85
+    TOP_THRESHOLD = 0.15
+
+    merges = 0
+    # Multi-pass loop — each pass handles one level of chaining
+    while True:
+        merged_any = False
+        elements = sidecar["elements"]
+        # Sort by page to ensure consecutive-page detection works
+        elements.sort(key=lambda e: (e["page"], e["id"]))
+
+        i = 0
+        while i < len(elements) - 1:
+            e1 = elements[i]
+            e2 = elements[i + 1]
+
+            if (
+                e1["type"] == "table"
+                and e2["type"] == "table"
+                and e1["page"] + 1 == e2["page"]
+                and e1["source_coordinates"]["bbox"][3] > page_height * BOTTOM_THRESHOLD
+                and e2["source_coordinates"]["bbox"][1] < page_height * TOP_THRESHOLD
+            ):
+                # Merge e2 into e1
+                merged_md = _merge_table_markdown(
+                    e1["markdown_representation"],
+                    e2["markdown_representation"],
+                )
+                e1["markdown_representation"] = merged_md
+
+                # Track provenance
+                if "merged_from" not in e1:
+                    e1["merged_from"] = []
+                e1["merged_from"].append(e2["id"])
+
+                # Update page range
+                end_page = e2.get("page_range", [e2["page"]])[-1] if isinstance(e2.get("page_range"), list) else e2["page"]
+                start_page = e1.get("page_range", [e1["page"]])[0] if isinstance(e1.get("page_range"), list) else e1["page"]
+                e1["page_range"] = [start_page, end_page]
+                e1["page"] = end_page  # update page so multi-pass chaining works
+
+                # Remove e2
+                elements.pop(i + 1)
+                merges += 1
+                merged_any = True
+            else:
+                i += 1
+
+        if not merged_any:
+            break
+
+    if merges > 0:
+        _recalc_pipeline_state(sidecar)
+    return merges
+
+
+def _merge_table_markdown(table_a: str, table_b: str) -> str:
+    """Merge two pipe table strings, removing the header from the second.
+
+    Detects the separator row (contains only |, -, :, spaces) to identify
+    the header boundary. Falls back to stripping only the first line if no
+    separator is found.
+    """
+    lines_a = table_a.strip().split("\n")
+    lines_b = table_b.strip().split("\n")
+
+    if not lines_b:
+        return table_a
+
+    # Find separator row in table_b (line containing only |, -, :, spaces)
+    sep_idx = None
+    for idx, line in enumerate(lines_b):
+        if idx > 0 and set(line.strip()) <= {"|", "-", ":", " "}:
+            sep_idx = idx
+            break
+
+    if sep_idx is not None:
+        body_b = lines_b[sep_idx + 1:]  # skip header + separator
+    else:
+        body_b = lines_b[1:] if len(lines_b) > 1 else []  # skip header only (no separator)
+
+    return "\n".join(lines_a + body_b)
