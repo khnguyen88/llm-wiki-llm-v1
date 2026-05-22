@@ -12,6 +12,11 @@ updated: "2026-05-01T12:00:00Z"
 
 A chronological record of operations on the external knowledge base.
 
+## [2026-05-21] ingest | Angular Clean Code Tip: Stop Direct Parent-Child Communication
+- Added summary: summaries/angular-clean-code-stop-direct-parent-child-communication.md
+- Updated index.md
+- Updated sources-manifest.md
+
 ## [2026-05-01] Wiki rebuild
 - Deleted 004-wiki/ content and rebuilt from sources
 - Restored structural files (index, manifest, log, synthesis)

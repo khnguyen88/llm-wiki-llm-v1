@@ -369,6 +369,7 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 - [[004-wiki/summaries/karpathy-github-llm-wiki|Karpathy Github Llm Wiki]]
 - [[004-wiki/summaries/farzapedia|Farzapedia]]
 - [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12|Adam Rosler KV Cache 2026 05 12]]
+- [[004-wiki/summaries/angular-clean-code-stop-direct-parent-child-communication|Angular Clean Code Tip Stop Direct Parent Child Communication]]
 
 ## Source Manifest
 
@@ -382,4 +383,4 @@ A catalog of all wiki pages. The LLM updates this on every source ingest.
 
 ---
 
-*Last updated: 2026-05-12 (ingest: adam-rosler-kv-cache-2026-05-12)*
+*Last updated: 2026-05-21 (ingest: angular-clean-code-stop-direct-parent-child-communication)*

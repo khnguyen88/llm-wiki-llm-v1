@@ -158,6 +158,7 @@ Tracks which source files have been ingested into the wiki.
 | 001a-raw/document/openrouter/openrouter-071-guides-best-practices-uptime-optimization-2026-04-29.md | ingested | [[004-wiki/summaries/openrouter-guides-best-practices-uptime-optimization]] | 2026-05-02 |
 | 001a-raw/articles/baidu-ernie-5.1-0508-release.md | ingested | [[004-wiki/summaries/baidu-ernie-5.1-0508-release]] | 2026-05-12 |
 | 001a-raw/transcripts/adam-rosler-2026-05-12.md | ingested | [[004-wiki/summaries/adam-rosler-kv-cache-2026-05-12]] | 2026-05-12 |
+| 001a-raw/transcripts/kirill-ushakov-2026-05-21.md | ingested | [[004-wiki/summaries/angular-clean-code-stop-direct-parent-child-communication]] | 2026-05-21 |
 
 ---
-*Last updated: 2026-05-12 (ingested 001a-raw/transcripts/adam-rosler-2026-05-12.md)*
+*Last updated: 2026-05-21 (ingested 001a-raw/transcripts/kirill-ushakov-2026-05-21.md)*
