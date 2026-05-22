@@ -1,7 +1,6 @@
 """Tests for split-table merging in sidecar module."""
 
 import json
-from pathlib import Path
 from scripts.sidecar import create_sidecar, add_element, merge_split_tables
 
 
