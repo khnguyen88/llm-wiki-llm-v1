@@ -32,8 +32,12 @@ Thumbs.db
 
 .crawl4ai.env
 .docling.env
+.ytscribe.env
 .env
 *.env
+!.crawl4ai.env.template
+!.docling.env.template
+!.ytscribe.env.template
 
 # Personal scratch files
 .agents/
