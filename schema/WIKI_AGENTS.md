@@ -170,20 +170,20 @@ Full definition: `.claude/agents/wiki-repair.md`
 
 **File**: `.claude/agents/youtube-transcript.md`
 
-**Role**: Ephemeral extraction agent that fetches YouTube transcripts via ytscribe.io API, merges paragraph and timestamped views for per-paragraph timestamps, resolves metadata through cascading fallbacks (oEmbed, WebSearch, crawl4ai, user prompt), and saves to `001a-raw/transcripts/`.
+**Role**: Ephemeral extraction agent that fetches YouTube transcripts via youtube-transcript-api (primary), with ytscribe.io API as fallback. Merges timestamps into paragraphs, resolves metadata through cascading fallbacks (oEmbed, WebSearch, crawl4ai, user prompt), and saves to `001a-raw/transcripts/`.
 
 **When to invoke**: "Get transcript for `<url>`", "Extract transcript from `<url>`"
 
 **Operations**:
 1. **Parse video ID** — Extract 11-character YouTube video ID from URL (supports watch, shorts, live, youtu.be, raw ID)
-2. **Fetch paragraph view** — `curl https://ytscribe.io/api/transcript?v={id}` → extract title and paragraph text
-3. **Fetch timestamped view** — `curl https://ytscribe.io/api/transcript?v={id}&view=timestamped` → extract `[MM:SS] text` phrases
-4. **Merge timestamps** — Walk phrases sequentially, assign each to paragraphs by matching text, prepend each paragraph with its first phrase's timestamp
+2. **Fetch transcript (primary)** — `youtube-transcript-api` Python library → raw timestamped segments
+3. **Fallback** — If primary fails, use ytscribe.io API with key from `.ytscribe.env` → paragraph + timestamped views
+4. **Merge timestamps** — Group segments into paragraphs, prepend each paragraph with its first segment's timestamp
 5. **Fetch metadata** — Cascading fallback: oEmbed → WebSearch → crawl4ai → prompt user
 6. **Determine filename** — `001a-raw/transcripts/{channel-or-topic}-{YYYY-MM-DD}.md`, increment suffix if exists
 7. **Write output** — Save with `video-transcript-llm` HTML comment metadata header and per-paragraph timestamps
 
-**Key principles**: Preserve original paragraph spacing from ytscribe. Use timestamped view only for timestamps, not text. Cascading metadata fallback. Schema-compliant output. No wiki modification — only writes to `001a-raw/transcripts/`. Idempotent filenames (increment suffix, never overwrite).
+**Key principles**: Try free youtube-transcript-api first, fall back to ytscribe.io only on failure. Preserve original paragraph text from the extraction source. Cascading metadata fallback. Schema-compliant output. No wiki modification — only writes to `001a-raw/transcripts/`. Idempotent filenames (increment suffix, never overwrite).
 
 ---
 

@@ -42,7 +42,7 @@ Defined in `.claude/agents/`. Each agent file is self-contained with its own ope
 | `wiki-query`         | Questions about compiled knowledge                           |
 | `web-search`         | "Search the web for X", "Quick fact-check on X" — **ephemeral**: uses `vane_web_search` shell tool, returns results to caller, never saves files |
 | `ai-research`        | "Research X and save it", "Deep research on X" — **persistent**: deep Vane search + crawl4ai follow-up, saves to `001b-ai-research/web/`, always lints and sync-checks |
-| `youtube-transcript` | "Get transcript for `<url>`", "Extract transcript from `<url>`" — **ephemeral**: uses ytscribe.io API, saves to `001a-raw/transcripts/`, never modifies wiki |
+| `youtube-transcript` | "Get transcript for `<url>`", "Extract transcript from `<url>`" — **ephemeral**: uses youtube-transcript-api (primary), ytscribe.io API key from `.ytscribe.env` (fallback), saves to `001a-raw/transcripts/`, never modifies wiki |
 | `transcript-reviewer` | "Review transcript `<path-or-url>`", "Review this transcript for errors" — **ephemeral**: verifies and corrects speech-to-text errors in `001a-raw/transcripts/`, records revisions in metadata |
 | `sync-check`         | After structural changes to dirs/schemas/agents              |
 | `context-loader`     | "Load rules for X", "Audit CLAUDE.md", "Guard prompt health" |
