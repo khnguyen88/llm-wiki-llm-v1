@@ -413,6 +413,8 @@ llm-wiki-llm-v1/
 |   |-- flush.py                     #   Extract memories from conversations (background)
 |   |-- config.py                    #   Path constants
 |   |-- utils.py                     #   Shared helpers
+|   |-- ocr_remediate.py             #   OCR remediation for problem pages
+|   |-- sidecar.py                   #   Sidecar file management for document pipeline
 |-- hooks/                           # Claude Code hooks
 |   |-- session-start.py             #   Injects knowledge into every session
 |   |-- session-end.py               #   Extracts conversation -> daily log

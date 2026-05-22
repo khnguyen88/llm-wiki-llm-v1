@@ -225,9 +225,10 @@ This file defines the four core operations: Ingest, Query, Lint, and Research fo
 **Steps**:
 
 1. **Get providers** — Run `vane_get_providers` to fetch available provider IDs and model keys. Select best chat model (prefer `gemma4:31b-cloud`) and embedding model (prefer `mixedbread-ai/mxbai-embed-large-v1`)
-2. **Run vane search** — Execute `vane_web_search` with the user's query and selected provider/model configuration. Include year (and month if topical) in the query to prioritize recent results — e.g., "DeepSeek V4 2026" not just "DeepSeek"
-3. **Present results verbatim with inline citations** — Output the full schema header, message body, and Sources section without modification. Every factual claim must include an inline citation `[N]` tying it to a specific numbered source — a bare Sources section at the end is insufficient. If results clearly reference outdated versions, flag the staleness and re-search with a more specific query including version numbers or dates
-4. **(Optional) Deep dive** — If requested, crawl top 3-5 source URLs via crawl4ai and append `## Deep Dive` sections
+2. **Run vane search** — Execute `vane_web_search` with the user's query and selected provider/model configuration. Include year (and month if topical) in the query to prioritize recent results — e.g., "DeepSeek V4 2026" not just "DeepSeek". The output follows the `ai-research-multi` schema from `schema/WIKI_SCHEMA.md`. To save results as wiki source files, use `--save` which writes to `001b-ai-research/web/{slug}-{date}.md`.
+3. **Present results verbatim with inline citations** — Output the full schema header, message body, and Sources section without modification. Every factual claim must include an inline citation `[N]` tying it to a specific numbered source — a bare Sources section at the end is insufficient. Do not filter, truncate, summarize, or reformat any part. If results clearly reference outdated versions, flag the staleness and re-search with a more specific query including version numbers or dates.
+4. **Fallback (built-in WebSearch)** — If Vane is unavailable, use the built-in `WebSearch` tool. Always include a **Sources** section at the end with all result URLs as markdown hyperlinks. Every factual claim must include an inline citation `[N]` referencing the numbered source — a bare Sources section is insufficient. Do not omit or truncate any source from the search results.
+5. **(Optional) Deep dive** — If requested, crawl top 3-5 source URLs via crawl4ai and append `## Deep Dive` sections
 
 **Output**: Search results returned to the caller. No files saved.
 

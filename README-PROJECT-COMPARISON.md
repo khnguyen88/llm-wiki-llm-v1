@@ -112,8 +112,7 @@ Legend: **A** = adopted as-is, **M** = modified, **O** = omitted, **—** = not 
 | Repair (fix structural issues) | — | — | — | — | N |
 | Batch ingest | A | — | A | — | M (Agent SDK-based) |
 | **Naming Conventions** | | | | | |
-| snake_case for entities/concepts | — | — | — | — | N (from Atomic Memory's slug logic) |
-| kebab-case for summaries | — | — | — | — | N |
+| kebab-case for all wiki pages (entities, concepts, summaries) | — | — | — | — | N |
 | Lowercase hyphenated (Josh Pocock) | — | — | — | A | M (split by page type) |
 | ISO 8601 dates with timestamps | — | A | — | — | A |
 | Wikilinks `[[path/to/article]]` | A | A | A | A | A |

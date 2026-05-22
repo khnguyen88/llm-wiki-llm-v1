@@ -127,8 +127,8 @@ knowledge/     -> Compiled knowledge (LLM owns this)
   sources-manifest.md # Which sources have been ingested
   log.md             # Chronological operation log
   synthesis.md       # Overarching thesis connecting all knowledge
-  concepts/          # Concept pages (snake_case)
-  entities/          # Entity pages (snake_case)
+  concepts/          # Concept pages (kebab-case)
+  entities/          # Entity pages (kebab-case)
   summaries/         # Source summaries (kebab-case)
 ```
 
@@ -151,7 +151,7 @@ schema/              # Configuration for the external wiki
 scripts/             # CLI tools (run via uv run python scripts/<name>.py)
   compile.py         # Compile daily logs -> knowledge articles
   query.py           # Ask the knowledge base (index-guided, no RAG)
-  lint.py            # Health checks (8 structural + 1 LLM check)
+  lint.py            # Health checks (13 structural + 1 LLM check)
   flush.py           # Extract memories from conversations (background)
   config.py          # Path constants and time helpers
   utils.py           # Shared helpers

@@ -158,10 +158,10 @@ Detects and fixes structural and semantic issues across both knowledge bases.
 ```
 User triggers lint
   → wiki-linter agent (or knowledge-compiler for internal KB)
-      → 14 checks: broken links, orphans, stale articles, missing backlinks,
-        sparse articles, unsourced claims, missing summary, duplicate concepts,
-        malformed citations, broken citations, contradictions (LLM),
-        raw source metadata, filename convention, schema cross-links
+      → 14 checks: broken links, orphans, orphan sources, stale articles,
+        missing backlinks, sparse articles, unsourced claims, missing summary,
+        duplicate concepts, malformed citations, broken citations,
+        raw source metadata, filename convention, contradictions (LLM)
   → wiki-repair agent (for external KB only)
       → 7 fixes: fix-broken-links, add-backlinks, resolve-orphans,
         prune-stubs, merge-duplicates, validate-sources, fix-naming
@@ -169,7 +169,7 @@ User triggers lint
 
 | Command | Scope |
 |---------|-------|
-| `uv run python scripts/lint.py` | Both KBs (12 structural + 1 LLM) |
+| `uv run python scripts/lint.py` | Both KBs (13 structural + 1 LLM) |
 | `uv run python scripts/lint.py --structural-only` | Structural checks only (no API calls) |
 | `uv run python scripts/lint.py --kb external` | External KB (004-wiki/) only |
 | `uv run python scripts/lint.py --kb internal` | Internal KB (knowledge/) only |
